@@ -108,35 +108,73 @@
                         </TabItem>
                         <TabItem Header="Soumissions">
                             <Grid Background="#FFE5E5E5">
-
-                                <ScrollViewer>
-                                    <DockPanel  HorizontalAlignment="Left" Height="515" Margin="0,0,0,0" VerticalAlignment="Top" Width="269">
-                                        <Button DockPanel.Dock="Top" Content="John Doe" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Gordy Howe" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Festus Zhong" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                    </DockPanel>
-                                </ScrollViewer>
+                                <DockPanel LastChildFill="True">
+                                    <Grid x:Name="ResultatsMenuSoumissions" Background="White">
+                                        <ScrollViewer>
+                                            <StackPanel>
+                                                <Button DockPanel.Dock="Top" Content="John Doe" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Gordy Howe" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Festus Zhong" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                            </StackPanel>
+                                        </ScrollViewer>
+                                    </Grid>
+                                </DockPanel>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Factures">
-                            <Grid Background="#FFE5E5E5"/>
+                            <Grid Background="#FFE5E5E5">
+                                <DockPanel LastChildFill="True">
+                                    <Grid x:Name="ResultatsMenuFactures" Background="White">
+                                        <ScrollViewer Margin="0,72,0,0">
+                                            <StackPanel>
+                                                <Button DockPanel.Dock="Top" Content="John Doe" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Gordy Howe" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Festus Zhong" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                            </StackPanel>
+                                        </ScrollViewer>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="Wrap" Text="Téléphone" VerticalAlignment="Top" Width="103"/>
+                                        <DatePicker HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top" Width="112"/>
+                                        <DatePicker HorizontalAlignment="Left" Margin="177,38,0,0" VerticalAlignment="Top" Width="112"/>
+                                        <CheckBox Content="Du" HorizontalAlignment="Left" Margin="127,15,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="Au" HorizontalAlignment="Left" Margin="127,40,0,0" VerticalAlignment="Top"/>
+                                    </Grid>
+                                </DockPanel>
+                            </Grid>
                         </TabItem>
                     </TabControl>
                 </Grid>
