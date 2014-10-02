@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="InventRX" Height="600" Width="945">
     <Grid>
-   
+
         <!-- <ContentPresenter Content="{Binding CurrentView}" Margin="696,288,0,0" />-->
         <TabControl TabStripPlacement="Left" Grid.ColumnSpan="2">
             <TabControl.Resources>
@@ -65,16 +65,75 @@
                             </Style>
                         </TabControl.Resources>
                         <TabItem Header="Caisse">
-                            <Grid Background="#FFE5E5E5"/>
+                            <Grid Background="#FFE5E5E5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="145*"/>
+                                    <ColumnDefinition Width="144"/>
+                                </Grid.ColumnDefinitions>
+                                <Expander Header="Encaisse" Margin="0,10" Grid.ColumnSpan="2" IsEnabled="False">
+                                    <Grid Background="#FFF"/>
+                                </Expander>
+                                <TextBox Name="textboxCaisseMontant" Height="23" Margin="10,42,0,0" TextWrapping="Wrap" Text="50.00" VerticalAlignment="Top"/>
+                                <ComboBox Margin="14,43,10,0" VerticalAlignment="Top" Grid.Column="1">
+                                    <ComboBoxItem Name="comptant" IsSelected="True">Comptant</ComboBoxItem>
+                                    <ComboBoxItem Name="chq">Chèque</ComboBoxItem>
+                                    <ComboBoxItem Name="cc">Carte de crédit</ComboBoxItem>
+                                </ComboBox>
+
+                                <Label Content="Total:" Margin="10,0,10,10" Height="26" VerticalAlignment="Bottom"/>
+                                <Label Content="139.35" Grid.Column="1" Margin="0,0,10,10" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="124"/>
+                                <TextBox x:Name="textboxCaisseMontant_Copy" Height="23" Margin="10,69,0,0" TextWrapping="Wrap" Text="89.35" VerticalAlignment="Top"/>
+                                <ComboBox Margin="14,70,10,0" VerticalAlignment="Top" Grid.Column="1">
+                                    <ComboBoxItem x:Name="comptant1" Content="Comptant"/>
+                                    <ComboBoxItem x:Name="chq1" IsSelected="True" Content="Chèque"/>
+                                    <ComboBoxItem x:Name="cc1" Content="Carte de crédit"/>
+                                </ComboBox>
+
+
+                            </Grid>
                         </TabItem>
                         <TabItem Header="Commandes">
                             <Grid Background="#FFE5E5E5"/>
                         </TabItem>
                         <TabItem Header="Clients">
-                            <Grid Background="#FFE5E5E5"/>
+                            <Grid Background="#FFE5E5E5">
+                                <DataGrid Name="datagridClients" ItemsSource="{Binding}" AutoGenerateColumns="True" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
+                                        <DataGridTextColumn Header="Prénom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prenom}" />
+                                        <DataGridTextColumn Header="Téléphone" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Telephone}" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
                         </TabItem>
                         <TabItem Header="Soumissions">
-                            <Grid Background="#FFE5E5E5"/>
+                            <Grid Background="#FFE5E5E5">
+
+                                <ScrollViewer>
+                                    <DockPanel  HorizontalAlignment="Left" Height="515" Margin="0,0,0,0" VerticalAlignment="Top" Width="269">
+                                        <Button DockPanel.Dock="Top" Content="John Doe" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Gordy Howe" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Festus Zhong" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                        <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
+                                    </DockPanel>
+                                </ScrollViewer>
+                            </Grid>
                         </TabItem>
                         <TabItem Header="Factures">
                             <Grid Background="#FFE5E5E5"/>

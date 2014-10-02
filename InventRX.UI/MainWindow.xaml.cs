@@ -34,9 +34,6 @@ namespace InventRX.UI
             ServiceFactory.Instance.Register<IClientService, MySqlClientService>(new MySqlClientService());
 
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
-
-
-
         }
 
         #region Tabs Config
