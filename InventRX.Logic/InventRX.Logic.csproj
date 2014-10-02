@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{43E7AD2B-7A7E-4A9C-9921-65AFF7A54156}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InventRX.Logic</RootNamespace>
+    <AssemblyName>InventRX.Logic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=1.4.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.6.9.3\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.4.0.1.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Args\RetrieveClientArgs.cs" />
+    <Compile Include="Model\Entities\ItemSoumission.cs" />
+    <Compile Include="Model\Entities\ItemFacture.cs" />
+    <Compile Include="Model\Entities\ItemCommande.cs" />
+    <Compile Include="Model\Entities\CommandeFacture.cs" />
+    <Compile Include="Model\Entities\Fournisseur.cs" />
+    <Compile Include="Model\Entities\MethodesPaiement.cs" />
+    <Compile Include="Model\Entities\Paiements.cs" />
+    <Compile Include="Model\Entities\PosteEmploye.cs" />
+    <Compile Include="Model\Entities\Produit.cs" />
+    <Compile Include="Model\Entities\Province.cs" />
+    <Compile Include="Model\Entities\Taxe.cs" />
+    <Compile Include="Model\Entities\Facture.cs" />
+    <Compile Include="Model\Entities\Soumission.cs" />
+    <Compile Include="Model\Entities\Commande.cs" />
+    <Compile Include="Model\Entities\CategorieFournisseur.cs" />
+    <Compile Include="Model\Entities\Employe.cs" />
+    <Compile Include="Model\Entities\Client.cs" />
+    <Compile Include="Model\Entities\CategorieProduit.cs" />
+    <Compile Include="Model\Entities\Modele.cs" />
+    <Compile Include="Model\Entities\Personne.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Definitions\IClientService.cs" />
+    <Compile Include="Services\Helpers\MySqlConnexion.cs" />
+    <Compile Include="Services\Helpers\NHibernateConnexion.cs" />
+    <Compile Include="Services\MySql\MySqlClientService.cs" />
+    <Compile Include="Services\NHibernate\Mappings\PersonneMap.cs" />
+    <Compile Include="Services\NHibernate\NHibernateClientService.cs" />
+    <Compile Include="Services\Simples\SimpleClientService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cstj.MvvmToolkit\Cstj.MvvmToolkit.csproj">
+      <Project>{b0b71ff7-b28f-4412-ab1f-972c094c800e}</Project>
+      <Name>Cstj.MvvmToolkit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

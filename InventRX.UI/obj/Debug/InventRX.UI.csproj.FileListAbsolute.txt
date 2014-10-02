@@ -1,0 +1,70 @@
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.exe.config
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.exe
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.pdb
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.dll
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Immobilus.Logic.dll
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\MySql.Data.dll
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.pdb
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Immobilus.Logic.pdb
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\InventRX.UI.csprojResolveAssemblyReference.cache
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\MainWindow.baml
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Views\MaisonView.baml
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Views\RechercheView.baml
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\MainWindow.g.cs
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Views\MaisonView.g.cs
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Views\RechercheView.g.cs
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\App.g.cs
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI_MarkupCompile.cache
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.g.resources
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.Properties.Resources.resources
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\InventRX.UI.csproj.GenerateResource.Cache
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.exe
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.pdb
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\bin\Debug\Immobilus.UI.exe.config
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\Immobilus.UI.exe
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\Immobilus.UI.pdb
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\bin\Debug\Immobilus.UI.exe
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\bin\Debug\Immobilus.UI.pdb
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\bin\Debug\Cstj.MvvmToolkit.dll
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\bin\Debug\Immobilus.Logic.dll
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\bin\Debug\MySql.Data.dll
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\bin\Debug\Cstj.MvvmToolkit.pdb
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\bin\Debug\Immobilus.Logic.pdb
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\InventRX.UI.csprojResolveAssemblyReference.cache
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\MainWindow.baml
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\Views\MaisonView.baml
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\Views\RechercheView.baml
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\MainWindow.g.cs
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\Views\MaisonView.g.cs
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\Views\RechercheView.g.cs
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\App.g.cs
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\Immobilus.UI_MarkupCompile.cache
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\Immobilus.UI.g.resources
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\Immobilus.UI.Properties.Resources.resources
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\InventRX.UI\obj\Debug\InventRX.UI.csproj.GenerateResource.Cache
+H:\Bureau\InventRX - Solution originale\InventRX.UI\bin\Debug\InventRX.UI.exe.config
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\InventRX.UI.exe
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\InventRX.UI.pdb
+H:\Bureau\InventRX - Solution originale\InventRX.UI\bin\Debug\InventRX.UI.exe
+H:\Bureau\InventRX - Solution originale\InventRX.UI\bin\Debug\InventRX.UI.pdb
+H:\Bureau\InventRX - Solution originale\InventRX.UI\bin\Debug\Cstj.MvvmToolkit.dll
+H:\Bureau\InventRX - Solution originale\InventRX.UI\bin\Debug\InventRX.Logic.dll
+H:\Bureau\InventRX - Solution originale\InventRX.UI\bin\Debug\MySql.Data.dll
+H:\Bureau\InventRX - Solution originale\InventRX.UI\bin\Debug\Cstj.MvvmToolkit.pdb
+H:\Bureau\InventRX - Solution originale\InventRX.UI\bin\Debug\InventRX.Logic.pdb
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\InventRX.UI.csprojResolveAssemblyReference.cache
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\ConnexionWindow.baml
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\MainWindow.baml
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\Views\ConnexionView.baml
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\Views\MaisonView.baml
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\Views\RechercheView.baml
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\ConnexionWindow.g.cs
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\MainWindow.g.cs
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\Views\ConnexionView.g.cs
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\Views\MaisonView.g.cs
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\Views\RechercheView.g.cs
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\App.g.cs
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\InventRX.UI_MarkupCompile.cache
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\InventRX.UI.g.resources
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\InventRX.UI.Properties.Resources.resources
+H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\InventRX.UI.csproj.GenerateResource.Cache

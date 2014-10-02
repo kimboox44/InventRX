@@ -1,0 +1,71 @@
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Immobilus.Logic.dll
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Immobilus.Logic.pdb
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.Logic\obj\Debug\Immobilus.Logic.csprojResolveAssemblyReference.cache
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.Logic\obj\Debug\Immobilus.Logic.dll
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.Logic\obj\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Immobilus.Logic.dll.config
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\MySql.Data.dll
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Immobilus.Logic.dll
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Immobilus.Logic.pdb
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.dll
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\MySql.Data.dll
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.pdb
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\obj\Debug\Immobilus.Logic.csprojResolveAssemblyReference.cache
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\obj\Debug\Immobilus.Logic.dll
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\obj\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\obj\Debug\Immobilus.Logic.csprojResolveAssemblyReference.cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\obj\Debug\Immobilus.Logic.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Immobilus.Logic.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\FluentNHibernate.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Iesi.Collections.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\MySql.Data.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\NHibernate.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\FluentNHibernate.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\Iesi.Collections.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\bin\Debug\NHibernate.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.Logic\obj\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\bin\Debug\Immobilus.Logic.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\bin\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\bin\Debug\FluentNHibernate.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\bin\Debug\Iesi.Collections.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\bin\Debug\MySql.Data.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\bin\Debug\NHibernate.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\bin\Debug\FluentNHibernate.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\bin\Debug\Iesi.Collections.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\bin\Debug\NHibernate.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\obj\Debug\Immobilus.Logic.csprojResolveAssemblyReference.cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\obj\Debug\Immobilus.Logic.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.Logic\obj\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.Logic\bin\Debug\Immobilus.Logic.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.Logic\bin\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.Logic\bin\Debug\Iesi.Collections.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.Logic\bin\Debug\NHibernate.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.Logic\bin\Debug\Iesi.Collections.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.Logic\obj\Debug\Immobilus.Logic.csprojResolveAssemblyReference.cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.Logic\obj\Debug\Immobilus.Logic.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.Logic\obj\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.Logic\bin\Debug\Immobilus.Logic.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.Logic\bin\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.Logic\bin\Debug\MySql.Data.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.Logic\obj\Debug\Immobilus.Logic.csprojResolveAssemblyReference.cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.Logic\obj\Debug\Immobilus.Logic.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.Logic\obj\Debug\Immobilus.Logic.pdb
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.Logic\bin\Debug\Immobilus.Logic.dll
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.Logic\bin\Debug\Immobilus.Logic.pdb
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.dll
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.Logic\bin\Debug\MySql.Data.dll
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.pdb
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.Logic\obj\Debug\Immobilus.Logic.csprojResolveAssemblyReference.cache
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.Logic\obj\Debug\Immobilus.Logic.dll
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.Logic\obj\Debug\Immobilus.Logic.pdb

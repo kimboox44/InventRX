@@ -1,0 +1,89 @@
+﻿<Window x:Class="InventRX.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="InventRX" Height="600" Width="945">
+    <Grid>
+   
+        <!-- <ContentPresenter Content="{Binding CurrentView}" Margin="696,288,0,0" />-->
+        <TabControl TabStripPlacement="Left" Grid.ColumnSpan="2">
+            <TabControl.Resources>
+                <Style TargetType="{x:Type TabItem}" >
+                    <Setter Property="FontSize" Value="16" />
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <ContentPresenter Content="{TemplateBinding Content}">
+                                    <ContentPresenter.LayoutTransform>
+                                        <RotateTransform Angle="270" />
+                                    </ContentPresenter.LayoutTransform>
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Padding" Value="3" />
+                </Style>
+            </TabControl.Resources>
+
+            <!-- Tabulation de gauche -->
+            <TabItem Header="Principal" IsSelected="True" Height="72" VerticalAlignment="Top" >
+                <Grid Background="#FFF">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="552*"/>
+                        <ColumnDefinition Width="288*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Tabulation du centre de la fenêtre principale -->
+                    <TabControl Margin="0,0,5,0">
+                        <TabControl.Resources>
+                            <Style TargetType="TabItem">
+                                <Setter Property="FontSize" Value="12" />
+                                <Setter Property="AllowDrop" Value="True"/>
+                                <EventSetter Event="PreviewMouseMove" Handler="TabItem_PreviewMouseMove"/>
+                                <EventSetter Event="Drop" Handler="TabItem_Drop"/>
+                            </Style>
+                        </TabControl.Resources>
+                        <TabItem Header="Test1">
+                            <Grid Background="#FFE5E5E5">
+                                <ContentPresenter Content="{Binding CurrentView}" Margin="10"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Test2">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                    </TabControl>
+
+
+                    <!-- Tabulation du menu contextuel à droite -->
+                    <TabControl Grid.Column="1" Margin="5,0,0,0">
+                        <TabControl.Resources>
+                            <Style TargetType="TabItem">
+                                <Setter Property="FontSize" Value="12" />
+                                <Setter Property="AllowDrop" Value="False"/>
+                                <EventSetter Event="PreviewMouseMove" Handler="TabItem_PreviewMouseMove"/>
+                                <EventSetter Event="Drop" Handler="TabItem_Drop"/>
+                            </Style>
+                        </TabControl.Resources>
+                        <TabItem Header="Caisse">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                        <TabItem Header="Commandes">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                        <TabItem Header="Clients">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                        <TabItem Header="Soumissions">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                        <TabItem Header="Factures">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Produit" Height="64" VerticalAlignment="Top" />
+            <TabItem Header="Administration" />
+        </TabControl>
+    </Grid>
+</Window>

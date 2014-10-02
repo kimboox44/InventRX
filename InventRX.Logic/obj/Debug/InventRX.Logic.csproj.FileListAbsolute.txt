@@ -1,0 +1,16 @@
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.Logic\bin\Debug\Immobilus.Logic.dll
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.Logic\bin\Debug\Immobilus.Logic.pdb
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.dll
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.Logic\bin\Debug\MySql.Data.dll
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.Logic\bin\Debug\Cstj.MvvmToolkit.pdb
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.Logic\obj\Debug\InventRX.Logic.csprojResolveAssemblyReference.cache
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.Logic\obj\Debug\Immobilus.Logic.dll
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.Logic\obj\Debug\Immobilus.Logic.pdb
+H:\Bureau\InventRX - Solution originale\InventRX.Logic\bin\Debug\InventRX.Logic.dll
+H:\Bureau\InventRX - Solution originale\InventRX.Logic\bin\Debug\InventRX.Logic.pdb
+H:\Bureau\InventRX - Solution originale\InventRX.Logic\bin\Debug\Cstj.MvvmToolkit.dll
+H:\Bureau\InventRX - Solution originale\InventRX.Logic\bin\Debug\MySql.Data.dll
+H:\Bureau\InventRX - Solution originale\InventRX.Logic\bin\Debug\Cstj.MvvmToolkit.pdb
+H:\Bureau\InventRX - Solution originale\InventRX.Logic\obj\Debug\InventRX.Logic.csprojResolveAssemblyReference.cache
+H:\Bureau\InventRX - Solution originale\InventRX.Logic\obj\Debug\InventRX.Logic.dll
+H:\Bureau\InventRX - Solution originale\InventRX.Logic\obj\Debug\InventRX.Logic.pdb

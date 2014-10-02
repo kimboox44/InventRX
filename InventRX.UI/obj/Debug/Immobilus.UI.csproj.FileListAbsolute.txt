@@ -1,0 +1,165 @@
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.UI.exe.config
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.UI.exe
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.UI.pdb
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.Logic.dll
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.Logic.pdb
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.csprojResolveAssemblyReference.cache
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\MainWindow.baml
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Views\ProprieteView.baml
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Views\RechercheView.baml
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\MainWindow.g.cs
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Views\ProprieteView.g.cs
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Views\RechercheView.g.cs
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\App.g.cs
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI_MarkupCompile.cache
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.g.resources
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.Properties.Resources.resources
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.csproj.GenerateResource.Cache
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.exe
+Z:\dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\Semaine 03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\MySql.Data.dll
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.UI.exe.config
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.exe
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.pdb
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.UI.exe
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.UI.pdb
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.dll
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.Logic.dll
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\MySql.Data.dll
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.pdb
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.Logic.pdb
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.csprojResolveAssemblyReference.cache
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\MainWindow.baml
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Views\ProprieteView.baml
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Views\RechercheView.baml
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\MainWindow.g.cs
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Views\ProprieteView.g.cs
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Views\RechercheView.g.cs
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\App.g.cs
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI_MarkupCompile.cache
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.g.resources
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.Properties.Resources.resources
+D:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.csproj.GenerateResource.Cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.UI.exe.config
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.exe
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.UI.exe
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.UI.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.Logic.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\MySql.Data.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.csprojResolveAssemblyReference.cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\MainWindow.baml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Views\ProprieteView.baml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Views\RechercheView.baml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\MainWindow.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Views\ProprieteView.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Views\RechercheView.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\App.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI_MarkupCompile.cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.g.resources
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.Properties.Resources.resources
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\obj\Debug\Immobilus.UI.csproj.GenerateResource.Cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\FluentNHibernate.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\NHibernate.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Iesi.Collections.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\FluentNHibernate.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\NHibernate.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus\Immobilus.UI\bin\Debug\Iesi.Collections.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\bin\Debug\Immobilus.UI.exe.config
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\Immobilus.UI.exe
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\Immobilus.UI.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\bin\Debug\Immobilus.UI.exe
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\bin\Debug\Immobilus.UI.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\bin\Debug\Iesi.Collections.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\bin\Debug\Immobilus.Logic.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\bin\Debug\NHibernate.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\bin\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\bin\Debug\Iesi.Collections.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\bin\Debug\NHibernate.xml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\Immobilus.UI.csprojResolveAssemblyReference.cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\MainWindow.baml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\Views\ProprieteView.baml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\Views\RechercheView.baml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\MainWindow.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\Views\ProprieteView.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\Views\RechercheView.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\App.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\Immobilus.UI_MarkupCompile.cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\Immobilus.UI.g.resources
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\Immobilus.UI.Properties.Resources.resources
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S03 - Modele en couche\Immobilus - Simple\Immobilus.UI\obj\Debug\Immobilus.UI.csproj.GenerateResource.Cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.exe.config
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.exe
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.exe
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\bin\Debug\Immobilus.Logic.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\bin\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.csprojResolveAssemblyReference.cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\MainWindow.baml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\Views\RechercheView.baml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\MainWindow.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\Views\RechercheView.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\App.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI_MarkupCompile.cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.g.resources
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.Properties.Resources.resources
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.csproj.GenerateResource.Cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\Views\MaisonView.baml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Depart - MySQL\Immobilus.UI\obj\Debug\Views\MaisonView.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.exe.config
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.exe
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\bin\Debug\Immobilus.Logic.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\bin\Debug\MySql.Data.dll
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\bin\Debug\Immobilus.Logic.pdb
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.csprojResolveAssemblyReference.cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\MainWindow.baml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\Views\MaisonView.baml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\Views\RechercheView.baml
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\MainWindow.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\Views\MaisonView.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\Views\RechercheView.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\App.g.cs
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI_MarkupCompile.cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.g.resources
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.Properties.Resources.resources
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.csproj.GenerateResource.Cache
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.exe
+Z:\Dropbox\Enseignement\420-5A5-JR - Développement BD\A2014\S05 - Notion SQL\Application\Immobilus Working - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.pdb
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.exe.config
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.exe
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.pdb
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.exe
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.pdb
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.dll
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Immobilus.Logic.dll
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\MySql.Data.dll
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Cstj.MvvmToolkit.pdb
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Immobilus.Logic.pdb
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.csprojResolveAssemblyReference.cache
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\MainWindow.baml
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Views\MaisonView.baml
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Views\RechercheView.baml
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\MainWindow.g.cs
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Views\MaisonView.g.cs
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Views\RechercheView.g.cs
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\App.g.cs
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI_MarkupCompile.cache
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.g.resources
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.Properties.Resources.resources
+H:\Enseignement\420-5A5 - Developpement BD\S05 - Notion avancé MySql\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.csproj.GenerateResource.Cache
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\bin\Debug\Immobilus.UI.exe.config
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.exe
+C:\Users\Nicolas\Documents\Visual Studio 2013\Projects\Immobilus Final - MySQL\Immobilus.UI\obj\Debug\Immobilus.UI.pdb
