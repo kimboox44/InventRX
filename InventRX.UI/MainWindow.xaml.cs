@@ -1,10 +1,14 @@
 ﻿using Cstj.MvvmToolkit.Services;
 using Cstj.MvvmToolkit.Services.Definitions;
-using InventRX.Logic.Services.MySql;
+using InventRX.Logic.Model.Args;
+using InventRX.Logic.Model.Entities;
+using InventRX.Logic.Services.NHibernate;
 using InventRX.Services;
 using InventRX.Services.Definitions;
 using InventRX.UI.ViewModel;
 using InventRX.UI.Views;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Threading;
 using System.Windows;
@@ -20,6 +24,34 @@ namespace InventRX.UI
     {
         public MainViewModel ViewModel { get { return (MainViewModel)DataContext; } }
 
+        #region Soumission
+
+        private ISoumissionService _soumissionService;
+        public RetrieveSoumissionArgs RetrieveSoumissionArgs { get; set; }
+        /*private ObservableCollection<Soumission> _soumissions = new ObservableCollection<Soumission>();
+
+        public ObservableCollection<Soumission> Soumissions
+        {
+            get
+            {
+                return _soumissions;
+            }
+
+            set
+            {
+                if (_soumissions == value)
+                {
+                    return;
+                }
+                _soumissions = value;
+            }
+        }*/
+
+        public IList<Soumission> ListeSoumissions { get; set; } 
+
+        #endregion
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,9 +63,24 @@ namespace InventRX.UI
 
         private void Configure()
         {
-            ServiceFactory.Instance.Register<IClientService, MySqlClientService>(new MySqlClientService());
+            ServiceFactory.Instance.Register<ISoumissionService, NHibernateSoumissionService>(new NHibernateSoumissionService());
 
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
+
+
+            //Charge la liste de toutes les soumissions
+            _soumissionService = ServiceFactory.Instance.GetService<ISoumissionService>();
+            //Soumissions = new ObservableCollection<Soumission>(_soumissionService.RetrieveAll());
+            RetrieveSoumissionArgs = new RetrieveSoumissionArgs();
+            ListeSoumissions = _soumissionService.RetrieveAll();
+            //Simulation fake
+            foreach (Soumission s in  ListeSoumissions)
+            {
+                s.Client = new Client();
+                s.Client.Nom = "Doe";
+                s.Client.Prenom = "John";
+            }
+            datagridListeSoumissions.ItemsSource = ListeSoumissions;
         }
 
         #region Tabs Config
