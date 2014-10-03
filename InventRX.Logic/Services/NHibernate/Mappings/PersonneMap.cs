@@ -15,7 +15,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
             Table("Personnes");
             LazyLoad();
             Id(x => x.IdPersonne)
-                .Column("idPersonne")
+                .Column("id")
                 .CustomType<int?>()
                 .Access.Property()
                 .CustomSqlType("INTEGER")
@@ -41,7 +41,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
             {
                 Table("Clients");
                 LazyLoad();
-                KeyColumn("idClient");
+                KeyColumn("id");
             }
 
         }
@@ -52,7 +52,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
             {
                 Table("Employes");
                 LazyLoad();
-                KeyColumn("idEmploye");
+                KeyColumn("id");
             }
         }
     }
