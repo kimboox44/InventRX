@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Args\RetrieveClientArgs.cs" />
+    <Compile Include="Model\Args\RetrieveSoumissionArgs.cs" />
     <Compile Include="Model\Entities\ItemSoumission.cs" />
     <Compile Include="Model\Entities\ItemFacture.cs" />
     <Compile Include="Model\Entities\ItemCommande.cs" />
@@ -78,11 +79,14 @@
     <Compile Include="Model\Entities\Personne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Definitions\IClientService.cs" />
+    <Compile Include="Services\Definitions\ISoumissionService.cs" />
     <Compile Include="Services\Helpers\MySqlConnexion.cs" />
     <Compile Include="Services\Helpers\NHibernateConnexion.cs" />
     <Compile Include="Services\MySql\MySqlClientService.cs" />
     <Compile Include="Services\NHibernate\Mappings\PersonneMap.cs" />
+    <Compile Include="Services\NHibernate\Mappings\SoumissionMap.cs" />
     <Compile Include="Services\NHibernate\NHibernateClientService.cs" />
+    <Compile Include="Services\NHibernate\NHibernateSoumissionService.cs" />
     <Compile Include="Services\Simples\SimpleClientService.cs" />
   </ItemGroup>
   <ItemGroup>
