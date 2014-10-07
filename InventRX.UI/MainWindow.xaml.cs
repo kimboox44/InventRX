@@ -73,13 +73,6 @@ namespace InventRX.UI
             //Soumissions = new ObservableCollection<Soumission>(_soumissionService.RetrieveAll());
             RetrieveSoumissionArgs = new RetrieveSoumissionArgs();
             ListeSoumissions = _soumissionService.RetrieveAll();
-            //Simulation fake
-            foreach (Soumission s in  ListeSoumissions)
-            {
-                s.Client = new Client();
-                s.Client.Nom = "Doe";
-                s.Client.Prenom = "John";
-            }
             datagridListeSoumissions.ItemsSource = ListeSoumissions;
         }
 

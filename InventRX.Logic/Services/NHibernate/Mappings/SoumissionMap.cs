@@ -27,6 +27,19 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Access.Property()
                 .Generated.Never()
                 .CustomSqlType("TIMESTAMP");
+            
+            References(v => v.Client)
+                .Class<Client>()
+                .Access.Property()
+                .LazyLoad(Laziness.False)
+                .Cascade.None()
+                .Columns("idClient");
+            References(v => v.Employe)
+                .Class<Employe>()
+                .Access.Property()
+                .LazyLoad(Laziness.False)
+                .Cascade.None()
+                .Columns("idEmploye");
         }
     }
 }

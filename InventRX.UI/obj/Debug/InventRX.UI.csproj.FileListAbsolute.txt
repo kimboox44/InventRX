@@ -68,3 +68,31 @@ H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\InventRX.UI_Markup
 H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\InventRX.UI.g.resources
 H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\InventRX.UI.Properties.Resources.resources
 H:\Bureau\InventRX - Solution originale\InventRX.UI\obj\Debug\InventRX.UI.csproj.GenerateResource.Cache
+D:\InventRX\InventRX.UI\bin\Debug\InventRX.UI.exe.config
+D:\InventRX\InventRX.UI\bin\Debug\InventRX.UI.exe
+D:\InventRX\InventRX.UI\bin\Debug\InventRX.UI.pdb
+D:\InventRX\InventRX.UI\bin\Debug\Cstj.MvvmToolkit.dll
+D:\InventRX\InventRX.UI\bin\Debug\FluentNHibernate.dll
+D:\InventRX\InventRX.UI\bin\Debug\Iesi.Collections.dll
+D:\InventRX\InventRX.UI\bin\Debug\InventRX.Logic.dll
+D:\InventRX\InventRX.UI\bin\Debug\NHibernate.dll
+D:\InventRX\InventRX.UI\bin\Debug\MySql.Data.dll
+D:\InventRX\InventRX.UI\bin\Debug\Cstj.MvvmToolkit.pdb
+D:\InventRX\InventRX.UI\bin\Debug\InventRX.Logic.pdb
+D:\InventRX\InventRX.UI\bin\Debug\FluentNHibernate.xml
+D:\InventRX\InventRX.UI\bin\Debug\Iesi.Collections.xml
+D:\InventRX\InventRX.UI\bin\Debug\NHibernate.xml
+D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI.csprojResolveAssemblyReference.cache
+D:\InventRX\InventRX.UI\obj\Debug\ConnexionWindow.baml
+D:\InventRX\InventRX.UI\obj\Debug\MainWindow.baml
+D:\InventRX\InventRX.UI\obj\Debug\Views\ConnexionView.baml
+D:\InventRX\InventRX.UI\obj\Debug\ConnexionWindow.g.cs
+D:\InventRX\InventRX.UI\obj\Debug\MainWindow.g.cs
+D:\InventRX\InventRX.UI\obj\Debug\Views\ConnexionView.g.cs
+D:\InventRX\InventRX.UI\obj\Debug\App.g.cs
+D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI_MarkupCompile.cache
+D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI.g.resources
+D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI.Properties.Resources.resources
+D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI.csproj.GenerateResource.Cache
+D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI.exe
+D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI.pdb

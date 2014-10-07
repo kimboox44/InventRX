@@ -112,9 +112,10 @@
                                     <Grid x:Name="ResultatsMenuSoumissions" Background="White">
                                         <DataGrid x:Name="datagridListeSoumissions"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False">
                                             <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Numero" Width="100" IsReadOnly="True" Binding="{Binding IdSoumission, StringFormat='{}#{0}'}"/>
-                                                <DataGridTextColumn Header="Date" Width="100" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
-                                                <DataGridTextColumn Header="Client" Width="100" IsReadOnly="True" Binding="{Binding Client}" />
+                                                <DataGridTextColumn Header="Numero" Width="55" IsReadOnly="True" Binding="{Binding IdSoumission, StringFormat='{}#{0}'}"/>
+                                                <DataGridTextColumn Header="Date" Width="50" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                                                <DataGridTextColumn Header="Client" Width="50" IsReadOnly="True" Binding="{Binding Client}" />
+                                                <DataGridTextColumn Header="Employé" Width="55" IsReadOnly="True" Binding="{Binding Employe}" />
                                             </DataGrid.Columns>
                                         </DataGrid>
                                         <!--<ScrollViewer>

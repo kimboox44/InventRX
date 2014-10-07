@@ -14,3 +14,18 @@ H:\Bureau\InventRX - Solution originale\InventRX.Logic\bin\Debug\Cstj.MvvmToolki
 H:\Bureau\InventRX - Solution originale\InventRX.Logic\obj\Debug\InventRX.Logic.csprojResolveAssemblyReference.cache
 H:\Bureau\InventRX - Solution originale\InventRX.Logic\obj\Debug\InventRX.Logic.dll
 H:\Bureau\InventRX - Solution originale\InventRX.Logic\obj\Debug\InventRX.Logic.pdb
+D:\InventRX\InventRX.Logic\bin\Debug\InventRX.Logic.dll.config
+D:\InventRX\InventRX.Logic\bin\Debug\InventRX.Logic.dll
+D:\InventRX\InventRX.Logic\bin\Debug\InventRX.Logic.pdb
+D:\InventRX\InventRX.Logic\bin\Debug\Cstj.MvvmToolkit.dll
+D:\InventRX\InventRX.Logic\bin\Debug\FluentNHibernate.dll
+D:\InventRX\InventRX.Logic\bin\Debug\Iesi.Collections.dll
+D:\InventRX\InventRX.Logic\bin\Debug\MySql.Data.dll
+D:\InventRX\InventRX.Logic\bin\Debug\NHibernate.dll
+D:\InventRX\InventRX.Logic\bin\Debug\Cstj.MvvmToolkit.pdb
+D:\InventRX\InventRX.Logic\bin\Debug\FluentNHibernate.xml
+D:\InventRX\InventRX.Logic\bin\Debug\Iesi.Collections.xml
+D:\InventRX\InventRX.Logic\bin\Debug\NHibernate.xml
+D:\InventRX\InventRX.Logic\obj\Debug\InventRX.Logic.csprojResolveAssemblyReference.cache
+D:\InventRX\InventRX.Logic\obj\Debug\InventRX.Logic.dll
+D:\InventRX\InventRX.Logic\obj\Debug\InventRX.Logic.pdb
