@@ -32,6 +32,16 @@ namespace InventRX.UI
         public RetrieveSoumissionArgs RetrieveSoumissionArgs { get; set; }
         public IList<Soumission> ListeSoumissions { get; set; }
 
+        private void ChargerSoumissions()
+        {
+            ServiceFactory.Instance.Register<ISoumissionService, NHibernateSoumissionService>(new NHibernateSoumissionService());
+            //Charge la liste de toutes les soumissions
+            _soumissionService = ServiceFactory.Instance.GetService<ISoumissionService>();
+            RetrieveSoumissionArgs = new RetrieveSoumissionArgs();
+            ListeSoumissions = _soumissionService.RetrieveAll();
+            datagridListeSoumissions.ItemsSource = ListeSoumissions;
+        }
+
         private void datagridListeSoumissions_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Soumission soumissionSelectionnee = (datagridListeSoumissions.SelectedItem as Soumission);
@@ -74,8 +84,17 @@ namespace InventRX.UI
 
         private IProduitService _produiService;
         public RetrieveProduitArgs RetrieveProduitArgs { get; set; }
-
         public IList<Produit> ListeProduits { get; set; }
+
+        private void ChargerProduits()
+        {
+            ServiceFactory.Instance.Register<IProduitService, NHibernateProduitService>(new NHibernateProduitService());
+            //Charge la liste de tous les produits
+            _produiService = ServiceFactory.Instance.GetService<IProduitService>();
+            RetrieveProduitArgs = new RetrieveProduitArgs();
+            ListeProduits = _produiService.RetrieveAll();
+            datagridListeProduits.ItemsSource = ListeProduits;
+        }
 
         #endregion
 
@@ -83,6 +102,16 @@ namespace InventRX.UI
         private ICommandeService _commandeService;
         public RetrieveCommandeArgs RetrieveCommandeArgs { get; set; }
         public IList<Commande> ListeCommandes { get; set; }
+
+        private void ChargerCommandes()
+        {
+            ServiceFactory.Instance.Register<ICommandeService, NHibernateCommandeService>(new NHibernateCommandeService());
+            //Charge la liste de toutes les commandes
+            _commandeService = ServiceFactory.Instance.GetService<ICommandeService>();
+            RetrieveCommandeArgs = new RetrieveCommandeArgs();
+            ListeCommandes = _commandeService.RetrieveAll();
+            datagridListeCommandes.ItemsSource = ListeCommandes;
+        }
 
 
         private void datagridListeCommandes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -108,40 +137,56 @@ namespace InventRX.UI
         
         #endregion
 
+        #region Clients
+
+        private IClientService _clientService;
+        public RetrieveClientArgs RetrieveClientArgs { get; set; }
+        public IList<Client> ListeClients { get; set; }
+
+        private void ChargerClients()
+        {
+            ServiceFactory.Instance.Register<IClientService, NHibernateClientService>(new NHibernateClientService());
+
+            //Charge la liste de tous les clients
+            _clientService = ServiceFactory.Instance.GetService<IClientService>();
+            RetrieveClientArgs = new RetrieveClientArgs();
+            ListeClients = _clientService.RetrieveAll();
+            datagridListeClients.ItemsSource = ListeClients;
+        }
+
+        private void datagridListeClients_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Client clientSelectionnee = (datagridListeClients.SelectedItem as Client);
+
+            MainViewModel nouveauViewModel = new MainViewModel();
+            nouveauViewModel.CurrentView = new ClientView();
+
+            ContentPresenter contentPresenter = new ContentPresenter();
+
+            Binding myBinding = new Binding("client" + clientSelectionnee.IdClient + "Data");
+            myBinding.Source = nouveauViewModel.CurrentView;
+            contentPresenter.Content = myBinding.Source;
+
+            TabItem nouvelleTab = new TabItem();
+            nouvelleTab.Header = "client #" + clientSelectionnee.IdClient;
+            nouvelleTab.Content = contentPresenter;
+            nouvelleTab.DataContext = nouveauViewModel;
+            TabControlPrincipalDetails.Items.Add(nouvelleTab);
+            TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+        }
+
+        #endregion
+
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new MainViewModel();
-            Configure();
-
-            ViewModel.CurrentView = new ConnexionView();
-        }
-
-        private void Configure()
-        {
-            ServiceFactory.Instance.Register<ISoumissionService, NHibernateSoumissionService>(new NHibernateSoumissionService());
-            ServiceFactory.Instance.Register<IProduitService, NHibernateProduitService>(new NHibernateProduitService());
-            ServiceFactory.Instance.Register<ICommandeService, NHibernateCommandeService>(new NHibernateCommandeService());
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
-
-
-            //Charge la liste de toutes les soumissions
-            _soumissionService = ServiceFactory.Instance.GetService<ISoumissionService>();
-            RetrieveSoumissionArgs = new RetrieveSoumissionArgs();
-            ListeSoumissions = _soumissionService.RetrieveAll();
-            datagridListeSoumissions.ItemsSource = ListeSoumissions;
-
-            //Charge la liste de tous les produits
-            _produiService = ServiceFactory.Instance.GetService<IProduitService>();
-            RetrieveProduitArgs = new RetrieveProduitArgs();
-            ListeProduits = _produiService.RetrieveAll();
-            datagridListeProduits.ItemsSource = ListeProduits;
-
-            //Charge la liste de toutes les commandes
-            _commandeService = ServiceFactory.Instance.GetService<ICommandeService>();
-            RetrieveCommandeArgs = new RetrieveCommandeArgs();
-            ListeCommandes = _commandeService.RetrieveAll();
-            datagridListeCommandes.ItemsSource = ListeCommandes;
+            ChargerSoumissions();
+            ChargerClients();
+            ChargerCommandes();
+            ChargerProduits();
+            ViewModel.CurrentView = new ConnexionView();
         }
 
         #region Tabs Config

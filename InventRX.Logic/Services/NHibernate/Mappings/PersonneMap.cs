@@ -33,6 +33,12 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Access.Property()
                 .Generated.Never()
                 .CustomSqlType("VARCHAR");
+            Map(x => x.Telephone)
+                .Column("telephone")
+                .CustomType<string>()
+                .Access.Property()
+                .Generated.Never()
+                .CustomSqlType("VARCHAR");
         }
 
         public class ClientMap : SubclassMap<Client>

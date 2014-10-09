@@ -116,13 +116,19 @@
 
                         <TabItem Header="Clients">
                             <Grid Background="#FFE5E5E5">
-                                <DataGrid Name="datagridClients" ItemsSource="{Binding}" AutoGenerateColumns="True" >
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
-                                        <DataGridTextColumn Header="Prénom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prenom}" />
-                                        <DataGridTextColumn Header="Téléphone" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Telephone}" />
-                                    </DataGrid.Columns>
-                                </DataGrid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="242*"/>
+                                    <ColumnDefinition Width="43*"/>
+                                </Grid.ColumnDefinitions>
+                                <DockPanel LastChildFill="True" Grid.ColumnSpan="2">
+                                    <DataGrid x:Name="datagridListeClients" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
+                                            <DataGridTextColumn Header="Prénom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prenom}" />
+                                            <DataGridTextColumn Header="Téléphone" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Telephone}" />
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </DockPanel>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Soumissions">
