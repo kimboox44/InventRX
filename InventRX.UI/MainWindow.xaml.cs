@@ -15,6 +15,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Data;
+using InventRX.Logic.Services.Definitions;
 
 namespace InventRX.UI
 {
@@ -42,6 +43,14 @@ namespace InventRX.UI
 
         #endregion
 
+        #region Commande
+        private ICommandeService _commandeService;
+        public RetrieveCommandeArgs RetrieveCommandeArgs { get; set; }
+
+        public IList<Commande> ListeCommandes { get; set; }
+        
+        #endregion
+
 
         public MainWindow()
         {
@@ -56,6 +65,7 @@ namespace InventRX.UI
         {
             ServiceFactory.Instance.Register<ISoumissionService, NHibernateSoumissionService>(new NHibernateSoumissionService());
             ServiceFactory.Instance.Register<IProduitService, NHibernateProduitService>(new NHibernateProduitService());
+            ServiceFactory.Instance.Register<ICommandeService, NHibernateCommandeService>(new NHibernateCommandeService());
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
 
 
@@ -71,6 +81,12 @@ namespace InventRX.UI
             RetrieveProduitArgs = new RetrieveProduitArgs();
             ListeProduits = _produiService.RetrieveAll();
             datagridListeProduits.ItemsSource = ListeProduits;
+
+            //Charge la liste de toutes les commandes
+            _commandeService = ServiceFactory.Instance.GetService<ICommandeService>();
+            RetrieveCommandeArgs = new RetrieveCommandeArgs();
+            ListeCommandes = _commandeService.RetrieveAll();
+            datagridListeCommandes.ItemsSource = ListeCommandes;
         }
 
         #region Tabs Config
@@ -133,6 +149,32 @@ namespace InventRX.UI
             TabControlPrincipalDetails.Items.Add(nouvelleTab);
             TabControlPrincipalDetails.SelectedItem = nouvelleTab;
         }
+
+
+        private void datagridListeCommandes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Commande commandeSelectionnee = (datagridListeCommandes.SelectedItem as Commande);
+
+            MainViewModel nouveauViewModel = new MainViewModel();
+            nouveauViewModel.CurrentView = new CommandeView();
+
+            ContentPresenter contentPresenter = new ContentPresenter();
+
+            Binding myBinding = new Binding("commande" + commandeSelectionnee.IdCommande + "Data");
+            myBinding.Source = nouveauViewModel.CurrentView;
+            contentPresenter.Content = myBinding.Source;
+
+            TabItem nouvelleTab = new TabItem();
+            nouvelleTab.Header = "Commande #" + commandeSelectionnee.IdCommande;
+            nouvelleTab.Content = contentPresenter;
+            nouvelleTab.DataContext = nouveauViewModel;
+            TabControlPrincipalDetails.Items.Add(nouvelleTab);
+            TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+        }
+
+
+
+
 
     }
 }

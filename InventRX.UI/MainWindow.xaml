@@ -88,13 +88,32 @@
                                     <ComboBoxItem x:Name="chq1" IsSelected="True" Content="Chèque"/>
                                     <ComboBoxItem x:Name="cc1" Content="Carte de crédit"/>
                                 </ComboBox>
-
-
                             </Grid>
                         </TabItem>
+
                         <TabItem Header="Commandes">
-                            <Grid Background="#FFE5E5E5"/>
+                            <Grid Background="#FFE5E5E5">
+                                <DockPanel LastChildFill="True">
+                                    <Grid x:Name="ResultatsMenuCommandes" Background="White">
+                                        <DataGrid x:Name="datagridListeCommandes"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeCommandes_MouseDoubleClick">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Numéro" Width="55" IsReadOnly="True" Binding="{Binding IdCommande, StringFormat='{}#{0}'}"/>
+                                                <DataGridTextColumn Header="Date" Width="50" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                                                <DataGridTextColumn Header="Client" Width="50" IsReadOnly="True" Binding="{Binding Client}" />
+                                                <DataGridTextColumn Header="Employé" Width="55" IsReadOnly="True" Binding="{Binding Employe}" />
+                                            </DataGrid.Columns>
+                                            <DataGrid.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Delete" >
+                                                    </MenuItem>
+                                                </ContextMenu>
+                                            </DataGrid.ContextMenu>
+                                        </DataGrid>                                     
+                                    </Grid>
+                                </DockPanel>
+                            </Grid>
                         </TabItem>
+
                         <TabItem Header="Clients">
                             <Grid Background="#FFE5E5E5">
                                 <DataGrid Name="datagridClients" ItemsSource="{Binding}" AutoGenerateColumns="True" >
@@ -120,7 +139,7 @@
                                             <DataGrid.ContextMenu>
                                                 <ContextMenu>
                                                     <MenuItem Header="Delete" >
-                             
+
                                                     </MenuItem>
                                                 </ContextMenu>
                                             </DataGrid.ContextMenu>
@@ -204,13 +223,14 @@
 
                     <DataGrid Name="datagridListeProduits" ItemsSource="{Binding}" AutoGenerateColumns="False" >
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="Numéro" Width="55" IsReadOnly="True" Binding="{Binding IdProduit, StringFormat='{}#{0}'}"/>
                             <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
                             <DataGridTextColumn Header="Description" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Description}" />
                             <DataGridTextColumn Header="Dimensions" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=DescriptionDimension}" />
-                            <DataGridTextColumn Header="Prix" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prix}" />
+                            <DataGridTextColumn Header="Prix" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prix, StringFormat={}{0:#,#.00}$}" />
                             <DataGridTextColumn Header="Quantité" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Quantite}" />
-                            <DataGridTextColumn Header="Modèle" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Modele}" />
-                            <DataGridTextColumn Header="Catégorie" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Categorie}" />
+                            <DataGridTextColumn Header="Modele" Width="50" IsReadOnly="True" Binding="{Binding Modele}" />
+                            <DataGridTextColumn Header="Categorie" Width="55" IsReadOnly="True" Binding="{Binding CategorieProduit}" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <StackPanel Background="#EEE" Grid.Column="1" HorizontalAlignment="Left" Height="470" Margin="10,80,0,0" VerticalAlignment="Top" Width="280"/>
