@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InventRX.Logic.Model.Entities;
+using InventRX.UI.ViewModel;
 
 namespace InventRX.UI.Views
 {
@@ -20,9 +22,22 @@ namespace InventRX.UI.Views
     /// </summary>
     public partial class SoumissionView : UserControl
     {
+        public SoumissionViewModel ViewModel { get { return (SoumissionViewModel)DataContext; } }
+
         public SoumissionView()
         {
             InitializeComponent();
+            DataContext = new SoumissionViewModel();
+        }
+
+        public SoumissionView(IDictionary<string,object> parameters):this()
+        {
+            ViewModel.Soumission = parameters["Soumission"] as Soumission;
+        }
+
+        private void btnSauvegarder_Click(object sender, RoutedEventArgs e)
+        {
+            //ViewModel.SauvegarderCommand();
         }
     }
 }

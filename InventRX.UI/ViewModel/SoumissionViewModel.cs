@@ -13,39 +13,41 @@ namespace InventRX.UI.ViewModel
 {
     public class SoumissionViewModel : BaseViewModel
     {
+        private ISoumissionService _soumissionService;
+        private Soumission _soumission;
+
         public SoumissionViewModel()
         {
-
+            _soumissionService = ServiceFactory.Instance.GetService<ISoumissionService>();
         }
 
-        private UserControl _currentView;
-
-        public UserControl CurrentView
+        public Soumission Soumission
         {
             get
             {
-                return _currentView;
+                return _soumission;
             }
 
             set
             {
-                if (_currentView == value)
+                if (_soumission == value)
                 {
                     return;
                 }
-
-                RaisePropertyChanging();
-                _currentView = value;
-                RaisePropertyChanged();
+                _soumission = value;
             }
         }
 
 
-        public void ChangeView<T>(T view)
+        public void SauvegarderCommand()
         {
-            CurrentView = view as UserControl;
-        }
+            /*Soumission.Visites.Where(v => v.Maison == null).ToList().ForEach(v => v.Maison = Maison);
+            _maisonService.Update(Maison);
 
+            IApplicationService appService = ServiceFactory.Instance.GetService<IApplicationService>();
+            appService.ChangeView<RechercheView>(new RechercheView());*/
+        }
+      
 
     }
 }

@@ -30,7 +30,43 @@ namespace InventRX.UI
 
         private ISoumissionService _soumissionService;
         public RetrieveSoumissionArgs RetrieveSoumissionArgs { get; set; }
-        public IList<Soumission> ListeSoumissions { get; set; } 
+        public IList<Soumission> ListeSoumissions { get; set; }
+
+        private void datagridListeSoumissions_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Soumission soumissionSelectionnee = (datagridListeSoumissions.SelectedItem as Soumission);
+            Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Soumission", soumissionSelectionnee } };
+
+            MainViewModel nouveauViewModel = new MainViewModel();
+            nouveauViewModel.CurrentView = new SoumissionView(parameters);
+
+            ContentPresenter contentPresenter = new ContentPresenter();
+
+            Binding myBinding = new Binding("soumission" + soumissionSelectionnee.IdSoumission + "Data");
+            myBinding.Source = nouveauViewModel.CurrentView;
+            contentPresenter.Content = myBinding.Source;
+
+            //Ajout du cont
+            ScrollViewer newScrollViewer = new ScrollViewer();
+            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+            newScrollViewer.Content = contentPresenter;
+
+            //Création d'un nouveau item
+            TabItem nouvelleTab = new TabItem();
+            nouvelleTab.Header = "Soumission #" + soumissionSelectionnee.IdSoumission;
+            nouvelleTab.Content = newScrollViewer;
+
+            //Sans scrollviewer
+            //nouvelleTab.Content = contentPresenter;
+
+            nouvelleTab.DataContext = nouveauViewModel;
+
+            //Ajout de l'item à la tab control
+            TabControlPrincipalDetails.Items.Add(nouvelleTab);
+            TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+
+        }
 
         #endregion
 
@@ -46,11 +82,31 @@ namespace InventRX.UI
         #region Commande
         private ICommandeService _commandeService;
         public RetrieveCommandeArgs RetrieveCommandeArgs { get; set; }
-
         public IList<Commande> ListeCommandes { get; set; }
+
+
+        private void datagridListeCommandes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Commande commandeSelectionnee = (datagridListeCommandes.SelectedItem as Commande);
+
+            MainViewModel nouveauViewModel = new MainViewModel();
+            nouveauViewModel.CurrentView = new CommandeView();
+
+            ContentPresenter contentPresenter = new ContentPresenter();
+
+            Binding myBinding = new Binding("commande" + commandeSelectionnee.IdCommande + "Data");
+            myBinding.Source = nouveauViewModel.CurrentView;
+            contentPresenter.Content = myBinding.Source;
+
+            TabItem nouvelleTab = new TabItem();
+            nouvelleTab.Header = "Commande #" + commandeSelectionnee.IdCommande;
+            nouvelleTab.Content = contentPresenter;
+            nouvelleTab.DataContext = nouveauViewModel;
+            TabControlPrincipalDetails.Items.Add(nouvelleTab);
+            TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+        }
         
         #endregion
-
 
         public MainWindow()
         {
@@ -74,7 +130,6 @@ namespace InventRX.UI
             RetrieveSoumissionArgs = new RetrieveSoumissionArgs();
             ListeSoumissions = _soumissionService.RetrieveAll();
             datagridListeSoumissions.ItemsSource = ListeSoumissions;
-
 
             //Charge la liste de tous les produits
             _produiService = ServiceFactory.Instance.GetService<IProduitService>();
@@ -127,54 +182,6 @@ namespace InventRX.UI
             }
         }
         #endregion
-
-
-        private void datagridListeSoumissions_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Soumission soumissionSelectionnee = (datagridListeSoumissions.SelectedItem as Soumission);
-
-            MainViewModel nouveauViewModel = new MainViewModel();
-            nouveauViewModel.CurrentView = new SoumissionView();
-            
-            ContentPresenter contentPresenter = new ContentPresenter();
-
-            Binding myBinding = new Binding("soumission" + soumissionSelectionnee .IdSoumission+ "Data");
-            myBinding.Source = nouveauViewModel.CurrentView;
-            contentPresenter.Content = myBinding.Source;
-
-            TabItem nouvelleTab = new TabItem();
-            nouvelleTab.Header = "Soumission #" + soumissionSelectionnee.IdSoumission;
-            nouvelleTab.Content = contentPresenter;
-            nouvelleTab.DataContext = nouveauViewModel;
-            TabControlPrincipalDetails.Items.Add(nouvelleTab);
-            TabControlPrincipalDetails.SelectedItem = nouvelleTab;
-        }
-
-
-        private void datagridListeCommandes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Commande commandeSelectionnee = (datagridListeCommandes.SelectedItem as Commande);
-
-            MainViewModel nouveauViewModel = new MainViewModel();
-            nouveauViewModel.CurrentView = new CommandeView();
-
-            ContentPresenter contentPresenter = new ContentPresenter();
-
-            Binding myBinding = new Binding("commande" + commandeSelectionnee.IdCommande + "Data");
-            myBinding.Source = nouveauViewModel.CurrentView;
-            contentPresenter.Content = myBinding.Source;
-
-            TabItem nouvelleTab = new TabItem();
-            nouvelleTab.Header = "Commande #" + commandeSelectionnee.IdCommande;
-            nouvelleTab.Content = contentPresenter;
-            nouvelleTab.DataContext = nouveauViewModel;
-            TabControlPrincipalDetails.Items.Add(nouvelleTab);
-            TabControlPrincipalDetails.SelectedItem = nouvelleTab;
-        }
-
-
-
-
 
     }
 }
