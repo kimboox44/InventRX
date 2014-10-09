@@ -69,9 +69,16 @@
     <Compile Include="ConnexionWindow.xaml.cs">
       <DependentUpon>ConnexionWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ClientViewModel.cs" />
     <Compile Include="ViewModel\ConnexionViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SoumissionViewModel.cs" />
+    <Compile Include="Views\ClientView.xaml.cs">
+      <DependentUpon>ClientView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommandeView.xaml.cs">
+      <DependentUpon>CommandeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ConnexionView.xaml.cs">
       <DependentUpon>ConnexionView.xaml</DependentUpon>
     </Compile>
@@ -94,6 +101,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ClientView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CommandeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ConnexionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

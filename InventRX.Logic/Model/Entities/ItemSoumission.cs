@@ -9,6 +9,7 @@ namespace InventRX.Logic.Model.Entities
     public class ItemSoumission
     {
         public virtual int? IdItemSoumission { get; set; }
+        public virtual Soumission Soumission { get; set; }
         public virtual Commande Commande { get; set; }
         public virtual Produit Produit { get; set; }
         public virtual string NomProduit { get; set; }
