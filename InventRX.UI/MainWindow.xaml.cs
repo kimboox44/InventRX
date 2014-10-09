@@ -45,37 +45,40 @@ namespace InventRX.UI
         private void datagridListeSoumissions_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Soumission soumissionSelectionnee = (datagridListeSoumissions.SelectedItem as Soumission);
-            Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Soumission", soumissionSelectionnee } };
 
-            MainViewModel nouveauViewModel = new MainViewModel();
-            nouveauViewModel.CurrentView = new SoumissionView(parameters);
+            if(soumissionSelectionnee != null)
+            { 
+                Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Soumission", soumissionSelectionnee } };
 
-            ContentPresenter contentPresenter = new ContentPresenter();
+                MainViewModel nouveauViewModel = new MainViewModel();
+                nouveauViewModel.CurrentView = new SoumissionView(parameters);
 
-            Binding myBinding = new Binding("soumission" + soumissionSelectionnee.IdSoumission + "Data");
-            myBinding.Source = nouveauViewModel.CurrentView;
-            contentPresenter.Content = myBinding.Source;
+                ContentPresenter contentPresenter = new ContentPresenter();
 
-            //Ajout du cont
-            ScrollViewer newScrollViewer = new ScrollViewer();
-            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
-            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
-            newScrollViewer.Content = contentPresenter;
+                Binding myBinding = new Binding("soumission" + soumissionSelectionnee.IdSoumission + "Data");
+                myBinding.Source = nouveauViewModel.CurrentView;
+                contentPresenter.Content = myBinding.Source;
 
-            //Création d'un nouveau item
-            TabItem nouvelleTab = new TabItem();
-            nouvelleTab.Header = "Soumission #" + soumissionSelectionnee.IdSoumission;
-            nouvelleTab.Content = newScrollViewer;
+                //Ajout du cont
+                ScrollViewer newScrollViewer = new ScrollViewer();
+                newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+                newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+                newScrollViewer.Content = contentPresenter;
 
-            //Sans scrollviewer
-            //nouvelleTab.Content = contentPresenter;
+                //Création d'un nouveau item
+                TabItem nouvelleTab = new TabItem();
+                nouvelleTab.Header = "Soumission #" + soumissionSelectionnee.IdSoumission;
+                nouvelleTab.Content = newScrollViewer;
 
-            nouvelleTab.DataContext = nouveauViewModel;
+                //Sans scrollviewer
+                //nouvelleTab.Content = contentPresenter;
 
-            //Ajout de l'item à la tab control
-            TabControlPrincipalDetails.Items.Add(nouvelleTab);
-            TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+                nouvelleTab.DataContext = nouveauViewModel;
 
+                //Ajout de l'item à la tab control
+                TabControlPrincipalDetails.Items.Add(nouvelleTab);
+                TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+            }
         }
 
         #endregion

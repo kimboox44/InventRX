@@ -33,6 +33,7 @@ namespace InventRX.UI.Views
         public SoumissionView(IDictionary<string,object> parameters):this()
         {
             ViewModel.Soumission = parameters["Soumission"] as Soumission;
+            datagridListeItemsSoumission.ItemsSource = ViewModel.Soumission.ItemsSoumission;
         }
 
         private void btnSauvegarder_Click(object sender, RoutedEventArgs e)

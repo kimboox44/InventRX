@@ -12,6 +12,7 @@ namespace InventRX.Logic.Model.Entities
         public virtual Client Client { get; set; }
         public virtual Employe Employe { get; set; }
         public virtual DateTime Date { get; set; }
+        public virtual IList<ItemSoumission> ItemsSoumission { get; set; }
 
         public override bool Equals(object obj)
         {

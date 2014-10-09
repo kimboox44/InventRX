@@ -68,12 +68,12 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 //    .Cascade.None()
                 //    .Columns("id");
 
-                //References(v => v.Modele)
-                //    .Class<Modele>()
-                //    .Access.Property()
-                //    .LazyLoad(Laziness.False)
-                //    .Cascade.None()
-                //    .Columns("id");
+                References(v => v.Modele)
+                    .Class<Modele>()
+                    .Access.Property()
+                    .LazyLoad(Laziness.False)
+                    .Cascade.None()
+                    .Columns("id");
         }
 
 
