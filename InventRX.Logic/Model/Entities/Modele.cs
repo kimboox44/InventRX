@@ -15,5 +15,11 @@ namespace InventRX.Logic.Model.Entities
         {
 
         }
+		
+		public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            return builder.Append(Nom).ToString();
+        }
     }
 }

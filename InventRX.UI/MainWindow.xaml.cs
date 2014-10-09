@@ -33,6 +33,15 @@ namespace InventRX.UI
 
         #endregion
 
+        #region Produit
+
+        private IProduitService _produiService;
+        public RetrieveProduitArgs RetrieveProduitArgs { get; set; }
+
+        public IList<Produit> ListeProduits { get; set; }
+
+        #endregion
+
 
         public MainWindow()
         {
@@ -46,7 +55,7 @@ namespace InventRX.UI
         private void Configure()
         {
             ServiceFactory.Instance.Register<ISoumissionService, NHibernateSoumissionService>(new NHibernateSoumissionService());
-
+            ServiceFactory.Instance.Register<IProduitService, NHibernateProduitService>(new NHibernateProduitService());
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
 
 
@@ -55,6 +64,13 @@ namespace InventRX.UI
             RetrieveSoumissionArgs = new RetrieveSoumissionArgs();
             ListeSoumissions = _soumissionService.RetrieveAll();
             datagridListeSoumissions.ItemsSource = ListeSoumissions;
+
+
+            //Charge la liste de tous les produits
+            _produiService = ServiceFactory.Instance.GetService<IProduitService>();
+            RetrieveProduitArgs = new RetrieveProduitArgs();
+            ListeProduits = _produiService.RetrieveAll();
+            datagridListeProduits.ItemsSource = ListeProduits;
         }
 
         #region Tabs Config

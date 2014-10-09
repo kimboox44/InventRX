@@ -195,7 +195,28 @@
                     </TabControl>
                 </Grid>
             </TabItem>
-            <TabItem Header="Produit" Height="64" VerticalAlignment="Top" />
+            <TabItem Header="Produit" Height="64" VerticalAlignment="Top">
+                <Grid Background="#FFF">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="552*"/>
+                        <ColumnDefinition Width="288*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid Name="datagridListeProduits" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
+                            <DataGridTextColumn Header="Description" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Description}" />
+                            <DataGridTextColumn Header="Dimensions" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=DescriptionDimension}" />
+                            <DataGridTextColumn Header="Prix" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prix}" />
+                            <DataGridTextColumn Header="Quantité" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Quantite}" />
+                            <DataGridTextColumn Header="Modèle" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Modele}" />
+                            <DataGridTextColumn Header="Catégorie" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Categorie}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel Background="#EEE" Grid.Column="1" HorizontalAlignment="Left" Height="470" Margin="10,80,0,0" VerticalAlignment="Top" Width="280"/>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="10,46,0,0" TextWrapping="Wrap" Text="Menu de Gestion des produits" VerticalAlignment="Top" Width="280"/>
+                </Grid>
+            </TabItem>
             <TabItem Header="Administration" />
         </TabControl>
     </Grid>
