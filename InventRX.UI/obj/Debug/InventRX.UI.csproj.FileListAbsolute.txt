@@ -96,3 +96,5 @@ D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI.Properties.Resources.resources
 D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI.csproj.GenerateResource.Cache
 D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI.exe
 D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI.pdb
+D:\InventRX\InventRX.UI\obj\Debug\Views\SoumissionView.baml
+D:\InventRX\InventRX.UI\obj\Debug\Views\SoumissionView.g.cs

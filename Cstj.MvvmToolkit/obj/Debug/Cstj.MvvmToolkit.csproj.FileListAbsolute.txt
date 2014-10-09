@@ -30,5 +30,6 @@ H:\Bureau\InventRX - Solution originale\Cstj.MvvmToolkit\obj\Debug\Cstj.MvvmTool
 H:\Bureau\InventRX - Solution originale\Cstj.MvvmToolkit\obj\Debug\Cstj.MvvmToolkit.pdb
 D:\InventRX\Cstj.MvvmToolkit\bin\Debug\Cstj.MvvmToolkit.dll
 D:\InventRX\Cstj.MvvmToolkit\bin\Debug\Cstj.MvvmToolkit.pdb
+D:\InventRX\Cstj.MvvmToolkit\obj\Debug\Cstj.MvvmToolkit.csprojResolveAssemblyReference.cache
 D:\InventRX\Cstj.MvvmToolkit\obj\Debug\Cstj.MvvmToolkit.dll
 D:\InventRX\Cstj.MvvmToolkit\obj\Debug\Cstj.MvvmToolkit.pdb

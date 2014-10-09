@@ -71,8 +71,12 @@
     </Compile>
     <Compile Include="ViewModel\ConnexionViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\SoumissionViewModel.cs" />
     <Compile Include="Views\ConnexionView.xaml.cs">
       <DependentUpon>ConnexionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SoumissionView.xaml.cs">
+      <DependentUpon>SoumissionView.xaml</DependentUpon>
     </Compile>
     <Page Include="ConnexionWindow.xaml">
       <SubType>Designer</SubType>
@@ -91,6 +95,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\ConnexionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SoumissionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

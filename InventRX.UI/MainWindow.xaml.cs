@@ -14,6 +14,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Data;
 
 namespace InventRX.UI
 {
@@ -28,25 +29,6 @@ namespace InventRX.UI
 
         private ISoumissionService _soumissionService;
         public RetrieveSoumissionArgs RetrieveSoumissionArgs { get; set; }
-        /*private ObservableCollection<Soumission> _soumissions = new ObservableCollection<Soumission>();
-
-        public ObservableCollection<Soumission> Soumissions
-        {
-            get
-            {
-                return _soumissions;
-            }
-
-            set
-            {
-                if (_soumissions == value)
-                {
-                    return;
-                }
-                _soumissions = value;
-            }
-        }*/
-
         public IList<Soumission> ListeSoumissions { get; set; } 
 
         #endregion
@@ -70,7 +52,6 @@ namespace InventRX.UI
 
             //Charge la liste de toutes les soumissions
             _soumissionService = ServiceFactory.Instance.GetService<ISoumissionService>();
-            //Soumissions = new ObservableCollection<Soumission>(_soumissionService.RetrieveAll());
             RetrieveSoumissionArgs = new RetrieveSoumissionArgs();
             ListeSoumissions = _soumissionService.RetrieveAll();
             datagridListeSoumissions.ItemsSource = ListeSoumissions;
@@ -114,6 +95,28 @@ namespace InventRX.UI
             }
         }
         #endregion
+
+
+        private void datagridListeSoumissions_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Soumission soumissionSelectionnee = (datagridListeSoumissions.SelectedItem as Soumission);
+
+            MainViewModel nouveauViewModel = new MainViewModel();
+            nouveauViewModel.CurrentView = new SoumissionView();
+            
+            ContentPresenter contentPresenter = new ContentPresenter();
+
+            Binding myBinding = new Binding("soumission" + soumissionSelectionnee .IdSoumission+ "Data");
+            myBinding.Source = nouveauViewModel.CurrentView;
+            contentPresenter.Content = myBinding.Source;
+
+            TabItem nouvelleTab = new TabItem();
+            nouvelleTab.Header = "Soumission #" + soumissionSelectionnee.IdSoumission;
+            nouvelleTab.Content = contentPresenter;
+            nouvelleTab.DataContext = nouveauViewModel;
+            TabControlPrincipalDetails.Items.Add(nouvelleTab);
+            TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+        }
 
     }
 }

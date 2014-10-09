@@ -34,7 +34,7 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- Tabulation du centre de la fenêtre principale -->
-                    <TabControl Margin="0,0,5,0">
+                    <TabControl Name="TabControlPrincipalDetails"  Margin="0,0,5,0">
                         <TabControl.Resources>
                             <Style TargetType="TabItem">
                                 <Setter Property="FontSize" Value="12" />
@@ -43,14 +43,14 @@
                                 <EventSetter Event="Drop" Handler="TabItem_Drop"/>
                             </Style>
                         </TabControl.Resources>
-                        <TabItem Header="Test1">
+                        <!--<TabItem Header="Test1">
                             <Grid Background="#FFE5E5E5">
                                 <ContentPresenter Content="{Binding CurrentView}" Margin="10"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Test2">
                             <Grid Background="#FFE5E5E5"/>
-                        </TabItem>
+                        </TabItem>-->
                     </TabControl>
 
 
@@ -110,13 +110,21 @@
                             <Grid Background="#FFE5E5E5">
                                 <DockPanel LastChildFill="True">
                                     <Grid x:Name="ResultatsMenuSoumissions" Background="White">
-                                        <DataGrid x:Name="datagridListeSoumissions"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False">
+                                        <DataGrid x:Name="datagridListeSoumissions"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeSoumissions_MouseDoubleClick">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Numero" Width="55" IsReadOnly="True" Binding="{Binding IdSoumission, StringFormat='{}#{0}'}"/>
                                                 <DataGridTextColumn Header="Date" Width="50" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
                                                 <DataGridTextColumn Header="Client" Width="50" IsReadOnly="True" Binding="{Binding Client}" />
                                                 <DataGridTextColumn Header="Employé" Width="55" IsReadOnly="True" Binding="{Binding Employe}" />
                                             </DataGrid.Columns>
+                                            <DataGrid.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Delete" >
+                             
+                                                    </MenuItem>
+                                                </ContextMenu>
+                                            </DataGrid.ContextMenu>
+
                                         </DataGrid>
                                         <!--<ScrollViewer>
                                             <StackPanel>
