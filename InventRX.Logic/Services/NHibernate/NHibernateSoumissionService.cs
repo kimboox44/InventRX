@@ -33,6 +33,29 @@ namespace InventRX.Logic.Services.NHibernate
             return result.FirstOrDefault();
         }
 
+        public void Update(Soumission soumission)
+        {
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Update(soumission);
+                transaction.Commit();
+                //try
+                //{
+
+                //    session.Update(soumission);
+                //    transaction.Commit();
+                //}
+                //catch (Exception e)
+                //{
+                //    transaction.Rollback();
+
+                //}
+                //finally {
+                //    transaction.Dispose();
+                //}
+            }
+        }
+
         #endregion
     }
 }

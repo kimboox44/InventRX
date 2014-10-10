@@ -11,7 +11,7 @@ namespace InventRX.Services.Definitions
     public interface ISoumissionService
     {
         IList<Soumission> RetrieveAll();
-        //IList<Client> Retrieve(RetrieveSoumissionArgs args);
         Soumission Retrieve(RetrieveSoumissionArgs args);
+        void Update(Soumission soumission);
     }
 }

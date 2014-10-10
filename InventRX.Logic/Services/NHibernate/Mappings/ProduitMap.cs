@@ -52,7 +52,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .CustomType<double>()
                 .Access.Property()
                 .Generated.Never()
-                .CustomSqlType("DOUBLE");
+                .CustomSqlType("DECIMAL");
 
                 Map(x => x.Quantite)
                 .Column("quantite")

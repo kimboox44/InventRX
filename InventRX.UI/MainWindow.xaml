@@ -108,7 +108,7 @@
                                                     </MenuItem>
                                                 </ContextMenu>
                                             </DataGrid.ContextMenu>
-                                        </DataGrid>                                     
+                                        </DataGrid>
                                     </Grid>
                                 </DockPanel>
                             </Grid>
@@ -135,7 +135,7 @@
                             <Grid Background="#FFE5E5E5">
                                 <DockPanel LastChildFill="True">
                                     <Grid x:Name="ResultatsMenuSoumissions" Background="White">
-                                        <DataGrid x:Name="datagridListeSoumissions"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeSoumissions_MouseDoubleClick">
+                                        <DataGrid x:Name="datagridListeSoumissions"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeSoumissions_MouseDoubleClick" Margin="0,0,0,38">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Numero" Width="55" IsReadOnly="True" Binding="{Binding IdSoumission, StringFormat='{}#{0}'}"/>
                                                 <DataGridTextColumn Header="Date" Width="50" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
@@ -151,6 +151,7 @@
                                             </DataGrid.ContextMenu>
 
                                         </DataGrid>
+                                        <Button x:Name="boutonNouvelleSoumission" Content="Nouvelle soumission" Margin="55,0,68,10" VerticalAlignment="Bottom" Click="boutonNouvelleSoumission_Click"/>
                                         <!--<ScrollViewer>
                                             <StackPanel>
                                                 <Button DockPanel.Dock="Top" Content="John Doe" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="180"/>

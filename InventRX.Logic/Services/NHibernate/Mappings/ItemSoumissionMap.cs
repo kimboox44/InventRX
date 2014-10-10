@@ -21,12 +21,13 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .CustomSqlType("INTEGER")
                 .Not.Nullable()
                 .GeneratedBy.Identity();
+
             Map(x => x.NomProduit)
-            .Column("nomProduit")
-            .CustomType<string>()
-            .Access.Property()
-            .Generated.Never()
-            .CustomSqlType("VARCHAR");
+                .Column("nomProduit")
+                .CustomType<string>()
+                .Access.Property()
+                .Generated.Never()
+                .CustomSqlType("VARCHAR");
 
             Map(x => x.Quantite)
               .Column("quantite")
@@ -35,7 +36,6 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
               .Generated.Never()
               .CustomSqlType("INTEGER");
 
-
             Map(x => x.PrixUnitaire)
                .Column("prixUnitaire")
                .CustomType<double>()
@@ -43,13 +43,20 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                .Generated.Never()
                .CustomSqlType("DECIMAL");
 
+          /* References(v => v.Produit)
+                .Class<Produit>()
+                .Access.Property()
+                .LazyLoad(Laziness.False)
+                .Cascade.None()
+                .Columns("id");
+           * */
 
-                References(v => v.Soumission)
-                    .Class<Soumission>()
-                    .Access.Property()
-                    .LazyLoad(Laziness.False)
-                    .Cascade.None()
-                    .Columns("id");
+            References(v => v.Soumission)
+                .Class<Soumission>()
+                .Access.Property()
+                .LazyLoad(Laziness.False)
+                .Cascade.None()
+                .Columns("id");
         }
 
     }

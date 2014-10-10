@@ -41,7 +41,12 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Cascade.None()
                 .Columns("idEmploye");
 
-            HasMany(x => x.ItemsSoumission).KeyColumn("idSoumission").Inverse().Cascade.All();
+            HasMany(x => x.ItemsSoumission)
+                .Not.LazyLoad()
+                .Access.Property()
+                .KeyColumn("idSoumission")
+                .Inverse()
+                .Cascade.All();
         }
     }
 }

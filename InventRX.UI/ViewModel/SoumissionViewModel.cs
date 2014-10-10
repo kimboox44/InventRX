@@ -16,9 +16,19 @@ namespace InventRX.UI.ViewModel
         private ISoumissionService _soumissionService;
         private Soumission _soumission;
 
+        private IProduitService _produiService;
+        public RetrieveProduitArgs RetrieveProduitArgs { get; set; }
+        public IList<Produit> ListeProduits { get; set; }
+
         public SoumissionViewModel()
         {
             _soumissionService = ServiceFactory.Instance.GetService<ISoumissionService>();
+            ItemsSoumission = new ObservableCollection<ItemSoumission>(ServiceFactory.Instance.GetService<IItemSoumissionService>().RetrieveAll());
+            
+            //Charge la liste des produits
+            _produiService = ServiceFactory.Instance.GetService<IProduitService>();
+            RetrieveProduitArgs = new RetrieveProduitArgs();
+            ListeProduits = _produiService.RetrieveAll();
         }
 
         public Soumission Soumission
@@ -38,14 +48,30 @@ namespace InventRX.UI.ViewModel
             }
         }
 
+        private ObservableCollection<ItemSoumission> _itemsSoumission = new ObservableCollection<ItemSoumission>();
+
+        public ObservableCollection<ItemSoumission> ItemsSoumission
+        {
+            get
+            {
+                return _itemsSoumission;
+            }
+
+            set
+            {
+                if (_itemsSoumission == value)
+                {
+                    return;
+                }
+
+                _itemsSoumission = value;
+            }
+        }
+
 
         public void SauvegarderCommand()
         {
-            /*Soumission.Visites.Where(v => v.Maison == null).ToList().ForEach(v => v.Maison = Maison);
-            _maisonService.Update(Maison);
-
-            IApplicationService appService = ServiceFactory.Instance.GetService<IApplicationService>();
-            appService.ChangeView<RechercheView>(new RechercheView());*/
+            _soumissionService.Update(Soumission);
         }
       
 

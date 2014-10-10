@@ -11,17 +11,24 @@
         </Grid.ColumnDefinitions>
         <Label Name="labelNumeroSoumission" Content="{Binding Soumission.IdSoumission}" HorizontalAlignment="Left" Margin="87,10,0,0" VerticalAlignment="Top" Width="87" Height="26"/>
         <Label Content="Soumission #" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="83" Height="26"/>
-        <DataGrid x:Name="datagridListeItemsSoumission" Margin="10,87,11,10" ItemsSource="{ Binding ItemsSoumission }" AutoGenerateColumns="False">
+        <DataGrid x:Name="datagridListeItemsSoumission" Margin="10,87,11,10" ItemsSource="{ Binding Soumission.ItemsSoumission, UpdateSourceTrigger=PropertyChanged }" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Produit" Width="auto" IsReadOnly="True" Binding="{Binding NomProduit}" />
-                <DataGridTextColumn Header="Quantité" Width="auto" IsReadOnly="True" Binding="{Binding Quantite}" />
-                <DataGridTextColumn Header="Prix unitaire" Width="auto" IsReadOnly="True" Binding="{Binding PrixUnitaire}" />
+                <DataGridTextColumn Header="Quantité" Width="auto" IsReadOnly="False" Binding="{Binding Quantite}" />
+                <DataGridTextColumn Header="Prix unitaire" Width="auto" IsReadOnly="False" Binding="{Binding PrixUnitaire}" />
             </DataGrid.Columns>
         </DataGrid>
-        <ListBox Margin="10,87,19,10" Grid.Column="1"/>
+        <DataGrid x:Name="datagridListeProduits" Margin="11,87,10,34" ItemsSource="{ Binding ListeProduits }" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1" MouseDoubleClick="datagridListeProduits_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Produit" Width="auto" IsReadOnly="True" Binding="{Binding Nom}" />
+                <DataGridTextColumn Header="Prix" Width="auto" IsReadOnly="True" Binding="{Binding Prix}" />
+                <DataGridTextColumn Header="Stock" Width="auto" IsReadOnly="True"  Binding="{Binding Quantite}" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Label Content="Nom" HorizontalAlignment="Left" Margin="210,8,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="254,10,0,0" TextWrapping="Wrap"  Text="{Binding Soumission.Client.Nom}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="254,39,0,0" TextWrapping="Wrap"  Text="{Binding Soumission.Client.Prenom}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="254,10,0,0" TextWrapping="Wrap"  Text="{Binding Soumission.Client.Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="254,39,0,0" TextWrapping="Wrap"  Text="{Binding Soumission.Client.Prenom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Prénom" HorizontalAlignment="Left" Margin="195,36,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="1" Grid.Row="0" Margin="10,0,10,10" Content="Sauvegarder" Click="btnSauvegarder_Click" Height="19" VerticalAlignment="Bottom" />
     </Grid>
 </UserControl>

@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Model\Args\RetrieveClientArgs.cs" />
     <Compile Include="Model\Args\RetrieveCommandeArgs.cs" />
+    <Compile Include="Model\Args\RetrieveItemSoumissionArgs.cs" />
     <Compile Include="Model\Args\RetrieveProduitArgs.cs" />
     <Compile Include="Model\Args\RetrieveSoumissionArgs.cs" />
     <Compile Include="Model\Entities\ItemSoumission.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Definitions\IClientService.cs" />
     <Compile Include="Services\Definitions\ICommandeService.cs" />
+    <Compile Include="Services\Definitions\IItemSoumissionService.cs" />
     <Compile Include="Services\Definitions\IProduitService.cs" />
     <Compile Include="Services\Definitions\ISoumissionService.cs" />
     <Compile Include="Services\Helpers\MySqlConnexion.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Services\NHibernate\Mappings\SoumissionMap.cs" />
     <Compile Include="Services\NHibernate\NHibernateClientService.cs" />
     <Compile Include="Services\NHibernate\NHibernateCommandeService.cs" />
+    <Compile Include="Services\NHibernate\NHibernateItemSoumissionService.cs" />
     <Compile Include="Services\NHibernate\NHibernateProduitService.cs" />
     <Compile Include="Services\NHibernate\NHibernateSoumissionService.cs" />
     <Compile Include="Services\Simples\SimpleClientService.cs" />

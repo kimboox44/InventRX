@@ -35,6 +35,7 @@ namespace InventRX.UI
         private void ChargerSoumissions()
         {
             ServiceFactory.Instance.Register<ISoumissionService, NHibernateSoumissionService>(new NHibernateSoumissionService());
+            ServiceFactory.Instance.Register<IItemSoumissionService, NHibernateItemSoumissionService>(new NHibernateItemSoumissionService());
             //Charge la liste de toutes les soumissions
             _soumissionService = ServiceFactory.Instance.GetService<ISoumissionService>();
             RetrieveSoumissionArgs = new RetrieveSoumissionArgs();
@@ -79,6 +80,41 @@ namespace InventRX.UI
                 TabControlPrincipalDetails.Items.Add(nouvelleTab);
                 TabControlPrincipalDetails.SelectedItem = nouvelleTab;
             }
+        }
+
+        private void boutonNouvelleSoumission_Click(object sender, RoutedEventArgs e)
+        {
+            Soumission newSoumission = new Soumission();
+            Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Soumission", newSoumission } };
+
+            MainViewModel nouveauViewModel = new MainViewModel();
+            nouveauViewModel.CurrentView = new SoumissionView(parameters);
+
+            ContentPresenter contentPresenter = new ContentPresenter();
+
+            Binding myBinding = new Binding("soumission" + newSoumission.IdSoumission + "Data");
+            myBinding.Source = nouveauViewModel.CurrentView;
+            contentPresenter.Content = myBinding.Source;
+
+            //Ajout du contentPresenter dans un scrollviewer pour pouvoir scroller à l'interieur
+            ScrollViewer newScrollViewer = new ScrollViewer();
+            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+            newScrollViewer.Content = contentPresenter;
+
+            //Création d'un nouveau item
+            TabItem nouvelleTab = new TabItem();
+            nouvelleTab.Header = "Nouvelle soumission";
+            nouvelleTab.Content = newScrollViewer;
+
+            //Sans scrollviewer
+            //nouvelleTab.Content = contentPresenter;
+
+            nouvelleTab.DataContext = nouveauViewModel;
+
+            //Ajout de l'item à la tab control
+            TabControlPrincipalDetails.Items.Add(nouvelleTab);
+            TabControlPrincipalDetails.SelectedItem = nouvelleTab;
         }
 
         #endregion
@@ -230,6 +266,7 @@ namespace InventRX.UI
             }
         }
         #endregion
+
 
     }
 }
