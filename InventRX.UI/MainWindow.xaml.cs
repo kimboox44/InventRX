@@ -267,6 +267,5 @@ namespace InventRX.UI
         }
         #endregion
 
-
     }
 }
