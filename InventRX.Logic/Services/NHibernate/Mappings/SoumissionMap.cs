@@ -45,7 +45,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
             HasMany<ItemSoumission>(x => x.ItemsSoumission)
                 .KeyColumn("idSoumission")
                 .Inverse()
-                .Cascade.All();
+                .Cascade.AllDeleteOrphan();
         }
     }
 }

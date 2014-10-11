@@ -60,20 +60,47 @@ namespace InventRX.UI.Views
 
         private void datagridListeProduits_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            bool exist = false;
             Produit produitSelectionne = (datagridListeProduits.SelectedItem as Produit);
 
             if (produitSelectionne != null)
             {
-                ItemSoumission newItemSoumission = new ItemSoumission();
-                newItemSoumission.Soumission = ViewModel.Soumission;
-                newItemSoumission.Produit = produitSelectionne;
-                newItemSoumission.NomProduit = produitSelectionne.Nom;
-                newItemSoumission.Quantite = 1;
-                newItemSoumission.PrixUnitaire = produitSelectionne.Prix;
+                //Si le produit existe déjà dans les produits de la soumission, on incrémente de 1 la quantité de celui-ci
+                foreach (ItemSoumission item in ViewModel.Soumission.ItemsSoumission)
+                {
+                    if(item.Produit.IdProduit == produitSelectionne.IdProduit)
+                    {
+                        item.Quantite = item.Quantite + 1;
+                        exist = true;
+                        break;
+                    }
+                }
+                //Si le produit n'existe pas dans les produits de la soumission, on l'ajoute
+                if (exist == false)
+                {
+                    ItemSoumission newItemSoumission = new ItemSoumission();
+                    newItemSoumission.Soumission = ViewModel.Soumission;
+                    newItemSoumission.Produit = produitSelectionne;
+                    newItemSoumission.NomProduit = produitSelectionne.Nom;
+                    newItemSoumission.Quantite = 1;
+                    newItemSoumission.PrixUnitaire = produitSelectionne.Prix;
+                    if (datagridListeItemsSoumission.ItemsSource != null)
+                    {
+                        ViewModel.Soumission.ItemsSoumission.Add(newItemSoumission);
+                    }
+                }
+                datagridListeItemsSoumission.Items.Refresh();
+            }
+        }
 
+        private void btnSupprimerItem_Click(object sender, RoutedEventArgs e)
+        {
+            ItemSoumission item = (ItemSoumission)((sender as Button).CommandParameter);
+            if (item != null)
+            {
                 if (datagridListeItemsSoumission.ItemsSource != null)
                 {
-                    ViewModel.Soumission.ItemsSoumission.Add(newItemSoumission);
+                    ViewModel.Soumission.ItemsSoumission.Remove(item);
                     datagridListeItemsSoumission.Items.Refresh();
                 }
             }

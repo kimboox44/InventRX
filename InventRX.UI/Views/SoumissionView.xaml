@@ -16,6 +16,20 @@
                 <DataGridTextColumn Header="Produit" Width="auto" IsReadOnly="True" Binding="{Binding NomProduit}" />
                 <DataGridTextColumn Header="Quantité" Width="auto" IsReadOnly="False" Binding="{Binding Quantite}" />
                 <DataGridTextColumn Header="Prix unitaire" Width="auto" IsReadOnly="False" Binding="{Binding PrixUnitaire}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnSupprimerItem" Click="btnSupprimerItem_Click" CommandParameter="{Binding}">Supprimer</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <!--<DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button>Details</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="datagridListeProduits" Margin="11,87,10,34" ItemsSource="{ Binding ListeProduits }" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1" MouseDoubleClick="datagridListeProduits_MouseDoubleClick">
