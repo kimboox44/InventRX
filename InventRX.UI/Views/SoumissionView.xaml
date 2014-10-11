@@ -39,10 +39,12 @@
                 <DataGridTextColumn Header="Stock" Width="auto" IsReadOnly="True"  Binding="{Binding Quantite}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Nom" HorizontalAlignment="Left" Margin="210,8,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nom" HorizontalAlignment="Left" Margin="215,10,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="254,10,0,0" TextWrapping="Wrap"  Text="{Binding Soumission.Client.Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="254,39,0,0" TextWrapping="Wrap"  Text="{Binding Soumission.Client.Prenom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Prénom" HorizontalAlignment="Left" Margin="195,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="Prénom" HorizontalAlignment="Left" Margin="200,36,0,0" VerticalAlignment="Top"/>
         <Button Grid.Column="1" Grid.Row="0" Margin="10,0,10,10" Content="Sauvegarder" Click="btnSauvegarder_Click" Height="19" VerticalAlignment="Bottom" />
+        <Label Content="Téléphone" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="75,41,0,0" TextWrapping="Wrap"  Text="{Binding Soumission.Client.Telephone, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </UserControl>
