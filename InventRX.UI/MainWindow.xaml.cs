@@ -44,40 +44,59 @@ namespace InventRX.UI
 
         private void datagridListeSoumissions_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            bool exist = false;
             Soumission soumissionSelectionnee = (datagridListeSoumissions.SelectedItem as Soumission);
 
             if(soumissionSelectionnee != null)
-            { 
-                Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Soumission", soumissionSelectionnee } };
+            {
+                //Desélectionne la soumission
+                datagridListeSoumissions.SelectedItem = null;
 
-                MainViewModel nouveauViewModel = new MainViewModel();
-                nouveauViewModel.CurrentView = new SoumissionView(parameters);
+                //Si la soumission est déjà ouverte dans une tab, on focus dessus
+                foreach (TabItem tab in TabControlPrincipalDetails.Items)
+                {
+                    if (tab.Header.ToString() == ("Soumission #" + soumissionSelectionnee.IdSoumission).ToString())
+                    {
+                        TabControlPrincipalDetails.SelectedItem = tab;
+                        exist = true;
+                        break;
+                    }
+                }
 
-                ContentPresenter contentPresenter = new ContentPresenter();
+                //Si la soumission n'est pas déjà ouverte, on l'ouvre
+                if (exist == false)
+                {
+                    Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Soumission", soumissionSelectionnee } };
 
-                Binding myBinding = new Binding("soumission" + soumissionSelectionnee.IdSoumission + "Data");
-                myBinding.Source = nouveauViewModel.CurrentView;
-                contentPresenter.Content = myBinding.Source;
+                    MainViewModel nouveauViewModel = new MainViewModel();
+                    nouveauViewModel.CurrentView = new SoumissionView(parameters);
 
-                //Ajout du cont
-                ScrollViewer newScrollViewer = new ScrollViewer();
-                newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
-                newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
-                newScrollViewer.Content = contentPresenter;
+                    ContentPresenter contentPresenter = new ContentPresenter();
 
-                //Création d'un nouveau item
-                TabItem nouvelleTab = new TabItem();
-                nouvelleTab.Header = "Soumission #" + soumissionSelectionnee.IdSoumission;
-                nouvelleTab.Content = newScrollViewer;
+                    Binding myBinding = new Binding("soumission" + soumissionSelectionnee.IdSoumission + "Data");
+                    myBinding.Source = nouveauViewModel.CurrentView;
+                    contentPresenter.Content = myBinding.Source;
 
-                //Sans scrollviewer
-                //nouvelleTab.Content = contentPresenter;
+                    //Ajout du cont
+                    ScrollViewer newScrollViewer = new ScrollViewer();
+                    newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+                    newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+                    newScrollViewer.Content = contentPresenter;
 
-                nouvelleTab.DataContext = nouveauViewModel;
+                    //Création d'un nouveau item
+                    TabItem nouvelleTab = new TabItem();
+                    nouvelleTab.Header = "Soumission #" + soumissionSelectionnee.IdSoumission;
+                    nouvelleTab.Content = newScrollViewer;
 
-                //Ajout de l'item à la tab control
-                TabControlPrincipalDetails.Items.Add(nouvelleTab);
-                TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+                    //Sans scrollviewer
+                    //nouvelleTab.Content = contentPresenter;
+
+                    nouvelleTab.DataContext = nouveauViewModel;
+
+                    //Ajout de l'item à la tab control
+                    TabControlPrincipalDetails.Items.Add(nouvelleTab);
+                    TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+                }
             }
         }
 
