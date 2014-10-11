@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\InventRX\InventRX.UI\obj\Debug\
+F:\InventRX\InventRX.UI\obj\Debug\
 InventRX.UI
 none
 false
 DEBUG;TRACE
-D:\InventRX\InventRX.UI\App.xaml
-41248569792
+F:\InventRX\InventRX.UI\App.xaml
+6-1167598562
 
-151991535122
-191390723681
-ConnexionWindow.xaml;MainWindow.xaml;Views\ConnexionView.xaml;Views\SoumissionView.xaml;
+181560698538
+19-978831373
+ConnexionWindow.xaml;MainWindow.xaml;Views\ClientView.xaml;Views\CommandeView.xaml;Views\ConnexionView.xaml;Views\SoumissionView.xaml;
 
 False
 
