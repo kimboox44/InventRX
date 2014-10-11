@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using NHibernate.Linq;
 using System.Threading.Tasks;
-using InventRX.Logic.Services.Definitions;
 
 namespace InventRX.Logic.Services.NHibernate
 {

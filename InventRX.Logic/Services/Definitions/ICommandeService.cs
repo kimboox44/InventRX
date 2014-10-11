@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using InventRX.Logic.Model.Args;
 using InventRX.Logic.Model.Entities;
 
-namespace InventRX.Logic.Services.Definitions
+namespace InventRX.Services.Definitions
 {
     public interface ICommandeService
     {
