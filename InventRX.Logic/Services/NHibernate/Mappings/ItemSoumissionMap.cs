@@ -43,20 +43,19 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                .Generated.Never()
                .CustomSqlType("DECIMAL");
 
-          /* References(v => v.Produit)
-                .Class<Produit>()
-                .Access.Property()
-                .LazyLoad(Laziness.False)
-                .Cascade.None()
-                .Columns("id");
-           * */
+            References(v => v.Produit)
+                 .Class<Produit>()
+                 .Access.Property()
+                 .LazyLoad(Laziness.False)
+                 .Cascade.None()
+                 .Columns("idProduit");
 
             References(v => v.Soumission)
-                .Class<Soumission>()
-                .Access.Property()
-                .LazyLoad(Laziness.False)
-                .Cascade.None()
-                .Columns("id");
+                 .Class<Soumission>()
+                 .Access.Property()
+                 .LazyLoad(Laziness.False)
+                 .Cascade.None()
+                 .Columns("idSoumission");
         }
 
     }

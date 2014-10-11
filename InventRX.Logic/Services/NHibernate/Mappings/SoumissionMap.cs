@@ -34,6 +34,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .LazyLoad(Laziness.False)
                 .Cascade.None()
                 .Columns("idClient");
+
             References(v => v.Employe)
                 .Class<Employe>()
                 .Access.Property()
@@ -41,9 +42,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Cascade.None()
                 .Columns("idEmploye");
 
-            HasMany(x => x.ItemsSoumission)
-                .Not.LazyLoad()
-                .Access.Property()
+            HasMany<ItemSoumission>(x => x.ItemsSoumission)
                 .KeyColumn("idSoumission")
                 .Inverse()
                 .Cascade.All();
