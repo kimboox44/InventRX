@@ -13,13 +13,30 @@ namespace InventRX.UI.ViewModel
 {
     public class ClientViewModel : BaseViewModel
     {
+        private IClientService _clientService;
+        private Client _client;
+        public RetrieveProduitArgs RetrieveProduitArgs { get; set; }
+
         public ClientViewModel()
         {
+            _clientService = ServiceFactory.Instance.GetService<IClientService>();
+        }
 
+        public Client Client
+        {
+            get
+            {
+                return _client; 
+            }
+            set 
+            {
+                if(_client == value)
+                    return;
+                _client = value ;
+            }
         }
 
         private UserControl _currentView;
-
         public UserControl CurrentView
         {
             get

@@ -124,7 +124,7 @@
                                     <ColumnDefinition Width="43*"/>
                                 </Grid.ColumnDefinitions>
                                 <DockPanel LastChildFill="True" Grid.ColumnSpan="2">
-                                    <DataGrid x:Name="datagridListeClients" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                                    <DataGrid x:Name="datagridListeClients" MouseDoubleClick="datagridListeClients_MouseDoubleClick" ItemsSource="{Binding}" AutoGenerateColumns="False">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
                                             <DataGridTextColumn Header="Prénom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prenom}" />

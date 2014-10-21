@@ -213,11 +213,17 @@ namespace InventRX.UI
 
         private void datagridListeClients_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+        //TODO : Gerer si la tabulation est deja ouverte pour ce client
             Client clientSelectionnee = (datagridListeClients.SelectedItem as Client);
+            if(clientSelectionnee != null)
+            {
+                datagridListeClients.SelectedItem=null;
 
+            }
+            Dictionary<string, object> parameters = new Dictionary<string,object>() {{"Client", clientSelectionnee}};
+            //TODO : Enlever la creation de new mainviewmodel et client view
             MainViewModel nouveauViewModel = new MainViewModel();
-            nouveauViewModel.CurrentView = new ClientView();
-
+            nouveauViewModel.CurrentView = new ClientView(parameters);
             ContentPresenter contentPresenter = new ContentPresenter();
 
             Binding myBinding = new Binding("client" + clientSelectionnee.IdClient + "Data");

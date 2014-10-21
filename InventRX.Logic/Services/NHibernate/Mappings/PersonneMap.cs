@@ -48,6 +48,12 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 Table("Clients");
                 LazyLoad();
                 KeyColumn("id");
+                Map(x => x.Solde)
+                    .Column("solde")
+                    .CustomType<double>()
+                    .Access.Property()
+                    .Generated.Never()
+                    .CustomSqlType("VARCHAR");
             }
 
         }

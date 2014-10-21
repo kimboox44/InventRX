@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InventRX.Logic.Model.Args;
+using InventRX.Logic.Model.Entities;
+using InventRX.Services.Definitions;
+using InventRX.UI.ViewModel;
 
 namespace InventRX.UI.Views
 {
@@ -20,9 +24,19 @@ namespace InventRX.UI.Views
     /// </summary>
     public partial class ClientView : UserControl
     {
+        public ClientViewModel ViewModel { get { return (ClientViewModel)DataContext; } }
+        private IClientService _clientService;
+        public RetrieveClientArgs RetrieveClientArgs { get; set; }
+        public Client Client { get; set; }
+
         public ClientView()
         {
             InitializeComponent();
+            DataContext = new ClientViewModel();
+        }
+        public ClientView(IDictionary<string,object> parameters):this()
+        {
+            ViewModel.Client = parameters["Client"] as Client;
         }
     }
 }
