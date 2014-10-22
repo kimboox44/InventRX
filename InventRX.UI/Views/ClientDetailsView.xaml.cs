@@ -22,19 +22,19 @@ namespace InventRX.UI.Views
     /// <summary>
     /// Logique d'interaction pour ClientView.xaml
     /// </summary>
-    public partial class ClientView : UserControl
+    public partial class ClientDetailsView : UserControl
     {
-        public ClientViewModel ViewModel { get { return (ClientViewModel)DataContext; } }
+        public ClientDetailsViewModel ViewModel { get { return (ClientDetailsViewModel)DataContext; } }
         private IClientService _clientService;
         public RetrieveClientArgs RetrieveClientArgs { get; set; }
         public Client Client { get; set; }
 
-        public ClientView()
+        public ClientDetailsView()
         {
             InitializeComponent();
-            DataContext = new ClientViewModel();
+            DataContext = new ClientDetailsViewModel();
         }
-        public ClientView(IDictionary<string,object> parameters):this()
+        public ClientDetailsView(IDictionary<string,object> parameters):this()
         {
             ViewModel.Client = parameters["Client"] as Client;
         }

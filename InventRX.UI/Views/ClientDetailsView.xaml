@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="InventRX.UI.Views.ClientDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="529" Width="770">
+    <DockPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="770">        
+        <Label Content="Client #"/>
+        <Label Name="labelNumeroClient" Content="{Binding Client.idClient}"/>
+        <Label Content="Nom"/>
+        <TextBox TextWrapping="Wrap"  Width="150"  Text="{Binding Client.Nom, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Prénom"/>
+        <TextBox TextWrapping="Wrap"  Width="150"  Text="{Binding Client.Prenom, UpdateSourceTrigger=PropertyChanged}"/>      
+        <Label Content="Téléphone"/>
+        <TextBox TextWrapping="Wrap"  Width="150"  Text="{Binding Client.Telephone, UpdateSourceTrigger=PropertyChanged}"/>
+    </DockPanel>
+</UserControl>

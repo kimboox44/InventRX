@@ -24,21 +24,21 @@ namespace InventRX.UI.Views
     /// <summary>
     /// Logique d'interaction pour SoumissionView.xaml
     /// </summary>
-    public partial class SoumissionView : UserControl
+    public partial class SoumissionDetailsView : UserControl
     {
-        public SoumissionViewModel ViewModel { get { return (SoumissionViewModel)DataContext; } }
+        public SoumissionDetailsViewModel ViewModel { get { return (SoumissionDetailsViewModel)DataContext; } }
 
         private IClientService _clientService;
         public RetrieveClientArgs RetrieveClientArgs { get; set; }
         public Client Client { get; set; }
 
-        public SoumissionView()
+        public SoumissionDetailsView()
         {
             InitializeComponent();
-            DataContext = new SoumissionViewModel();
+            DataContext = new SoumissionDetailsViewModel();
         }
 
-        public SoumissionView(IDictionary<string,object> parameters):this()
+        public SoumissionDetailsView(IDictionary<string,object> parameters):this()
         {
             ViewModel.Soumission = parameters["Soumission"] as Soumission;
         }
