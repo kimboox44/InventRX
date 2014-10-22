@@ -11,7 +11,7 @@ using System.Windows.Controls;
 
 namespace InventRX.UI.ViewModel
 {
-    public class SoumissionViewModel : BaseViewModel
+    public class SoumissionDetailsViewModel : BaseViewModel
     {
         private ISoumissionService _soumissionService;
         private Soumission _soumission;
@@ -20,7 +20,7 @@ namespace InventRX.UI.ViewModel
         public RetrieveProduitArgs RetrieveProduitArgs { get; set; }
         public IList<Produit> ListeProduits { get; set; }
 
-        public SoumissionViewModel()
+        public SoumissionDetailsViewModel()
         {
             _soumissionService = ServiceFactory.Instance.GetService<ISoumissionService>();
             ItemsSoumission = new ObservableCollection<ItemSoumission>(ServiceFactory.Instance.GetService<IItemSoumissionService>().RetrieveAll());
