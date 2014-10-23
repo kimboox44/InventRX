@@ -1,27 +1,35 @@
-﻿using System;
+﻿using Cstj.MvvmToolkit.Services;
+using Cstj.MvvmToolkit.Services.Definitions;
+using InventRX.Logic.Model.Args;
+using InventRX.Logic.Model.Entities;
+using InventRX.Logic.Services.NHibernate;
+using InventRX.Services;
+using InventRX.Services.Definitions;
+using InventRX.UI.ViewModel;
+using InventRX.UI.Views;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Windows.Data;
 
 namespace InventRX.UI
 {
     /// <summary>
-    /// Interaction logic for MainWindowTest.xaml
+    /// Logique d'interaction pour MainWindowTest.xaml
     /// </summary>
     public partial class MainWindowTest : Window
     {
+        public MainViewModel ViewModel { get { return (MainViewModel)DataContext; } }
+
         public MainWindowTest()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
+            ViewModel.CurrentView = new PrincipaleView();
         }
     }
 }

@@ -69,22 +69,19 @@
     <Compile Include="MainWindowTest.xaml.cs">
       <DependentUpon>MainWindowTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\PrincipaleViewModel.cs" />
     <Compile Include="ViewModels\Principale\Details\ClientDetailsViewModel.cs" />
     <Compile Include="ViewModels\Principale\Menu\ClientMenuViewModel.cs" />
     <Compile Include="ViewModels\ConnexionViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Principale\Details\SoumissionDetailsViewModel.cs" />
     <Compile Include="ViewModels\TabAdministrationViewModel.cs" />
-    <Compile Include="ViewModels\TabPrincipaleViewModel.cs" />
     <Compile Include="ViewModels\TabProduitsViewModel.cs" />
+    <Compile Include="Views\PrincipaleView.xaml.cs">
+      <DependentUpon>PrincipaleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Principale\Details\ClientDetailsView.xaml.cs">
       <DependentUpon>ClientDetailsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Principale\Menu\ClientMenuView.xaml.cs">
-      <DependentUpon>ClientMenuView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Principale\Menu\CommandeMenuView.xaml.cs">
-      <DependentUpon>CommandeMenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Principale\Details\CommandeDetailsView.xaml.cs">
       <DependentUpon>CommandeDetailsView.xaml</DependentUpon>
@@ -94,15 +91,6 @@
     </Compile>
     <Compile Include="Views\Principale\Details\SoumissionDetailsView.xaml.cs">
       <DependentUpon>SoumissionDetailsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TabAdministrationView.xaml.cs">
-      <DependentUpon>TabAdministrationView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TabPrincipaleView.xaml.cs">
-      <DependentUpon>TabPrincipaleView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TabProduitsView.xaml.cs">
-      <DependentUpon>TabProduitsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -120,17 +108,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PrincipaleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Principale\Details\ClientDetailsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Principale\Menu\ClientMenuView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Principale\Menu\CommandeMenuView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Principale\Details\CommandeDetailsView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -141,18 +125,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Principale\Details\SoumissionDetailsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TabAdministrationView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TabPrincipaleView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TabProduitsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -192,6 +164,7 @@
     <Folder Include="ViewModels\Administration\" />
     <Folder Include="ViewModels\Produits\" />
     <Folder Include="Views\Administration\" />
+    <Folder Include="Views\Principale\Menu\" />
     <Folder Include="Views\Produits\" />
   </ItemGroup>
   <ItemGroup>
