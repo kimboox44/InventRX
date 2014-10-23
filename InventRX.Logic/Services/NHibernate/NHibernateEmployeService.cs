@@ -27,7 +27,7 @@ namespace InventRX.Logic.Services.NHibernate
         public Employe Retrieve(RetrieveEmployeArgs args)
         {
             var result = from c in session.Query<Employe>()
-                         where c.IdPersonne == args.IdEmploye
+                         where c.IdEmploye == args.IdEmploye
                          select c;
 
             return result.FirstOrDefault();

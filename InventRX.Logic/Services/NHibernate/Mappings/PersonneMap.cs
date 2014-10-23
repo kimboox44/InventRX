@@ -69,7 +69,6 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Access.Property()
                 .Generated.Never()
                 .CustomSqlType("VARCHAR");
-            //References(x => x.Province).Column("idProvince");
             References(x => x.Province)
                 .Class<Province>()
                 .Access.Property()
@@ -84,7 +83,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
             {
                 Table("Clients");
                 LazyLoad();
-                KeyColumn("id"); //idPersonne??
+                KeyColumn("idClient");
                 Map(x => x.Solde)
                     .Column("solde")
                     .CustomType<double>()
@@ -101,7 +100,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
             {
                 Table("Employes");
                 LazyLoad();
-                KeyColumn("idPersonne");
+                KeyColumn("idEmploye");
                 Map(x => x.NAS)
                     .Column("NAS")
                     .CustomType<string>()
