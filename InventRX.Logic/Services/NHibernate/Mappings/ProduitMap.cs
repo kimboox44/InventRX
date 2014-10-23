@@ -68,7 +68,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                     .LazyLoad(Laziness.False)
                     .Cascade.None()
                     //.NotFound.Ignore()
-                    .Columns("id");
+                    .Columns("idModele");
 
                 References(v => v.CategorieProduit)
                     .Class<CategorieProduit>()
@@ -76,7 +76,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                     .LazyLoad(Laziness.False)
                     .Cascade.None()
                     //.NotFound.Ignore()
-                    .Columns("id");
+                    .Columns("idCategorieProduit");
         }
 
 
