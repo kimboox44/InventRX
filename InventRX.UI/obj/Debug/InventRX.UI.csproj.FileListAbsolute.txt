@@ -98,3 +98,7 @@ D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI.exe
 D:\InventRX\InventRX.UI\obj\Debug\InventRX.UI.pdb
 D:\InventRX\InventRX.UI\obj\Debug\Views\SoumissionView.baml
 D:\InventRX\InventRX.UI\obj\Debug\Views\SoumissionView.g.cs
+D:\InventRX\InventRX.UI\obj\Debug\Views\ClientView.baml
+D:\InventRX\InventRX.UI\obj\Debug\Views\CommandeView.baml
+D:\InventRX\InventRX.UI\obj\Debug\Views\ClientView.g.cs
+D:\InventRX\InventRX.UI\obj\Debug\Views\CommandeView.g.cs

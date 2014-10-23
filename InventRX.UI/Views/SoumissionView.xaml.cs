@@ -127,11 +127,18 @@ namespace InventRX.UI.Views
         private void btnCreer_Click(object sender, RoutedEventArgs e)
         {
             //Vérifier si le client dans la base de données grâce a son numéro de téléphone
-            /*IEmployeService _employeService = ServiceFactory.Instance.GetService<IEmployeService>();
-            RetrieveEmployeArgs retrieveEmployeArgs = new RetrieveEmployeArgs();
-            retrieveEmployeArgs.IdEmploye = 1;
-            Employe = _employeService.Retrieve(retrieveEmployeArgs);
-            ViewModel.Soumission.Employe = Employe;*/
+            //IEmployeService _employeService = ServiceFactory.Instance.GetService<IEmployeService>();
+            //RetrieveEmployeArgs retrieveEmployeArgs = new RetrieveEmployeArgs();
+            //retrieveEmployeArgs.IdEmploye = 1;
+            //Employe = _employeService.Retrieve(retrieveEmployeArgs);
+            Employe employe = new Employe();
+            employe.IdEmploye = 1;
+            ViewModel.Soumission.Employe = employe; // Employé Cruise
+            
+            //On met la date du jour
+            DateTime date = new DateTime();
+            ViewModel.Soumission.Date = date;
+
             try
             {
                  //Vérifier si le client dans la base de données grâce a son numéro de téléphone
@@ -156,7 +163,7 @@ namespace InventRX.UI.Views
                 //Insérer le client dans la base de données.
                 _clientService.Insert(Client);
                 MessageBox.Show(Client.IdClient.ToString());
-                //ViewModel.InsererCommand();
+                ViewModel.InsererCommand();
 
                 //Aller chercher son ID
 
