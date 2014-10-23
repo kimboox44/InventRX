@@ -61,18 +61,21 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Generated.Never()
                 .CustomSqlType("INTEGER");
 
-                //References(v => v.CategorieProduit)
-                //    .Class<CategorieProduit>()
-                //    .Access.Property()
-                //    .LazyLoad(Laziness.False)
-                //    .Cascade.None()
-                //    .Columns("id");
 
                 References(v => v.Modele)
                     .Class<Modele>()
                     .Access.Property()
                     .LazyLoad(Laziness.False)
                     .Cascade.None()
+                    //.NotFound.Ignore()
+                    .Columns("id");
+
+                References(v => v.CategorieProduit)
+                    .Class<CategorieProduit>()
+                    .Access.Property()
+                    .LazyLoad(Laziness.False)
+                    .Cascade.None()
+                    //.NotFound.Ignore()
                     .Columns("id");
         }
 

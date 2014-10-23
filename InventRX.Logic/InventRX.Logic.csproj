@@ -55,10 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Args\RetrieveCategorieProduitArgs.cs" />
     <Compile Include="Model\Args\RetrieveClientArgs.cs" />
     <Compile Include="Model\Args\RetrieveCommandeArgs.cs" />
     <Compile Include="Model\Args\RetrieveEmployeArgs.cs" />
     <Compile Include="Model\Args\RetrieveItemSoumissionArgs.cs" />
+    <Compile Include="Model\Args\RetrieveModeleArgs.cs" />
     <Compile Include="Model\Args\RetrieveProduitArgs.cs" />
     <Compile Include="Model\Args\RetrieveProvinceArgs.cs" />
     <Compile Include="Model\Args\RetrieveSoumissionArgs.cs" />
@@ -83,15 +85,18 @@
     <Compile Include="Model\Entities\Modele.cs" />
     <Compile Include="Model\Entities\Personne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Definitions\ICategorieProduitService.cs" />
     <Compile Include="Services\Definitions\IClientService.cs" />
     <Compile Include="Services\Definitions\ICommandeService.cs" />
     <Compile Include="Services\Definitions\IEmployeService.cs" />
     <Compile Include="Services\Definitions\IItemSoumissionService.cs" />
+    <Compile Include="Services\Definitions\IModeleService.cs" />
     <Compile Include="Services\Definitions\IProduitService.cs" />
     <Compile Include="Services\Definitions\IProvinceService.cs" />
     <Compile Include="Services\Definitions\ISoumissionService.cs" />
     <Compile Include="Services\Helpers\MySqlConnexion.cs" />
     <Compile Include="Services\Helpers\NHibernateConnexion.cs" />
+    <Compile Include="Services\NHibernate\Mappings\CategorieProduitMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\CommandeMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\ItemSoumissionMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\ModeleMap.cs" />
@@ -99,10 +104,12 @@
     <Compile Include="Services\NHibernate\Mappings\ProduitMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\ProvinceMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\SoumissionMap.cs" />
+    <Compile Include="Services\NHibernate\NHibernateCategorieProduitService.cs" />
     <Compile Include="Services\NHibernate\NHibernateClientService.cs" />
     <Compile Include="Services\NHibernate\NHibernateCommandeService.cs" />
     <Compile Include="Services\NHibernate\NHibernateEmployeService.cs" />
     <Compile Include="Services\NHibernate\NHibernateItemSoumissionService.cs" />
+    <Compile Include="Services\NHibernate\NHibernateModeleService.cs" />
     <Compile Include="Services\NHibernate\NHibernateProduitService.cs" />
     <Compile Include="Services\NHibernate\NHibernateProvinceService.cs" />
     <Compile Include="Services\NHibernate\NHibernateSoumissionService.cs" />
