@@ -29,8 +29,10 @@ namespace InventRX.UI.Views
         public SoumissionViewModel ViewModel { get { return (SoumissionViewModel)DataContext; } }
 
         private IClientService _clientService;
+        private IProvinceService _provinceService;
         public RetrieveClientArgs RetrieveClientArgs { get; set; }
         public Client Client { get; set; }
+        public Employe Employe { get; set; }
 
         public SoumissionView()
         {
@@ -41,6 +43,21 @@ namespace InventRX.UI.Views
         public SoumissionView(IDictionary<string,object> parameters):this()
         {
             ViewModel.Soumission = parameters["Soumission"] as Soumission;
+            //Si c'est une nouvelle soumission, on affiche le bouton créer au lieu de sauvegarder
+            if (ViewModel.Soumission.IdSoumission == null)
+            {
+                btnCreerSoumission.Visibility = Visibility.Visible;
+                if (ViewModel.Soumission.Client == null)
+                {
+                    Client = new Client();
+                    ViewModel.Soumission.Client = Client;
+                }
+                if (ViewModel.Soumission.ItemsSoumission == null)
+                { 
+                    //List<ItemSoumission> liste = new List<ItemSoumission>();
+                    ViewModel.Soumission.ItemsSoumission = new List<ItemSoumission>();
+                }
+            }
         }
 
         private void btnSauvegarder_Click(object sender, RoutedEventArgs e)
@@ -50,11 +67,12 @@ namespace InventRX.UI.Views
             {
                 _clientService = ServiceFactory.Instance.GetService<IClientService>();
                 RetrieveClientArgs = new RetrieveClientArgs();
-                RetrieveClientArgs.IdClient = 2;
+                RetrieveClientArgs.IdClient = Convert.ToInt32(ViewModel.Soumission.Client.IdClient);
                 Client = _clientService.Retrieve(RetrieveClientArgs);
                 MessageBox.Show(Client.Nom);
             }
-
+            MessageBox.Show("IdCLient: " + ViewModel.Soumission.Client.IdClient.ToString());
+            MessageBox.Show("IdPersonne: " + ViewModel.Soumission.Client.IdPersonne.ToString());
             ViewModel.SauvegarderCommand();
         }
 
@@ -104,6 +122,52 @@ namespace InventRX.UI.Views
                     datagridListeItemsSoumission.Items.Refresh();
                 }
             }
+        }
+
+        private void btnCreer_Click(object sender, RoutedEventArgs e)
+        {
+            //Vérifier si le client dans la base de données grâce a son numéro de téléphone
+            /*IEmployeService _employeService = ServiceFactory.Instance.GetService<IEmployeService>();
+            RetrieveEmployeArgs retrieveEmployeArgs = new RetrieveEmployeArgs();
+            retrieveEmployeArgs.IdEmploye = 1;
+            Employe = _employeService.Retrieve(retrieveEmployeArgs);
+            ViewModel.Soumission.Employe = Employe;*/
+            try
+            {
+                 //Vérifier si le client dans la base de données grâce a son numéro de téléphone
+                _clientService = ServiceFactory.Instance.GetService<IClientService>();
+                RetrieveClientArgs = new RetrieveClientArgs();
+                //RetrieveClientArgs.Telephone = ViewModel.Soumission.Client.Telephone;
+                Client = _clientService.Retrieve(RetrieveClientArgs);
+            }
+            catch (Exception)
+            {
+                //Le client n'existe pas
+                _provinceService = ServiceFactory.Instance.GetService<IProvinceService>();
+                RetrieveProvinceArgs retrieveProvinceArgs = new RetrieveProvinceArgs();
+                retrieveProvinceArgs.IdProvince = 24;
+                Client.NumeroCivique = "-";
+                Client.Province = _provinceService.Retrieve(retrieveProvinceArgs);
+                Client.Rue = "-";
+                Client.Solde = 0;
+                Client.Telephone2 = "-";
+                Client.Ville = "-";
+                Client.CodePostal = "-";
+                //Insérer le client dans la base de données.
+                _clientService.Insert(Client);
+                MessageBox.Show(Client.IdClient.ToString());
+                //ViewModel.InsererCommand();
+
+                //Aller chercher son ID
+
+                //Insérer la soumission
+                //Associer la soumission au client (devrait se faire automatiquement depuis le insert)
+
+                //Associer l'employé à la soumission (par défaut c'est toujours l'employé avec ID 1, ce sera changé plus tard dès que le reste fonctionnera)
+
+                //
+            }
+            //ViewModel.SauvegarderCommand();
         }
     }
 }

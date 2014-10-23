@@ -8,11 +8,9 @@ using InventRX.Logic.Model.Args;
 
 namespace InventRX.Services.Definitions
 {
-    public interface ISoumissionService
+    public interface IProvinceService
     {
-        IList<Soumission> RetrieveAll();
-        Soumission Retrieve(RetrieveSoumissionArgs args);
-        void Update(Soumission soumission);
-        void Insert(Soumission soumission);
+        IList<Province> RetrieveAll();
+        Province Retrieve(RetrieveProvinceArgs args);
     }
 }

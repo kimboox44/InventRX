@@ -250,6 +250,8 @@ namespace InventRX.UI
             ChargerCommandes();
             ChargerProduits();
             ViewModel.CurrentView = new ConnexionView();
+            ServiceFactory.Instance.Register<IProvinceService, NHibernateProvinceService>(new NHibernateProvinceService());
+            ServiceFactory.Instance.Register<IEmployeService, NHibernateEmployeService>(new NHibernateEmployeService());
         }
 
         #region Tabs Config

@@ -33,12 +33,49 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Access.Property()
                 .Generated.Never()
                 .CustomSqlType("VARCHAR");
+            Map(x => x.NumeroCivique)
+                .Column("numeroCivique")
+                .CustomType<string>()
+                .Access.Property()
+                .Generated.Never()
+                .CustomSqlType("VARCHAR");
+            Map(x => x.Rue)
+                .Column("rue")
+                .CustomType<string>()
+                .Access.Property()
+                .Generated.Never()
+                .CustomSqlType("VARCHAR");
+            Map(x => x.Ville)
+                .Column("ville")
+                .CustomType<string>()
+                .Access.Property()
+                .Generated.Never()
+                .CustomSqlType("VARCHAR");
+            Map(x => x.CodePostal)
+                .Column("codePostale")
+                .CustomType<string>()
+                .Access.Property()
+                .Generated.Never()
+                .CustomSqlType("VARCHAR");
             Map(x => x.Telephone)
                 .Column("telephone")
                 .CustomType<string>()
                 .Access.Property()
                 .Generated.Never()
                 .CustomSqlType("VARCHAR");
+            Map(x => x.Telephone2)
+                .Column("telephone2")
+                .CustomType<string>()
+                .Access.Property()
+                .Generated.Never()
+                .CustomSqlType("VARCHAR");
+            //References(x => x.Province).Column("idProvince");
+            References(x => x.Province)
+                .Class<Province>()
+                .Access.Property()
+                .LazyLoad(Laziness.False)
+                .Cascade.None()
+                .Columns("idProvince");
         }
 
         public class ClientMap : SubclassMap<Client>
@@ -47,7 +84,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
             {
                 Table("Clients");
                 LazyLoad();
-                KeyColumn("id");
+                KeyColumn("id"); //idPersonne??
                 Map(x => x.Solde)
                     .Column("solde")
                     .CustomType<double>()
@@ -64,7 +101,13 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
             {
                 Table("Employes");
                 LazyLoad();
-                KeyColumn("id");
+                KeyColumn("idPersonne");
+                Map(x => x.NAS)
+                    .Column("NAS")
+                    .CustomType<string>()
+                    .Access.Property()
+                    .Generated.Never()
+                    .CustomSqlType("VARCHAR");
             }
         }
     }

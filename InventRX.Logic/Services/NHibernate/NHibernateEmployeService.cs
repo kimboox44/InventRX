@@ -12,32 +12,32 @@ using System.Threading.Tasks;
 
 namespace InventRX.Logic.Services.NHibernate
 {
-    public class NHibernateClientService : IClientService
+    public class NHibernateEmployeService : IEmployeService
     {
         private ISession session = NHibernateConnexion.OpenSession();
 
 
-        #region IClientService Membres
+        #region IEmployeService Membres
 
-        public IList<Client> RetrieveAll()
+        public IList<Employe> RetrieveAll()
         {
-            return session.Query<Client>().ToList();
+            return session.Query<Employe>().ToList();
         }
 
-        public Client Retrieve(RetrieveClientArgs args)
+        public Employe Retrieve(RetrieveEmployeArgs args)
         {
-            var result = from c in session.Query<Client>()
-                         where c.IdClient == args.IdClient
+            var result = from c in session.Query<Employe>()
+                         where c.IdPersonne == args.IdEmploye
                          select c;
 
             return result.FirstOrDefault();
         }
 
-        public void Insert(Client client)
+        public void Insert(Employe employe)
         {
             using (var transaction = session.BeginTransaction())
             {
-                session.Save(client);
+                session.Save(employe);
                 transaction.Commit();
             }
         }

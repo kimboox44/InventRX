@@ -12,5 +12,6 @@ namespace InventRX.Services.Definitions
     {
         IList<Client> RetrieveAll();
         Client Retrieve(RetrieveClientArgs args);
+        void Insert(Client client);
     }
 }

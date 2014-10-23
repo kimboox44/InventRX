@@ -56,6 +56,15 @@ namespace InventRX.Logic.Services.NHibernate
             }
         }
 
+        public void Insert(Soumission soumission)
+        {
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(soumission);
+                transaction.Commit();
+            }
+        }
+
         #endregion
     }
 }

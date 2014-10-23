@@ -8,7 +8,8 @@ namespace InventRX.Logic.Model.Entities
 {
     public class Client : Personne
     {
-        public virtual int? IdClient { get { return base.IdPersonne; } set { base.IdPersonne = value; } }
+        public virtual int? IdClient { get; set; }
+        //public virtual int? IdClient { get { return base.IdPersonne; } set { base.IdPersonne = value; } }
         public virtual double Solde { get; set; }
 
         public override bool Equals(object obj)

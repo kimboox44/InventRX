@@ -73,7 +73,10 @@ namespace InventRX.UI.ViewModel
         {
             _soumissionService.Update(Soumission);
         }
-      
 
+        public void InsererCommand()
+        {
+            _soumissionService.Insert(Soumission);
+        }
     }
 }
