@@ -66,29 +66,44 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ConnexionWindow.xaml.cs">
-      <DependentUpon>ConnexionWindow.xaml</DependentUpon>
+    <Compile Include="MainWindowTest.xaml.cs">
+      <DependentUpon>MainWindowTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\ClientViewModel.cs" />
-    <Compile Include="ViewModel\ConnexionViewModel.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\SoumissionViewModel.cs" />
-    <Compile Include="Views\ClientView.xaml.cs">
-      <DependentUpon>ClientView.xaml</DependentUpon>
+    <Compile Include="ViewModels\Principale\Details\ClientDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Principale\Menu\ClientMenuViewModel.cs" />
+    <Compile Include="ViewModels\ConnexionViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\Principale\Details\SoumissionDetailsViewModel.cs" />
+    <Compile Include="ViewModels\TabAdministrationViewModel.cs" />
+    <Compile Include="ViewModels\TabPrincipaleViewModel.cs" />
+    <Compile Include="ViewModels\TabProduitsViewModel.cs" />
+    <Compile Include="Views\Principale\Details\ClientDetailsView.xaml.cs">
+      <DependentUpon>ClientDetailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CommandeView.xaml.cs">
-      <DependentUpon>CommandeView.xaml</DependentUpon>
+    <Compile Include="Views\Principale\Menu\ClientMenuView.xaml.cs">
+      <DependentUpon>ClientMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Principale\Menu\CommandeMenuView.xaml.cs">
+      <DependentUpon>CommandeMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Principale\Details\CommandeDetailsView.xaml.cs">
+      <DependentUpon>CommandeDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ConnexionView.xaml.cs">
       <DependentUpon>ConnexionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SoumissionView.xaml.cs">
-      <DependentUpon>SoumissionView.xaml</DependentUpon>
+    <Compile Include="Views\Principale\Details\SoumissionDetailsView.xaml.cs">
+      <DependentUpon>SoumissionDetailsView.xaml</DependentUpon>
     </Compile>
-    <Page Include="ConnexionWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="Views\TabAdministrationView.xaml.cs">
+      <DependentUpon>TabAdministrationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TabPrincipaleView.xaml.cs">
+      <DependentUpon>TabPrincipaleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TabProduitsView.xaml.cs">
+      <DependentUpon>TabProduitsView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,11 +116,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\ClientView.xaml">
+    <Page Include="MainWindowTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Principale\Details\ClientDetailsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CommandeView.xaml">
+    <Page Include="Views\Principale\Menu\ClientMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Principale\Menu\CommandeMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Principale\Details\CommandeDetailsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -113,7 +140,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SoumissionView.xaml">
+    <Page Include="Views\Principale\Details\SoumissionDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TabAdministrationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TabPrincipaleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TabProduitsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,7 +188,12 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModels\Administration\" />
+    <Folder Include="ViewModels\Produits\" />
+    <Folder Include="Views\Administration\" />
+    <Folder Include="Views\Produits\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cstj.MvvmToolkit\Cstj.MvvmToolkit.csproj">
       <Project>{b0b71ff7-b28f-4412-ab1f-972c094c800e}</Project>

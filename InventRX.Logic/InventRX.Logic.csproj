@@ -55,31 +55,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Args\RetrieveClientArgs.cs" />
-    <Compile Include="Model\Args\RetrieveCommandeArgs.cs" />
-    <Compile Include="Model\Args\RetrieveItemSoumissionArgs.cs" />
-    <Compile Include="Model\Args\RetrieveProduitArgs.cs" />
-    <Compile Include="Model\Args\RetrieveSoumissionArgs.cs" />
-    <Compile Include="Model\Entities\ItemSoumission.cs" />
-    <Compile Include="Model\Entities\ItemFacture.cs" />
-    <Compile Include="Model\Entities\ItemCommande.cs" />
-    <Compile Include="Model\Entities\CommandeFacture.cs" />
-    <Compile Include="Model\Entities\Fournisseur.cs" />
-    <Compile Include="Model\Entities\MethodesPaiement.cs" />
-    <Compile Include="Model\Entities\Paiements.cs" />
-    <Compile Include="Model\Entities\PosteEmploye.cs" />
-    <Compile Include="Model\Entities\Produit.cs" />
-    <Compile Include="Model\Entities\Province.cs" />
-    <Compile Include="Model\Entities\Taxe.cs" />
-    <Compile Include="Model\Entities\Facture.cs" />
-    <Compile Include="Model\Entities\Soumission.cs" />
-    <Compile Include="Model\Entities\Commande.cs" />
-    <Compile Include="Model\Entities\CategorieFournisseur.cs" />
-    <Compile Include="Model\Entities\Employe.cs" />
-    <Compile Include="Model\Entities\Client.cs" />
-    <Compile Include="Model\Entities\CategorieProduit.cs" />
-    <Compile Include="Model\Entities\Modele.cs" />
-    <Compile Include="Model\Entities\Personne.cs" />
+    <Compile Include="Models\Args\RetrieveClientArgs.cs" />
+    <Compile Include="Models\Args\RetrieveCommandeArgs.cs" />
+    <Compile Include="Models\Args\RetrieveItemSoumissionArgs.cs" />
+    <Compile Include="Models\Args\RetrieveProduitArgs.cs" />
+    <Compile Include="Models\Args\RetrieveSoumissionArgs.cs" />
+    <Compile Include="Models\Entities\ItemSoumission.cs" />
+    <Compile Include="Models\Entities\ItemFacture.cs" />
+    <Compile Include="Models\Entities\ItemCommande.cs" />
+    <Compile Include="Models\Entities\CommandeFacture.cs" />
+    <Compile Include="Models\Entities\Fournisseur.cs" />
+    <Compile Include="Models\Entities\MethodesPaiement.cs" />
+    <Compile Include="Models\Entities\Paiements.cs" />
+    <Compile Include="Models\Entities\PosteEmploye.cs" />
+    <Compile Include="Models\Entities\Produit.cs" />
+    <Compile Include="Models\Entities\Province.cs" />
+    <Compile Include="Models\Entities\Taxe.cs" />
+    <Compile Include="Models\Entities\Facture.cs" />
+    <Compile Include="Models\Entities\Soumission.cs" />
+    <Compile Include="Models\Entities\Commande.cs" />
+    <Compile Include="Models\Entities\CategorieFournisseur.cs" />
+    <Compile Include="Models\Entities\Employe.cs" />
+    <Compile Include="Models\Entities\Client.cs" />
+    <Compile Include="Models\Entities\CategorieProduit.cs" />
+    <Compile Include="Models\Entities\Modele.cs" />
+    <Compile Include="Models\Entities\Personne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Definitions\IClientService.cs" />
     <Compile Include="Services\Definitions\ICommandeService.cs" />
@@ -112,7 +112,9 @@
       <Name>Cstj.MvvmToolkit</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Commands\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

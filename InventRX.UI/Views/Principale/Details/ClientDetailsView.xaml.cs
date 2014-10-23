@@ -20,12 +20,12 @@ using InventRX.UI.ViewModel;
 namespace InventRX.UI.Views
 {
     /// <summary>
-    /// Logique d'interaction pour ClientView.xaml
+    /// Logique d'interaction pour ClientDetailsView.xaml
     /// </summary>
     public partial class ClientDetailsView : UserControl
     {
         public ClientDetailsViewModel ViewModel { get { return (ClientDetailsViewModel)DataContext; } }
-        private IClientService _clientService;
+        //private IClientService _clientService;
         public RetrieveClientArgs RetrieveClientArgs { get; set; }
         public Client Client { get; set; }
 

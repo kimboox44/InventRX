@@ -9,6 +9,8 @@ using InventRX.UI.Views;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Input;
 
 namespace InventRX.UI.ViewModel
 {
@@ -49,7 +51,8 @@ namespace InventRX.UI.ViewModel
         }
 
         /// <summary>
-        /// TODO : Clarifier les CurrentView
+        /// TODO : Clarifier les CurrentView et les definition de RaisePropertyChanged et changing.
+        /// Sont-ils dans les services ?
         /// </summary>
         private UserControl _currentView;
         public UserControl CurrentView
@@ -70,11 +73,6 @@ namespace InventRX.UI.ViewModel
                 _currentView = value;
                 RaisePropertyChanged();
             }
-        }
-
-        public void ChangeView<T>(T view)
-        {
-            CurrentView = view as UserControl;
         }
     }
 }

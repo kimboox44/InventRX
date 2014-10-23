@@ -220,18 +220,17 @@ namespace InventRX.UI
             }
             Dictionary<string, object> parameters = new Dictionary<string,object>() {{"Client", clientSelectionnee}};
             //TODO : Enlever la creation de new mainviewmodel et client view
-            MainViewModel nouveauViewModel = new MainViewModel();
-            nouveauViewModel.CurrentView = new ClientDetailsView(parameters);
+            ViewModel.CurrentView = new ClientDetailsView(parameters);
             ContentPresenter contentPresenter = new ContentPresenter();
 
             Binding myBinding = new Binding("client" + clientSelectionnee.IdClient + "Data");
-            myBinding.Source = nouveauViewModel.CurrentView;
+            myBinding.Source = ViewModel.CurrentView;
             contentPresenter.Content = myBinding.Source;
 
             TabItem nouvelleTab = new TabItem();
             nouvelleTab.Header = "client #" + clientSelectionnee.IdClient;
             nouvelleTab.Content = contentPresenter;
-            nouvelleTab.DataContext = nouveauViewModel;
+            nouvelleTab.DataContext = ViewModel;
             TabControlPrincipalDetails.Items.Add(nouvelleTab);
             TabControlPrincipalDetails.SelectedItem = nouvelleTab;
         }

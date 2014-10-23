@@ -58,7 +58,7 @@
 
 
                     <!-- Tabulation du menu contextuel à droite -->
-                    <TabControl Grid.Column="1" Margin="5,0,0,0">
+                    <TabControl Name="TabControlPrincipaleMenu" Grid.Column="1" Margin="5,0,0,0">
                         <TabControl.Resources>
                             <Style TargetType="TabItem">
                                 <Setter Property="FontSize" Value="12" />
@@ -116,7 +116,6 @@
                                 </DockPanel>
                             </Grid>
                         </TabItem>
-
                         <TabItem Header="Clients">
                             <Grid Background="#FFE5E5E5">
                                 <Grid.ColumnDefinitions>
@@ -134,6 +133,8 @@
                                 </DockPanel>
                             </Grid>
                         </TabItem>
+
+
                         <TabItem Header="Soumissions">
                             <Grid Background="#FFE5E5E5">
                                 <DockPanel LastChildFill="True">
@@ -226,12 +227,16 @@
             </TabItem>
             <TabItem Header="Produit" Height="64" VerticalAlignment="Top">
                 <Grid Background="#FFF">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="29*"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="552*"/>
                         <ColumnDefinition Width="288*" MaxWidth="300"/>
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid Name="datagridListeProduits" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+                    <DataGrid Name="datagridListeProduits" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.RowSpan="2" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Numéro" Width="55" IsReadOnly="True" Binding="{Binding IdProduit, StringFormat='{}#{0}'}"/>
                             <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
@@ -243,8 +248,8 @@
                             <DataGridTextColumn Header="Categorie" Width="55" IsReadOnly="True" Binding="{Binding CategorieProduit}" />
                         </DataGrid.Columns>
                     </DataGrid>
-                    <StackPanel Background="#EEE" Grid.Column="1" HorizontalAlignment="Left" Height="470" Margin="10,80,0,0" VerticalAlignment="Top" Width="280"/>
-                    <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="10,46,0,0" TextWrapping="Wrap" Text="Menu de Gestion des produits" VerticalAlignment="Top" Width="280"/>
+                    <StackPanel Background="#EEE" Grid.Column="1" HorizontalAlignment="Left" Height="470" Margin="10,58,0,0" VerticalAlignment="Top" Width="280" Grid.Row="1"/>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="10,24,0,0" TextWrapping="Wrap" Text="Menu de Gestion des produits" VerticalAlignment="Top" Width="280" Grid.Row="1"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Administration" />

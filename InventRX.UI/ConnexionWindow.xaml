@@ -1,8 +1,0 @@
-﻿<Window x:Class="InventRX.UI.ConnexionWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Connexion" Height="228" Width="324" ResizeMode="NoResize">
-    <Grid>
-        <ContentPresenter Content="{Binding CurrentView}" />
-    </Grid>
-</Window>

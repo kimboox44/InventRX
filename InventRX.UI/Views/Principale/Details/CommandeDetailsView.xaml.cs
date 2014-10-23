@@ -18,9 +18,9 @@ namespace InventRX.UI.Views
     /// <summary>
     /// Logique d'interaction pour CommandeView.xaml
     /// </summary>
-    public partial class CommandeView : UserControl
+    public partial class CommandeDetailsView : UserControl
     {
-        public CommandeView()
+        public CommandeDetailsView()
         {
             InitializeComponent();
         }

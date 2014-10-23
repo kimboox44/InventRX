@@ -11,24 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using InventRX.UI.ViewModel;
-using InventRX.UI.Views;
 
 namespace InventRX.UI
 {
     /// <summary>
-    /// Logique d'interaction pour ConnexionWindow.xaml
+    /// Interaction logic for MainWindowTest.xaml
     /// </summary>
-    public partial class ConnexionWindow : Window
+    public partial class MainWindowTest : Window
     {
-        public ConnexionViewModel ViewModel { get { return (ConnexionViewModel)DataContext; } }
-
-        public ConnexionWindow()
+        public MainWindowTest()
         {
             InitializeComponent();
-            DataContext = new ConnexionViewModel();
-            ViewModel.CurrentView = new ConnexionView();
         }
-
     }
 }

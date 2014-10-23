@@ -39,6 +39,7 @@ namespace InventRX.UI.ViewModel
             }
         }
 
+
         
         public void ChangeView<T>(T view)
         {
