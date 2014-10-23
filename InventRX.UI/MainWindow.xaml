@@ -237,7 +237,7 @@
                             <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
                             <DataGridTextColumn Header="Description" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Description}" />
                             <DataGridTextColumn Header="Dimensions" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=DescriptionDimension}" />
-                            <DataGridTextColumn Header="Prix" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prix, StringFormat={}{0:#,#.00}$}" />
+                            <DataGridTextColumn Header="Prix" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prix, StringFormat={}{0:#.00}$}" />
                             <DataGridTextColumn Header="Quantité" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Quantite}" />
                             <DataGridTextColumn Header="Modele" Width="50" IsReadOnly="True" Binding="{Binding Modele}" />
                             <DataGridTextColumn Header="Categorie" Width="55" IsReadOnly="True" Binding="{Binding CategorieProduit}" />

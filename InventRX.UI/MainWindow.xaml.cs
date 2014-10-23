@@ -68,13 +68,12 @@ namespace InventRX.UI
                 {
                     Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Soumission", soumissionSelectionnee } };
 
-                    MainViewModel nouveauViewModel = new MainViewModel();
-                    nouveauViewModel.CurrentView = new SoumissionView(parameters);
+                    ViewModel.CurrentView = new SoumissionDetailsView(parameters);
 
                     ContentPresenter contentPresenter = new ContentPresenter();
 
                     Binding myBinding = new Binding("soumission" + soumissionSelectionnee.IdSoumission + "Data");
-                    myBinding.Source = nouveauViewModel.CurrentView;
+                    myBinding.Source = ViewModel.CurrentView;
                     contentPresenter.Content = myBinding.Source;
 
                     //Ajout du cont
@@ -91,7 +90,7 @@ namespace InventRX.UI
                     //Sans scrollviewer
                     //nouvelleTab.Content = contentPresenter;
 
-                    nouvelleTab.DataContext = nouveauViewModel;
+                    nouvelleTab.DataContext = ViewModel;
 
                     //Ajout de l'item à la tab control
                     TabControlPrincipalDetails.Items.Add(nouvelleTab);
@@ -105,13 +104,12 @@ namespace InventRX.UI
             Soumission newSoumission = new Soumission();
             Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Soumission", newSoumission } };
 
-            MainViewModel nouveauViewModel = new MainViewModel();
-            nouveauViewModel.CurrentView = new SoumissionView(parameters);
+            ViewModel.CurrentView = new SoumissionDetailsView(parameters);
 
             ContentPresenter contentPresenter = new ContentPresenter();
 
             Binding myBinding = new Binding("soumission" + newSoumission.IdSoumission + "Data");
-            myBinding.Source = nouveauViewModel.CurrentView;
+            myBinding.Source = ViewModel.CurrentView;
             contentPresenter.Content = myBinding.Source;
 
             //Ajout du contentPresenter dans un scrollviewer pour pouvoir scroller à l'interieur
@@ -128,7 +126,7 @@ namespace InventRX.UI
             //Sans scrollviewer
             //nouvelleTab.Content = contentPresenter;
 
-            nouvelleTab.DataContext = nouveauViewModel;
+            nouvelleTab.DataContext = ViewModel;
 
             //Ajout de l'item à la tab control
             TabControlPrincipalDetails.Items.Add(nouvelleTab);
@@ -176,7 +174,7 @@ namespace InventRX.UI
             Commande commandeSelectionnee = (datagridListeCommandes.SelectedItem as Commande);
 
             MainViewModel nouveauViewModel = new MainViewModel();
-            nouveauViewModel.CurrentView = new CommandeView();
+            nouveauViewModel.CurrentView = new CommandeDetailsView();
 
             ContentPresenter contentPresenter = new ContentPresenter();
 
@@ -195,7 +193,7 @@ namespace InventRX.UI
         #endregion
 
         #region Clients
-
+        
         private IClientService _clientService;
         public RetrieveClientArgs RetrieveClientArgs { get; set; }
         public IList<Client> ListeClients { get; set; }
@@ -223,7 +221,7 @@ namespace InventRX.UI
             Dictionary<string, object> parameters = new Dictionary<string,object>() {{"Client", clientSelectionnee}};
             //TODO : Enlever la creation de new mainviewmodel et client view
             MainViewModel nouveauViewModel = new MainViewModel();
-            nouveauViewModel.CurrentView = new ClientView(parameters);
+            nouveauViewModel.CurrentView = new ClientDetailsView(parameters);
             ContentPresenter contentPresenter = new ContentPresenter();
 
             Binding myBinding = new Binding("client" + clientSelectionnee.IdClient + "Data");
