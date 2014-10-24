@@ -26,11 +26,19 @@ namespace InventRX.Logic.Services.NHibernate
 
         public Employe Retrieve(RetrieveEmployeArgs args)
         {
-            var result = from c in session.Query<Employe>()
-                         where c.IdEmploye == args.IdEmploye
-                         select c;
+            try
+            {
+                var result = from e in session.Query<Employe>()
+                            where e.IdEmploye == args.IdEmploye
+                            select e;
 
-            return result.FirstOrDefault();
+                return result.FirstOrDefault();
+            }
+            catch (Exception)
+            {
+                return session.Query<Employe>().ToList().FirstOrDefault();
+            }
+            
         }
 
         public void Insert(Employe employe)

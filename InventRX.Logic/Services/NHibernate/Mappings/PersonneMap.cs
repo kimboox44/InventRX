@@ -101,12 +101,25 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 Table("Employes");
                 LazyLoad();
                 KeyColumn("idEmploye");
+                Map(x => x.NomUsager)
+                    .Column("nomUsager")
+                    .CustomType<string>()
+                    .Access.Property()
+                    .Generated.Never()
+                    .CustomSqlType("VARCHAR");
+                Map(x => x.MotDePasse)
+                    .Column("motDePasse")
+                    .CustomType<string>()
+                    .Access.Property()
+                    .Generated.Never()
+                    .CustomSqlType("VARCHAR");
                 Map(x => x.NAS)
                     .Column("NAS")
                     .CustomType<string>()
                     .Access.Property()
                     .Generated.Never()
                     .CustomSqlType("VARCHAR");
+                //Il manque le poste de l'employé, mais ce n'est pas pertinent pour le moment.
             }
         }
     }
