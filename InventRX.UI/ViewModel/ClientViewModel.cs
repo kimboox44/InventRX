@@ -14,12 +14,16 @@ namespace InventRX.UI.ViewModel
     public class ClientViewModel : BaseViewModel
     {
         private IClientService _clientService;
+        private IProvinceService _provinceService;
+        public IList<Province> Provinces { get; set; }
         private Client _client;
         public RetrieveProduitArgs RetrieveProduitArgs { get; set; }
 
         public ClientViewModel()
         {
             _clientService = ServiceFactory.Instance.GetService<IClientService>();
+            _provinceService = ServiceFactory.Instance.GetService<IProvinceService>();
+            Provinces = _provinceService.RetrieveAll();
         }
 
         public Client Client

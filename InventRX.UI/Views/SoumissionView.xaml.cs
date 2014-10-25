@@ -69,10 +69,7 @@ namespace InventRX.UI.Views
                 RetrieveClientArgs = new RetrieveClientArgs();
                 RetrieveClientArgs.IdClient = Convert.ToInt32(ViewModel.Soumission.Client.IdClient);
                 Client = _clientService.Retrieve(RetrieveClientArgs);
-                MessageBox.Show(Client.Nom);
             }
-            MessageBox.Show("IdCLient: " + ViewModel.Soumission.Client.IdClient.ToString());
-            MessageBox.Show("IdPersonne: " + ViewModel.Soumission.Client.IdPersonne.ToString());
             ViewModel.SauvegarderCommand();
         }
 
@@ -127,13 +124,13 @@ namespace InventRX.UI.Views
         private void btnCreer_Click(object sender, RoutedEventArgs e)
         {
             //Vérifier si le client dans la base de données grâce a son numéro de téléphone
-            //IEmployeService _employeService = ServiceFactory.Instance.GetService<IEmployeService>();
-            //RetrieveEmployeArgs retrieveEmployeArgs = new RetrieveEmployeArgs();
-            //retrieveEmployeArgs.IdEmploye = 1;
-            //Employe = _employeService.Retrieve(retrieveEmployeArgs);
-            Employe employe = new Employe();
-            employe.IdEmploye = 1;
-            ViewModel.Soumission.Employe = employe; // Employé Cruise
+            IEmployeService _employeService = ServiceFactory.Instance.GetService<IEmployeService>();
+            RetrieveEmployeArgs retrieveEmployeArgs = new RetrieveEmployeArgs();
+            retrieveEmployeArgs.IdEmploye = 1;
+            Employe = _employeService.Retrieve(retrieveEmployeArgs);
+            /*Employe employe = new Employe();
+            employe.IdEmploye = 1;*/
+            ViewModel.Soumission.Employe = Employe; // Employé Cruise
             
             //On met la date du jour
             DateTime date = new DateTime();
@@ -162,19 +159,12 @@ namespace InventRX.UI.Views
                 Client.CodePostal = "-";
                 //Insérer le client dans la base de données.
                 _clientService.Insert(Client);
-                MessageBox.Show(Client.IdClient.ToString());
+                //Insérer la soumission dans la base de données.
                 ViewModel.InsererCommand();
-
-                //Aller chercher son ID
-
-                //Insérer la soumission
-                //Associer la soumission au client (devrait se faire automatiquement depuis le insert)
-
-                //Associer l'employé à la soumission (par défaut c'est toujours l'employé avec ID 1, ce sera changé plus tard dès que le reste fonctionnera)
-
-                //
+                labelNumeroSoumission.Content = ViewModel.Soumission.IdSoumission;
+                btnCreerSoumission.Visibility = Visibility.Hidden;
+                //Changer le titre de la tab
             }
-            //ViewModel.SauvegarderCommand();
         }
     }
 }

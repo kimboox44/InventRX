@@ -16,6 +16,7 @@ using InventRX.Logic.Model.Args;
 using InventRX.Logic.Model.Entities;
 using InventRX.Services.Definitions;
 using InventRX.UI.ViewModel;
+using Cstj.MvvmToolkit.Services;
 
 namespace InventRX.UI.Views
 {
@@ -28,7 +29,7 @@ namespace InventRX.UI.Views
         private IClientService _clientService;
         public RetrieveClientArgs RetrieveClientArgs { get; set; }
         public Client Client { get; set; }
-
+        
         public ClientView()
         {
             InitializeComponent();

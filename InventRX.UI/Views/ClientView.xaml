@@ -3,20 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" Height="529" Width="770">
+             mc:Ignorable="d" Height="350" Width="350">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="385*"/>
-            <ColumnDefinition Width="385"/>
-        </Grid.ColumnDefinitions>
-        <Label Name="labelNumeroClient" Content="{Binding Client.idClient}" HorizontalAlignment="Left" Margin="87,10,0,0" VerticalAlignment="Top" Width="87" Height="26"/>
-        <Label Content="Client #" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="83" Height="26"/>
-        <Label Content="Nom" HorizontalAlignment="Left" Margin="215,10,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="254,10,0,0" TextWrapping="Wrap"  Text="{Binding Client.Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="254,39,0,0" TextWrapping="Wrap"  Text="{Binding Client.Prenom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Prénom" HorizontalAlignment="Left" Margin="200,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="Client #" HorizontalAlignment="Left" Margin="53,15,0,0" VerticalAlignment="Top" Width="51" Height="26"/>
+        <Label Content="Nom" HorizontalAlignment="Left" Margin="68,39,0,0" VerticalAlignment="Top"/>
+        <Label Content="Prénom" HorizontalAlignment="Left" Margin="53,65,0,0" VerticalAlignment="Top"/>
+        <Label Content="Téléphone" HorizontalAlignment="Left" Margin="38,96,0,0" VerticalAlignment="Top"/>
+        <Label Content="Numéro civique" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top"/>
+        <Label Content="Rue" HorizontalAlignment="Left" Margin="68,155,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ville" HorizontalAlignment="Left" Margin="68,186,0,0" VerticalAlignment="Top"/>
+        <Label Content="Code Postal" HorizontalAlignment="Left" Margin="25,211,0,0" VerticalAlignment="Top"/>
+        <Label Content="Province" HorizontalAlignment="Left" Margin="38,239,0,0" VerticalAlignment="Top"/>
         
-        <Label Content="Téléphone" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="75,41,0,0" TextWrapping="Wrap"  Text="{Binding Client.Telephone, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="204,99,0,0" TextWrapping="Wrap"  Text="{Binding Client.Telephone, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="204,43,0,0" TextWrapping="Wrap"  Text="{Binding Client.Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="204,71,0,0" TextWrapping="Wrap"  Text="{Binding Client.Prenom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="204,127,0,0" TextWrapping="Wrap"  Text="{Binding Client.NumeroCivique, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="204,155,0,0" TextWrapping="Wrap"  Text="{Binding Client.Rue, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="204,183,0,0" TextWrapping="Wrap"  Text="{Binding Client.Ville, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="204,211,0,0" TextWrapping="Wrap"  Text="{Binding Client.CodePostal, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="204,239,0,0" VerticalAlignment="Top" Width="120" 
+                  ItemsSource="{Binding Provinces}" 
+                    DisplayMemberPath="Nom" 
+                    SelectedValuePath="Nom" 
+                    SelectedValue="{Binding Client.Province.Nom}"/>
+        <Label Content="Solde" HorizontalAlignment="Left" Margin="38,265,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="204,265,0,0" TextWrapping="Wrap"  Text="{Binding Client.Solde, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="204,15,0,0" TextWrapping="Wrap"  Text="{Binding Client.IdClient, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
     </Grid>
 </UserControl>
