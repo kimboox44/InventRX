@@ -98,7 +98,7 @@
                             <Grid Background="#FFE5E5E5">
                                 <DockPanel LastChildFill="True">
                                     <Grid x:Name="ResultatsMenuCommandes" Background="White">
-                                        <DataGrid x:Name="datagridListeCommandes"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeCommandes_MouseDoubleClick">
+                                        <DataGrid x:Name="datagridListeCommandes"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeCommandes_MouseDoubleClick" Margin="0,88,0,0">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Numéro" Width="55" IsReadOnly="True" Binding="{Binding IdCommande, StringFormat='{}#{0}'}"/>
                                                 <DataGridTextColumn Header="Date" Width="50" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
@@ -112,6 +112,13 @@
                                                 </ContextMenu>
                                             </DataGrid.ContextMenu>
                                         </DataGrid>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,60,0,0" TextWrapping="NoWrap" Text="Nom fournisseur" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,4,0,0"  TextWrapping="NoWrap" Text="Numéro commande" VerticalAlignment="Top" Width="103"/>
+                                        <DatePicker HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top" Width="112"/>
+                                        <DatePicker HorizontalAlignment="Left" Margin="177,38,0,0" VerticalAlignment="Top" Width="112"/>
+                                        <CheckBox Content="Du" HorizontalAlignment="Left" Margin="127,15,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="Au" HorizontalAlignment="Left" Margin="127,40,0,0" VerticalAlignment="Top"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,32,0,0"  TextWrapping="NoWrap" Text="Numéro fournisseur" VerticalAlignment="Top" Width="103"/>
                                     </Grid>
                                 </DockPanel>
                             </Grid>
@@ -119,26 +126,28 @@
 
                         <TabItem Header="Clients">
                             <Grid Background="#FFE5E5E5">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="242*"/>
-                                    <ColumnDefinition Width="43*"/>
-                                </Grid.ColumnDefinitions>
-                                <DockPanel LastChildFill="True" Grid.ColumnSpan="2">
-                                    <DataGrid x:Name="datagridListeClients" MouseDoubleClick="datagridListeClients_MouseDoubleClick" ItemsSource="{Binding}" AutoGenerateColumns="False">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
-                                            <DataGridTextColumn Header="Prénom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prenom}" />
-                                            <DataGridTextColumn Header="Téléphone" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Telephone}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </DockPanel>
+                                <DockPanel LastChildFill="True">
+                                        <Grid Background="White">
+                                            <DataGrid x:Name="datagridListeClients" MouseDoubleClick="datagridListeClients_MouseDoubleClick" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="0,74,0,0">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
+                                                    <DataGridTextColumn Header="Prénom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prenom}" />
+                                                    <DataGridTextColumn Header="Téléphone" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Telephone}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                            <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="NoWrap" Text="Nom" VerticalAlignment="Top" Width="122"/>
+                                            <TextBox HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="NoWrap" Text="Prénom" VerticalAlignment="Top" Width="122"/>
+                                            <TextBox HorizontalAlignment="Left" Height="23" Margin="157,10,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="122" Grid.ColumnSpan="2"/>
+                                            <TextBox HorizontalAlignment="Left" Height="23" Margin="157,38,0,0" TextWrapping="NoWrap" Text="Rue" VerticalAlignment="Top" Width="122" Grid.ColumnSpan="2"/>
+                                        </Grid>
+                                    </DockPanel>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Soumissions">
                             <Grid Background="#FFE5E5E5">
                                 <DockPanel LastChildFill="True">
                                     <Grid x:Name="ResultatsMenuSoumissions" Background="White">
-                                        <DataGrid x:Name="datagridListeSoumissions"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeSoumissions_MouseDoubleClick" Margin="0,0,0,38">
+                                        <DataGrid x:Name="datagridListeSoumissions"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeSoumissions_MouseDoubleClick" Margin="0,115,0,38">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Numero" Width="55" IsReadOnly="True" Binding="{Binding IdSoumission, StringFormat='{}#{0}'}"/>
                                                 <DataGridTextColumn Header="Date" Width="50" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
@@ -155,6 +164,14 @@
 
                                         </DataGrid>
                                         <Button x:Name="boutonNouvelleSoumission" Content="Nouvelle soumission" Margin="55,0,68,10" VerticalAlignment="Bottom" Click="boutonNouvelleSoumission_Click"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,32,0,0" TextWrapping="NoWrap" Text="Nom" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,87,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,59,0,0" TextWrapping="NoWrap" Text="Prénom" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,4,0,0"  TextWrapping="NoWrap" Text="Numéro soumission" VerticalAlignment="Top" Width="103"/>
+                                        <DatePicker HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top" Width="112"/>
+                                        <DatePicker HorizontalAlignment="Left" Margin="177,38,0,0" VerticalAlignment="Top" Width="112"/>
+                                        <CheckBox Content="Du" HorizontalAlignment="Left" Margin="127,15,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="Au" HorizontalAlignment="Left" Margin="127,40,0,0" VerticalAlignment="Top"/>
                                         <!--<ScrollViewer>
                                             <StackPanel>
                                                 <Button DockPanel.Dock="Top" Content="John Doe" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="180"/>
@@ -187,7 +204,7 @@
                             <Grid Background="#FFE5E5E5">
                                 <DockPanel LastChildFill="True">
                                     <Grid x:Name="ResultatsMenuFactures" Background="White">
-                                        <ScrollViewer Margin="0,72,0,0">
+                                        <ScrollViewer Margin="0,104,0,0">
                                             <StackPanel>
                                                 <Button DockPanel.Dock="Top" Content="John Doe" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="180"/>
                                                 <Button DockPanel.Dock="Top" Content="Gordy Howe" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
@@ -211,12 +228,13 @@
                                                 <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
                                             </StackPanel>
                                         </ScrollViewer>
-                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="103"/>
-                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="Wrap" Text="Téléphone" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="NoWrap" Text="Nom" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,64,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="103"/>
                                         <DatePicker HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top" Width="112"/>
                                         <DatePicker HorizontalAlignment="Left" Margin="177,38,0,0" VerticalAlignment="Top" Width="112"/>
                                         <CheckBox Content="Du" HorizontalAlignment="Left" Margin="127,15,0,0" VerticalAlignment="Top"/>
                                         <CheckBox Content="Au" HorizontalAlignment="Left" Margin="127,40,0,0" VerticalAlignment="Top"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,7,0,0" TextWrapping="NoWrap" Text="Numéro soumission" VerticalAlignment="Top" Width="103"/>
                                     </Grid>
                                 </DockPanel>
                             </Grid>
