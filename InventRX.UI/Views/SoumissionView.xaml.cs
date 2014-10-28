@@ -138,11 +138,24 @@ namespace InventRX.UI.Views
 
             try
             {
-                 //Vérifier si le client dans la base de données grâce a son numéro de téléphone
+                 //Pour le moment on créér un nouveau client si le numéro ne match pas dans la BD
                 _clientService = ServiceFactory.Instance.GetService<IClientService>();
                 RetrieveClientArgs = new RetrieveClientArgs();
-                //RetrieveClientArgs.Telephone = ViewModel.Soumission.Client.Telephone;
-                Client = _clientService.Retrieve(RetrieveClientArgs);
+                RetrieveClientArgs.Telephone = ViewModel.Soumission.Client.Telephone;
+                Client client = _clientService.RetrieveByPhone(RetrieveClientArgs);
+                //Client = _clientService.Retrieve(RetrieveClientArgs);
+                if (client != null && client.IdClient != null)
+                {
+                    Client = client;
+                    ViewModel.Soumission.Client = Client;
+                    ViewModel.InsererCommand();
+                    labelNumeroSoumission.Content = ViewModel.Soumission.IdSoumission;
+                    btnCreerSoumission.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    throw new Exception("Client non trouvé");
+                }
             }
             catch (Exception)
             {

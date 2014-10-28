@@ -65,5 +65,10 @@ namespace InventRX.UI.ViewModel
         {
             CurrentView = view as UserControl;
         }
+
+        public void SauvegarderCommand()
+        {
+            _clientService.Update(Client);
+        }
     }
 }

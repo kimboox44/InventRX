@@ -26,7 +26,6 @@ namespace InventRX.UI.Views
     public partial class ClientView : UserControl
     {
         public ClientViewModel ViewModel { get { return (ClientViewModel)DataContext; } }
-        private IClientService _clientService;
         public RetrieveClientArgs RetrieveClientArgs { get; set; }
         public Client Client { get; set; }
         
@@ -38,6 +37,14 @@ namespace InventRX.UI.Views
         public ClientView(IDictionary<string,object> parameters):this()
         {
             ViewModel.Client = parameters["Client"] as Client;
+        }
+
+        private void btnSauvegarder_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel.Client != null)
+            {
+                ViewModel.SauvegarderCommand();
+            }
         }
     }
 }
