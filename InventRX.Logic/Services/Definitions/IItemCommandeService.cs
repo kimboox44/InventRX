@@ -8,11 +8,10 @@ using InventRX.Logic.Model.Args;
 
 namespace InventRX.Services.Definitions
 {
-    public interface ICommandeService
+    public interface IItemCommandeService
     {
-        IList<Commande> RetrieveAll();
-        Commande Retrieve(RetrieveCommandeArgs args);
-        void Update(Commande commande);
-        void Insert(Commande commande);
+        IList<ItemCommande> RetrieveAll();
+        IList<ItemCommande> RetrieveAllBy(RetrieveItemCommandeArgs args);
+        IList<ItemCommande> Retrieve(RetrieveItemCommandeArgs args);
     }
 }

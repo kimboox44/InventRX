@@ -163,31 +163,103 @@ namespace InventRX.UI
         private void ChargerCommandes()
         {
             ServiceFactory.Instance.Register<ICommandeService, NHibernateCommandeService>(new NHibernateCommandeService());
-            //Charge la liste de toutes les commandes
+            ServiceFactory.Instance.Register<IItemCommandeService, NHibernateItemCommandeService>(new NHibernateItemCommandeService());
+            //Charge la liste de toutes les Commandes
             _commandeService = ServiceFactory.Instance.GetService<ICommandeService>();
             RetrieveCommandeArgs = new RetrieveCommandeArgs();
             ListeCommandes = _commandeService.RetrieveAll();
             datagridListeCommandes.ItemsSource = ListeCommandes;
         }
 
-
         private void datagridListeCommandes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            bool exist = false;
             Commande commandeSelectionnee = (datagridListeCommandes.SelectedItem as Commande);
 
+            if (commandeSelectionnee != null)
+            {
+                //Desélectionne la Commande
+                datagridListeCommandes.SelectedItem = null;
+
+                //Si la Commande est déjà ouverte dans une tab, on focus dessus
+                foreach (TabItem tab in TabControlPrincipalDetails.Items)
+                {
+                    if (tab.Header.ToString() == ("Commande #" + commandeSelectionnee.IdCommande).ToString())
+                    {
+                        TabControlPrincipalDetails.SelectedItem = tab;
+                        exist = true;
+                        break;
+                    }
+                }
+
+                //Si la Commande n'est pas déjà ouverte, on l'ouvre
+                if (exist == false)
+                {
+                    Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Commande", commandeSelectionnee } };
+
+                    MainViewModel nouveauViewModel = new MainViewModel();
+                    nouveauViewModel.CurrentView = new CommandeView(parameters);
+
+                    ContentPresenter contentPresenter = new ContentPresenter();
+
+                    Binding myBinding = new Binding("commande" + commandeSelectionnee.IdCommande + "Data");
+                    myBinding.Source = nouveauViewModel.CurrentView;
+                    contentPresenter.Content = myBinding.Source;
+
+                    //Ajout du cont
+                    ScrollViewer newScrollViewer = new ScrollViewer();
+                    newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+                    newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+                    newScrollViewer.Content = contentPresenter;
+
+                    //Création d'un nouveau item
+                    TabItem nouvelleTab = new TabItem();
+                    nouvelleTab.Header = "Commande #" + commandeSelectionnee.IdCommande;
+                    nouvelleTab.Content = newScrollViewer;
+
+                    //Sans scrollviewer
+                    //nouvelleTab.Content = contentPresenter;
+
+                    nouvelleTab.DataContext = nouveauViewModel;
+
+                    //Ajout de l'item à la tab control
+                    TabControlPrincipalDetails.Items.Add(nouvelleTab);
+                    TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+                }
+            }
+        }
+
+        private void boutonNouvelleCommande_Click(object sender, RoutedEventArgs e)
+        {
+            Commande newCommande = new Commande();
+            Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Commande", newCommande } };
+
             MainViewModel nouveauViewModel = new MainViewModel();
-            nouveauViewModel.CurrentView = new CommandeView();
+            nouveauViewModel.CurrentView = new CommandeView(parameters);
 
             ContentPresenter contentPresenter = new ContentPresenter();
 
-            Binding myBinding = new Binding("commande" + commandeSelectionnee.IdCommande + "Data");
+            Binding myBinding = new Binding("commande" + newCommande.IdCommande + "Data");
             myBinding.Source = nouveauViewModel.CurrentView;
             contentPresenter.Content = myBinding.Source;
 
+            //Ajout du contentPresenter dans un scrollviewer pour pouvoir scroller à l'interieur
+            ScrollViewer newScrollViewer = new ScrollViewer();
+            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+            newScrollViewer.Content = contentPresenter;
+
+            //Création d'un nouveau item
             TabItem nouvelleTab = new TabItem();
-            nouvelleTab.Header = "Commande #" + commandeSelectionnee.IdCommande;
-            nouvelleTab.Content = contentPresenter;
+            nouvelleTab.Header = "Nouvelle Commande";
+            nouvelleTab.Content = newScrollViewer;
+
+            //Sans scrollviewer
+            //nouvelleTab.Content = contentPresenter;
+
             nouvelleTab.DataContext = nouveauViewModel;
+
+            //Ajout de l'item à la tab control
             TabControlPrincipalDetails.Items.Add(nouvelleTab);
             TabControlPrincipalDetails.SelectedItem = nouvelleTab;
         }

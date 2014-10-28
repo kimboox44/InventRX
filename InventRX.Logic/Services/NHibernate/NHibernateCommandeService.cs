@@ -33,6 +33,38 @@ namespace InventRX.Logic.Services.NHibernate
             return result.FirstOrDefault();
         }
 
+        public void Update(Commande commande)
+        {
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Update(commande);
+                transaction.Commit();
+                //try
+                //{
+
+                //    session.Update(commande);
+                //    transaction.Commit();
+                //}
+                //catch (Exception e)
+                //{
+                //    transaction.Rollback();
+
+                //}
+                //finally {
+                //    transaction.Dispose();
+                //}
+            }
+        }
+
+        public void Insert(Commande commande)
+        {
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(commande);
+                transaction.Commit();
+            }
+        }
+
         #endregion
     }
 }
