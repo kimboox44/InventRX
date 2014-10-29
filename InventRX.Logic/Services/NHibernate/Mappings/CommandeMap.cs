@@ -25,7 +25,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Column("dateCommande")
                 .CustomType<DateTime>()
                 .Access.Property()
-                .Generated.Never()
+                .Not.Nullable().Generated.Insert()
                 .CustomSqlType("TIMESTAMP");
 
             References(v => v.Fournisseur)

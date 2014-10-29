@@ -39,11 +39,13 @@
                 <DataGridTextColumn Header="Stock" Width="auto" IsReadOnly="True"  Binding="{Binding Quantite}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Nom" HorizontalAlignment="Left" Margin="215,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBoxClientNom" HorizontalAlignment="Left" Height="23" Margin="254,10,0,0" TextWrapping="Wrap"  Text="{Binding Commande.Fournisseur.Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <Button Grid.Column="1" Grid.Row="0" Margin="10,0,10,10" Content="Sauvegarder" Click="btnSauvegarder_Click" Height="19" VerticalAlignment="Bottom" />
         <Button x:Name="btnCreerCommande" Grid.Column="1" Grid.Row="0" Margin="10,0,10,10" Content="Créer" Click="btnCreer_Click" Height="19" VerticalAlignment="Bottom" Visibility="Hidden" />
-        <Label Content="Téléphone" HorizontalAlignment="Left" Margin="185,41,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="254,44,0,0" TextWrapping="Wrap"  Text="{Binding Commande.Fournisseur.Telephone, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="174,14,0,0" VerticalAlignment="Top" Width="200" 
+                  ItemsSource="{Binding Fournisseurs}" 
+                  DisplayMemberPath="Nom" 
+                  SelectedValuePath="Nom" 
+                  SelectedValue="{Binding Fournisseur.Nom}"
+                  SelectedItem="{Binding Fournisseur, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>

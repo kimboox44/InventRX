@@ -129,8 +129,6 @@ namespace InventRX.UI.Views
             RetrieveEmployeArgs retrieveEmployeArgs = new RetrieveEmployeArgs();
             retrieveEmployeArgs.IdEmploye = 1;
             Employe = _employeService.Retrieve(retrieveEmployeArgs);
-            /*Employe employe = new Employe();
-            employe.IdEmploye = 1;*/
             ViewModel.Commande.Employe = Employe; // Employé Cruise
 
             //On met la date du jour
@@ -142,17 +140,29 @@ namespace InventRX.UI.Views
                 //Vérifier si le client dans la base de données grâce a son numéro de téléphone
                 _fournisseurService = ServiceFactory.Instance.GetService<IFournisseurService>();
                 RetrieveFournisseurArgs = new RetrieveFournisseurArgs();
-                //RetrieveClientArgs.Telephone = ViewModel.Commande.Client.Telephone;
-                Fournisseur = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
+                Fournisseur fournisseur = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
+                if (fournisseur != null && fournisseur.IdFournisseur != null)
+                {
+                    Fournisseur = fournisseur;
+                    ViewModel.Commande.Fournisseur = Fournisseur;
+                    ViewModel.InsererCommand();
+                    labelNumeroCommande.Content = ViewModel.Commande.IdCommande;
+                    btnCreerCommande.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    throw new Exception("Fournisseur non trouvé");
+                }
             }
             catch (Exception)
             {
                 //Le client n'existe pas
                 _provinceService = ServiceFactory.Instance.GetService<IProvinceService>();
                 RetrieveProvinceArgs retrieveProvinceArgs = new RetrieveProvinceArgs();
-                retrieveProvinceArgs.IdProvince = 11;
+                retrieveProvinceArgs.Abreviation = "QC";
+                Province province = _provinceService.RetrieveByAbreviation(retrieveProvinceArgs);
                 Fournisseur.NumeroCivique = "-";
-                Fournisseur.Province = _provinceService.Retrieve(retrieveProvinceArgs);
+                Fournisseur.Province = province;
                 Fournisseur.Rue = "-";
                 Fournisseur.Ville = "-";
                 Fournisseur.CodePostal = "-";

@@ -19,6 +19,8 @@ namespace InventRX.UI.ViewModel
         private IProduitService _produiService;
         public RetrieveProduitArgs RetrieveProduitArgs { get; set; }
         public IList<Produit> ListeProduits { get; set; }
+        private IFournisseurService _fournisseurService;
+        public IList<Fournisseur> Fournisseurs { get; set; }
 
         public CommandeViewModel()
         {
@@ -29,6 +31,9 @@ namespace InventRX.UI.ViewModel
             _produiService = ServiceFactory.Instance.GetService<IProduitService>();
             RetrieveProduitArgs = new RetrieveProduitArgs();
             ListeProduits = _produiService.RetrieveAll();
+
+            //Erreur
+            //Fournisseurs = _fournisseurService.RetrieveAll();
         }
 
         public Commande Commande

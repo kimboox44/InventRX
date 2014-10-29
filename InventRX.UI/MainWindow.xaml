@@ -102,7 +102,7 @@
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Numéro" Width="55" IsReadOnly="True" Binding="{Binding IdCommande, StringFormat='{}#{0}'}"/>
                                                 <DataGridTextColumn Header="Date" Width="50" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
-                                                <DataGridTextColumn Header="Client" Width="50" IsReadOnly="True" Binding="{Binding Client}" />
+                                                <DataGridTextColumn Header="Fournisseur" Width="50" IsReadOnly="True" Binding="{Binding Fournisseur}" />
                                                 <DataGridTextColumn Header="Employé" Width="55" IsReadOnly="True" Binding="{Binding Employe}" />
                                             </DataGrid.Columns>
                                             <DataGrid.ContextMenu>
