@@ -30,7 +30,8 @@
                   SelectedItem="{Binding Client.Province, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Content="Solde" HorizontalAlignment="Left" Margin="38,265,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="204,265,0,0" TextWrapping="Wrap"  Text="{Binding Client.Solde, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="204,15,0,0" TextWrapping="Wrap"  Text="{Binding Client.IdClient, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="textboxNumeroClient" HorizontalAlignment="Left" Height="23" Margin="204,15,0,0" TextWrapping="Wrap"  Text="{Binding Client.IdClient, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <Button Grid.Column="1" Grid.Row="0" Margin="10,0,10,10" Content="Sauvegarder" Click="btnSauvegarder_Click" Height="19" VerticalAlignment="Bottom" />
+        <Button x:Name="btnCreerClient" Grid.Column="1" Grid.Row="0" Margin="10,0,10,10" Content="Créer" Click="btnCreer_Click" Height="19" VerticalAlignment="Bottom" />
     </Grid>
 </UserControl>

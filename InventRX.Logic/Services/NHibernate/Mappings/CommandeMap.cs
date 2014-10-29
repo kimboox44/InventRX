@@ -15,7 +15,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
             Table("Commandes");
             LazyLoad();
             Id(x => x.IdCommande)
-                .Column("id")
+                .Column("idCommande")
                 .CustomType<int?>()
                 .Access.Property()
                 .CustomSqlType("INTEGER")
@@ -28,12 +28,12 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Generated.Never()
                 .CustomSqlType("TIMESTAMP");
 
-            References(v => v.Client)
-                .Class<Client>()
+            References(v => v.Fournisseur)
+                .Class<Fournisseur>()
                 .Access.Property()
                 .LazyLoad(Laziness.False)
                 .Cascade.None()
-                .Columns("idClient");
+                .Columns("idFournisseur");
             References(v => v.Employe)
                 .Class<Employe>()
                 .Access.Property()

@@ -26,6 +26,7 @@ namespace InventRX.UI.Views
     public partial class ClientView : UserControl
     {
         public ClientViewModel ViewModel { get { return (ClientViewModel)DataContext; } }
+        private IProvinceService _provinceService;
         public RetrieveClientArgs RetrieveClientArgs { get; set; }
         public Client Client { get; set; }
         
@@ -37,6 +38,14 @@ namespace InventRX.UI.Views
         public ClientView(IDictionary<string,object> parameters):this()
         {
             ViewModel.Client = parameters["Client"] as Client;
+            if (ViewModel.Client.IdClient == null)
+            {
+                btnCreerClient.Visibility = Visibility.Visible;
+            }
+            else
+            { 
+                btnCreerClient.Visibility = Visibility.Hidden;
+            }
         }
 
         private void btnSauvegarder_Click(object sender, RoutedEventArgs e)
@@ -45,6 +54,25 @@ namespace InventRX.UI.Views
             {
                 ViewModel.SauvegarderCommand();
             }
+        }
+
+        private void btnCreer_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel.Client != null)
+            {
+                //Insérer le client dans la base de données.
+                ViewModel.InsererCommand();
+                textboxNumeroClient.Text = ViewModel.Client.IdClient.ToString();
+                btnCreerClient.Visibility = Visibility.Hidden;
+            }
+            //try
+            //{
+                
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Une erreur non-gérée est survenue.");
+            //}
         }
     }
 }

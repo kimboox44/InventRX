@@ -28,10 +28,10 @@ namespace InventRX.UI.Views
     {
         public CommandeViewModel ViewModel { get { return (CommandeViewModel)DataContext; } }
 
-        private IClientService _clientService;
+        private IFournisseurService _fournisseurService;
         private IProvinceService _provinceService;
-        public RetrieveClientArgs RetrieveClientArgs { get; set; }
-        public Client Client { get; set; }
+        public RetrieveFournisseurArgs RetrieveFournisseurArgs { get; set; }
+        public Fournisseur Fournisseur { get; set; }
         public Employe Employe { get; set; }
 
         public CommandeView()
@@ -48,10 +48,10 @@ namespace InventRX.UI.Views
             if (ViewModel.Commande.IdCommande == null)
             {
                 btnCreerCommande.Visibility = Visibility.Visible;
-                if (ViewModel.Commande.Client == null)
+                if (ViewModel.Commande.Fournisseur == null)
                 {
-                    Client = new Client();
-                    ViewModel.Commande.Client = Client;
+                    Fournisseur = new Fournisseur();
+                    ViewModel.Commande.Fournisseur = Fournisseur;
                 }
                 if (ViewModel.Commande.ItemsCommande == null)
                 {
@@ -64,12 +64,12 @@ namespace InventRX.UI.Views
         private void btnSauvegarder_Click(object sender, RoutedEventArgs e)
         {
             //Si aucun client, on va le chercher dans la base de données par son numéro de téléphone
-            if (ViewModel.Commande.Client == null)
+            if (ViewModel.Commande.Fournisseur == null)
             {
-                _clientService = ServiceFactory.Instance.GetService<IClientService>();
-                RetrieveClientArgs = new RetrieveClientArgs();
-                RetrieveClientArgs.IdClient = Convert.ToInt32(ViewModel.Commande.Client.IdClient);
-                Client = _clientService.Retrieve(RetrieveClientArgs);
+                _fournisseurService = ServiceFactory.Instance.GetService<IFournisseurService>();
+                RetrieveFournisseurArgs = new RetrieveFournisseurArgs();
+                RetrieveFournisseurArgs.IdFournisseur = Convert.ToInt32(ViewModel.Commande.Fournisseur.IdFournisseur);
+                Fournisseur = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
             }
             ViewModel.SauvegarderCommand();
         }
@@ -140,26 +140,24 @@ namespace InventRX.UI.Views
             try
             {
                 //Vérifier si le client dans la base de données grâce a son numéro de téléphone
-                _clientService = ServiceFactory.Instance.GetService<IClientService>();
-                RetrieveClientArgs = new RetrieveClientArgs();
+                _fournisseurService = ServiceFactory.Instance.GetService<IFournisseurService>();
+                RetrieveFournisseurArgs = new RetrieveFournisseurArgs();
                 //RetrieveClientArgs.Telephone = ViewModel.Commande.Client.Telephone;
-                Client = _clientService.Retrieve(RetrieveClientArgs);
+                Fournisseur = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
             }
             catch (Exception)
             {
                 //Le client n'existe pas
                 _provinceService = ServiceFactory.Instance.GetService<IProvinceService>();
                 RetrieveProvinceArgs retrieveProvinceArgs = new RetrieveProvinceArgs();
-                retrieveProvinceArgs.IdProvince = 24;
-                Client.NumeroCivique = "-";
-                Client.Province = _provinceService.Retrieve(retrieveProvinceArgs);
-                Client.Rue = "-";
-                Client.Solde = 0;
-                Client.Telephone2 = "-";
-                Client.Ville = "-";
-                Client.CodePostal = "-";
+                retrieveProvinceArgs.IdProvince = 11;
+                Fournisseur.NumeroCivique = "-";
+                Fournisseur.Province = _provinceService.Retrieve(retrieveProvinceArgs);
+                Fournisseur.Rue = "-";
+                Fournisseur.Ville = "-";
+                Fournisseur.CodePostal = "-";
                 //Insérer le client dans la base de données.
-                _clientService.Insert(Client);
+                _fournisseurService.Insert(Fournisseur);
                 //Insérer la Commande dans la base de données.
                 ViewModel.InsererCommand();
                 labelNumeroCommande.Content = ViewModel.Commande.IdCommande;

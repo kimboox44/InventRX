@@ -46,8 +46,8 @@
                         <TabItem x:Name="tabItemPlus" Header="+">
                             <Grid Background="#FFF">
                                 <Button x:Name="btnNouvelleSoumission" Content="Nouvelle soumission" Margin="40,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="boutonNouvelleSoumission_Click"/>
-                                <Button Content="Nouvelle commande" Margin="224,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159"/>
-                                <Button Content="Nouveau client" Margin="410,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159"/>
+                                <Button x:Name="btnNouvelleCommande" Content="Nouvelle commande" Margin="224,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="boutonNouvelleCommande_Click"/>
+                                <Button x:Name="btnNouveauClient" Content="Nouveau client" Margin="410,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="btnNouveauClient_Click"/>
                                 <!-- Les boutons qui vont permettre de créer les soumissions, commandes... -->
                             </Grid>
                         </TabItem>

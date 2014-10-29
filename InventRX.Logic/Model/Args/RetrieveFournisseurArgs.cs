@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace InventRX.Logic.Model.Args
 {
-    public class RetrieveProvinceArgs
+    public class RetrieveFournisseurArgs
     {
-        public int IdProvince { get; set; }
-        public string Abreviation { get; set; }
+        public int IdFournisseur { get; set; }
+        public string Telephone { get; set; }
     }
 }
