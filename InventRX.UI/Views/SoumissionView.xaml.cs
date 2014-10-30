@@ -163,7 +163,7 @@ namespace InventRX.UI.Views
                 _provinceService = ServiceFactory.Instance.GetService<IProvinceService>();
                 RetrieveProvinceArgs retrieveProvinceArgs = new RetrieveProvinceArgs();
                 retrieveProvinceArgs.Abreviation = "QC";
-                Province province = _provinceService.Retrieve(retrieveProvinceArgs);
+                Province province = _provinceService.RetrieveByAbreviation(retrieveProvinceArgs);
                 Client.NumeroCivique = "-";
                 Client.Province = province;
                 Client.Rue = "-";
