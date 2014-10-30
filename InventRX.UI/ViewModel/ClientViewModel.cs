@@ -70,10 +70,5 @@ namespace InventRX.UI.ViewModel
         {
             _clientService.Update(Client);
         }
-
-        public void InsererCommand()
-        {
-            _clientService.Insert(Client);
-        }
     }
 }

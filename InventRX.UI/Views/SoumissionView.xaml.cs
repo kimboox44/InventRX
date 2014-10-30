@@ -162,7 +162,7 @@ namespace InventRX.UI.Views
                 //Le client n'existe pas
                 _provinceService = ServiceFactory.Instance.GetService<IProvinceService>();
                 RetrieveProvinceArgs retrieveProvinceArgs = new RetrieveProvinceArgs();
-                retrieveProvinceArgs.IdProvince = 11;
+                retrieveProvinceArgs.IdProvince = 24;
                 Client.NumeroCivique = "-";
                 Client.Province = _provinceService.Retrieve(retrieveProvinceArgs);
                 Client.Rue = "-";

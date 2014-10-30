@@ -9,7 +9,7 @@ namespace InventRX.Logic.Model.Entities
     public class Commande
     {
         public virtual int? IdCommande { get; set; }
-        public virtual Fournisseur Fournisseur { get; set; }
+        public virtual Client Client { get; set; }
         public virtual Employe Employe { get; set; }
         public virtual DateTime Date { get; set; }
         public virtual IList<ItemCommande> ItemsCommande { get; set; }

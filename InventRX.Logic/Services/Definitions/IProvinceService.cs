@@ -12,6 +12,5 @@ namespace InventRX.Services.Definitions
     {
         IList<Province> RetrieveAll();
         Province Retrieve(RetrieveProvinceArgs args);
-        Province RetrieveByAbreviation(RetrieveProvinceArgs args);
     }
 }

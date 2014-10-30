@@ -9,6 +9,5 @@ namespace InventRX.Logic.Model.Args
     public class RetrieveProvinceArgs
     {
         public int IdProvince { get; set; }
-        public string Abreviation { get; set; }
     }
 }

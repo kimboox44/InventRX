@@ -59,7 +59,6 @@
     <Compile Include="Model\Args\RetrieveClientArgs.cs" />
     <Compile Include="Model\Args\RetrieveCommandeArgs.cs" />
     <Compile Include="Model\Args\RetrieveEmployeArgs.cs" />
-    <Compile Include="Model\Args\RetrieveFournisseurArgs.cs" />
     <Compile Include="Model\Args\RetrieveItemCommandeArgs.cs" />
     <Compile Include="Model\Args\RetrieveItemSoumissionArgs.cs" />
     <Compile Include="Model\Args\RetrieveModeleArgs.cs" />
@@ -91,7 +90,6 @@
     <Compile Include="Services\Definitions\IClientService.cs" />
     <Compile Include="Services\Definitions\ICommandeService.cs" />
     <Compile Include="Services\Definitions\IEmployeService.cs" />
-    <Compile Include="Services\Definitions\IFournisseurService.cs" />
     <Compile Include="Services\Definitions\IItemCommandeService.cs" />
     <Compile Include="Services\Definitions\IItemSoumissionService.cs" />
     <Compile Include="Services\Definitions\IModeleService.cs" />
@@ -102,7 +100,6 @@
     <Compile Include="Services\Helpers\NHibernateConnexion.cs" />
     <Compile Include="Services\NHibernate\Mappings\CategorieProduitMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\CommandeMap.cs" />
-    <Compile Include="Services\NHibernate\Mappings\FournisseurMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\ItemCommandeMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\ItemSoumissionMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\ModeleMap.cs" />
@@ -114,7 +111,6 @@
     <Compile Include="Services\NHibernate\NHibernateClientService.cs" />
     <Compile Include="Services\NHibernate\NHibernateCommandeService.cs" />
     <Compile Include="Services\NHibernate\NHibernateEmployeService.cs" />
-    <Compile Include="Services\NHibernate\NHibernateFournisseurService.cs" />
     <Compile Include="Services\NHibernate\NHibernateItemCommandeService.cs" />
     <Compile Include="Services\NHibernate\NHibernateItemSoumissionService.cs" />
     <Compile Include="Services\NHibernate\NHibernateModeleService.cs" />
