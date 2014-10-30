@@ -310,6 +310,42 @@ namespace InventRX.UI
             TabControlPrincipalDetails.SelectedItem = nouvelleTab;
         }
 
+        private void btnNouveauClient_Click(object sender, RoutedEventArgs e)
+        {
+            Client newClient = new Client();
+            Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Client", newClient } };
+
+            MainViewModel nouveauViewModel = new MainViewModel();
+            nouveauViewModel.CurrentView = new ClientView(parameters);
+
+            ContentPresenter contentPresenter = new ContentPresenter();
+
+            Binding myBinding = new Binding("client" + newClient.IdClient + "Data");
+            myBinding.Source = nouveauViewModel.CurrentView;
+            contentPresenter.Content = myBinding.Source;
+
+            //Ajout du contentPresenter dans un scrollviewer pour pouvoir scroller à l'interieur
+            ScrollViewer newScrollViewer = new ScrollViewer();
+            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+            newScrollViewer.Content = contentPresenter;
+
+            //Création d'un nouveau item
+            TabItem nouvelleTab = new TabItem();
+            nouvelleTab.Header = "Nouveau Client";
+            nouvelleTab.Content = newScrollViewer;
+
+            //Sans scrollviewer
+            //nouvelleTab.Content = contentPresenter;
+
+            nouvelleTab.DataContext = nouveauViewModel;
+
+            //Ajout de l'item à la tab control
+            TabControlPrincipalDetails.Items.Add(nouvelleTab);
+            TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+        }
+
+
         #endregion
 
         public MainWindow()
@@ -324,6 +360,7 @@ namespace InventRX.UI
             ViewModel.CurrentView = new ConnexionView();
             ServiceFactory.Instance.Register<IProvinceService, NHibernateProvinceService>(new NHibernateProvinceService());
             ServiceFactory.Instance.Register<IEmployeService, NHibernateEmployeService>(new NHibernateEmployeService());
+            ServiceFactory.Instance.Register<IFournisseurService, NHibernateFournisseurService>(new NHibernateFournisseurService());
         }
 
         #region Tabs Config

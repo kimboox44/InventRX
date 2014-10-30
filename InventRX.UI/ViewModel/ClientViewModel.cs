@@ -30,13 +30,13 @@ namespace InventRX.UI.ViewModel
         {
             get
             {
-                return _client; 
+                return _client;
             }
-            set 
+            set
             {
-                if(_client == value)
+                if (_client == value)
                     return;
-                _client = value ;
+                _client = value;
             }
         }
 
@@ -69,6 +69,11 @@ namespace InventRX.UI.ViewModel
         public void SauvegarderCommand()
         {
             _clientService.Update(Client);
+        }
+
+        public void InsererCommand()
+        {
+            _clientService.Insert(Client);
         }
     }
 }

@@ -137,13 +137,28 @@ namespace InventRX.UI.Views
             DateTime date = new DateTime();
             ViewModel.Commande.Date = date;
 
+            _fournisseurService = ServiceFactory.Instance.GetService<IFournisseurService>();
             try
             {
                 //Vérifier si le client dans la base de données grâce a son numéro de téléphone
-                _fournisseurService = ServiceFactory.Instance.GetService<IFournisseurService>();
                 RetrieveFournisseurArgs = new RetrieveFournisseurArgs();
+                RetrieveFournisseurArgs.Telephone = ViewModel.Commande.Fournisseur.Telephone;
                 //RetrieveClientArgs.Telephone = ViewModel.Commande.Client.Telephone;
-                Fournisseur = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
+
+                Fournisseur fournisseur  = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
+                //Client = _clientService.Retrieve(RetrieveClientArgs);
+                if (fournisseur != null && fournisseur.IdFournisseur != null)
+                {
+                    Fournisseur = fournisseur;
+                    ViewModel.Commande.Fournisseur = Fournisseur;
+                    ViewModel.InsererCommand();
+                    labelNumeroCommande.Content = ViewModel.Commande.IdCommande;
+                    btnCreerCommande.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    throw new Exception("Commande non trouvé");
+                }
             }
             catch (Exception)
             {
