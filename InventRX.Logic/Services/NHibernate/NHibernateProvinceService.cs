@@ -32,6 +32,15 @@ namespace InventRX.Logic.Services.NHibernate
 
             return result.FirstOrDefault();
         }
+        public Province RetrieveByAbreviation(RetrieveProvinceArgs args)
+        {
+            var result = from s in session.Query<Province>()
+                         where s.Abreviation == args.Abreviation
+                         select s;
+
+            return result.FirstOrDefault();
+        }
+
         #endregion
     }
 }

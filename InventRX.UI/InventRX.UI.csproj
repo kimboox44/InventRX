@@ -70,6 +70,7 @@
       <DependentUpon>ConnexionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ClientViewModel.cs" />
+    <Compile Include="ViewModel\CommandeViewModel.cs" />
     <Compile Include="ViewModel\ConnexionViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SoumissionViewModel.cs" />

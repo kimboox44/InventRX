@@ -15,7 +15,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
             Table("ItemsCommande");
             LazyLoad();
             Id(x => x.IdItemCommande)
-                .Column("id")
+                .Column("idItemCommande")
                 .CustomType<int?>()
                 .Access.Property()
                 .CustomSqlType("INTEGER")

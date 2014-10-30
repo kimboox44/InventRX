@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventRX.Logic.Model.Entities
 {
-    public abstract class Fournisseur
+    public class Fournisseur
     {
         #region Membres privés
         public virtual int? IdFournisseur { get; set; }
