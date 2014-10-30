@@ -98,6 +98,7 @@
     <Compile Include="Services\Definitions\IProduitService.cs" />
     <Compile Include="Services\Definitions\IProvinceService.cs" />
     <Compile Include="Services\Definitions\ISoumissionService.cs" />
+    <Compile Include="Services\Helpers\MySqlConnexion.cs" />
     <Compile Include="Services\Helpers\NHibernateConnexion.cs" />
     <Compile Include="Services\NHibernate\Mappings\CategorieProduitMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\CommandeMap.cs" />
@@ -131,7 +132,10 @@
       <Name>Cstj.MvvmToolkit</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Services\MySql\" />
+    <Folder Include="Services\Simples\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
