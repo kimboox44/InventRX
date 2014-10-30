@@ -57,6 +57,9 @@
         <Button x:Name="btnCreerCommande" Grid.Column="1" Grid.Row="0" Margin="10,0,10,10" Content="Créer" Click="btnCreer_Click" Height="19" VerticalAlignment="Bottom" Visibility="Hidden" />
         <Label Content="Téléphone" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="75,41,0,0" TextWrapping="Wrap"  Text="{Binding Commande.Client.Telephone, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+<<<<<<< HEAD
+>>>>>>> parent of bd1b524... Ajouter un client + Changement d'un client par un fournisseur pour une commande
+=======
 >>>>>>> parent of bd1b524... Ajouter un client + Changement d'un client par un fournisseur pour une commande
     </Grid>
 </UserControl>

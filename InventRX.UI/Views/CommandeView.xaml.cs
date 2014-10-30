@@ -139,6 +139,7 @@ namespace InventRX.UI.Views
             {
                 //Vérifier si le client dans la base de données grâce a son numéro de téléphone
 <<<<<<< HEAD
+<<<<<<< HEAD
                 _fournisseurService = ServiceFactory.Instance.GetService<IFournisseurService>();
                 RetrieveFournisseurArgs = new RetrieveFournisseurArgs();
                 Fournisseur fournisseur = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
@@ -155,10 +156,15 @@ namespace InventRX.UI.Views
                     throw new Exception("Fournisseur non trouvé");
                 }
 =======
+=======
+>>>>>>> parent of bd1b524... Ajouter un client + Changement d'un client par un fournisseur pour une commande
                 _clientService = ServiceFactory.Instance.GetService<IClientService>();
                 RetrieveClientArgs = new RetrieveClientArgs();
                 //RetrieveClientArgs.Telephone = ViewModel.Commande.Client.Telephone;
                 Client = _clientService.Retrieve(RetrieveClientArgs);
+<<<<<<< HEAD
+>>>>>>> parent of bd1b524... Ajouter un client + Changement d'un client par un fournisseur pour une commande
+=======
 >>>>>>> parent of bd1b524... Ajouter un client + Changement d'un client par un fournisseur pour une commande
             }
             catch (Exception)
@@ -166,6 +172,7 @@ namespace InventRX.UI.Views
                 //Le client n'existe pas
                 _provinceService = ServiceFactory.Instance.GetService<IProvinceService>();
                 RetrieveProvinceArgs retrieveProvinceArgs = new RetrieveProvinceArgs();
+<<<<<<< HEAD
 <<<<<<< HEAD
                 retrieveProvinceArgs.Abreviation = "QC";
                 Province province = _provinceService.RetrieveByAbreviation(retrieveProvinceArgs);
@@ -175,6 +182,8 @@ namespace InventRX.UI.Views
                 Fournisseur.Ville = "-";
                 Fournisseur.CodePostal = "-";
 =======
+=======
+>>>>>>> parent of bd1b524... Ajouter un client + Changement d'un client par un fournisseur pour une commande
                 retrieveProvinceArgs.IdProvince = 24;
                 Client.NumeroCivique = "-";
                 Client.Province = _provinceService.Retrieve(retrieveProvinceArgs);
@@ -183,6 +192,9 @@ namespace InventRX.UI.Views
                 Client.Telephone2 = "-";
                 Client.Ville = "-";
                 Client.CodePostal = "-";
+<<<<<<< HEAD
+>>>>>>> parent of bd1b524... Ajouter un client + Changement d'un client par un fournisseur pour une commande
+=======
 >>>>>>> parent of bd1b524... Ajouter un client + Changement d'un client par un fournisseur pour une commande
                 //Insérer le client dans la base de données.
                 _clientService.Insert(Client);
