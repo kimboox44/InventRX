@@ -24,6 +24,36 @@ namespace InventRX.Logic.Services.NHibernate
             return session.Query<Soumission>().ToList();
         }
 
+        public IList<Soumission> RetrieveBy(RetrieveSoumissionArgs args)
+        {
+            /*var result = from s in session.Query<Soumission>() select;
+
+            if(args.IdSoumission != null || args.IdSoumission != 0)
+            {
+                result.Where(s.)
+                where s.IdSoumission == args.IdSoumission;
+            }
+            
+                         where
+                             //(s.IdSoumission != null || s.IdSoumission != 0 ? args.IdSoumission : args.IdSoumission) 
+                               s.IdSoumission == args.IdSoumission
+                            || s.Client.Nom.Contains == args.Client.Nom
+                            || s.Client.Prenom == args.Client.Prenom
+                            || s.Client.Telephone == args.Client.Telephone
+                         select s;
+            return result.ToList();
+            */
+            var result = from s in session.Query<Soumission>()
+                         where 
+                            //(s.IdSoumission != null || s.IdSoumission != 0 ? args.IdSoumission : args.IdSoumission) 
+                               s.IdSoumission == args.IdSoumission 
+                            || s.Client.Nom == args.Client.Nom
+                            || s.Client.Prenom == args.Client.Prenom
+                            || s.Client.Telephone == args.Client.Telephone 
+                         select s;
+           return result.ToList();
+        }
+
         public Soumission Retrieve(RetrieveSoumissionArgs args)
         {
             var result = from s in session.Query<Soumission>()

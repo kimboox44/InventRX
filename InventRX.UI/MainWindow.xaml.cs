@@ -15,6 +15,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Data;
+using System;
+using System.Text.RegularExpressions;
 
 namespace InventRX.UI
 {
@@ -30,6 +32,8 @@ namespace InventRX.UI
         private ISoumissionService _soumissionService;
         public RetrieveSoumissionArgs RetrieveSoumissionArgs { get; set; }
         public IList<Soumission> ListeSoumissions { get; set; }
+
+        public RetrieveSoumissionArgs RetrieveRechercheSoumissionArgs = new RetrieveSoumissionArgs();
 
         private void ChargerSoumissions()
         {
@@ -401,6 +405,87 @@ namespace InventRX.UI
             }
         }
         #endregion
+
+        private void textboxNumeroSoumission_KeyUp(object sender, KeyEventArgs e)
+        {
+            datagridListeSoumissions.ItemsSource = null;
+            if (RetrieveRechercheSoumissionArgs == null)
+            {
+                RetrieveRechercheSoumissionArgs = new RetrieveSoumissionArgs();
+            } 
+            if (RetrieveRechercheSoumissionArgs.Client == null)
+            {
+                RetrieveRechercheSoumissionArgs.Client = new Client();
+            }
+            int errorCounter = 0;
+            errorCounter = Regex.Matches(textboxNumeroSoumission.Text, @"[a-zA-Z]").Count;
+            if (errorCounter <= 0)
+            {
+                int numero;
+                string snumero = textboxNumeroSoumission.Text;
+                if (int.TryParse(snumero, out numero))
+                {
+                    RetrieveRechercheSoumissionArgs.IdSoumission = numero;
+                    ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
+                    datagridListeSoumissions.ItemsSource = ListeSoumissions;
+                }
+            }
+            else
+            {
+                RetrieveRechercheSoumissionArgs.IdSoumission = 0;
+            }
+        }
+
+        private void textboxNomClientSoumission_KeyUp(object sender, KeyEventArgs e)
+        {
+            datagridListeSoumissions.ItemsSource = null;
+            if (RetrieveRechercheSoumissionArgs == null)
+            {
+                RetrieveRechercheSoumissionArgs = new RetrieveSoumissionArgs();
+            }
+            if (RetrieveRechercheSoumissionArgs.Client == null)
+            {
+                RetrieveRechercheSoumissionArgs.Client = new Client();
+            }
+ 
+            RetrieveRechercheSoumissionArgs.Client.Nom = textboxNomClientSoumission.Text;
+            ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
+            datagridListeSoumissions.ItemsSource = ListeSoumissions;
+        }
+
+        private void textboxPrenomClientSoumission_KeyUp(object sender, KeyEventArgs e)
+        {
+            datagridListeSoumissions.ItemsSource = null;
+            if (RetrieveRechercheSoumissionArgs == null)
+            {
+                RetrieveRechercheSoumissionArgs = new RetrieveSoumissionArgs();
+            }
+            if (RetrieveRechercheSoumissionArgs.Client == null)
+            {
+                RetrieveRechercheSoumissionArgs.Client = new Client();
+            }
+
+            RetrieveRechercheSoumissionArgs.Client.Prenom = textboxPrenomClientSoumission.Text;
+            ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
+            datagridListeSoumissions.ItemsSource = ListeSoumissions;
+        }
+
+        private void ttextboxTelephoneClientSoumission_KeyUp(object sender, KeyEventArgs e)
+        {
+            datagridListeSoumissions.ItemsSource = null;
+            if (RetrieveRechercheSoumissionArgs == null)
+            {
+                RetrieveRechercheSoumissionArgs = new RetrieveSoumissionArgs();
+            }
+            if (RetrieveRechercheSoumissionArgs.Client == null)
+            {
+                RetrieveRechercheSoumissionArgs.Client = new Client();
+            }
+
+            RetrieveRechercheSoumissionArgs.Client.Telephone = textboxTelephoneClientSoumission.Text;
+            ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
+            datagridListeSoumissions.ItemsSource = ListeSoumissions;
+        }
 
     }
 }

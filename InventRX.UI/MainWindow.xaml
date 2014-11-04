@@ -164,10 +164,10 @@
 
                                         </DataGrid>
                                         <Button x:Name="boutonNouvelleSoumission" Content="Nouvelle soumission" Margin="55,0,68,10" VerticalAlignment="Bottom" Click="boutonNouvelleSoumission_Click"/>
-                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,32,0,0" TextWrapping="NoWrap" Text="Nom" VerticalAlignment="Top" Width="103"/>
-                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,87,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="103"/>
-                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,59,0,0" TextWrapping="NoWrap" Text="Prénom" VerticalAlignment="Top" Width="103"/>
-                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,4,0,0"  TextWrapping="NoWrap" Text="Numéro soumission" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox x:Name="textboxNomClientSoumission" KeyUp="textboxNomClientSoumission_KeyUp" HorizontalAlignment="Left" Height="23" Margin="10,32,0,0" TextWrapping="NoWrap" Text="Nom" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox x:Name="textboxTelephoneClientSoumission" KeyUp="ttextboxTelephoneClientSoumission_KeyUp" HorizontalAlignment="Left" Height="23" Margin="10,87,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox x:Name="textboxPrenomClientSoumission" KeyUp="textboxPrenomClientSoumission_KeyUp" HorizontalAlignment="Left" Height="23" Margin="10,59,0,0" TextWrapping="NoWrap" Text="Prénom" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox x:Name="textboxNumeroSoumission" KeyUp="textboxNumeroSoumission_KeyUp" HorizontalAlignment="Left" Height="23" Margin="10,4,0,0"  TextWrapping="NoWrap" Text="Numéro soumission" VerticalAlignment="Top" Width="103"/>
                                         <DatePicker HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top" Width="112"/>
                                         <DatePicker HorizontalAlignment="Left" Margin="177,38,0,0" VerticalAlignment="Top" Width="112"/>
                                         <CheckBox Content="Du" HorizontalAlignment="Left" Margin="127,15,0,0" VerticalAlignment="Top"/>

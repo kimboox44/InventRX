@@ -12,6 +12,7 @@ namespace InventRX.Services.Definitions
     {
         IList<Soumission> RetrieveAll();
         Soumission Retrieve(RetrieveSoumissionArgs args);
+        IList<Soumission> RetrieveBy(RetrieveSoumissionArgs args);
         void Update(Soumission soumission);
         void Insert(Soumission soumission);
     }
