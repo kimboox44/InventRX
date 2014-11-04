@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using InventRX.Services.Definitions;
-using InventRX.Logic.Model.Entities;
-using InventRX.Logic.Model.Args;
+using InventRX.Logic.Services.Definitions;
+using InventRX.Logic.Models.Entities;
+using InventRX.Logic.Models.Args;
 
 namespace InventRX.Services
 {

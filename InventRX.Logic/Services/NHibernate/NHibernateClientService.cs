@@ -1,7 +1,7 @@
-﻿using InventRX.Logic.Model.Args;
-using InventRX.Logic.Model.Entities;
+﻿using InventRX.Logic.Models.Args;
+using InventRX.Logic.Models.Entities;
 using InventRX.Logic.Services.Helpers;
-using InventRX.Services.Definitions;
+using InventRX.Logic.Services.Definitions;
 using NHibernate;
 using System;
 using System.Collections.Generic;

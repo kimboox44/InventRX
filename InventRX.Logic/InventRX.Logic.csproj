@@ -57,9 +57,11 @@
   <ItemGroup>
     <Compile Include="Models\Args\RetrieveClientArgs.cs" />
     <Compile Include="Models\Args\RetrieveCommandeArgs.cs" />
+    <Compile Include="Models\Args\RetrieveDetailsArgs.cs" />
     <Compile Include="Models\Args\RetrieveItemSoumissionArgs.cs" />
     <Compile Include="Models\Args\RetrieveProduitArgs.cs" />
     <Compile Include="Models\Args\RetrieveSoumissionArgs.cs" />
+    <Compile Include="Models\Entities\Details.cs" />
     <Compile Include="Models\Entities\ItemSoumission.cs" />
     <Compile Include="Models\Entities\ItemFacture.cs" />
     <Compile Include="Models\Entities\ItemCommande.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Services\Definitions\IClientService.cs" />
     <Compile Include="Services\Definitions\ICommandeService.cs" />
     <Compile Include="Services\Definitions\IItemSoumissionService.cs" />
+    <Compile Include="Services\Definitions\IPrincipaleService.cs" />
     <Compile Include="Services\Definitions\IProduitService.cs" />
     <Compile Include="Services\Definitions\ISoumissionService.cs" />
     <Compile Include="Services\Helpers\MySqlConnexion.cs" />

@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="InventRX.UI.Views.Principale.Details.AjoutDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TabItem x:Name="TabItemPlus" Header="+">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <Button Name="btnNewSoumission" Click="btnNewSoumission_Click" Content="Nouvelle Soumission"/>
+                    <Button Name="btnNewCommande" Click="btnNewSoumission_Click" Content="Nouvelle Commande"/>
+                    <Button Name="btnNewClient" Click="btnNewSoumission_Click" Content="Nouveau Client"/>
+                </StackPanel>
+            </TabItem>
+    </DockPanel>
+</UserControl>

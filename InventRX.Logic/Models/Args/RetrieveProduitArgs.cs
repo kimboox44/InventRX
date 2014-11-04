@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventRX.Logic.Model.Args
+namespace InventRX.Logic.Models.Args
 {
     public class RetrieveProduitArgs
     {

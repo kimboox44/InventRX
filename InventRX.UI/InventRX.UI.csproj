@@ -70,7 +70,9 @@
       <DependentUpon>MainWindowTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\PrincipaleViewModel.cs" />
+    <Compile Include="ViewModels\Principale\Details\AjoutDetailsViewModel.cs" />
     <Compile Include="ViewModels\Principale\Details\ClientDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Principale\Menu\CaisseMenuViewModel.cs" />
     <Compile Include="ViewModels\Principale\Menu\ClientMenuViewModel.cs" />
     <Compile Include="ViewModels\ConnexionViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -79,6 +81,9 @@
     <Compile Include="ViewModels\TabProduitsViewModel.cs" />
     <Compile Include="Views\PrincipaleView.xaml.cs">
       <DependentUpon>PrincipaleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Principale\Details\AjoutDetailsView.xaml.cs">
+      <DependentUpon>AjoutDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Principale\Details\ClientDetailsView.xaml.cs">
       <DependentUpon>ClientDetailsView.xaml</DependentUpon>
@@ -91,6 +96,9 @@
     </Compile>
     <Compile Include="Views\Principale\Details\SoumissionDetailsView.xaml.cs">
       <DependentUpon>SoumissionDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Principale\Menu\CaisseMenuView.xaml.cs">
+      <DependentUpon>CaisseMenuView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +120,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Principale\Details\AjoutDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Principale\Details\ClientDetailsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Principale\Details\SoumissionDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Principale\Menu\CaisseMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,7 +180,6 @@
     <Folder Include="ViewModels\Administration\" />
     <Folder Include="ViewModels\Produits\" />
     <Folder Include="Views\Administration\" />
-    <Folder Include="Views\Principale\Menu\" />
     <Folder Include="Views\Produits\" />
   </ItemGroup>
   <ItemGroup>

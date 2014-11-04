@@ -1,5 +1,5 @@
 ﻿using FluentNHibernate.Mapping;
-using InventRX.Logic.Model.Entities;
+using InventRX.Logic.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

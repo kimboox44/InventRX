@@ -1,10 +1,9 @@
 ﻿using Cstj.MvvmToolkit.Services;
 using Cstj.MvvmToolkit.Services.Definitions;
-using InventRX.Logic.Model.Args;
-using InventRX.Logic.Model.Entities;
+using InventRX.Logic.Models.Args;
+using InventRX.Logic.Models.Entities;
 using InventRX.Logic.Services.NHibernate;
-using InventRX.Services;
-using InventRX.Services.Definitions;
+using InventRX.Logic.Services.Definitions;
 using InventRX.UI.ViewModel;
 using InventRX.UI.Views;
 using System.Collections.Generic;

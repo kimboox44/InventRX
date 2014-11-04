@@ -1,14 +1,15 @@
-﻿using InventRX.Services.Definitions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using InventRX.Logic.Model.Args;
-using InventRX.Logic.Model.Entities;
+using InventRX.Logic.Models.Args;
+using InventRX.Logic.Models.Entities;
 using InventRX.Logic.Services.Helpers;
+using InventRX.Logic.Services.Definitions;
 using System.Data;
 using MySql.Data.MySqlClient;
+
 
 namespace InventRX.Logic.Services.MySql
 {

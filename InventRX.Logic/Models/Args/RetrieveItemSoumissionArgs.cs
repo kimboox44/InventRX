@@ -1,11 +1,11 @@
-﻿using InventRX.Logic.Model.Entities;
+﻿using InventRX.Logic.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventRX.Logic.Model.Args
+namespace InventRX.Logic.Models.Args
 {
     public class RetrieveItemSoumissionArgs
     {

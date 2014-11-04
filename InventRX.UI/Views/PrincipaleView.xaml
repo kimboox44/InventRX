@@ -5,16 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d">
     <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        <TabControl x:Name="TabControlPrincipaleDetails">
-            <TabControl.Resources>
-            </TabControl.Resources>
-            <TabItem x:Name="TabItemPlus" Header="+">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
-                    <Button Name="btnNewSoumission" Click="btnNewSoumission_Click" Content="Nouvelle Soumission"/>
-                    <Button Name="btnNewCommande" Click="btnNewSoumission_Click" Content="Nouvelle Commande"/>
-                    <Button Name="btnNewClient" Click="btnNewSoumission_Click" Content="Nouveau Client"/>
- </StackPanel>
-                </TabItem>
+        <TabControl x:Name="TabControlPrincipaleDetails" ItemsSource="{Binding Items}">
+            <DataTemplate>
+                <TextBlock Text="{Binding Tabname}"/>
+            </DataTemplate>
         </TabControl>
+        <ContentPresenter Content="{Binding  ViewModelMenu.CurrentView}" />
     </DockPanel>
 </UserControl>

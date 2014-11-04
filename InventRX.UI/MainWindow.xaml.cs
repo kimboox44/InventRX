@@ -1,10 +1,10 @@
 ﻿using Cstj.MvvmToolkit.Services;
 using Cstj.MvvmToolkit.Services.Definitions;
-using InventRX.Logic.Model.Args;
-using InventRX.Logic.Model.Entities;
+using InventRX.Logic.Models.Args;
+using InventRX.Logic.Models.Entities;
 using InventRX.Logic.Services.NHibernate;
-using InventRX.Services;
-using InventRX.Services.Definitions;
+using InventRX.Logic.Services;
+using InventRX.Logic.Services.Definitions;
 using InventRX.UI.ViewModel;
 using InventRX.UI.Views;
 using System.Collections.Generic;
@@ -15,6 +15,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Data;
+
+
 
 namespace InventRX.UI
 {

@@ -12,9 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InventRX.Logic.Model.Args;
-using InventRX.Logic.Model.Entities;
-using InventRX.Services.Definitions;
+using InventRX.Logic.Models.Args;
+using InventRX.Logic.Models.Entities;
+using InventRX.Logic.Services.Definitions;
 using InventRX.UI.ViewModel;
 
 namespace InventRX.UI.Views
