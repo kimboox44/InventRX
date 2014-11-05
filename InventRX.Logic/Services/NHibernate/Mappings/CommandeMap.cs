@@ -40,6 +40,11 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .LazyLoad(Laziness.False)
                 .Cascade.None()
                 .Columns("idEmploye");
+
+            HasMany<ItemCommande>(x => x.ItemsCommande)
+            .KeyColumn("idCommande")
+            .Inverse()
+            .Cascade.AllDeleteOrphan();
         }
     }
 }
