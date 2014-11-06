@@ -11,5 +11,7 @@ namespace InventRX.Logic.Model.Args
     {
         public int IdSoumission { get; set; }
         public Client Client { get; set; }
+        public DateTime? DateDebut { get; set; }
+        public DateTime? DateFin { get; set; }
     }
 }

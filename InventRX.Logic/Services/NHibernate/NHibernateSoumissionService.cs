@@ -26,32 +26,627 @@ namespace InventRX.Logic.Services.NHibernate
 
         public IList<Soumission> RetrieveBy(RetrieveSoumissionArgs args)
         {
-            /*var result = from s in session.Query<Soumission>() select;
+            var result = from s in session.Query<Soumission>() select s;
 
-            if(args.IdSoumission != null || args.IdSoumission != 0)
+            if (args.IdSoumission != 0)
             {
-                result.Where(s.)
-                where s.IdSoumission == args.IdSoumission;
+                //Sans les dates
+                if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Nom == s.Client.Nom
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                       && args.Client.Prenom == s.Client.Prenom
+                                       );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+                }
+
+                //Avec datedebut
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                       && args.Client.Prenom == s.Client.Prenom
+                                       && args.DateDebut == s.Date.Date
+                                       );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+
+                //Avec datefin
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.DateFin  == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.DateFin  == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && args.DateFin  == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && args.DateFin  == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.DateFin  == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.DateFin  == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                       && args.Client.Prenom == s.Client.Prenom
+                                       && args.DateFin  == s.Date.Date
+                                       );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && args.DateFin  == s.Date.Date
+                                        );
+                }
+
+                //Avec datedebut et datefin
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Nom == s.Client.Nom
+                                        && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                       && args.Client.Prenom == s.Client.Prenom
+                                       && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                       );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+
+               // fonctionnel sans date
+                /*else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom == null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Nom == s.Client.Nom
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                       && args.Client.Prenom == s.Client.Prenom
+                                       );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom != null)
+                {
+                    result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+                }*/
             }
-            
-                         where
-                             //(s.IdSoumission != null || s.IdSoumission != 0 ? args.IdSoumission : args.IdSoumission) 
-                               s.IdSoumission == args.IdSoumission
-                            || s.Client.Nom.Contains == args.Client.Nom
-                            || s.Client.Prenom == args.Client.Prenom
-                            || s.Client.Telephone == args.Client.Telephone
-                         select s;
-            return result.ToList();
+
+            else if (args.IdSoumission == 0)
+            {
+                //Sans les dates
+                if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin == null)
+                {
+                    return new List<Soumission>();
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Nom == s.Client.Nom
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Prenom == s.Client.Prenom
+                                       );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+                }
+
+                //Avec datedebut
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.DateDebut == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Nom == s.Client.Nom
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Prenom == s.Client.Prenom
+                                       && args.DateDebut == s.Date.Date
+                                       );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin == null)
+                {
+                    result = result.Where(s => args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && args.DateDebut == s.Date.Date
+                                        );
+                }
+
+                //Avec datefin
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.DateFin == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.DateFin == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && args.DateFin == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && args.DateFin == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.DateFin == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Nom == s.Client.Nom
+                                        && args.DateFin == s.Date.Date
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Prenom == s.Client.Prenom
+                                       && args.DateFin == s.Date.Date
+                                       );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut == null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && args.DateFin == s.Date.Date
+                                        );
+                }
+
+                //Avec datedebut et datefin
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+                else if (args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin));
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom == null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Nom == s.Client.Nom
+                                         && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom == null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Prenom == s.Client.Prenom
+                                       && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                       );
+                }
+                else if (args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom != null && args.DateDebut != null && args.DateFin != null)
+                {
+                    result = result.Where(s => args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        && (s.Date.Date >= args.DateDebut && s.Date.Date <= args.DateFin)
+                                        );
+                }
+            }
+
+           /* if (args.IdSoumission != 0 && args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom != null)
+            {
+                result = result.Where(s => args.IdSoumission == s.IdSoumission 
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+            }
+            else if (args.IdSoumission != 0 && args.Client.Telephone != null && args.Client.Nom != null)
+            {
+                result = result.Where(s => args.IdSoumission == s.IdSoumission 
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        );
+            }
+            else if (args.IdSoumission != 0 && args.Client.Telephone != null && args.Client.Prenom != null)
+            {
+                result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+            }
+            else if (args.IdSoumission != 0 && args.Client.Telephone != null)
+            {
+                result = result.Where(s => args.IdSoumission == s.IdSoumission && args.Client.Telephone == s.Client.Telephone);
+            }
+            else if (args.IdSoumission != 0 && args.Client.Telephone == null)
+            {
+                result = result.Where(s => args.IdSoumission == s.IdSoumission);
+            }
+            else if (args.IdSoumission != 0 && args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom != null)
+            {
+                result = result.Where(s => args.IdSoumission == s.IdSoumission 
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+            }
+            else if (args.IdSoumission != 0 && args.Client.Telephone != null && args.Client.Nom != null)
+            {
+                result = result.Where(s => args.IdSoumission == s.IdSoumission 
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        );
+            }
+            else if (args.IdSoumission != 0 && args.Client.Telephone != null && args.Client.Prenom != null)
+            {
+                result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+            }
+            else if (args.IdSoumission != 0 && args.Client.Telephone != null)
+            {
+                result = result.Where(s => args.IdSoumission == s.IdSoumission && args.Client.Telephone == s.Client.Telephone);
+            }
+            //Sans un téléphone de défini
+
+
+            //Si IdSoumission n'est pas défini
+            //Et un téléphone de défini
+            else if (args.IdSoumission == 0 && args.Client.Telephone != null && args.Client.Nom != null && args.Client.Prenom != null)
+            {
+                result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+            }
+            else if (args.IdSoumission == 0 && args.Client.Telephone != null && args.Client.Nom != null)
+            {
+                result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        );
+            }
+            else if (args.IdSoumission == 0 && args.Client.Telephone != null && args.Client.Prenom != null)
+            {
+                result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+            }
+            else if (args.IdSoumission == 0 && args.Client.Telephone != null)
+            {
+                result = result.Where(s => args.Client.Telephone == s.Client.Telephone);
+            }
+            //Sans un téléphone de défini
+            else if (args.IdSoumission == 0 && args.Client.Telephone == null && args.Client.Nom != null && args.Client.Prenom != null)
+            {
+                result = result.Where(s => args.IdSoumission == s.IdSoumission
+                                        && args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+            }
+            else if (args.IdSoumission == 0 && args.Client.Telephone != null && args.Client.Nom != null)
+            {
+                result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Nom == s.Client.Nom
+                                        );
+            }
+            else if (args.IdSoumission == 0 && args.Client.Telephone != null && args.Client.Prenom != null)
+            {
+                result = result.Where(s => args.Client.Telephone == s.Client.Telephone
+                                        && args.Client.Prenom == s.Client.Prenom
+                                        );
+            }
+            else if (args.IdSoumission == 0 && args.Client.Telephone != null)
+            {
+                result = result.Where(s => args.Client.Telephone == s.Client.Telephone);
+            }
             */
-            var result = from s in session.Query<Soumission>()
-                         where 
-                            //(s.IdSoumission != null || s.IdSoumission != 0 ? args.IdSoumission : args.IdSoumission) 
-                               s.IdSoumission == args.IdSoumission 
-                            || s.Client.Nom == args.Client.Nom
-                            || s.Client.Prenom == args.Client.Prenom
-                            || s.Client.Telephone == args.Client.Telephone 
-                         select s;
-           return result.ToList();
+            return result.ToList();
         }
 
         public Soumission Retrieve(RetrieveSoumissionArgs args)

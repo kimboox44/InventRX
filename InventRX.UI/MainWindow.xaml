@@ -127,20 +127,20 @@
                         <TabItem Header="Clients">
                             <Grid Background="#FFE5E5E5">
                                 <DockPanel LastChildFill="True">
-                                        <Grid Background="White">
-                                            <DataGrid x:Name="datagridListeClients" MouseDoubleClick="datagridListeClients_MouseDoubleClick" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="0,74,0,0">
-                                                <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
-                                                    <DataGridTextColumn Header="Prénom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prenom}" />
-                                                    <DataGridTextColumn Header="Téléphone" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Telephone}" />
-                                                </DataGrid.Columns>
-                                            </DataGrid>
-                                            <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="NoWrap" Text="Nom" VerticalAlignment="Top" Width="122"/>
-                                            <TextBox HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="NoWrap" Text="Prénom" VerticalAlignment="Top" Width="122"/>
-                                            <TextBox HorizontalAlignment="Left" Height="23" Margin="157,10,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="122" Grid.ColumnSpan="2"/>
-                                            <TextBox HorizontalAlignment="Left" Height="23" Margin="157,38,0,0" TextWrapping="NoWrap" Text="Rue" VerticalAlignment="Top" Width="122" Grid.ColumnSpan="2"/>
-                                        </Grid>
-                                    </DockPanel>
+                                    <Grid Background="White">
+                                        <DataGrid x:Name="datagridListeClients" MouseDoubleClick="datagridListeClients_MouseDoubleClick" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="0,74,0,0">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
+                                                <DataGridTextColumn Header="Prénom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prenom}" />
+                                                <DataGridTextColumn Header="Téléphone" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Telephone}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="NoWrap" Text="Nom" VerticalAlignment="Top" Width="122"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="NoWrap" Text="Prénom" VerticalAlignment="Top" Width="122"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="157,10,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="122" Grid.ColumnSpan="2"/>
+                                        <TextBox HorizontalAlignment="Left" Height="23" Margin="157,38,0,0" TextWrapping="NoWrap" Text="Rue" VerticalAlignment="Top" Width="122" Grid.ColumnSpan="2"/>
+                                    </Grid>
+                                </DockPanel>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Soumissions">
@@ -164,14 +164,16 @@
 
                                         </DataGrid>
                                         <Button x:Name="boutonNouvelleSoumission" Content="Nouvelle soumission" Margin="55,0,68,10" VerticalAlignment="Bottom" Click="boutonNouvelleSoumission_Click"/>
-                                        <TextBox x:Name="textboxNomClientSoumission" KeyUp="textboxNomClientSoumission_KeyUp" HorizontalAlignment="Left" Height="23" Margin="10,32,0,0" TextWrapping="NoWrap" Text="Nom" VerticalAlignment="Top" Width="103"/>
-                                        <TextBox x:Name="textboxTelephoneClientSoumission" KeyUp="ttextboxTelephoneClientSoumission_KeyUp" HorizontalAlignment="Left" Height="23" Margin="10,87,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="103"/>
-                                        <TextBox x:Name="textboxPrenomClientSoumission" KeyUp="textboxPrenomClientSoumission_KeyUp" HorizontalAlignment="Left" Height="23" Margin="10,59,0,0" TextWrapping="NoWrap" Text="Prénom" VerticalAlignment="Top" Width="103"/>
-                                        <TextBox x:Name="textboxNumeroSoumission" KeyUp="textboxNumeroSoumission_KeyUp" HorizontalAlignment="Left" Height="23" Margin="10,4,0,0"  TextWrapping="NoWrap" Text="Numéro soumission" VerticalAlignment="Top" Width="103"/>
-                                        <DatePicker HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top" Width="112"/>
-                                        <DatePicker HorizontalAlignment="Left" Margin="177,38,0,0" VerticalAlignment="Top" Width="112"/>
-                                        <CheckBox Content="Du" HorizontalAlignment="Left" Margin="127,15,0,0" VerticalAlignment="Top"/>
-                                        <CheckBox Content="Au" HorizontalAlignment="Left" Margin="127,40,0,0" VerticalAlignment="Top"/>
+                                        <TextBox x:Name="textboxNomClientSoumission" HorizontalAlignment="Left" Height="23" Margin="176,59,0,0" TextWrapping="NoWrap" Text="Nom" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox x:Name="textboxTelephoneClientSoumission" HorizontalAlignment="Left" Height="23" Margin="10,32,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox x:Name="textboxPrenomClientSoumission" HorizontalAlignment="Left" Height="23" Margin="10,59,0,0" TextWrapping="NoWrap" Text="Prénom" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox x:Name="textboxNumeroSoumission" HorizontalAlignment="Left" Height="23" Margin="10,4,0,0"  TextWrapping="NoWrap" Text="Numéro soumission" VerticalAlignment="Top" Width="103"/>
+                                        <DatePicker x:Name="datepickerSoumissionDu" HorizontalAlignment="Left" Margin="176,4,0,0" VerticalAlignment="Top" Width="112"/>
+                                        <DatePicker x:Name="datepickerSoumissionAu" HorizontalAlignment="Left" Margin="176,31,0,0" VerticalAlignment="Top" Width="112"/>
+                                        <CheckBox x:Name="checkboxSoumissionDateDu" Content="Du" HorizontalAlignment="Left" Margin="127,10,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox x:Name="checkboxSoumissionDateAu" Content="Au" HorizontalAlignment="Left" Margin="127,36,0,0" VerticalAlignment="Top"/>
+                                        <Button x:Name="btnRechercherSoumission" Content="Rechercher" Margin="10,87,150,0" VerticalAlignment="Top" Click="btnRechercherSoumission_Click"/>
+                                        <Button x:Name="btnResetRechercherSoumission" Content="Reset" Margin="150,87,10,0" VerticalAlignment="Top" Click="btnResetRechercherSoumission_Click"/>
                                         <!--<ScrollViewer>
                                             <StackPanel>
                                                 <Button DockPanel.Dock="Top" Content="John Doe" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="180"/>

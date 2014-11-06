@@ -447,10 +447,17 @@ namespace InventRX.UI
             {
                 RetrieveRechercheSoumissionArgs.Client = new Client();
             }
- 
-            RetrieveRechercheSoumissionArgs.Client.Nom = textboxNomClientSoumission.Text;
-            ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
-            datagridListeSoumissions.ItemsSource = ListeSoumissions;
+
+            if (textboxNomClientSoumission.Text != "Nom")
+            {
+                RetrieveRechercheSoumissionArgs.Client.Nom = textboxPrenomClientSoumission.Text;
+                ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
+                datagridListeSoumissions.ItemsSource = ListeSoumissions;
+            }
+            else
+            {
+                RetrieveRechercheSoumissionArgs.Client.Nom = null;
+            }
         }
 
         private void textboxPrenomClientSoumission_KeyUp(object sender, KeyEventArgs e)
@@ -465,9 +472,16 @@ namespace InventRX.UI
                 RetrieveRechercheSoumissionArgs.Client = new Client();
             }
 
-            RetrieveRechercheSoumissionArgs.Client.Prenom = textboxPrenomClientSoumission.Text;
-            ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
-            datagridListeSoumissions.ItemsSource = ListeSoumissions;
+            if (textboxPrenomClientSoumission.Text != "Prénom")
+            {
+                RetrieveRechercheSoumissionArgs.Client.Prenom = textboxPrenomClientSoumission.Text;
+                ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
+                datagridListeSoumissions.ItemsSource = ListeSoumissions;
+            }
+            else 
+            {
+                RetrieveRechercheSoumissionArgs.Client.Prenom = null;
+            }
         }
 
         private void ttextboxTelephoneClientSoumission_KeyUp(object sender, KeyEventArgs e)
@@ -482,8 +496,130 @@ namespace InventRX.UI
                 RetrieveRechercheSoumissionArgs.Client = new Client();
             }
 
-            RetrieveRechercheSoumissionArgs.Client.Telephone = textboxTelephoneClientSoumission.Text;
+            if (textboxTelephoneClientSoumission.Text != "Téléphone")
+            {
+                RetrieveRechercheSoumissionArgs.Client.Telephone = textboxTelephoneClientSoumission.Text;
+                ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
+                datagridListeSoumissions.ItemsSource = ListeSoumissions;
+            }
+            else 
+            {
+                RetrieveRechercheSoumissionArgs.Client.Telephone = null;
+            }
+        }
+
+        private void btnRechercherSoumission_Click(object sender, RoutedEventArgs e)
+        {
+            datagridListeSoumissions.ItemsSource = null;
+            if (RetrieveRechercheSoumissionArgs == null)
+            {
+                RetrieveRechercheSoumissionArgs = new RetrieveSoumissionArgs();
+            }
+            if (RetrieveRechercheSoumissionArgs.Client == null)
+            {
+                RetrieveRechercheSoumissionArgs.Client = new Client();
+            }
+            if (textboxNumeroSoumission.Text == "")
+            {
+                RetrieveRechercheSoumissionArgs.IdSoumission = 0;
+            }
+            else
+            {
+                int errorCounter = 0;
+                errorCounter = Regex.Matches(textboxNumeroSoumission.Text, @"[a-zA-Z]").Count;
+                if (errorCounter <= 0)
+                {
+                    int numero;
+                    string snumero = textboxNumeroSoumission.Text;
+                    if (int.TryParse(snumero, out numero))
+                    {
+                        RetrieveRechercheSoumissionArgs.IdSoumission = numero;
+                    }
+                }
+                else
+                {
+                    RetrieveRechercheSoumissionArgs.IdSoumission = 0;
+                }
+            }
+
+            if (textboxTelephoneClientSoumission.Text != "Téléphone" && textboxTelephoneClientSoumission.Text != "")
+            {
+                RetrieveRechercheSoumissionArgs.Client.Telephone = textboxTelephoneClientSoumission.Text;
+            }
+            else
+            {
+                RetrieveRechercheSoumissionArgs.Client.Telephone = null;
+            }
+
+            if (textboxNomClientSoumission.Text != "Nom" && textboxNomClientSoumission.Text != "")
+            {
+                RetrieveRechercheSoumissionArgs.Client.Nom = textboxNomClientSoumission.Text;
+            }
+            else
+            {
+                RetrieveRechercheSoumissionArgs.Client.Nom = null;
+            }
+
+            if (textboxPrenomClientSoumission.Text != "Prénom" && textboxPrenomClientSoumission.Text != "")
+            {
+                RetrieveRechercheSoumissionArgs.Client.Prenom = textboxPrenomClientSoumission.Text;
+            }
+            else
+            {
+                RetrieveRechercheSoumissionArgs.Client.Prenom = null;
+            }
+
+            if (checkboxSoumissionDateDu.IsChecked == true)
+            {
+                if (datepickerSoumissionDu.ToString() != "")
+                {
+                    RetrieveRechercheSoumissionArgs.DateDebut = datepickerSoumissionDu.SelectedDate;
+                }
+                else
+                {
+                    RetrieveRechercheSoumissionArgs.DateDebut = null;
+                }
+            }
+            else
+            {
+                RetrieveRechercheSoumissionArgs.DateDebut = null;
+            }
+
+            if (checkboxSoumissionDateAu.IsChecked == true)
+            {
+                if (datepickerSoumissionAu.ToString() != "")
+                {
+                    RetrieveRechercheSoumissionArgs.DateFin = datepickerSoumissionAu.SelectedDate;
+                }
+                else
+                {
+                    RetrieveRechercheSoumissionArgs.DateFin = null;
+                }
+            }
+            else
+            {
+                RetrieveRechercheSoumissionArgs.DateFin = null;
+            }
+
+            //MessageBox.Show("From: " + datepickerSoumissionDu.ToString() + " To: " + datepickerSoumissionAu.ToString());
             ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
+            datagridListeSoumissions.ItemsSource = ListeSoumissions;
+        }
+
+        private void btnResetRechercherSoumission_Click(object sender, RoutedEventArgs e)
+        {
+            datagridListeSoumissions.ItemsSource = null;
+
+            textboxNumeroSoumission.Text = "Numéro soumission";
+            textboxNomClientSoumission.Text = "Nom";
+            textboxTelephoneClientSoumission.Text = "Téléphone";
+            textboxPrenomClientSoumission.Text = "Prénom";
+            datepickerSoumissionDu.SelectedDate = null;
+            datepickerSoumissionAu.SelectedDate = null;
+            checkboxSoumissionDateDu.IsChecked = false;
+            checkboxSoumissionDateAu.IsChecked = false;
+
+            ListeSoumissions = _soumissionService.RetrieveAll();
             datagridListeSoumissions.ItemsSource = ListeSoumissions;
         }
 
