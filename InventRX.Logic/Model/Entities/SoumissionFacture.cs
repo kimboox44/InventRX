@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace InventRX.Logic.Model.Entities
 {
-    public class CommandeFacture
+    public class SoumissionFacture
     {
         public virtual int? IdCommandeFacture { get; set; }
         public virtual Produit Produit { get; set; }
 
-        public CommandeFacture()
+        public SoumissionFacture()
         {
             //Date = new DateTime();
         }

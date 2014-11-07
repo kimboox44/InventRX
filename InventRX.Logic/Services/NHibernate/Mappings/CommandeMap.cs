@@ -28,6 +28,13 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Not.Nullable().Generated.Insert()
                 .CustomSqlType("TIMESTAMP");
 
+            Map(x => x.Etat)
+                .Column("etatCommande")
+                .CustomType<string>()
+                .Access.Property()
+                .Not.Nullable()
+                .CustomSqlType("ENUM");
+
             References(v => v.Fournisseur)
                 .Class<Fournisseur>()
                 .Access.Property()

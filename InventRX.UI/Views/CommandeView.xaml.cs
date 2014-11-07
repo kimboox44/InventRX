@@ -59,6 +59,7 @@ namespace InventRX.UI.Views
                     ViewModel.Commande.ItemsCommande = new List<ItemCommande>();
                 }
             }
+
         }
 
         private void btnSauvegarder_Click(object sender, RoutedEventArgs e)
@@ -71,6 +72,11 @@ namespace InventRX.UI.Views
                 RetrieveFournisseurArgs.IdFournisseur = Convert.ToInt32(ViewModel.Commande.Fournisseur.IdFournisseur);
                 Fournisseur = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
             }
+            if(comboboxEtatCommande.SelectedItem.ToString() == "")
+            {
+                comboboxEtatCommande.SelectedItem = "En attente";
+            }
+            ViewModel.Commande.Etat = comboboxEtatCommande.SelectedItem.ToString();
             ViewModel.SauvegarderCommand();
         }
 

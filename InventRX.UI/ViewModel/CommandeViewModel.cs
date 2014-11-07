@@ -19,9 +19,16 @@ namespace InventRX.UI.ViewModel
         private IProduitService _produiService;
         public RetrieveProduitArgs RetrieveProduitArgs { get; set; }
         public IList<Produit> ListeProduits { get; set; }
+        public List<string> Etats { get; set; }
 
         public CommandeViewModel()
         {
+            Etats = new List<string>();
+            Etats.Add("En attente");
+            Etats.Add("En cours");
+            Etats.Add("Incomplète");
+            Etats.Add("Complétée");
+
             _commandeService = ServiceFactory.Instance.GetService<ICommandeService>();
             ItemsCommande = new ObservableCollection<ItemCommande>(ServiceFactory.Instance.GetService<IItemCommandeService>().RetrieveAll());
 
@@ -29,6 +36,7 @@ namespace InventRX.UI.ViewModel
             _produiService = ServiceFactory.Instance.GetService<IProduitService>();
             RetrieveProduitArgs = new RetrieveProduitArgs();
             ListeProduits = _produiService.RetrieveAll();
+
         }
 
         public Commande Commande

@@ -12,6 +12,7 @@ namespace InventRX.Logic.Model.Entities
         public virtual Fournisseur Fournisseur { get; set; }
         public virtual Employe Employe { get; set; }
         public virtual DateTime Date { get; set; }
+        public virtual string Etat { get; set; }
         public virtual IList<ItemCommande> ItemsCommande { get; set; }
 
         public Commande()
