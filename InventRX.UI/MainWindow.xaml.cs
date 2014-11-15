@@ -17,15 +17,19 @@ using System.Windows.Input;
 using System.Windows.Data;
 using System;
 using System.Text.RegularExpressions;
+using MahApps.Metro.Controls;
+using System.Windows.Media;
 
 namespace InventRX.UI
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public MainViewModel ViewModel { get { return (MainViewModel)DataContext; } }
+        public List<string> ListeMethodesPaiement { get; set; }
+        private Soumission ActiveSoumission { get; set; }
 
         #region Soumission
 
@@ -51,7 +55,7 @@ namespace InventRX.UI
             bool exist = false;
             Soumission soumissionSelectionnee = (datagridListeSoumissions.SelectedItem as Soumission);
 
-            if(soumissionSelectionnee != null)
+            if (soumissionSelectionnee != null)
             {
                 //Desélectionne la soumission
                 datagridListeSoumissions.SelectedItem = null;
@@ -83,8 +87,8 @@ namespace InventRX.UI
 
                     //Ajout du cont
                     ScrollViewer newScrollViewer = new ScrollViewer();
-                    newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
-                    newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+                    newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+                    newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
                     newScrollViewer.Content = contentPresenter;
 
                     //Création d'un nouveau item
@@ -96,6 +100,8 @@ namespace InventRX.UI
                     //nouvelleTab.Content = contentPresenter;
 
                     nouvelleTab.DataContext = nouveauViewModel;
+                    //nouvelleTab.Background = Brushes.LightSkyBlue;
+                    nouvelleTab.BorderBrush = Brushes.LightSkyBlue;
 
                     //Ajout de l'item à la tab control
                     TabControlPrincipalDetails.Items.Add(nouvelleTab);
@@ -120,8 +126,8 @@ namespace InventRX.UI
 
             //Ajout du contentPresenter dans un scrollviewer pour pouvoir scroller à l'interieur
             ScrollViewer newScrollViewer = new ScrollViewer();
-            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
-            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
             newScrollViewer.Content = contentPresenter;
 
             //Création d'un nouveau item
@@ -133,6 +139,8 @@ namespace InventRX.UI
             //nouvelleTab.Content = contentPresenter;
 
             nouvelleTab.DataContext = nouveauViewModel;
+            //nouvelleTab.Background = Brushes.LightSkyBlue;
+            nouvelleTab.BorderBrush = Brushes.LightSkyBlue;
 
             //Ajout de l'item à la tab control
             TabControlPrincipalDetails.Items.Add(nouvelleTab);
@@ -212,8 +220,8 @@ namespace InventRX.UI
 
                     //Ajout du cont
                     ScrollViewer newScrollViewer = new ScrollViewer();
-                    newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
-                    newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+                    newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+                    newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
                     newScrollViewer.Content = contentPresenter;
 
                     //Création d'un nouveau item
@@ -225,6 +233,8 @@ namespace InventRX.UI
                     //nouvelleTab.Content = contentPresenter;
 
                     nouvelleTab.DataContext = nouveauViewModel;
+                    //nouvelleTab.Background = Brushes.LightGreen;
+                    nouvelleTab.BorderBrush = Brushes.LightGreen;
 
                     //Ajout de l'item à la tab control
                     TabControlPrincipalDetails.Items.Add(nouvelleTab);
@@ -249,8 +259,8 @@ namespace InventRX.UI
 
             //Ajout du contentPresenter dans un scrollviewer pour pouvoir scroller à l'interieur
             ScrollViewer newScrollViewer = new ScrollViewer();
-            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
-            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
             newScrollViewer.Content = contentPresenter;
 
             //Création d'un nouveau item
@@ -262,12 +272,14 @@ namespace InventRX.UI
             //nouvelleTab.Content = contentPresenter;
 
             nouvelleTab.DataContext = nouveauViewModel;
+            //nouvelleTab.Background = Brushes.LightGreen;
+            nouvelleTab.BorderBrush = Brushes.LightGreen;
 
             //Ajout de l'item à la tab control
             TabControlPrincipalDetails.Items.Add(nouvelleTab);
             TabControlPrincipalDetails.SelectedItem = nouvelleTab;
         }
-        
+
         #endregion
 
         #region Clients
@@ -289,14 +301,14 @@ namespace InventRX.UI
 
         private void datagridListeClients_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-        //TODO : Gerer si la tabulation est deja ouverte pour ce client
+            //TODO : Gerer si la tabulation est deja ouverte pour ce client
             Client clientSelectionnee = (datagridListeClients.SelectedItem as Client);
-            if(clientSelectionnee != null)
+            if (clientSelectionnee != null)
             {
-                datagridListeClients.SelectedItem=null;
+                datagridListeClients.SelectedItem = null;
 
             }
-            Dictionary<string, object> parameters = new Dictionary<string,object>() {{"Client", clientSelectionnee}};
+            Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Client", clientSelectionnee } };
             //TODO : Enlever la creation de new mainviewmodel et client view
             MainViewModel nouveauViewModel = new MainViewModel();
             nouveauViewModel.CurrentView = new ClientView(parameters);
@@ -306,10 +318,19 @@ namespace InventRX.UI
             myBinding.Source = nouveauViewModel.CurrentView;
             contentPresenter.Content = myBinding.Source;
 
+            //Ajout d'un scrollviewer
+            ScrollViewer newScrollViewer = new ScrollViewer();
+            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+
+            newScrollViewer.HorizontalAlignment = HorizontalAlignment.Center;
+            newScrollViewer.Content = contentPresenter;
+
             TabItem nouvelleTab = new TabItem();
             nouvelleTab.Header = "client #" + clientSelectionnee.IdClient;
-            nouvelleTab.Content = contentPresenter;
+            nouvelleTab.Content = newScrollViewer;
             nouvelleTab.DataContext = nouveauViewModel;
+
             TabControlPrincipalDetails.Items.Add(nouvelleTab);
             TabControlPrincipalDetails.SelectedItem = nouvelleTab;
         }
@@ -330,8 +351,8 @@ namespace InventRX.UI
 
             //Ajout du contentPresenter dans un scrollviewer pour pouvoir scroller à l'interieur
             ScrollViewer newScrollViewer = new ScrollViewer();
-            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
-            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
             newScrollViewer.Content = contentPresenter;
 
             //Création d'un nouveau item
@@ -365,6 +386,14 @@ namespace InventRX.UI
             ServiceFactory.Instance.Register<IProvinceService, NHibernateProvinceService>(new NHibernateProvinceService());
             ServiceFactory.Instance.Register<IEmployeService, NHibernateEmployeService>(new NHibernateEmployeService());
             ServiceFactory.Instance.Register<IFournisseurService, NHibernateFournisseurService>(new NHibernateFournisseurService());
+
+            ListeMethodesPaiement = new List<string>();
+            ListeMethodesPaiement.Add("Comptant");
+            ListeMethodesPaiement.Add("Visa");
+
+            comboboxMethodePaiement.ItemsSource = ListeMethodesPaiement;
+            // datagridPaiement.ItemsSource = ListeMethodePaiement;
+
         }
 
         #region Tabs Config
@@ -412,7 +441,7 @@ namespace InventRX.UI
             if (RetrieveRechercheSoumissionArgs == null)
             {
                 RetrieveRechercheSoumissionArgs = new RetrieveSoumissionArgs();
-            } 
+            }
             if (RetrieveRechercheSoumissionArgs.Client == null)
             {
                 RetrieveRechercheSoumissionArgs.Client = new Client();
@@ -478,7 +507,7 @@ namespace InventRX.UI
                 ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
                 datagridListeSoumissions.ItemsSource = ListeSoumissions;
             }
-            else 
+            else
             {
                 RetrieveRechercheSoumissionArgs.Client.Prenom = null;
             }
@@ -502,7 +531,7 @@ namespace InventRX.UI
                 ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
                 datagridListeSoumissions.ItemsSource = ListeSoumissions;
             }
-            else 
+            else
             {
                 RetrieveRechercheSoumissionArgs.Client.Telephone = null;
             }
@@ -623,5 +652,159 @@ namespace InventRX.UI
             datagridListeSoumissions.ItemsSource = ListeSoumissions;
         }
 
+        private Soumission FindActiveSoumission()
+        {
+            Soumission soumission;
+            TabItem item = TabControlPrincipalDetails.SelectedItem as TabItem;
+            if (item != null && item.Header.ToString() != "+")
+            {
+                ScrollViewer s = item.Content as ScrollViewer;
+                ContentPresenter c = s.Content as ContentPresenter;
+                Binding b = new Binding();
+                b.Source = c.Content;
+
+                switch (b.Source.ToString())
+                {
+                    case "InventRX.UI.Views.SoumissionView":
+                        {
+                            datagridPaiement.IsEnabled = true;
+                            SoumissionView sv = b.Source as SoumissionView;
+                            soumission = sv.ViewModel.Soumission as Soumission;
+                            //Prépare la facture en vue de la commit plus tard
+                            soumission.ConstruireFacture();
+                            break;
+                        }
+                    default:
+                        {
+                            soumission = null;
+                            break;
+                        }
+                }
+            }
+            else
+            {
+                soumission = null;
+            }
+            return soumission;
+        }
+
+        private void UpdateSoumissionCaisse(Soumission soumission)
+        {
+            //Sélectionner la tab caisse
+            foreach (TabItem ti in TabControlPrincipalMC.Items)
+            {
+                if (ti.Header.ToString() == "Caisse")
+                {
+                    TabControlPrincipalMC.SelectedItem = ti;
+                    break;
+                }
+            }
+
+            double totalCaisse = 0;
+            foreach (Paiement paiement in ActiveSoumission.Facture.Paiements)
+            {
+                totalCaisse += paiement.Montant;
+            }
+            labelTabCaisseTotal.Content = totalCaisse.ToString("C2") + "/" + soumission.Price().ToString("C2");
+            datagridPaiement.ItemsSource = ActiveSoumission.Facture.Paiements;
+            
+            //datagridPaiement.Items.Refresh();
+        }
+
+        private void TabControlPrincipalDetails_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ActiveSoumission = FindActiveSoumission();
+            TabItem tabCaisse = null;
+
+            foreach (TabItem ti in TabControlPrincipalMC.Items)
+            {
+                if (ti.Header.ToString() == "Caisse")
+                {
+                    tabCaisse = ti;
+                    break;
+                }
+            }
+
+            if (ActiveSoumission != null)
+            {
+                UpdateSoumissionCaisse(ActiveSoumission);
+                if (tabCaisse != null)
+                {
+                    TabControlPrincipalMC.SelectedItem = tabCaisse;
+                    datagridPaiement.IsEnabled = true;
+                    buttonCaissePayer.IsEnabled = true;
+                    buttonCaisseAnnuler.IsEnabled =  true;
+                }
+            }
+            else
+            {
+                if (tabCaisse != null)
+                {
+                    datagridPaiement.IsEnabled = false;
+                    buttonCaissePayer.IsEnabled = false;
+                    buttonCaisseAnnuler.IsEnabled = false;
+                    labelTabCaisseTotal.Content = (0.00).ToString("C2");
+                }
+            }
+        }
+
+        private void btnSupprimerPaiementCaisse_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Paiement paiement = (Paiement)((sender as Button).CommandParameter);
+                if (paiement != null)
+                {
+                    if (datagridPaiement.ItemsSource != null)
+                    {
+                        ActiveSoumission.Facture.Paiements.Remove(paiement);
+                        datagridPaiement.Items.Refresh();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void datagridPaiement_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+           /* TabControlPrincipalDetails.IsEnabled = false;
+            buttonCaissePayer.IsEnabled = true;
+            buttonCaisseAnnuler.IsEnabled = true;*/
+
+            if (ActiveSoumission == null)
+            {
+                ActiveSoumission = FindActiveSoumission();
+            }
+
+            if (ActiveSoumission != null)
+            {
+                UpdateSoumissionCaisse(ActiveSoumission);
+            }
+        }
+
+        private void buttonCaisseAnnuler_Click(object sender, RoutedEventArgs e)
+        {
+            /*buttonCaissePayer.IsEnabled = false;
+            buttonCaisseAnnuler.IsEnabled = false;*/
+
+            ActiveSoumission.Facture.Paiements.Clear();
+            datagridPaiement.Items.Refresh();
+           // TabControlPrincipalDetails.IsEnabled = true;
+        }
+
+        private void buttonCaissePayer_Click(object sender, RoutedEventArgs e)
+        {
+            buttonCaissePayer.IsEnabled = false;
+            buttonCaisseAnnuler.IsEnabled = false;
+
+            if (ActiveSoumission == null)
+            {
+                ActiveSoumission = FindActiveSoumission();
+            }
+
+            //Persiter la facture
+        }
     }
 }

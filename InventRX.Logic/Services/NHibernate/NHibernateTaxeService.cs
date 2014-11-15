@@ -27,7 +27,7 @@ namespace InventRX.Logic.Services.NHibernate
         public Taxe Retrieve(RetrieveTaxeArgs args)
         {
             var result = from s in session.Query<Taxe>()
-                         where s.Date == args.DateTaxe
+                         where s.Date == args.Date
                          select s;
 
             return result.FirstOrDefault();

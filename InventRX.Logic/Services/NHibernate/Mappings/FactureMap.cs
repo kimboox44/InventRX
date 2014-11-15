@@ -46,6 +46,11 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .KeyColumn("idFacture")
                 .Inverse()
                 .Cascade.AllDeleteOrphan();
+
+            HasMany<Paiement>(x => x.Paiements)
+                .KeyColumn("idPaiement")
+                .Inverse()
+                .Cascade.AllDeleteOrphan();
         }
     }
 }

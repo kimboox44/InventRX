@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" Height="350" Width="350">
+             mc:Ignorable="d" MinHeight="350" MinWidth="350" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
     <Grid>
         <Label Content="Client #" HorizontalAlignment="Left" Margin="53,15,0,0" VerticalAlignment="Top" Width="51" Height="26"/>
         <Label Content="Nom" HorizontalAlignment="Left" Margin="68,39,0,0" VerticalAlignment="Top"/>
@@ -31,7 +31,7 @@
         <Label Content="Solde" HorizontalAlignment="Left" Margin="38,265,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="204,265,0,0" TextWrapping="Wrap"  Text="{Binding Client.Solde, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textboxNumeroClient" HorizontalAlignment="Left" Height="23" Margin="204,15,0,0" TextWrapping="Wrap"  Text="{Binding Client.IdClient, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <Button Grid.Column="1" Grid.Row="0" Margin="10,0,10,10" Content="Sauvegarder" Click="btnSauvegarder_Click" Height="19" VerticalAlignment="Bottom" />
-        <Button x:Name="btnCreerClient" Grid.Column="1" Grid.Row="0" Margin="10,0,10,10" Content="Créer" Click="btnCreer_Click" Height="19" VerticalAlignment="Bottom" />
+        <Button Grid.Row="0" Margin="10,315,10,0" Content="Sauvegarder" Click="btnSauvegarder_Click" Height="19" VerticalAlignment="Top" />
+        <Button x:Name="btnCreerClient" Grid.Row="0" Margin="10,315,0,0" Content="Créer" Click="btnCreer_Click" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="330" />
     </Grid>
 </UserControl>

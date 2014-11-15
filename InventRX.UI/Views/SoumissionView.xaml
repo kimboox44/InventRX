@@ -3,19 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" Height="529" Width="770">
-    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+             xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d" MinHeight="529" MinWidth="770" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="385*"/>
             <ColumnDefinition Width="385"/>
         </Grid.ColumnDefinitions>
+
         <Label Name="labelNumeroSoumission" Content="{Binding Soumission.IdSoumission}" HorizontalAlignment="Left" Margin="87,10,0,0" VerticalAlignment="Top" Width="87" Height="26"/>
         <Label Content="Soumission #" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="83" Height="26"/>
-        <DataGrid x:Name="datagridListeItemsSoumission" Margin="10,87,11,10" ItemsSource="{ Binding Soumission.ItemsSoumission, UpdateSourceTrigger=PropertyChanged }" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid x:Name="datagridListeItemsSoumission" Margin="10,111,11,10" ItemsSource="{ Binding Soumission.ItemsSoumission, UpdateSourceTrigger=PropertyChanged }" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Produit" Width="auto" IsReadOnly="True" Binding="{Binding NomProduit}" />
                 <DataGridTextColumn Header="Quantité" Width="auto" IsReadOnly="False" Binding="{Binding Quantite}" />
-                <DataGridTextColumn Header="Prix unitaire" Width="auto" IsReadOnly="False" Binding="{Binding PrixUnitaire}" />
+                <!--<DataGridTextColumn Header="Prix unitaire" Width="auto" IsReadOnly="False" Binding="{Binding PrixUnitaire}" />-->
+                <controls:DataGridNumericUpDownColumn Header="Prix unitaire" 
+                                                      Binding="{Binding PrixUnitaire}" 
+                                                      StringFormat="C" 
+                                                      Minimum="0" />
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -32,10 +38,15 @@
                 </DataGridTemplateColumn>-->
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="datagridListeProduits" Margin="11,87,10,34" ItemsSource="{ Binding ListeProduits }" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1" MouseDoubleClick="datagridListeProduits_MouseDoubleClick">
+        <DataGrid x:Name="datagridListeProduits" Margin="11,111,10,10" ItemsSource="{ Binding ListeProduits }" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1" MouseDoubleClick="datagridListeProduits_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Produit" Width="auto" IsReadOnly="True" Binding="{Binding Nom}" />
-                <DataGridTextColumn Header="Prix" Width="auto" IsReadOnly="True" Binding="{Binding Prix}" />
+                <!--<DataGridTextColumn Header="Prix" Width="auto" IsReadOnly="True" Binding="{Binding Prix}" />-->
+                <controls:DataGridNumericUpDownColumn  IsReadOnly="True" 
+                                                       Header="Prix" 
+                                                      Binding="{Binding Prix}" 
+                                                      StringFormat="C" 
+                                                      Minimum="0" />
                 <DataGridTextColumn Header="Stock" Width="auto" IsReadOnly="True"  Binding="{Binding Quantite}" />
             </DataGrid.Columns>
         </DataGrid>
@@ -43,9 +54,11 @@
         <TextBox x:Name="txtBoxClientNom" HorizontalAlignment="Left" Height="23" Margin="254,10,0,0" TextWrapping="Wrap"  Text="{Binding Soumission.Client.Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="254,39,0,0" TextWrapping="Wrap"  Text="{Binding Soumission.Client.Prenom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Prénom" HorizontalAlignment="Left" Margin="200,36,0,0" VerticalAlignment="Top"/>
-        <Button Grid.Column="1" Grid.Row="0" Margin="10,0,10,10" Content="Sauvegarder" Click="btnSauvegarder_Click" Height="19" VerticalAlignment="Bottom" />
-        <Button x:Name="btnCreerSoumission" Grid.Column="1" Grid.Row="0" Margin="10,0,10,10" Content="Créer" Click="btnCreer_Click" Height="19" VerticalAlignment="Bottom" Visibility="Hidden" />
+        <Button Grid.Column="1" Grid.Row="0" Margin="10,10,10,0" Content="Sauvegarder les changements" Click="btnSauvegarder_Click" Height="19" VerticalAlignment="Top" />
+        <Button x:Name="btnCreerSoumission" Grid.Column="1" Grid.Row="0" Margin="10,10,10,0" Content="Créer la soumission" Click="btnCreer_Click" Height="19" VerticalAlignment="Top" Visibility="Hidden" />
         <Label Content="Téléphone" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="75,41,0,0" TextWrapping="Wrap"  Text="{Binding Soumission.Client.Telephone, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Liste des produits dans la soumission" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top"/>
+        <Label Content="Liste des produits en inventaire" HorizontalAlignment="Left" Margin="11,80,0,0" VerticalAlignment="Top" Grid.Column="1"/>
     </Grid>
 </UserControl>

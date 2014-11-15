@@ -1,9 +1,76 @@
-﻿<Window x:Class="InventRX.UI.MainWindow"
+﻿<Controls:MetroWindow x:Class="InventRX.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="InventRX" Height="700" Width="1200">
-    <Grid>
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        Height="700" Width="1200"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        WindowStartupLocation="CenterScreen">
 
+    <!--<Window.Resources>
+        <SolidColorBrush x:Key="GotFocusColor" Color="Green" />
+        <SolidColorBrush x:Key="LostFocusColor" Color="Transparent" />
+
+        <Style TargetType="{x:Type DataGridRow}">
+            <Setter Property="Foreground" Value="#FFB3B3B3"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#FF262626"/>
+                </Trigger>
+
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#FF383838"/>
+                </Trigger>
+
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#FF333333"/>
+                </Trigger>
+
+                <EventTrigger RoutedEvent="DataGrid.GotFocus">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource GotFocusColor}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+
+                <EventTrigger RoutedEvent="DataGrid.LostFocus">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource LostFocusColor}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>-->
+
+    <controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands>
+            <Label Padding="10,5,30,5" FontFamily="HeaderFontFamily" FontSize="16" Foreground="White" Content="InventRX"></Label>
+            <Button Content="Principal" />
+            <Button Content="Produit" />
+            <Button Content="Administration" />
+        </Controls:WindowCommands>
+
+    </controls:MetroWindow.LeftWindowCommands>
+
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="Se déconnecter" />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+
+    <Grid>
         <!-- <ContentPresenter Content="{Binding CurrentView}" Margin="696,288,0,0" />-->
         <TabControl TabStripPlacement="Left" Grid.ColumnSpan="2">
             <TabControl.Resources>
@@ -28,23 +95,108 @@
             <!-- Tabulation de gauche -->
             <TabItem Header="Principal" IsSelected="True" Height="72" VerticalAlignment="Top" >
                 <Grid Background="#FFF">
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="552*"/>
                         <ColumnDefinition Width="288*" MaxWidth="300"/>
                     </Grid.ColumnDefinitions>
 
                     <!-- Tabulation du centre de la fenêtre principale -->
-                    <TabControl Name="TabControlPrincipalDetails"  Margin="0,0,5,0">
+                    <TabControl Name="TabControlPrincipalDetails"  Margin="0,0,5,0" SelectionChanged="TabControlPrincipalDetails_SelectionChanged">
                         <TabControl.Resources>
                             <Style TargetType="TabItem">
                                 <Setter Property="FontSize" Value="12" />
                                 <Setter Property="AllowDrop" Value="True"/>
                                 <EventSetter Event="PreviewMouseMove" Handler="TabItem_PreviewMouseMove"/>
                                 <EventSetter Event="Drop" Handler="TabItem_Drop"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TabItem">
+                                            <StackPanel>
+                                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}"
+                                        Padding="12,0,24,0" 
+                                        BorderThickness="0,0,0,4" 
+                                        Margin="1,0,2,0"
+                                        SnapsToDevicePixels="True">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Background">
+                                                                <Setter.Value>
+                                                                    <SolidColorBrush Color="{DynamicResource Gray5}"/>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <Label x:Name="root" FontSize="12">
+                                                        <Label.Style>
+                                                            <Style TargetType="Label">
+                                                                <Setter Property="Foreground">
+                                                                    <Setter.Value>
+                                                                        <SolidColorBrush Color="{DynamicResource BlackColor}" />
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                            </Style>
+                                                        </Label.Style>
+                                                        <ContentPresenter ContentSource="Header" RecognizesAccessKey="True" />
+                                                    </Label>
+                                                </Border>
+                                                <Canvas Height="5" Width="20" x:Name="arrow" Margin="25,0,0,0"
+                                        HorizontalAlignment="Left" SnapsToDevicePixels="True">
+                                                    <Path Data="M 0 0 H 20 L 10 10 Z"
+                                          StrokeThickness="0"
+                                          Fill="{DynamicResource AccentColorBrush}"/>
+                                                </Canvas>
+                                            </StackPanel>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsSelected" Value="true">
+                                                    <Setter TargetName="root" Property="Foreground">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource WhiteColor}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter TargetName="border" Property="Background">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource AccentColor}"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter TargetName="border" Property="BorderBrush">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource AccentColor}"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter TargetName="arrow" Property="Visibility" Value="Visible"/>
+                                                </Trigger>
+                                                <Trigger Property="IsSelected" Value="false">
+                                                    <Setter  TargetName="root" Property="Foreground">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource BlackColor}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter TargetName="arrow" Property="Visibility" Value="Hidden"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="root" Property="Foreground">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource WhiteColor}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"></Setter>
+                                                    <Setter TargetName="border" Property="Background">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource AccentColor}"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
                             </Style>
                         </TabControl.Resources>
                         <TabItem x:Name="tabItemPlus" Header="+">
                             <Grid Background="#FFF">
+
                                 <Button x:Name="btnNouvelleSoumission" Content="Nouvelle soumission" Margin="40,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="boutonNouvelleSoumission_Click"/>
                                 <Button x:Name="btnNouvelleCommande" Content="Nouvelle commande" Margin="224,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="boutonNouvelleCommande_Click"/>
                                 <Button x:Name="btnNouveauClient" Content="Nouveau client" Margin="410,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="btnNouveauClient_Click"/>
@@ -58,13 +210,96 @@
 
 
                     <!-- Tabulation du menu contextuel à droite -->
-                    <TabControl Grid.Column="1" Margin="5,0,0,0">
+                    <TabControl x:Name="TabControlPrincipalMC" Grid.Column="1" Margin="5,0,0,0">
                         <TabControl.Resources>
-                            <Style TargetType="TabItem">
+                            <Style TargetType="TabItem" >
                                 <Setter Property="FontSize" Value="12" />
                                 <Setter Property="AllowDrop" Value="False"/>
                                 <EventSetter Event="PreviewMouseMove" Handler="TabItem_PreviewMouseMove"/>
                                 <EventSetter Event="Drop" Handler="TabItem_Drop"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TabItem">
+                                            <StackPanel>
+                                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}"
+                                        Padding="12,0,24,0" 
+                                        BorderThickness="0,0,0,4" 
+                                        Margin="1,0,2,0"
+                                        SnapsToDevicePixels="True">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Background">
+                                                                <Setter.Value>
+                                                                    <SolidColorBrush Color="{DynamicResource Gray5}"/>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <Label x:Name="root" FontSize="12">
+                                                        <Label.Style>
+                                                            <Style TargetType="Label">
+                                                                <Setter Property="Foreground">
+                                                                    <Setter.Value>
+                                                                        <SolidColorBrush Color="{DynamicResource BlackColor}" />
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                            </Style>
+                                                        </Label.Style>
+                                                        <ContentPresenter ContentSource="Header" RecognizesAccessKey="True" />
+                                                    </Label>
+                                                </Border>
+                                                <Canvas Height="5" Width="20" x:Name="arrow" Margin="25,0,0,0"
+                                        HorizontalAlignment="Left" SnapsToDevicePixels="True">
+                                                    <Path Data="M 0 0 H 20 L 10 10 Z"
+                                          StrokeThickness="0"
+                                          Fill="{DynamicResource AccentColorBrush}"/>
+                                                </Canvas>
+                                            </StackPanel>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsSelected" Value="true">
+                                                    <Setter TargetName="root" Property="Foreground">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource WhiteColor}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter TargetName="border" Property="Background">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource AccentColor}"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter TargetName="border" Property="BorderBrush">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource AccentColor}"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter TargetName="arrow" Property="Visibility" Value="Visible"/>
+                                                </Trigger>
+                                                <Trigger Property="IsSelected" Value="false">
+                                                    <Setter  TargetName="root" Property="Foreground">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource BlackColor}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter TargetName="arrow" Property="Visibility" Value="Hidden"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="root" Property="Foreground">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource WhiteColor}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"></Setter>
+                                                    <Setter TargetName="border" Property="Background">
+                                                        <Setter.Value>
+                                                            <SolidColorBrush Color="{DynamicResource AccentColor}"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
                             </Style>
                         </TabControl.Resources>
                         <TabItem Header="Caisse">
@@ -73,37 +308,57 @@
                                     <ColumnDefinition Width="145*"/>
                                     <ColumnDefinition Width="144"/>
                                 </Grid.ColumnDefinitions>
-                                <Expander Header="Encaisse" Margin="0,10" Grid.ColumnSpan="2" IsEnabled="False">
-                                    <Grid Background="#FFF"/>
-                                </Expander>
-                                <TextBox Name="textboxCaisseMontant" Height="23" Margin="10,42,0,0" TextWrapping="Wrap" Text="50.00" VerticalAlignment="Top"/>
-                                <ComboBox Margin="14,43,10,0" VerticalAlignment="Top" Grid.Column="1">
-                                    <ComboBoxItem Name="comptant" IsSelected="True">Comptant</ComboBoxItem>
-                                    <ComboBoxItem Name="chq">Chèque</ComboBoxItem>
-                                    <ComboBoxItem Name="cc">Carte de crédit</ComboBoxItem>
-                                </ComboBox>
 
-                                <Label Content="Total:" Margin="10,0,10,10" Height="26" VerticalAlignment="Bottom"/>
-                                <Label Content="139.35" Grid.Column="1" Margin="0,0,10,10" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="124"/>
-                                <TextBox x:Name="textboxCaisseMontant_Copy" Height="23" Margin="10,69,0,0" TextWrapping="Wrap" Text="89.35" VerticalAlignment="Top"/>
-                                <ComboBox Margin="14,70,10,0" VerticalAlignment="Top" Grid.Column="1">
-                                    <ComboBoxItem x:Name="comptant1" Content="Comptant"/>
-                                    <ComboBoxItem x:Name="chq1" IsSelected="True" Content="Chèque"/>
-                                    <ComboBoxItem x:Name="cc1" Content="Carte de crédit"/>
-                                </ComboBox>
+                                <DataGrid x:Name="datagridPaiement" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" CanUserAddRows="True" HorizontalAlignment="Left" Margin="10,48,0,81" Width="269" Grid.ColumnSpan="2" SelectedCellsChanged="datagridPaiement_SelectedCellsChanged">
+                                    <DataGrid.Columns>
+                                        <!--<DataGridTextColumn Header="Montant" Binding="{Binding Montant}"></DataGridTextColumn>-->
+                                        <controls:DataGridNumericUpDownColumn Header="Montant" 
+                                                      Binding="{Binding Montant}" 
+                                                      StringFormat="C" 
+                                                      Minimum="0.01" 
+                                                      Width="90"/>
+                                        <DataGridComboBoxColumn x:Name="comboboxMethodePaiement"
+                  ItemsSource="{Binding ListeMethodesPaiement}" 
+                  DisplayMemberPath="Nom" 
+                  SelectedValuePath="Nom" 
+                  SelectedValueBinding="{Binding MethodePaiement.Nom}"
+                  SelectedItemBinding="{Binding MethodePaiement}"
+                                                                Header="Type" 
+                                                                Width="90"/>
+                                        <!--<DataGridTextColumn Header="Type" Binding="{Binding Path=MethodePaiement.Nom}"></DataGridTextColumn>-->
+                                        <DataGridTemplateColumn>
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Name="btnSupprimerPaiementCaisse" Click="btnSupprimerPaiementCaisse_Click" CommandParameter="{Binding}" Width="85">Supprimer</Button>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                                <Label Content="Total:" Margin="10,0,10,50" Height="26" VerticalAlignment="Bottom"/>
+                                <Label x:Name="labelTabCaisseTotal" Content="0.00" Grid.Column="1" Margin="0,0,10,50" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="124"/>
+                                <Button x:Name="buttonCaissePayer" Content="Payer" HorizontalAlignment="Left" Margin="10,572,0,20" Width="125" Grid.Column="0" IsEnabled="False" Click="buttonCaissePayer_Click"/>
+                                <Button x:Name="buttonCaisseAnnuler" Content="Annuler" HorizontalAlignment="Left" Margin="9,572,0,20" Width="125" Grid.Column="1" IsEnabled="True" Click="buttonCaisseAnnuler_Click"/>
+                                <Expander Header="Encaisse" Margin="0,10" Grid.ColumnSpan="2" IsEnabled="True" IsExpanded="False">
+                                    <Grid Background="White">
+                                        
+                                    </Grid>
+                                </Expander>
                             </Grid>
                         </TabItem>
 
-                        <TabItem Header="Commandes">
+                        <TabItem Header="Commandes" BorderBrush="LightGreen">
                             <Grid Background="#FFE5E5E5">
                                 <DockPanel LastChildFill="True">
                                     <Grid x:Name="ResultatsMenuCommandes" Background="White">
-                                        <DataGrid x:Name="datagridListeCommandes"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeCommandes_MouseDoubleClick" Margin="0,88,0,0">
+                                        <DataGrid x:Name="datagridListeCommandes" Style="{StaticResource AzureDataGrid}" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeCommandes_MouseDoubleClick" Margin="0,88,0,0">
+
                                             <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Numéro" Width="55" IsReadOnly="True" Binding="{Binding IdCommande, StringFormat='{}#{0}'}"/>
-                                                <DataGridTextColumn Header="Date" Width="50" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
-                                                <DataGridTextColumn Header="Fournisseur" Width="50" IsReadOnly="True" Binding="{Binding Fournisseur}" />
-                                                <DataGridTextColumn Header="Employé" Width="55" IsReadOnly="True" Binding="{Binding Employe}" />
+                                                <DataGridTextColumn Header="Numéro" Width="45" IsReadOnly="True" Binding="{Binding IdCommande, StringFormat='{}#{0}'}"/>
+                                                <DataGridTextColumn Header="Date" Width="75" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                                                <DataGridTextColumn Header="Fournisseur" Width="105" IsReadOnly="True" Binding="{Binding Fournisseur}" />
+                                                <DataGridTextColumn Header="Employé" Width="105" IsReadOnly="True" Binding="{Binding Employe}" />
                                             </DataGrid.Columns>
                                             <DataGrid.ContextMenu>
                                                 <ContextMenu>
@@ -124,7 +379,7 @@
                             </Grid>
                         </TabItem>
 
-                        <TabItem Header="Clients">
+                        <TabItem Header="Clients" BorderBrush="Bisque">
                             <Grid Background="#FFE5E5E5">
                                 <DockPanel LastChildFill="True">
                                     <Grid Background="White">
@@ -143,16 +398,17 @@
                                 </DockPanel>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Soumissions">
+                        <TabItem Header="Soumissions"  BorderBrush="LightSkyBlue">
                             <Grid Background="#FFE5E5E5">
                                 <DockPanel LastChildFill="True">
                                     <Grid x:Name="ResultatsMenuSoumissions" Background="White">
-                                        <DataGrid x:Name="datagridListeSoumissions"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeSoumissions_MouseDoubleClick" Margin="0,115,0,38">
+                                        <DataGrid Style="{StaticResource AzureDataGrid}" x:Name="datagridListeSoumissions"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeSoumissions_MouseDoubleClick" Margin="0,115,0,38">
                                             <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Numero" Width="55" IsReadOnly="True" Binding="{Binding IdSoumission, StringFormat='{}#{0}'}"/>
-                                                <DataGridTextColumn Header="Date" Width="50" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
-                                                <DataGridTextColumn Header="Client" Width="50" IsReadOnly="True" Binding="{Binding Client}" />
-                                                <DataGridTextColumn Header="Employé" Width="55" IsReadOnly="True" Binding="{Binding Employe}" />
+
+                                                <DataGridTextColumn Header="Numero" Width="45" IsReadOnly="True" Binding="{Binding IdSoumission, StringFormat='{}#{0}'}"/>
+                                                <DataGridTextColumn Header="Date" Width="75" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                                                <DataGridTextColumn Header="Client" Width="105" IsReadOnly="True" Binding="{Binding Client}" />
+                                                <DataGridTextColumn Header="Employé" Width="105" IsReadOnly="True" Binding="{Binding Employe}" />
                                             </DataGrid.Columns>
                                             <DataGrid.ContextMenu>
                                                 <ContextMenu>
@@ -165,9 +421,9 @@
                                         </DataGrid>
                                         <Button x:Name="boutonNouvelleSoumission" Content="Nouvelle soumission" Margin="55,0,68,10" VerticalAlignment="Bottom" Click="boutonNouvelleSoumission_Click"/>
                                         <TextBox x:Name="textboxNomClientSoumission" HorizontalAlignment="Left" Height="23" Margin="176,59,0,0" TextWrapping="NoWrap" Text="Nom" VerticalAlignment="Top" Width="103"/>
-                                        <TextBox x:Name="textboxTelephoneClientSoumission" HorizontalAlignment="Left" Height="23" Margin="10,32,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox Controls:TextboxHelper.ClearTextButton="True" x:Name="textboxTelephoneClientSoumission" HorizontalAlignment="Left" Height="23" Margin="10,32,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="103"/>
                                         <TextBox x:Name="textboxPrenomClientSoumission" HorizontalAlignment="Left" Height="23" Margin="10,59,0,0" TextWrapping="NoWrap" Text="Prénom" VerticalAlignment="Top" Width="103"/>
-                                        <TextBox x:Name="textboxNumeroSoumission" HorizontalAlignment="Left" Height="23" Margin="10,4,0,0"  TextWrapping="NoWrap" Text="Numéro soumission" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox Controls:TextboxHelper.ClearTextButton="True" Controls:TextboxHelper.Watermark="Numéro soumission" x:Name="textboxNumeroSoumission" HorizontalAlignment="Left" Height="23" Margin="10,4,0,0"  TextWrapping="NoWrap" VerticalAlignment="Top" Width="103"/>
                                         <DatePicker x:Name="datepickerSoumissionDu" HorizontalAlignment="Left" Margin="176,4,0,0" VerticalAlignment="Top" Width="112"/>
                                         <DatePicker x:Name="datepickerSoumissionAu" HorizontalAlignment="Left" Margin="176,31,0,0" VerticalAlignment="Top" Width="112"/>
                                         <CheckBox x:Name="checkboxSoumissionDateDu" Content="Du" HorizontalAlignment="Left" Margin="127,10,0,0" VerticalAlignment="Top"/>
@@ -202,7 +458,7 @@
                                 </DockPanel>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Factures">
+                        <TabItem Header="Factures" BorderBrush="BlueViolet">
                             <Grid Background="#FFE5E5E5">
                                 <DockPanel LastChildFill="True">
                                     <Grid x:Name="ResultatsMenuFactures" Background="White">
@@ -286,5 +542,6 @@
             </TabItem>
             <TabItem Header="Administration" />
         </TabControl>
+
     </Grid>
-</Window>
+</Controls:MetroWindow>

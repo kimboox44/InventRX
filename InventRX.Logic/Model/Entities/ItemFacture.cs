@@ -9,7 +9,7 @@ namespace InventRX.Logic.Model.Entities
     public class ItemFacture
     {
         public virtual int? IdItemFacture { get; set; }
-        public virtual Commande Commande { get; set; }
+        public virtual Facture Facture { get; set; }
         public virtual Produit Produit { get; set; }
         public virtual string NomProduit { get; set; }
         public virtual int Quantite { get; set; }

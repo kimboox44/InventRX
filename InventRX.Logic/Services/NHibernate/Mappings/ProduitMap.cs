@@ -61,7 +61,6 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Generated.Never()
                 .CustomSqlType("INTEGER");
 
-
                 References(v => v.Modele)
                     .Class<Modele>()
                     .Access.Property()

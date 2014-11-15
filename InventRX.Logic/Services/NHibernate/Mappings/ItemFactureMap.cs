@@ -12,7 +12,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
     {
         public ItemFactureMap()
         {
-            Table("ItemsFactureMap");
+            Table("ItemsFacture");
             LazyLoad();
             Id(x => x.IdItemFacture)
                 .Column("idItemFacture")

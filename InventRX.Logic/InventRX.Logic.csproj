@@ -59,6 +59,7 @@
     <Compile Include="Model\Args\RetrieveClientArgs.cs" />
     <Compile Include="Model\Args\RetrieveCommandeArgs.cs" />
     <Compile Include="Model\Args\RetrieveEmployeArgs.cs" />
+    <Compile Include="Model\Args\RetrieveFactureArgs.cs" />
     <Compile Include="Model\Args\RetrieveFournisseurArgs.cs" />
     <Compile Include="Model\Args\RetrieveItemCommandeArgs.cs" />
     <Compile Include="Model\Args\RetrieveItemSoumissionArgs.cs" />
@@ -66,13 +67,14 @@
     <Compile Include="Model\Args\RetrieveProduitArgs.cs" />
     <Compile Include="Model\Args\RetrieveProvinceArgs.cs" />
     <Compile Include="Model\Args\RetrieveSoumissionArgs.cs" />
+    <Compile Include="Model\Args\RetrieveTaxeArgs.cs" />
     <Compile Include="Model\Entities\ItemSoumission.cs" />
     <Compile Include="Model\Entities\ItemFacture.cs" />
     <Compile Include="Model\Entities\ItemCommande.cs" />
-    <Compile Include="Model\Entities\CommandeFacture.cs" />
+    <Compile Include="Model\Entities\SoumissionFacture.cs" />
     <Compile Include="Model\Entities\Fournisseur.cs" />
-    <Compile Include="Model\Entities\MethodesPaiement.cs" />
-    <Compile Include="Model\Entities\Paiements.cs" />
+    <Compile Include="Model\Entities\MethodePaiement.cs" />
+    <Compile Include="Model\Entities\Paiement.cs" />
     <Compile Include="Model\Entities\PosteEmploye.cs" />
     <Compile Include="Model\Entities\Produit.cs" />
     <Compile Include="Model\Entities\Province.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="Services\Definitions\IClientService.cs" />
     <Compile Include="Services\Definitions\ICommandeService.cs" />
     <Compile Include="Services\Definitions\IEmployeService.cs" />
+    <Compile Include="Services\Definitions\IFactureService.cs" />
     <Compile Include="Services\Definitions\IFournisseurService.cs" />
     <Compile Include="Services\Definitions\IItemCommandeService.cs" />
     <Compile Include="Services\Definitions\IItemSoumissionService.cs" />
@@ -98,14 +101,19 @@
     <Compile Include="Services\Definitions\IProduitService.cs" />
     <Compile Include="Services\Definitions\IProvinceService.cs" />
     <Compile Include="Services\Definitions\ISoumissionService.cs" />
+    <Compile Include="Services\Definitions\ITaxeService.cs" />
     <Compile Include="Services\Helpers\MySqlConnexion.cs" />
     <Compile Include="Services\Helpers\NHibernateConnexion.cs" />
     <Compile Include="Services\NHibernate\Mappings\CategorieProduitMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\CommandeMap.cs" />
+    <Compile Include="Services\NHibernate\Mappings\FactureMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\FournisseurMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\ItemCommandeMap.cs" />
+    <Compile Include="Services\NHibernate\Mappings\ItemFactureMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\ItemSoumissionMap.cs" />
+    <Compile Include="Services\NHibernate\Mappings\MethodePaiementMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\ModeleMap.cs" />
+    <Compile Include="Services\NHibernate\Mappings\PaiementMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\PersonneMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\ProduitMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\ProvinceMap.cs" />
@@ -114,6 +122,7 @@
     <Compile Include="Services\NHibernate\NHibernateClientService.cs" />
     <Compile Include="Services\NHibernate\NHibernateCommandeService.cs" />
     <Compile Include="Services\NHibernate\NHibernateEmployeService.cs" />
+    <Compile Include="Services\NHibernate\NHibernateFactureService.cs" />
     <Compile Include="Services\NHibernate\NHibernateFournisseurService.cs" />
     <Compile Include="Services\NHibernate\NHibernateItemCommandeService.cs" />
     <Compile Include="Services\NHibernate\NHibernateItemSoumissionService.cs" />
@@ -121,6 +130,7 @@
     <Compile Include="Services\NHibernate\NHibernateProduitService.cs" />
     <Compile Include="Services\NHibernate\NHibernateProvinceService.cs" />
     <Compile Include="Services\NHibernate\NHibernateSoumissionService.cs" />
+    <Compile Include="Services\NHibernate\NHibernateTaxeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
