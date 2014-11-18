@@ -11,7 +11,7 @@
         </Grid.ColumnDefinitions>
         <Label Name="labelNumeroCommande" Content="{Binding Commande.IdCommande}" HorizontalAlignment="Left" Margin="87,10,0,0" VerticalAlignment="Top" Width="87" Height="26"/>
         <Label Content="Commande #" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="83" Height="26"/>
-        <DataGrid x:Name="datagridListeItemsCommande" Margin="10,87,11,10" ItemsSource="{ Binding Commande.ItemsCommande, UpdateSourceTrigger=PropertyChanged }" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid x:Name="datagridListeItemsCommande" Margin="10,111,11,10" ItemsSource="{ Binding Commande.ItemsCommande, UpdateSourceTrigger=PropertyChanged }" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Produit" Width="auto" IsReadOnly="True" Binding="{Binding NomProduit}" />
                 <DataGridTextColumn Header="Quantité" Width="auto" IsReadOnly="False" Binding="{Binding Quantite}" />
@@ -32,7 +32,7 @@
                 </DataGridTemplateColumn>-->
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="datagridListeProduits" Margin="11,87,10,34" ItemsSource="{ Binding ListeProduits }" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1" MouseDoubleClick="datagridListeProduits_MouseDoubleClick">
+        <DataGrid x:Name="datagridListeProduits" Margin="11,111,10,10" ItemsSource="{ Binding ListeProduits }" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1" MouseDoubleClick="datagridListeProduits_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Produit" Width="auto" IsReadOnly="True" Binding="{Binding Nom}" />
                 <DataGridTextColumn Header="Prix" Width="auto" IsReadOnly="True" Binding="{Binding Prix}" />
@@ -50,5 +50,7 @@
                   ItemsSource="{Binding Etats}" 
                   SelectedItem="{Binding Commande.Etat, UpdateSourceTrigger=PropertyChanged}"
          />
+        <Label Content="Liste des produits dans la commande" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top"/>
+        <Label Content="Liste des produits en inventaire" HorizontalAlignment="Left" Margin="11,80,0,0" VerticalAlignment="Top" Grid.Column="1"/>
     </Grid>
 </UserControl>
