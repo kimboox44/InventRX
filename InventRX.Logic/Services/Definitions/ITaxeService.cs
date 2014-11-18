@@ -12,5 +12,6 @@ namespace InventRX.Services.Definitions
     {
         IList<Taxe> RetrieveAll();
         Taxe Retrieve(RetrieveTaxeArgs args);
+        Taxe RetrieveNow();
     }
 }

@@ -33,6 +33,16 @@ namespace InventRX.Logic.Services.NHibernate
             return result.FirstOrDefault();
         }
 
+        public Taxe RetrieveNow()
+        {
+            DateTime now = new DateTime();
+            var result = from t in session.Query<Taxe>() select t;
+
+            result = result.Where(t => t.Date.Year >= now.Year);
+
+            return result.FirstOrDefault();
+        }
+
         #endregion
     }
 }

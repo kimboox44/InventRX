@@ -15,26 +15,46 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
             Table("Paiements");
             LazyLoad();
             Id(x => x.IdPaiement)
-                .Column("id")
+                .Column("idPaiement")
                 .CustomType<int?>()
                 .Access.Property()
                 .CustomSqlType("INTEGER")
                 .Not.Nullable()
                 .GeneratedBy.Identity();
 
-            Map(x => x.Montant)
-            .Column("montant")
-            .CustomType<double>()
-            .Access.Property()
-            .Generated.Never()
-            .CustomSqlType("DECIMAL");
+            Map(x => x.Date)
+                .Column("datePaiement")
+                .CustomType<DateTime>()
+                .Access.Property()
+                .Not.Nullable().Generated.Insert()
+                .CustomSqlType("TIMESTAMP");
 
-            References(v => v.MethodePaiement)
+            Map(x => x.Montant)
+                .Column("montant")
+                .CustomType<double>()
+                .Access.Property()
+                .Generated.Never();
+
+            References(v => v.Client)
+                .Class<Client>()
+                .Access.Property()
+                .LazyLoad(Laziness.False)
+                .Cascade.None()
+                .Columns("idClient");
+
+            References(v => v.Facture)
+                 .Class<Facture>()
+                 .Access.Property()
+                 .LazyLoad(Laziness.False)
+                 .Cascade.None()
+                 .Columns("idFacture");
+
+            /*References(v => v.MethodePaiement)
                 .Class<Modele>()
                 .Access.Property()
                 .LazyLoad(Laziness.False)
                 .Cascade.None()
-                .Columns("idMethodePaiement");
+                .Columns("idMethodePaiement");*/
         }
 
 

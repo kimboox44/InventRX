@@ -42,7 +42,19 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Cascade.None()
                 .Columns("idEmploye");
 
-            HasMany<ItemFacture>(x => x.ItemsFacture)
+            References(v => v.Taxe)
+                .Class<Taxe>()
+                .Access.Property()
+                .LazyLoad(Laziness.False)
+                .Cascade.None()
+                .Columns("idTaxe");
+
+            HasMany<Paiement>(x => x.Paiements)
+                .KeyColumn("idPaiement")
+                .Inverse()
+                .Cascade.AllDeleteOrphan();
+
+           /* HasMany<ItemFacture>(x => x.ItemsFacture)
                 .KeyColumn("idFacture")
                 .Inverse()
                 .Cascade.AllDeleteOrphan();
@@ -50,7 +62,7 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
             HasMany<Paiement>(x => x.Paiements)
                 .KeyColumn("idPaiement")
                 .Inverse()
-                .Cascade.AllDeleteOrphan();
+                .Cascade.AllDeleteOrphan();*/
         }
     }
 }

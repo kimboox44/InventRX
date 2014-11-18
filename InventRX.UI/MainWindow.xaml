@@ -197,9 +197,9 @@
                         <TabItem x:Name="tabItemPlus" Header="+">
                             <Grid Background="#FFF">
 
-                                <Button x:Name="btnNouvelleSoumission" Content="Nouvelle soumission" Margin="40,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="boutonNouvelleSoumission_Click"/>
-                                <Button x:Name="btnNouvelleCommande" Content="Nouvelle commande" Margin="224,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="boutonNouvelleCommande_Click"/>
-                                <Button x:Name="btnNouveauClient" Content="Nouveau client" Margin="410,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="btnNouveauClient_Click"/>
+                                <Button x:Name="btnNouvelleSoumission" BorderBrush="LightSkyBlue" Content="Nouvelle soumission" Margin="40,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="boutonNouvelleSoumission_Click"/>
+                                <Button x:Name="btnNouvelleCommande" BorderBrush="LightGreen" Content="Nouvelle commande" Margin="224,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="boutonNouvelleCommande_Click"/>
+                                <Button x:Name="btnNouveauClient" BorderBrush="Bisque" Content="Nouveau client" Margin="410,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="btnNouveauClient_Click"/>
                                 <!-- Les boutons qui vont permettre de créer les soumissions, commandes... -->
                             </Grid>
                         </TabItem>
@@ -313,12 +313,12 @@
                                     <DataGrid.Columns>
                                         <!--<DataGridTextColumn Header="Montant" Binding="{Binding Montant}"></DataGridTextColumn>-->
                                         <controls:DataGridNumericUpDownColumn Header="Montant" 
-                                                      Binding="{Binding Montant}" 
+                                                      Binding="{Binding Path=Montant}" 
                                                       StringFormat="C" 
                                                       Minimum="0.01" 
                                                       Width="90"/>
                                         <DataGridComboBoxColumn x:Name="comboboxMethodePaiement"
-                  ItemsSource="{Binding ListeMethodesPaiement}" 
+                  ItemsSource="{Binding Path=ListeMethodesPaiement}" 
                   DisplayMemberPath="Nom" 
                   SelectedValuePath="Nom" 
                   SelectedValueBinding="{Binding MethodePaiement.Nom}"
@@ -338,11 +338,11 @@
 
                                 <Label Content="Total:" Margin="10,0,10,50" Height="26" VerticalAlignment="Bottom"/>
                                 <Label x:Name="labelTabCaisseTotal" Content="0.00" Grid.Column="1" Margin="0,0,10,50" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="124"/>
-                                <Button x:Name="buttonCaissePayer" Content="Payer" HorizontalAlignment="Left" Margin="10,572,0,20" Width="125" Grid.Column="0" IsEnabled="False" Click="buttonCaissePayer_Click"/>
-                                <Button x:Name="buttonCaisseAnnuler" Content="Annuler" HorizontalAlignment="Left" Margin="9,572,0,20" Width="125" Grid.Column="1" IsEnabled="True" Click="buttonCaisseAnnuler_Click"/>
+                                <Button x:Name="buttonCaissePayer" Content="Payer" HorizontalAlignment="Left" Margin="6,0,0,10" Width="125" Grid.Column="0" IsEnabled="False" Click="buttonCaissePayer_Click" Height="25" VerticalAlignment="Bottom"/>
+                                <Button x:Name="buttonCaisseAnnuler" Content="Annuler" HorizontalAlignment="Left" Margin="13,0,0,10" Width="125" Grid.Column="1" IsEnabled="True" Click="buttonCaisseAnnuler_Click" Height="25" VerticalAlignment="Bottom"/>
                                 <Expander Header="Encaisse" Margin="0,10" Grid.ColumnSpan="2" IsEnabled="True" IsExpanded="False">
                                     <Grid Background="White">
-                                        
+
                                     </Grid>
                                 </Expander>
                             </Grid>
@@ -420,9 +420,9 @@
 
                                         </DataGrid>
                                         <Button x:Name="boutonNouvelleSoumission" Content="Nouvelle soumission" Margin="55,0,68,10" VerticalAlignment="Bottom" Click="boutonNouvelleSoumission_Click"/>
-                                        <TextBox x:Name="textboxNomClientSoumission" HorizontalAlignment="Left" Height="23" Margin="176,59,0,0" TextWrapping="NoWrap" Text="Nom" VerticalAlignment="Top" Width="103"/>
-                                        <TextBox Controls:TextboxHelper.ClearTextButton="True" x:Name="textboxTelephoneClientSoumission" HorizontalAlignment="Left" Height="23" Margin="10,32,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="103"/>
-                                        <TextBox x:Name="textboxPrenomClientSoumission" HorizontalAlignment="Left" Height="23" Margin="10,59,0,0" TextWrapping="NoWrap" Text="Prénom" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox x:Name="textboxNomClientSoumission" Controls:TextboxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" Margin="176,59,0,0" TextWrapping="NoWrap" Controls:TextboxHelper.Watermark="Nom" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox x:Name="textboxTelephoneClientSoumission" Controls:TextboxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" Margin="10,32,0,0" TextWrapping="NoWrap" Controls:TextboxHelper.Watermark="Téléphone" VerticalAlignment="Top" Width="103"/>
+                                        <TextBox x:Name="textboxPrenomClientSoumission" Controls:TextboxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" Margin="10,59,0,0" TextWrapping="NoWrap" Controls:TextboxHelper.Watermark="Prénom" VerticalAlignment="Top" Width="103"/>
                                         <TextBox Controls:TextboxHelper.ClearTextButton="True" Controls:TextboxHelper.Watermark="Numéro soumission" x:Name="textboxNumeroSoumission" HorizontalAlignment="Left" Height="23" Margin="10,4,0,0"  TextWrapping="NoWrap" VerticalAlignment="Top" Width="103"/>
                                         <DatePicker x:Name="datepickerSoumissionDu" HorizontalAlignment="Left" Margin="176,4,0,0" VerticalAlignment="Top" Width="112"/>
                                         <DatePicker x:Name="datepickerSoumissionAu" HorizontalAlignment="Left" Margin="176,31,0,0" VerticalAlignment="Top" Width="112"/>
@@ -430,30 +430,6 @@
                                         <CheckBox x:Name="checkboxSoumissionDateAu" Content="Au" HorizontalAlignment="Left" Margin="127,36,0,0" VerticalAlignment="Top"/>
                                         <Button x:Name="btnRechercherSoumission" Content="Rechercher" Margin="10,87,150,0" VerticalAlignment="Top" Click="btnRechercherSoumission_Click"/>
                                         <Button x:Name="btnResetRechercherSoumission" Content="Reset" Margin="150,87,10,0" VerticalAlignment="Top" Click="btnResetRechercherSoumission_Click"/>
-                                        <!--<ScrollViewer>
-                                            <StackPanel>
-                                                <Button DockPanel.Dock="Top" Content="John Doe" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Gordy Howe" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Festus Zhong" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                            </StackPanel>
-                                        </ScrollViewer>-->
                                     </Grid>
                                 </DockPanel>
                             </Grid>

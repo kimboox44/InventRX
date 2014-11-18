@@ -28,7 +28,7 @@ namespace InventRX.UI
     public partial class MainWindow : MetroWindow
     {
         public MainViewModel ViewModel { get { return (MainViewModel)DataContext; } }
-        public List<string> ListeMethodesPaiement { get; set; }
+        public List<MethodePaiement> ListeMethodesPaiement { get; set; }
         private Soumission ActiveSoumission { get; set; }
 
         #region Soumission
@@ -330,6 +330,7 @@ namespace InventRX.UI
             nouvelleTab.Header = "client #" + clientSelectionnee.IdClient;
             nouvelleTab.Content = newScrollViewer;
             nouvelleTab.DataContext = nouveauViewModel;
+            nouvelleTab.BorderBrush = Brushes.Bisque;
 
             TabControlPrincipalDetails.Items.Add(nouvelleTab);
             TabControlPrincipalDetails.SelectedItem = nouvelleTab;
@@ -364,6 +365,7 @@ namespace InventRX.UI
             //nouvelleTab.Content = contentPresenter;
 
             nouvelleTab.DataContext = nouveauViewModel;
+            nouvelleTab.BorderBrush = Brushes.Bisque;
 
             //Ajout de l'item à la tab control
             TabControlPrincipalDetails.Items.Add(nouvelleTab);
@@ -386,14 +388,19 @@ namespace InventRX.UI
             ServiceFactory.Instance.Register<IProvinceService, NHibernateProvinceService>(new NHibernateProvinceService());
             ServiceFactory.Instance.Register<IEmployeService, NHibernateEmployeService>(new NHibernateEmployeService());
             ServiceFactory.Instance.Register<IFournisseurService, NHibernateFournisseurService>(new NHibernateFournisseurService());
+            ServiceFactory.Instance.Register<IFactureService, NHibernateFactureService>(new NHibernateFactureService());
+            ServiceFactory.Instance.Register<ITaxeService, NHibernateTaxeService>(new NHibernateTaxeService());
 
-            ListeMethodesPaiement = new List<string>();
-            ListeMethodesPaiement.Add("Comptant");
-            ListeMethodesPaiement.Add("Visa");
+            MethodePaiement mp1 = new MethodePaiement();
+            MethodePaiement mp2 = new MethodePaiement();
+            mp1.Nom = "Comptant";
+            mp2.Nom = "Visa";
+            ListeMethodesPaiement = new List<MethodePaiement>();
+            ListeMethodesPaiement.Add(mp1);
+            ListeMethodesPaiement.Add(mp2);
 
             comboboxMethodePaiement.ItemsSource = ListeMethodesPaiement;
             // datagridPaiement.ItemsSource = ListeMethodePaiement;
-
         }
 
         #region Tabs Config
@@ -434,108 +441,6 @@ namespace InventRX.UI
             }
         }
         #endregion
-
-        private void textboxNumeroSoumission_KeyUp(object sender, KeyEventArgs e)
-        {
-            datagridListeSoumissions.ItemsSource = null;
-            if (RetrieveRechercheSoumissionArgs == null)
-            {
-                RetrieveRechercheSoumissionArgs = new RetrieveSoumissionArgs();
-            }
-            if (RetrieveRechercheSoumissionArgs.Client == null)
-            {
-                RetrieveRechercheSoumissionArgs.Client = new Client();
-            }
-            int errorCounter = 0;
-            errorCounter = Regex.Matches(textboxNumeroSoumission.Text, @"[a-zA-Z]").Count;
-            if (errorCounter <= 0)
-            {
-                int numero;
-                string snumero = textboxNumeroSoumission.Text;
-                if (int.TryParse(snumero, out numero))
-                {
-                    RetrieveRechercheSoumissionArgs.IdSoumission = numero;
-                    ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
-                    datagridListeSoumissions.ItemsSource = ListeSoumissions;
-                }
-            }
-            else
-            {
-                RetrieveRechercheSoumissionArgs.IdSoumission = 0;
-            }
-        }
-
-        private void textboxNomClientSoumission_KeyUp(object sender, KeyEventArgs e)
-        {
-            datagridListeSoumissions.ItemsSource = null;
-            if (RetrieveRechercheSoumissionArgs == null)
-            {
-                RetrieveRechercheSoumissionArgs = new RetrieveSoumissionArgs();
-            }
-            if (RetrieveRechercheSoumissionArgs.Client == null)
-            {
-                RetrieveRechercheSoumissionArgs.Client = new Client();
-            }
-
-            if (textboxNomClientSoumission.Text != "Nom")
-            {
-                RetrieveRechercheSoumissionArgs.Client.Nom = textboxPrenomClientSoumission.Text;
-                ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
-                datagridListeSoumissions.ItemsSource = ListeSoumissions;
-            }
-            else
-            {
-                RetrieveRechercheSoumissionArgs.Client.Nom = null;
-            }
-        }
-
-        private void textboxPrenomClientSoumission_KeyUp(object sender, KeyEventArgs e)
-        {
-            datagridListeSoumissions.ItemsSource = null;
-            if (RetrieveRechercheSoumissionArgs == null)
-            {
-                RetrieveRechercheSoumissionArgs = new RetrieveSoumissionArgs();
-            }
-            if (RetrieveRechercheSoumissionArgs.Client == null)
-            {
-                RetrieveRechercheSoumissionArgs.Client = new Client();
-            }
-
-            if (textboxPrenomClientSoumission.Text != "Prénom")
-            {
-                RetrieveRechercheSoumissionArgs.Client.Prenom = textboxPrenomClientSoumission.Text;
-                ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
-                datagridListeSoumissions.ItemsSource = ListeSoumissions;
-            }
-            else
-            {
-                RetrieveRechercheSoumissionArgs.Client.Prenom = null;
-            }
-        }
-
-        private void ttextboxTelephoneClientSoumission_KeyUp(object sender, KeyEventArgs e)
-        {
-            datagridListeSoumissions.ItemsSource = null;
-            if (RetrieveRechercheSoumissionArgs == null)
-            {
-                RetrieveRechercheSoumissionArgs = new RetrieveSoumissionArgs();
-            }
-            if (RetrieveRechercheSoumissionArgs.Client == null)
-            {
-                RetrieveRechercheSoumissionArgs.Client = new Client();
-            }
-
-            if (textboxTelephoneClientSoumission.Text != "Téléphone")
-            {
-                RetrieveRechercheSoumissionArgs.Client.Telephone = textboxTelephoneClientSoumission.Text;
-                ListeSoumissions = _soumissionService.RetrieveBy(RetrieveRechercheSoumissionArgs);
-                datagridListeSoumissions.ItemsSource = ListeSoumissions;
-            }
-            else
-            {
-                RetrieveRechercheSoumissionArgs.Client.Telephone = null;
-            }
-        }
 
         private void btnRechercherSoumission_Click(object sender, RoutedEventArgs e)
         {
@@ -639,10 +544,10 @@ namespace InventRX.UI
         {
             datagridListeSoumissions.ItemsSource = null;
 
-            textboxNumeroSoumission.Text = "Numéro soumission";
-            textboxNomClientSoumission.Text = "Nom";
-            textboxTelephoneClientSoumission.Text = "Téléphone";
-            textboxPrenomClientSoumission.Text = "Prénom";
+            textboxNumeroSoumission.Clear();
+            textboxNomClientSoumission.Clear();
+            textboxTelephoneClientSoumission.Clear();
+            textboxPrenomClientSoumission.Clear();
             datepickerSoumissionDu.SelectedDate = null;
             datepickerSoumissionAu.SelectedDate = null;
             checkboxSoumissionDateDu.IsChecked = false;
@@ -670,8 +575,15 @@ namespace InventRX.UI
                             datagridPaiement.IsEnabled = true;
                             SoumissionView sv = b.Source as SoumissionView;
                             soumission = sv.ViewModel.Soumission as Soumission;
-                            //Prépare la facture en vue de la commit plus tard
-                            soumission.ConstruireFacture();
+                            if (soumission.IdSoumission == null)
+                            {
+                                soumission = null;
+                            }
+                            else
+                            {
+                                //Prépare la facture en vue de la commit plus tard
+                                soumission.ConstruireFacture();
+                            }
                             break;
                         }
                     default:
@@ -707,7 +619,7 @@ namespace InventRX.UI
             }
             labelTabCaisseTotal.Content = totalCaisse.ToString("C2") + "/" + soumission.Price().ToString("C2");
             datagridPaiement.ItemsSource = ActiveSoumission.Facture.Paiements;
-            
+
             //datagridPaiement.Items.Refresh();
         }
 
@@ -733,7 +645,7 @@ namespace InventRX.UI
                     TabControlPrincipalMC.SelectedItem = tabCaisse;
                     datagridPaiement.IsEnabled = true;
                     buttonCaissePayer.IsEnabled = true;
-                    buttonCaisseAnnuler.IsEnabled =  true;
+                    buttonCaisseAnnuler.IsEnabled = true;
                 }
             }
             else
@@ -769,9 +681,9 @@ namespace InventRX.UI
 
         private void datagridPaiement_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-           /* TabControlPrincipalDetails.IsEnabled = false;
-            buttonCaissePayer.IsEnabled = true;
-            buttonCaisseAnnuler.IsEnabled = true;*/
+            /* TabControlPrincipalDetails.IsEnabled = false;
+             buttonCaissePayer.IsEnabled = true;
+             buttonCaisseAnnuler.IsEnabled = true;*/
 
             if (ActiveSoumission == null)
             {
@@ -791,20 +703,48 @@ namespace InventRX.UI
 
             ActiveSoumission.Facture.Paiements.Clear();
             datagridPaiement.Items.Refresh();
-           // TabControlPrincipalDetails.IsEnabled = true;
+            // TabControlPrincipalDetails.IsEnabled = true;
         }
 
         private void buttonCaissePayer_Click(object sender, RoutedEventArgs e)
         {
-            buttonCaissePayer.IsEnabled = false;
-            buttonCaisseAnnuler.IsEnabled = false;
-
             if (ActiveSoumission == null)
             {
                 ActiveSoumission = FindActiveSoumission();
             }
 
-            //Persiter la facture
+            if (ActiveSoumission != null && ActiveSoumission.Facture != null)
+            {
+                //Persiter la facture
+                Taxe taxe;
+                ITaxeService _taxeService = ServiceFactory.Instance.GetService<ITaxeService>();
+                taxe = _taxeService.RetrieveNow();
+
+                if(taxe == null)
+                {
+                    MessageBox.Show("Impossible de récuperer la taxe.");
+                }
+                else
+                {
+                    ActiveSoumission.Facture.Taxe = taxe;
+
+                    foreach (Paiement p in ActiveSoumission.Facture.Paiements)
+                    {
+                        p.Facture = ActiveSoumission.Facture;
+                        p.Client = ActiveSoumission.Client;
+                        p.Employe = ActiveSoumission.Employe;
+                    }
+
+                    IFactureService _factureService = ServiceFactory.Instance.GetService<IFactureService>();
+                    _factureService.Insert(ActiveSoumission.Facture);
+
+                    MessageBox.Show("La facture a bien été créée.");
+
+                    buttonCaissePayer.IsEnabled = false;
+                    buttonCaisseAnnuler.IsEnabled = false;
+                }
+            }
+
         }
     }
 }

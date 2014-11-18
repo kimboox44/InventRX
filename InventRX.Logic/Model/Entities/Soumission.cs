@@ -15,6 +15,11 @@ namespace InventRX.Logic.Model.Entities
         public virtual IList<ItemSoumission> ItemsSoumission { get; set; }
         public virtual Facture Facture { get; set; }
 
+        public Soumission()
+        {
+            Facture = new Facture();
+        }
+
         public virtual double Price()
         {
             double price = 0;

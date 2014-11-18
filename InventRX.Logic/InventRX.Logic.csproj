@@ -118,6 +118,7 @@
     <Compile Include="Services\NHibernate\Mappings\ProduitMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\ProvinceMap.cs" />
     <Compile Include="Services\NHibernate\Mappings\SoumissionMap.cs" />
+    <Compile Include="Services\NHibernate\Mappings\TaxeMap.cs" />
     <Compile Include="Services\NHibernate\NHibernateCategorieProduitService.cs" />
     <Compile Include="Services\NHibernate\NHibernateClientService.cs" />
     <Compile Include="Services\NHibernate\NHibernateCommandeService.cs" />
