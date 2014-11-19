@@ -79,6 +79,7 @@
     <Compile Include="ViewModel\ClientViewModel.cs" />
     <Compile Include="ViewModel\CommandeViewModel.cs" />
     <Compile Include="ViewModel\ConnexionViewModel.cs" />
+    <Compile Include="ViewModel\FactureViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SoumissionViewModel.cs" />
     <Compile Include="Views\ClientView.xaml.cs">
@@ -89,6 +90,9 @@
     </Compile>
     <Compile Include="Views\ConnexionView.xaml.cs">
       <DependentUpon>ConnexionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FactureView.xaml.cs">
+      <DependentUpon>FactureView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SoumissionView.xaml.cs">
       <DependentUpon>SoumissionView.xaml</DependentUpon>
@@ -124,6 +128,10 @@
     <Page Include="Views\ConnexionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FactureView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\SoumissionView.xaml">
       <SubType>Designer</SubType>
