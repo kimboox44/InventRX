@@ -35,6 +35,12 @@ namespace InventRX.Logic.Services.NHibernate.Mappings
                 .Access.Property()
                 .Generated.Never();
 
+            Map(x => x.MethodePaiement)
+            .Column("methodePaiement")
+            .CustomType<string>()
+            .Access.Property()
+            .Generated.Never();
+
             References(v => v.Client)
                 .Class<Client>()
                 .Access.Property()
