@@ -375,21 +375,147 @@ namespace InventRX.UI
 
         #endregion
 
+        #region Factures
+
+        
+
+        private IFactureService _factureService;
+        public RetrieveFactureArgs RetrieveFactureArgs { get; set; }
+        public IList<Facture> ListeFactures { get; set; }
+
+        public RetrieveFactureArgs RetrieveRechercheFactureArgs = new RetrieveFactureArgs();
+
+        private void ChargerFactures()
+        {
+            ServiceFactory.Instance.Register<IItemFactureService, NHibernateItemFactureService>(new NHibernateItemFactureService());
+            //Charge la liste de toutes les Factures
+            _factureService = ServiceFactory.Instance.GetService<IFactureService>();
+            RetrieveFactureArgs = new RetrieveFactureArgs();
+            ListeFactures = _factureService.RetrieveAll();
+            datagridListeFactures.ItemsSource = ListeFactures;
+        }
+        
+        
+        private void datagridListeFactures_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            bool exist = false;
+            Facture factureSelectionnee = (datagridListeFactures.SelectedItem as Facture);
+
+            if (factureSelectionnee != null)
+            {
+                //Desélectionne la facture
+                datagridListeFactures.SelectedItem = null;
+
+                //Si la Facture est déjà ouverte dans une tab, on focus dessus
+                foreach (TabItem tab in TabControlPrincipalDetails.Items)
+                {
+                    if (tab.Header.ToString() == ("Facture #" + factureSelectionnee.IdFacture).ToString())
+                    {
+                        TabControlPrincipalDetails.SelectedItem = tab;
+                        exist = true;
+                        break;
+                    }
+                }
+
+                //Si la facture n'est pas déjà ouverte, on l'ouvre
+                if (exist == false)
+                {
+                    Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Facture", factureSelectionnee } };
+
+                    MainViewModel nouveauViewModel = new MainViewModel();
+                    nouveauViewModel.CurrentView = new FactureView(parameters);
+
+                    ContentPresenter contentPresenter = new ContentPresenter();
+
+                    Binding myBinding = new Binding("facture" + factureSelectionnee.IdFacture + "Data");
+                    myBinding.Source = nouveauViewModel.CurrentView;
+                    contentPresenter.Content = myBinding.Source;
+
+                    //Ajout du cont
+                    ScrollViewer newScrollViewer = new ScrollViewer();
+                    newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+                    newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+                    newScrollViewer.Content = contentPresenter;
+
+                    //Création d'un nouveau item
+                    TabItem nouvelleTab = new TabItem();
+                    nouvelleTab.Header = "Facture #" + factureSelectionnee.IdFacture;
+                    nouvelleTab.Content = newScrollViewer;
+
+                    //Sans scrollviewer
+                    //nouvelleTab.Content = contentPresenter;
+
+                    nouvelleTab.DataContext = nouveauViewModel;
+                    //nouvelleTab.Background = Brushes.LightSkyBlue;
+                    nouvelleTab.BorderBrush = Brushes.BlueViolet;
+
+                    //Ajout de l'item à la tab control
+                    TabControlPrincipalDetails.Items.Add(nouvelleTab);
+                    TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+                }
+            }
+        }
+        
+        
+         private void boutonNouvelleFacture_Click(object sender, RoutedEventArgs e)
+         {
+             Facture newFacture = new Facture();
+             Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Facture", newFacture } };
+
+             MainViewModel nouveauViewModel = new MainViewModel();
+             nouveauViewModel.CurrentView = new FactureView(parameters);
+
+             ContentPresenter contentPresenter = new ContentPresenter();
+
+             Binding myBinding = new Binding("Facture" + newFacture.IdFacture + "Data");
+             myBinding.Source = nouveauViewModel.CurrentView;
+             contentPresenter.Content = myBinding.Source;
+
+             //Ajout du contentPresenter dans un scrollviewer pour pouvoir scroller à l'interieur
+             ScrollViewer newScrollViewer = new ScrollViewer();
+             newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+             newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+             newScrollViewer.Content = contentPresenter;
+
+             //Création d'un nouveau item
+             TabItem nouvelleTab = new TabItem();
+             nouvelleTab.Header = "Nouvelle Facture";
+             nouvelleTab.Content = newScrollViewer;
+
+             //Sans scrollviewer
+             //nouvelleTab.Content = contentPresenter;
+
+             nouvelleTab.DataContext = nouveauViewModel;
+             //nouvelleTab.Background = Brushes.LightSkyBlue;
+             nouvelleTab.BorderBrush = Brushes.LightSkyBlue;
+
+             //Ajout de l'item à la tab control
+             TabControlPrincipalDetails.Items.Add(nouvelleTab);
+             TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+         }
+
+
+        #endregion
+
+
+
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new MainViewModel();
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
-            ChargerSoumissions();
-            ChargerClients();
-            ChargerCommandes();
-            ChargerProduits();
             ViewModel.CurrentView = new ConnexionView();
             ServiceFactory.Instance.Register<IProvinceService, NHibernateProvinceService>(new NHibernateProvinceService());
             ServiceFactory.Instance.Register<IEmployeService, NHibernateEmployeService>(new NHibernateEmployeService());
             ServiceFactory.Instance.Register<IFournisseurService, NHibernateFournisseurService>(new NHibernateFournisseurService());
             ServiceFactory.Instance.Register<IFactureService, NHibernateFactureService>(new NHibernateFactureService());
             ServiceFactory.Instance.Register<ITaxeService, NHibernateTaxeService>(new NHibernateTaxeService());
+
+            ChargerSoumissions();
+            ChargerClients();
+            ChargerCommandes();
+            ChargerProduits();
+            ChargerFactures();
 
             MethodePaiement mp1 = new MethodePaiement();
             MethodePaiement mp2 = new MethodePaiement();
@@ -745,66 +871,6 @@ namespace InventRX.UI
                 }
             }
 
-        }
-
-        private void datagridListeFactures_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            bool exist = false;
-            Facture factureSelectionnee = (datagridListeFactures.SelectedItem as Facture);
-
-            if (factureSelectionnee != null)
-            {
-                //Desélectionne la facture
-                datagridListeFactures.SelectedItem = null;
-
-                //Si la Facture est déjà ouverte dans une tab, on focus dessus
-                foreach (TabItem tab in TabControlPrincipalDetails.Items)
-                {
-                    if (tab.Header.ToString() == ("Facture #" + factureSelectionnee.IdFacture).ToString())
-                    {
-                        TabControlPrincipalDetails.SelectedItem = tab;
-                        exist = true;
-                        break;
-                    }
-                }
-
-                //Si la facture n'est pas déjà ouverte, on l'ouvre
-                if (exist == false)
-                {
-                    Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Facture", factureSelectionnee } };
-
-                    MainViewModel nouveauViewModel = new MainViewModel();
-                    nouveauViewModel.CurrentView = new FactureView(parameters);
-
-                    ContentPresenter contentPresenter = new ContentPresenter();
-
-                    Binding myBinding = new Binding("facture" + factureSelectionnee.IdFacture + "Data");
-                    myBinding.Source = nouveauViewModel.CurrentView;
-                    contentPresenter.Content = myBinding.Source;
-
-                    //Ajout du cont
-                    ScrollViewer newScrollViewer = new ScrollViewer();
-                    newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
-                    newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
-                    newScrollViewer.Content = contentPresenter;
-
-                    //Création d'un nouveau item
-                    TabItem nouvelleTab = new TabItem();
-                    nouvelleTab.Header = "Facture #" + factureSelectionnee.IdFacture;
-                    nouvelleTab.Content = newScrollViewer;
-
-                    //Sans scrollviewer
-                    //nouvelleTab.Content = contentPresenter;
-
-                    nouvelleTab.DataContext = nouveauViewModel;
-                    //nouvelleTab.Background = Brushes.LightSkyBlue;
-                    nouvelleTab.BorderBrush = Brushes.BlueViolet;
-
-                    //Ajout de l'item à la tab control
-                    TabControlPrincipalDetails.Items.Add(nouvelleTab);
-                    TabControlPrincipalDetails.SelectedItem = nouvelleTab;
-                }
-            }
-        }
+        }     
     }
 }
