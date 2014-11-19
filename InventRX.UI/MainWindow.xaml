@@ -438,30 +438,17 @@
                             <Grid Background="#FFE5E5E5">
                                 <DockPanel LastChildFill="True">
                                     <Grid x:Name="ResultatsMenuFactures" Background="White">
-                                        <ScrollViewer Margin="0,104,0,0">
-                                            <StackPanel>
-                                                <Button DockPanel.Dock="Top" Content="John Doe" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Gordy Howe" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Festus Zhong" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                                <Button DockPanel.Dock="Top" Content="Honorius Quirin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="180"/>
-                                            </StackPanel>
-                                        </ScrollViewer>
+                                      
+                                            <DataGrid Style="{StaticResource AzureDataGrid}" x:Name="datagridListeFactures"  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeFactures_MouseDoubleClick" Margin="0,95,0,50">
+                                                <DataGrid.Columns>
+
+                                                    <DataGridTextColumn Header="Numero" Width="45" IsReadOnly="True" Binding="{Binding IdFacture, StringFormat='{}#{0}'}"/>
+                                                    <DataGridTextColumn Header="Date" Width="75" IsReadOnly="True" Binding="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                                                    <DataGridTextColumn Header="Client" Width="105" IsReadOnly="True" Binding="{Binding Client}" />
+                                                    <DataGridTextColumn Header="Employé" Width="105" IsReadOnly="True" Binding="{Binding Employe}" />
+                                                </DataGrid.Columns>
+                                           </DataGrid>
+                                   
                                         <TextBox HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="NoWrap" Text="Nom" VerticalAlignment="Top" Width="103"/>
                                         <TextBox HorizontalAlignment="Left" Height="23" Margin="10,64,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="103"/>
                                         <DatePicker HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top" Width="112"/>

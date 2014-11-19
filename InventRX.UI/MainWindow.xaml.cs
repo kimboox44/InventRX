@@ -746,5 +746,65 @@ namespace InventRX.UI
             }
 
         }
+
+        private void datagridListeFactures_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            bool exist = false;
+            Facture factureSelectionnee = (datagridListeFactures.SelectedItem as Facture);
+
+            if (factureSelectionnee != null)
+            {
+                //Desélectionne la facture
+                datagridListeFactures.SelectedItem = null;
+
+                //Si la Facture est déjà ouverte dans une tab, on focus dessus
+                foreach (TabItem tab in TabControlPrincipalDetails.Items)
+                {
+                    if (tab.Header.ToString() == ("Facture #" + factureSelectionnee.IdFacture).ToString())
+                    {
+                        TabControlPrincipalDetails.SelectedItem = tab;
+                        exist = true;
+                        break;
+                    }
+                }
+
+                //Si la facture n'est pas déjà ouverte, on l'ouvre
+                if (exist == false)
+                {
+                    Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Facture", factureSelectionnee } };
+
+                    MainViewModel nouveauViewModel = new MainViewModel();
+                    nouveauViewModel.CurrentView = new FactureView(parameters);
+
+                    ContentPresenter contentPresenter = new ContentPresenter();
+
+                    Binding myBinding = new Binding("facture" + factureSelectionnee.IdFacture + "Data");
+                    myBinding.Source = nouveauViewModel.CurrentView;
+                    contentPresenter.Content = myBinding.Source;
+
+                    //Ajout du cont
+                    ScrollViewer newScrollViewer = new ScrollViewer();
+                    newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+                    newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+                    newScrollViewer.Content = contentPresenter;
+
+                    //Création d'un nouveau item
+                    TabItem nouvelleTab = new TabItem();
+                    nouvelleTab.Header = "Facture #" + factureSelectionnee.IdFacture;
+                    nouvelleTab.Content = newScrollViewer;
+
+                    //Sans scrollviewer
+                    //nouvelleTab.Content = contentPresenter;
+
+                    nouvelleTab.DataContext = nouveauViewModel;
+                    //nouvelleTab.Background = Brushes.LightSkyBlue;
+                    nouvelleTab.BorderBrush = Brushes.BlueViolet;
+
+                    //Ajout de l'item à la tab control
+                    TabControlPrincipalDetails.Items.Add(nouvelleTab);
+                    TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+                }
+            }
+        }
     }
 }
