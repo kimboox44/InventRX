@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="InventRX.UI.Views.FactureView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="529" Width="770">
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="385*"/>
+            <ColumnDefinition Width="385"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="datagridListeItemsFacture" Margin="11,10,10,169" ItemsSource="{ Binding Facture.ItemsFacture, UpdateSourceTrigger=PropertyChanged }" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Produit" Width="auto" IsReadOnly="True" Binding="{Binding NomProduit}" />
+                <DataGridTextColumn Header="Quantité" Width="auto" IsReadOnly="False" Binding="{Binding Quantite}" />
+                <DataGridTextColumn Header="Prix unitaire" Width="auto" IsReadOnly="False" Binding="{Binding PrixUnitaire}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        
+        <Label Name="labelDate" Content="{Binding Facture.Date}" HorizontalAlignment="Left" Margin="250,36,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="292,10,0,0" VerticalAlignment="Top" Width="83" Height="26" RenderTransformOrigin="0.16,1.923"/>
+
+
+
+        <Label Name="labelNumeroFacture" Content="{Binding Facture.IdFacture}" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
+        <Label Content="Facture #" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="83" Height="26" RenderTransformOrigin="0.16,1.923"/>
+
+        <Label Content="Client #" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Label Name="labelNumeroClient" Content="{Binding Facture.Client.IdClient}" HorizontalAlignment="Left" Margin="75,41,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
+
+        <Label Content="Nom" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+        <Label Name="labelNom" Content="{Binding Facture.Client.Nom}" HorizontalAlignment="Left" Margin="75,72,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
+
+        <Label Content="Prénom" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.548,0.654"/>
+        <Label Name="labelPrenom" Content="{Binding Facture.Client.Prenom}" HorizontalAlignment="Left" Margin="75,103,0,0" VerticalAlignment="Top" Width="125" Height="26" RenderTransformOrigin="0.595,0.453"/>
+
+        <Label Content="Téléphone" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+        <Label Name="labelTelephone" Content="{Binding Facture.Client.Telephone}" HorizontalAlignment="Left" Margin="75,227,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
+
+        <Label Content="Numéro Civique" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top"/>
+        <Label Name="labelNumCivique" Content="{Binding Facture.Client.NumeroCivique}" HorizontalAlignment="Left" Margin="111,165,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
+
+        <Label Content="Rue" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top"/>
+        <Label Name="labelRue" Content="{Binding Facture.Client.Rue}" HorizontalAlignment="Left" Margin="75,196,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
+
+        <Label Content="Ville" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top"/>
+        <Label Name="labelVille" Content="{Binding Facture.Client.Ville}" HorizontalAlignment="Left" Margin="75,227,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
+
+        <Label Content="Code Postal" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top"/>
+        <Label Name="labelCodePostal" Content="{Binding Facture.Client.CodePostal}" HorizontalAlignment="Left" Margin="111,258,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
+
+        <Label Content="Sous Total" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Name="labelSousTotal" Content="" HorizontalAlignment="Left" Margin="85,369,0,0" VerticalAlignment="Top" Width="125" Height="26" Grid.Column="1"/>
+        <Label Content="TPS" HorizontalAlignment="Left" Margin="46,400,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="-0.078,0.515"/>
+        <Label Name="labelTPS" Content="" HorizontalAlignment="Left" Margin="85,400,0,0" VerticalAlignment="Top" Width="125" Height="26" Grid.Column="1" RenderTransformOrigin="0.465,3.199"/>
+        <Label Content="TVQ" HorizontalAlignment="Left" Margin="42,431,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Name="labelTVQ" Content="" HorizontalAlignment="Left" Margin="85,431,0,0" VerticalAlignment="Top" Width="125" Height="26" Grid.Column="1" RenderTransformOrigin="0.465,3.199"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="39,480,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Name="labelTotal" Content="" HorizontalAlignment="Left" Margin="85,480,0,0" VerticalAlignment="Top" Width="125" Height="26" Grid.Column="1" RenderTransformOrigin="0.465,3.199"/>
+
+
+
+
+    </Grid>
+</UserControl>
