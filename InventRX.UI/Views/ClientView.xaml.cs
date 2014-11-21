@@ -26,7 +26,6 @@ namespace InventRX.UI.Views
     public partial class ClientView : UserControl
     {
         public ClientViewModel ViewModel { get { return (ClientViewModel)DataContext; } }
-        private IProvinceService _provinceService;
         public RetrieveClientArgs RetrieveClientArgs { get; set; }
         public Client Client { get; set; }
 
@@ -38,6 +37,8 @@ namespace InventRX.UI.Views
         public ClientView(IDictionary<string, object> parameters)
             : this()
         {
+            btnSauvegarderClient.IsEnabled = false;
+
             ViewModel.Client = parameters["Client"] as Client;
             if (ViewModel.Client.IdClient == null)
             {
@@ -53,6 +54,7 @@ namespace InventRX.UI.Views
         {
             if (ViewModel.Client != null)
             {
+                btnSauvegarderClient.IsEnabled = false;
                 ViewModel.SauvegarderCommand();
             }
         }
@@ -74,6 +76,26 @@ namespace InventRX.UI.Views
             //{
             //    MessageBox.Show("Une erreur non-gérée est survenue.");
             //}
+        }
+
+        private void buttonQuitter_Click(object sender, RoutedEventArgs e)
+        {
+            if (btnSauvegarderClient.IsEnabled == true)
+            {
+                if (MessageBox.Show("Êtes-vous sûr de vouloir fermer l'onglet client sans sauvegarder les modifications?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    ViewModel.CloseCommand();
+                }
+            }
+            else
+            {
+                ViewModel.CloseCommand();
+            }
+        }
+
+        private void Client_TextChanged(object sender, KeyEventArgs e)
+        {
+            btnSauvegarderClient.IsEnabled = true;
         }
     }
 }

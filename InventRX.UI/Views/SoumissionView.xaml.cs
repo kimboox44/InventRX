@@ -42,6 +42,8 @@ namespace InventRX.UI.Views
 
         public SoumissionView(IDictionary<string,object> parameters):this()
         {
+            btnSauvegarderSoumission.IsEnabled = false;
+
             ViewModel.Soumission = parameters["Soumission"] as Soumission;
             //Si c'est une nouvelle soumission, on affiche le bouton créer au lieu de sauvegarder
             if (ViewModel.Soumission.IdSoumission == null)
@@ -62,6 +64,8 @@ namespace InventRX.UI.Views
 
         private void btnSauvegarder_Click(object sender, RoutedEventArgs e)
         {
+            btnSauvegarderSoumission.IsEnabled = false;
+
             //Si aucun client, on va le chercher dans la base de données par son numéro de téléphone
             if (ViewModel.Soumission.Client == null)
             {
@@ -75,6 +79,7 @@ namespace InventRX.UI.Views
 
         private void datagridListeProduits_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            btnSauvegarderSoumission.IsEnabled = true;
             bool exist = false;
             Produit produitSelectionne = (datagridListeProduits.SelectedItem as Produit);
 
@@ -110,6 +115,7 @@ namespace InventRX.UI.Views
 
         private void btnSupprimerItem_Click(object sender, RoutedEventArgs e)
         {
+            btnSauvegarderSoumission.IsEnabled = true;
             ItemSoumission item = (ItemSoumission)((sender as Button).CommandParameter);
             if (item != null)
             {
@@ -178,6 +184,21 @@ namespace InventRX.UI.Views
                 labelNumeroSoumission.Content = ViewModel.Soumission.IdSoumission;
                 btnCreerSoumission.Visibility = Visibility.Hidden;
                 //Changer le titre de la tab
+            }
+        }
+
+        private void buttonQuitter_Click(object sender, RoutedEventArgs e)
+        {
+            if (btnSauvegarderSoumission.IsEnabled == true)
+            {
+                if (MessageBox.Show("Êtes-vous sûr de vouloir fermer l'onglet soumission sans sauvegarder les modifications?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    ViewModel.CloseCommand();
+                }
+            }
+            else
+            {
+                ViewModel.CloseCommand();
             }
         }
     }

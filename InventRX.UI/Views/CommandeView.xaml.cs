@@ -43,6 +43,8 @@ namespace InventRX.UI.Views
         public CommandeView(IDictionary<string, object> parameters)
             : this()
         {
+            btnSauvegarderCommande.IsEnabled = false;
+
             ViewModel.Commande = parameters["Commande"] as Commande;
             //Si c'est une nouvelle Commande, on affiche le bouton créer au lieu de sauvegarder
             if (ViewModel.Commande.IdCommande == null)
@@ -64,6 +66,7 @@ namespace InventRX.UI.Views
 
         private void btnSauvegarder_Click(object sender, RoutedEventArgs e)
         {
+            btnSauvegarderCommande.IsEnabled = false;
             //Si aucun client, on va le chercher dans la base de données par son numéro de téléphone
             if (ViewModel.Commande.Fournisseur == null)
             {
@@ -72,7 +75,7 @@ namespace InventRX.UI.Views
                 RetrieveFournisseurArgs.IdFournisseur = Convert.ToInt32(ViewModel.Commande.Fournisseur.IdFournisseur);
                 Fournisseur = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
             }
-            if(comboboxEtatCommande.SelectedItem.ToString() == "")
+            if (comboboxEtatCommande.SelectedItem.ToString() == "")
             {
                 comboboxEtatCommande.SelectedItem = "En attente";
             }
@@ -82,6 +85,7 @@ namespace InventRX.UI.Views
 
         private void datagridListeProduits_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            btnSauvegarderCommande.IsEnabled = true;
             bool exist = false;
             Produit produitSelectionne = (datagridListeProduits.SelectedItem as Produit);
 
@@ -117,6 +121,7 @@ namespace InventRX.UI.Views
 
         private void btnSupprimerItem_Click(object sender, RoutedEventArgs e)
         {
+            btnSauvegarderCommande.IsEnabled = true;
             ItemCommande item = (ItemCommande)((sender as Button).CommandParameter);
             if (item != null)
             {
@@ -151,7 +156,7 @@ namespace InventRX.UI.Views
                 RetrieveFournisseurArgs.Telephone = ViewModel.Commande.Fournisseur.Telephone;
                 //RetrieveClientArgs.Telephone = ViewModel.Commande.Client.Telephone;
 
-                Fournisseur fournisseur  = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
+                Fournisseur fournisseur = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
                 //Client = _clientService.Retrieve(RetrieveClientArgs);
                 if (fournisseur != null && fournisseur.IdFournisseur != null)
                 {
@@ -184,6 +189,21 @@ namespace InventRX.UI.Views
                 labelNumeroCommande.Content = ViewModel.Commande.IdCommande;
                 btnCreerCommande.Visibility = Visibility.Hidden;
                 //Changer le titre de la tab
+            }
+        }
+
+        private void buttonQuitter_Click(object sender, RoutedEventArgs e)
+        {
+            if (btnSauvegarderCommande.IsEnabled == true)
+            {
+                if (MessageBox.Show("Êtes-vous sûr de vouloir fermer l'onglet commande sans sauvegarder les modifications?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    ViewModel.CloseCommand();
+                }
+            }
+            else
+            {
+                ViewModel.CloseCommand();
             }
         }
     }

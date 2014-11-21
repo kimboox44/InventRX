@@ -7,6 +7,7 @@ using InventRX.Services.Definitions;
 using InventRX.UI.Views;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace InventRX.UI.ViewModel
@@ -74,6 +75,12 @@ namespace InventRX.UI.ViewModel
         public void InsererCommand()
         {
             _clientService.Insert(Client);
+        }
+
+        public void CloseCommand()
+        {
+            MainWindow win = (Application.Current.MainWindow as MainWindow);
+            win.PagePrincipal.CloseCurrentTab();
         }
     }
 }

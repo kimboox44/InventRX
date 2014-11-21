@@ -27,7 +27,7 @@ namespace InventRX.UI.Views
     /// </summary>
     public partial class PagePrincipal : Page
     {
-        public List<MethodePaiement> ListeMethodesPaiement { get; set; }
+        public static List<MethodePaiement> ListeMethodesPaiement = new List<MethodePaiement>();
         private Soumission ActiveSoumission { get; set; }
 
         public PagePrincipal()
@@ -36,15 +36,15 @@ namespace InventRX.UI.Views
             ChargerSoumissions();
             ChargerClients();
             ChargerCommandes();
+            ChargerFactures();
 
-            MethodePaiement mp1 = new MethodePaiement();
-            MethodePaiement mp2 = new MethodePaiement();
-            mp1.Nom = "Comptant";
-            mp2.Nom = "Visa";
-            ListeMethodesPaiement = new List<MethodePaiement>();
-            ListeMethodesPaiement.Add(mp1);
-            ListeMethodesPaiement.Add(mp2);
-
+            //Charge la liste des méthodes de paiement
+            foreach (string smp in Properties.Settings.Default.MethodesPaiement)
+            {
+                MethodePaiement mp = new MethodePaiement();
+                mp.Nom = smp;
+                ListeMethodesPaiement.Add(mp);
+            }
             comboboxMethodePaiement.ItemsSource = ListeMethodesPaiement;
         }
 
@@ -58,8 +58,6 @@ namespace InventRX.UI.Views
 
         private void ChargerSoumissions()
         {
-            ServiceFactory.Instance.Register<ISoumissionService, NHibernateSoumissionService>(new NHibernateSoumissionService());
-            ServiceFactory.Instance.Register<IItemSoumissionService, NHibernateItemSoumissionService>(new NHibernateItemSoumissionService());
             //Charge la liste de toutes les soumissions
             _soumissionService = ServiceFactory.Instance.GetService<ISoumissionService>();
             RetrieveSoumissionArgs = new RetrieveSoumissionArgs();
@@ -173,8 +171,6 @@ namespace InventRX.UI.Views
 
         private void ChargerCommandes()
         {
-            ServiceFactory.Instance.Register<ICommandeService, NHibernateCommandeService>(new NHibernateCommandeService());
-            ServiceFactory.Instance.Register<IItemCommandeService, NHibernateItemCommandeService>(new NHibernateItemCommandeService());
             //Charge la liste de toutes les Commandes
             _commandeService = ServiceFactory.Instance.GetService<ICommandeService>();
             RetrieveCommandeArgs = new RetrieveCommandeArgs();
@@ -289,8 +285,6 @@ namespace InventRX.UI.Views
 
         private void ChargerClients()
         {
-            ServiceFactory.Instance.Register<IClientService, NHibernateClientService>(new NHibernateClientService());
-
             //Charge la liste de tous les clients
             _clientService = ServiceFactory.Instance.GetService<IClientService>();
             RetrieveClientArgs = new RetrieveClientArgs();
@@ -317,20 +311,24 @@ namespace InventRX.UI.Views
             myBinding.Source = nouveauViewModel.CurrentView;
             contentPresenter.Content = myBinding.Source;
 
-            //Ajout d'un scrollviewer
+            //Ajout du contentPresenter dans un scrollviewer pour pouvoir scroller à l'interieur
             ScrollViewer newScrollViewer = new ScrollViewer();
             newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
             newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
-
-            newScrollViewer.HorizontalAlignment = HorizontalAlignment.Center;
             newScrollViewer.Content = contentPresenter;
 
+            //Création d'un nouveau item
             TabItem nouvelleTab = new TabItem();
             nouvelleTab.Header = "client #" + clientSelectionnee.IdClient;
             nouvelleTab.Content = newScrollViewer;
+
+            //Sans scrollviewer
+            //nouvelleTab.Content = contentPresenter;
+
             nouvelleTab.DataContext = nouveauViewModel;
             nouvelleTab.BorderBrush = Brushes.Bisque;
 
+            //Ajout de l'item à la tab control
             TabControlPrincipalDetails.Items.Add(nouvelleTab);
             TabControlPrincipalDetails.SelectedItem = nouvelleTab;
         }
@@ -374,7 +372,126 @@ namespace InventRX.UI.Views
 
         #endregion
 
+        #region Factures
 
+
+
+        private IFactureService _factureService;
+        public RetrieveFactureArgs RetrieveFactureArgs { get; set; }
+        public IList<Facture> ListeFactures { get; set; }
+
+        public RetrieveFactureArgs RetrieveRechercheFactureArgs = new RetrieveFactureArgs();
+
+        private void ChargerFactures()
+        {
+            //Charge la liste de toutes les Factures
+            _factureService = ServiceFactory.Instance.GetService<IFactureService>();
+            RetrieveFactureArgs = new RetrieveFactureArgs();
+            ListeFactures = _factureService.RetrieveAll();
+            datagridListeFactures.ItemsSource = ListeFactures;
+        }
+
+
+        private void datagridListeFactures_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            bool exist = false;
+            Facture factureSelectionnee = (datagridListeFactures.SelectedItem as Facture);
+
+            if (factureSelectionnee != null)
+            {
+                //Desélectionne la facture
+                datagridListeFactures.SelectedItem = null;
+
+                //Si la Facture est déjà ouverte dans une tab, on focus dessus
+                foreach (TabItem tab in TabControlPrincipalDetails.Items)
+                {
+                    if (tab.Header.ToString() == ("Facture #" + factureSelectionnee.IdFacture).ToString())
+                    {
+                        TabControlPrincipalDetails.SelectedItem = tab;
+                        exist = true;
+                        break;
+                    }
+                }
+
+                //Si la facture n'est pas déjà ouverte, on l'ouvre
+                if (exist == false)
+                {
+                    Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Facture", factureSelectionnee } };
+
+                    MainViewModel nouveauViewModel = new MainViewModel();
+                    nouveauViewModel.CurrentView = new FactureView(parameters);
+
+                    ContentPresenter contentPresenter = new ContentPresenter();
+
+                    Binding myBinding = new Binding("facture" + factureSelectionnee.IdFacture + "Data");
+                    myBinding.Source = nouveauViewModel.CurrentView;
+                    contentPresenter.Content = myBinding.Source;
+
+                    //Ajout du cont
+                    ScrollViewer newScrollViewer = new ScrollViewer();
+                    newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+                    newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+                    newScrollViewer.Content = contentPresenter;
+
+                    //Création d'un nouveau item
+                    TabItem nouvelleTab = new TabItem();
+                    nouvelleTab.Header = "Facture #" + factureSelectionnee.IdFacture;
+                    nouvelleTab.Content = newScrollViewer;
+
+                    //Sans scrollviewer
+                    //nouvelleTab.Content = contentPresenter;
+
+                    nouvelleTab.DataContext = nouveauViewModel;
+                    //nouvelleTab.Background = Brushes.LightSkyBlue;
+                    nouvelleTab.BorderBrush = Brushes.BlueViolet;
+
+                    //Ajout de l'item à la tab control
+                    TabControlPrincipalDetails.Items.Add(nouvelleTab);
+                    TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+                }
+            }
+        }
+
+
+        private void boutonNouvelleFacture_Click(object sender, RoutedEventArgs e)
+        {
+            Facture newFacture = new Facture();
+            Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Facture", newFacture } };
+
+            MainViewModel nouveauViewModel = new MainViewModel();
+            nouveauViewModel.CurrentView = new FactureView(parameters);
+
+            ContentPresenter contentPresenter = new ContentPresenter();
+
+            Binding myBinding = new Binding("Facture" + newFacture.IdFacture + "Data");
+            myBinding.Source = nouveauViewModel.CurrentView;
+            contentPresenter.Content = myBinding.Source;
+
+            //Ajout du contentPresenter dans un scrollviewer pour pouvoir scroller à l'interieur
+            ScrollViewer newScrollViewer = new ScrollViewer();
+            newScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            newScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+            newScrollViewer.Content = contentPresenter;
+
+            //Création d'un nouveau item
+            TabItem nouvelleTab = new TabItem();
+            nouvelleTab.Header = "Nouvelle Facture";
+            nouvelleTab.Content = newScrollViewer;
+
+            //Sans scrollviewer
+            //nouvelleTab.Content = contentPresenter;
+
+            nouvelleTab.DataContext = nouveauViewModel;
+            //nouvelleTab.Background = Brushes.LightSkyBlue;
+            nouvelleTab.BorderBrush = Brushes.LightSkyBlue;
+
+            //Ajout de l'item à la tab control
+            TabControlPrincipalDetails.Items.Add(nouvelleTab);
+            TabControlPrincipalDetails.SelectedItem = nouvelleTab;
+        }
+
+
+        #endregion
 
         #region Tabs Config
         /*
@@ -591,6 +708,27 @@ namespace InventRX.UI.Views
                 totalCaisse += paiement.Montant;
             }
             labelTabCaisseTotal.Content = totalCaisse.ToString("C2") + "/" + soumission.Price().ToString("C2");
+
+            if (totalCaisse != soumission.Price())
+            {
+                if (totalCaisse < soumission.Price())
+                {
+                    labelTabCaisseTotalRestant.Foreground = Brushes.Red;
+                    labelTabCaisseTotalRestant.Content = "-";
+                }
+                else
+                {
+                    labelTabCaisseTotalRestant.Foreground = Brushes.Green;
+                    labelTabCaisseTotalRestant.Content = "+";
+                }
+                labelTabCaisseTotalRestant.Content = labelTabCaisseTotalRestant.Content + Math.Abs(totalCaisse - soumission.Price()).ToString("C2");
+                labelTabCaisseTotalRestant.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                labelTabCaisseTotalRestant.Content = "";
+                labelTabCaisseTotalRestant.Visibility = Visibility.Hidden;
+            }
             datagridPaiement.ItemsSource = ActiveSoumission.Facture.Paiements;
 
             //datagridPaiement.Items.Refresh();
@@ -718,6 +856,16 @@ namespace InventRX.UI.Views
                 }
             }
 
+        }
+
+        public void CloseCurrentTab()
+        {
+            TabItem item = TabControlPrincipalDetails.SelectedItem as TabItem;
+
+            if (item != null)
+            {
+                TabControlPrincipalDetails.Items.Remove(item);
+            }
         }
     }
 }

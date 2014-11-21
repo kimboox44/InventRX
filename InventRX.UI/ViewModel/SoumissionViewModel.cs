@@ -5,8 +5,10 @@ using InventRX.Logic.Model.Args;
 using InventRX.Logic.Model.Entities;
 using InventRX.Services.Definitions;
 using InventRX.UI.Views;
+using Microsoft.TeamFoundation.MVVM;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace InventRX.UI.ViewModel
@@ -68,15 +70,21 @@ namespace InventRX.UI.ViewModel
             }
         }
 
-
         public void SauvegarderCommand()
         {
             _soumissionService.Update(Soumission);
+            CloseCommand();
         }
 
         public void InsererCommand()
         {
             _soumissionService.Insert(Soumission);
+        }
+
+        public void CloseCommand()
+        {
+            MainWindow win = (Application.Current.MainWindow as MainWindow);
+            win.PagePrincipal.CloseCurrentTab();
         }
     }
 }
