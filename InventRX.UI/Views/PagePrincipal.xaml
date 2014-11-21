@@ -338,7 +338,7 @@
 
                             </DataGrid>
                             <Button x:Name="boutonNouvelleSoumission" Content="Nouvelle soumission" Margin="55,0,68,10" VerticalAlignment="Bottom" Click="boutonNouvelleSoumission_Click"/>
-                            <TextBox x:Name="textboxNomClientSoumission" Controls:TextboxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" Margin="176,59,0,0" TextWrapping="NoWrap" Controls:TextboxHelper.Watermark="Nom" VerticalAlignment="Top" Width="103"/>
+                            <TextBox x:Name="textboxNomClientSoumission" Controls:TextboxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" Margin="176,59,0,0" TextWrapping="NoWrap" Controls:TextboxHelper.Watermark="Nom" VerticalAlignment="Top" Width="112"/>
                             <TextBox x:Name="textboxTelephoneClientSoumission" Controls:TextboxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" Margin="10,32,0,0" TextWrapping="NoWrap" Controls:TextboxHelper.Watermark="Téléphone" VerticalAlignment="Top" Width="103"/>
                             <TextBox x:Name="textboxPrenomClientSoumission" Controls:TextboxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" Margin="10,59,0,0" TextWrapping="NoWrap" Controls:TextboxHelper.Watermark="Prénom" VerticalAlignment="Top" Width="103"/>
                             <TextBox Controls:TextboxHelper.ClearTextButton="True" Controls:TextboxHelper.Watermark="Numéro soumission" x:Name="textboxNumeroSoumission" HorizontalAlignment="Left" Height="23" Margin="10,4,0,0"  TextWrapping="NoWrap" VerticalAlignment="Top" Width="103"/>
@@ -346,8 +346,8 @@
                             <DatePicker x:Name="datepickerSoumissionAu" HorizontalAlignment="Left" Margin="176,31,0,0" VerticalAlignment="Top" Width="112"/>
                             <CheckBox x:Name="checkboxSoumissionDateDu" Content="Du" HorizontalAlignment="Left" Margin="127,10,0,0" VerticalAlignment="Top"/>
                             <CheckBox x:Name="checkboxSoumissionDateAu" Content="Au" HorizontalAlignment="Left" Margin="127,36,0,0" VerticalAlignment="Top"/>
-                            <Button x:Name="btnRechercherSoumission" Content="Rechercher" Margin="10,87,150,0" VerticalAlignment="Top" Click="btnRechercherSoumission_Click"/>
-                            <Button x:Name="btnResetRechercherSoumission" Content="Reset" Margin="150,87,10,0" VerticalAlignment="Top" Click="btnResetRechercherSoumission_Click"/>
+                            <Button x:Name="btnRechercherSoumission" Content="Rechercher" Margin="10,87,0,0" VerticalAlignment="Top" Click="btnRechercherSoumission_Click" HorizontalAlignment="Left" Width="103"/>
+                            <Button x:Name="btnResetRechercherSoumission" Content="Reset" Margin="176,87,-11,0" VerticalAlignment="Top" Click="btnResetRechercherSoumission_Click" HorizontalAlignment="Left" Width="112"/>
                         </Grid>
                     </DockPanel>
                 </Grid>
