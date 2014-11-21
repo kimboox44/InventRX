@@ -33,8 +33,8 @@
                   SelectedValue="{Binding Client.Province.Nom}"
                   SelectedItem="{Binding Client.Province, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button x:Name="btnSauvegarderClient" Grid.Row="0" Margin="10,328,0,0" Content="Sauvegarder" Click="btnSauvegarder_Click" Height="19" VerticalAlignment="Top" HorizontalAlignment="Center" Width="347" />
-        <Button x:Name="btnCreerClient" Grid.Row="0" Margin="10,328,0,0" Content="Créer" Click="btnCreer_Click" Height="19" VerticalAlignment="Top" HorizontalAlignment="Center" Width="347" />
+        <Button x:Name="btnSauvegarderClient" Grid.Row="0" Margin="10,328,0,0" Content="Sauvegarder les modifications" Click="btnSauvegarder_Click" Height="19" VerticalAlignment="Top" HorizontalAlignment="Center" Width="347" />
+        <Button x:Name="btnCreerClient" Grid.Row="0" Margin="10,328,0,0" Content="Créer le client" Click="btnCreer_Click" Height="19" VerticalAlignment="Top" HorizontalAlignment="Center" Width="347" />
         <Button x:Name="buttonQuitter" Click="buttonQuitter_Click" ToolTip="Fermer l'onglet client" Content="X" Margin="0,10,10,0" VerticalAlignment="Top" Background="#F08080" HorizontalAlignment="Right" Width="30" />
     </Grid>
 </UserControl>

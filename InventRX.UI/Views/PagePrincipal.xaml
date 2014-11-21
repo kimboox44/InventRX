@@ -270,7 +270,7 @@
                 <Grid Background="#FFE5E5E5">
                     <DockPanel LastChildFill="True">
                         <Grid x:Name="ResultatsMenuCommandes" Background="White">
-                            <DataGrid x:Name="datagridListeCommandes" Style="{StaticResource AzureDataGrid}" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeCommandes_MouseDoubleClick" Margin="0,88,0,0">
+                            <DataGrid x:Name="datagridListeCommandes" Style="{StaticResource AzureDataGrid}" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="datagridListeCommandes_MouseDoubleClick" Margin="0,95,0,38">
 
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Numéro" Width="45" IsReadOnly="True" Binding="{Binding IdCommande, StringFormat='{}#{0}'}"/>
@@ -292,6 +292,7 @@
                             <CheckBox Content="Du" HorizontalAlignment="Left" Margin="127,15,0,0" VerticalAlignment="Top"/>
                             <CheckBox Content="Au" HorizontalAlignment="Left" Margin="127,40,0,0" VerticalAlignment="Top"/>
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="10,32,0,0"  TextWrapping="NoWrap" Text="Numéro fournisseur" VerticalAlignment="Top" Width="103"/>
+                            <Button x:Name="boutonNouvelleCommande" Content="Nouvelle commande" Margin="55,0,68,10" VerticalAlignment="Bottom" Click="boutonNouvelleCommande_Click"/>
                         </Grid>
                     </DockPanel>
                 </Grid>
@@ -301,7 +302,7 @@
                 <Grid Background="#FFE5E5E5">
                     <DockPanel LastChildFill="True">
                         <Grid Background="White">
-                            <DataGrid x:Name="datagridListeClients" MouseDoubleClick="datagridListeClients_MouseDoubleClick" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="0,74,0,0">
+                            <DataGrid x:Name="datagridListeClients" MouseDoubleClick="datagridListeClients_MouseDoubleClick" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="0,70,0,38">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
                                     <DataGridTextColumn Header="Prénom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prenom}" />
@@ -312,6 +313,7 @@
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="NoWrap" Text="Prénom" VerticalAlignment="Top" Width="122"/>
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="157,10,0,0" TextWrapping="NoWrap" Text="Téléphone" VerticalAlignment="Top" Width="122" Grid.ColumnSpan="2"/>
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="157,38,0,0" TextWrapping="NoWrap" Text="Rue" VerticalAlignment="Top" Width="122" Grid.ColumnSpan="2"/>
+                            <Button x:Name="boutonNouveauClient" Content="Nouveau client" Margin="55,0,68,10" VerticalAlignment="Bottom" Click="btnNouveauClient_Click"/>
                         </Grid>
                     </DockPanel>
                 </Grid>
