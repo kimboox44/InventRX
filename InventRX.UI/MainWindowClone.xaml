@@ -1,0 +1,31 @@
+﻿<Controls:MetroWindow x:Class="InventRX.UI.MainWindowClone"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        Height="700" Width="1200"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        WindowStartupLocation="CenterScreen">
+
+    <controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands>
+            <Label Padding="10,5,30,5" FontFamily="HeaderFontFamily" FontSize="16" Foreground="White" Content="InventRX"></Label>
+            <Button x:Name="btn_menuPrincipal" Content="Principal" Click="btn_menuPrincipal_Click"/>
+            <Button x:Name="btn_menuProduit" Content="Produit" Click="btn_menuProduit_Click"/>
+            <Button x:Name="btn_menuAdministration" Content="Administration" Click="btn_menuAdministration_Click"/>
+        </Controls:WindowCommands>
+
+    </controls:MetroWindow.LeftWindowCommands>
+
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="Se déconnecter" />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <!--Fenetre total-->
+    <Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
+    </Grid>
+</Controls:MetroWindow>

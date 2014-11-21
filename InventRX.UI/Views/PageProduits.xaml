@@ -1,0 +1,49 @@
+﻿<Page x:Class="InventRX.UI.Views.PageProduits"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+	Title="PageProduits">
+
+    <Grid Background="#FFF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="552*"/>
+            <ColumnDefinition Width="288*" MaxWidth="300"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid Name="datagridListeProduits" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Numéro" Width="55" IsReadOnly="True" Binding="{Binding IdProduit, StringFormat='{}#{0}'}"/>
+                <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
+                <DataGridTextColumn Header="Description" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Description}" />
+                <DataGridTextColumn Header="Dimensions" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=DescriptionDimension}" />
+                <DataGridTextColumn Header="Prix" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prix, StringFormat={}{0:#,#.00}$}" />
+                <DataGridTextColumn Header="Quantité" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Quantite}" />
+                <DataGridTextColumn Header="Modele" Width="50" IsReadOnly="True" Binding="{Binding Modele}" />
+                <DataGridTextColumn Header="Categorie" Width="55" IsReadOnly="True"  Binding="{Binding CategorieProduit}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Background="#EEE" Grid.Column="1" HorizontalAlignment="Left" Height="375" Margin="10,39,0,0" VerticalAlignment="Top" Width="280">
+            <TextBox Margin="5">Numéro</TextBox>
+            <TextBox Margin="5">Nom</TextBox>
+            <TextBox Margin="5">Description</TextBox>
+            <TextBox Margin="5">Dimensions</TextBox>
+            <TextBox Margin="5">Prix</TextBox>
+            <TextBox Margin="5">Quantité</TextBox>
+            <TextBox Margin="5">Modèle</TextBox>
+            <TextBox Margin="5">Catégorie</TextBox>
+            <ComboBox Margin="5" />
+            <Button Margin="5">Ajouter xyz</Button>
+        </StackPanel>
+
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Height="29" Margin="20,0,0,0" TextWrapping="Wrap" Text="Menu de Gestion des produits" VerticalAlignment="Top" Width="280"/>
+        <DockPanel Grid.Column="1" HorizontalAlignment="Center" Height="50" LastChildFill="False" Margin="5,419,0,0" VerticalAlignment="Top" Width="280">
+            <Button Name="BtnAnnuler" Content="Annuler" Height="25" Width="75" DockPanel.Dock="Left"/>
+            <Button Name="BtnCreer" Content="Créer" Height="25" Width="75" DockPanel.Dock="Right" Margin="5"/>
+            <Button Name="BtnModifier" Content="Modifier" Height="25" Width="75" DockPanel.Dock="Right" Margin="5"/>
+        </DockPanel>
+    </Grid>
+</Page>
