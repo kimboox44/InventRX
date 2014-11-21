@@ -326,7 +326,7 @@ namespace InventRX.UI.Views
             //nouvelleTab.Content = contentPresenter;
 
             nouvelleTab.DataContext = nouveauViewModel;
-            nouvelleTab.BorderBrush = Brushes.Bisque;
+            nouvelleTab.BorderBrush = Brushes.Orange;
 
             //Ajout de l'item à la tab control
             TabControlPrincipalDetails.Items.Add(nouvelleTab);
@@ -362,7 +362,7 @@ namespace InventRX.UI.Views
             //nouvelleTab.Content = contentPresenter;
 
             nouvelleTab.DataContext = nouveauViewModel;
-            nouvelleTab.BorderBrush = Brushes.Bisque;
+            nouvelleTab.BorderBrush = Brushes.Orange;
 
             //Ajout de l'item à la tab control
             TabControlPrincipalDetails.Items.Add(nouvelleTab);

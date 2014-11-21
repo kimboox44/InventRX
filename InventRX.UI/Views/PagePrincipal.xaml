@@ -116,7 +116,7 @@
 
                     <Button x:Name="btnNouvelleSoumission" BorderBrush="LightSkyBlue" Content="Nouvelle soumission" Margin="40,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="boutonNouvelleSoumission_Click"/>
                     <Button x:Name="btnNouvelleCommande" BorderBrush="LightGreen" Content="Nouvelle commande" Margin="224,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="boutonNouvelleCommande_Click"/>
-                    <Button x:Name="btnNouveauClient" BorderBrush="Bisque" Content="Nouveau client" Margin="410,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="btnNouveauClient_Click"/>
+                    <Button x:Name="btnNouveauClient" BorderBrush="Orange" Content="Nouveau client" Margin="410,10,0,0" VerticalAlignment="Top" Height="61" HorizontalAlignment="Left" Width="159" Click="btnNouveauClient_Click"/>
                     <!-- Les boutons qui vont permettre de créer les soumissions, commandes... -->
                 </Grid>
             </TabItem>
@@ -298,11 +298,11 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Header="Clients" BorderBrush="Bisque">
+            <TabItem Header="Clients" BorderBrush="Orange">
                 <Grid Background="#FFE5E5E5">
                     <DockPanel LastChildFill="True">
                         <Grid Background="White">
-                            <DataGrid x:Name="datagridListeClients" MouseDoubleClick="datagridListeClients_MouseDoubleClick" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="0,70,0,38">
+                            <DataGrid x:Name="datagridListeClients" MouseDoubleClick="datagridListeClients_MouseDoubleClick" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,70,0,38">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Nom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Nom}" />
                                     <DataGridTextColumn Header="Prénom" Width="Auto" IsReadOnly="True"  Binding="{Binding Path=Prenom}" />
