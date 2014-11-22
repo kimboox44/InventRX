@@ -103,5 +103,10 @@ namespace InventRX.UI.Views
             ViewModel.Facture.Date = date;
  
         }
+
+        private void buttonQuitter_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.CloseCommand();            
+        }
     }
 }

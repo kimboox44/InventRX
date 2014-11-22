@@ -70,6 +70,7 @@
         </DataGrid>
         <TextBlock Grid.Column="1" TextAlignment="Center"  HorizontalAlignment="Left" Margin="11,10,0,0" TextWrapping="Wrap" Text="Liste des produits de la soumission" VerticalAlignment="Top" Width="364" Height="21"/>
         <TextBlock TextAlignment="Center" HorizontalAlignment="Left" Margin="10,289,0,0" TextWrapping="Wrap" Text="Liste des produits de la soumission" VerticalAlignment="Top" Width="364" Height="21"/>
+        <Button x:Name="buttonQuitter" Click="buttonQuitter_Click" ToolTip="Fermer l'onglet facture" Content="X" Grid.Column="1" Margin="0,10,10,0" VerticalAlignment="Top" Background="#F08080" HorizontalAlignment="Right" Width="30" />
 
 
     </Grid>
