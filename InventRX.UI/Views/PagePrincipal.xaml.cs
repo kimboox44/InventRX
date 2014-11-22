@@ -839,20 +839,31 @@ namespace InventRX.UI.Views
                 {
                     ActiveSoumission.Facture.Taxe = taxe;
 
-                    foreach (Paiement p in ActiveSoumission.Facture.Paiements)
+                    if (ActiveSoumission.Facture.Paiements.Count == 0)
                     {
-                        p.Facture = ActiveSoumission.Facture;
-                        p.Client = ActiveSoumission.Client;
-                        p.Employe = ActiveSoumission.Employe;
+                        MessageBox.Show("Vous n'avez entré aucun paiement pour la facture.");
                     }
+                    else
+                    {
+                        foreach (Paiement p in ActiveSoumission.Facture.Paiements)
+                        {
+                            p.Facture = ActiveSoumission.Facture;
+                            p.Client = ActiveSoumission.Client;
+                            p.Employe = ActiveSoumission.Employe;
+                        }
 
-                    IFactureService _factureService = ServiceFactory.Instance.GetService<IFactureService>();
-                    _factureService.Insert(ActiveSoumission.Facture);
+                        IFactureService _factureService = ServiceFactory.Instance.GetService<IFactureService>();
+                        _factureService.Insert(ActiveSoumission.Facture);
 
-                    MessageBox.Show("La facture a bien été créée.");
+                        //Met à jour le menu contextuel
+                        ListeFactures.Add(ActiveSoumission.Facture);
+                        datagridListeFactures.Items.Refresh();
 
-                    buttonCaissePayer.IsEnabled = false;
-                    buttonCaisseAnnuler.IsEnabled = false;
+                        MessageBox.Show("La facture a bien été créée.");
+
+                        buttonCaissePayer.IsEnabled = false;
+                        buttonCaisseAnnuler.IsEnabled = false;
+                    }
                 }
             }
 

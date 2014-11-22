@@ -25,12 +25,12 @@ namespace InventRX.UI.Views
     {
         private IEmployeService _employeService;
         private RetrieveEmployeArgs _retrieveEmployeArgs;
-        private MainWindow MainWindow { get; set; }
+        private MainWindow _mainWindow { get; set; }
 
         public ConnexionView()
         {
             InitializeComponent();
-            MainWindow = (Application.Current.MainWindow as MainWindow);
+            _mainWindow = (Application.Current.MainWindow as MainWindow);
         }
 
         private void btnConnexion_Click(object sender, RoutedEventArgs e)
@@ -41,24 +41,24 @@ namespace InventRX.UI.Views
                 _retrieveEmployeArgs = new RetrieveEmployeArgs();
                 _retrieveEmployeArgs.NomUsager = textboxNomUsager.Text;
                 _retrieveEmployeArgs.MotDePasse = textboxMotDePasse.Password;
-                MainWindow.Employe = _employeService.RetrieveByIdents(_retrieveEmployeArgs);
-                if (MainWindow.Employe != null && MainWindow.Employe.IdEmploye != null)
+                _mainWindow.Employe = _employeService.RetrieveByIdents(_retrieveEmployeArgs);
+                if (_mainWindow.Employe != null && _mainWindow.Employe.IdEmploye != null)
                 {
                     labelWarning.Visibility = Visibility.Hidden;
-                    MainWindow.IsLogged(true);
+                    _mainWindow.IsLogged(true);
                 }
                 else
                 {
                     labelWarning.Content = "Le nom d'usager ou le mot de passe est incorrect.";
                     labelWarning.Visibility = Visibility.Visible;
-                    MainWindow.IsLogged(false);
+                    _mainWindow.IsLogged(false);
                 }
             }
             catch (Exception)
             {
                 labelWarning.Content = "Une erreur interne est survenue.";
                 labelWarning.Visibility = Visibility.Visible;
-                MainWindow.IsLogged(false);
+                _mainWindow.IsLogged(false);
             }
         }
     }

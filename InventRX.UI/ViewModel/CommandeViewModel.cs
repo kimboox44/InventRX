@@ -86,12 +86,13 @@ namespace InventRX.UI.ViewModel
         public void InsererCommand()
         {
             _commandeService.Insert(Commande);
+            (Application.Current.MainWindow as MainWindow).PagePrincipal.ListeCommandes.Add(Commande);
+            (Application.Current.MainWindow as MainWindow).PagePrincipal.datagridListeCommandes.Items.Refresh();
         }
 
         public void CloseCommand()
         {
-            MainWindow win = (Application.Current.MainWindow as MainWindow);
-            win.PagePrincipal.CloseCurrentTab();
+           (Application.Current.MainWindow as MainWindow).PagePrincipal.CloseCurrentTab();
         }
     }
 }

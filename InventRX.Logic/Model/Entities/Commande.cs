@@ -17,6 +17,10 @@ namespace InventRX.Logic.Model.Entities
 
         public Commande()
         {
+            if(Etat == null)
+            {
+                Etat = "En attente";
+            }
             //Date = new DateTime();
         }
 

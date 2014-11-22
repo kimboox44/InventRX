@@ -78,12 +78,13 @@ namespace InventRX.UI.ViewModel
         public void InsererCommand()
         {
             _factureService.Insert(Facture);
+            (Application.Current.MainWindow as MainWindow).PagePrincipal.ListeFactures.Add(Facture);
+            (Application.Current.MainWindow as MainWindow).PagePrincipal.datagridListeFactures.Items.Refresh();
         }
 
         public void CloseCommand()
         {
-            MainWindow win = (Application.Current.MainWindow as MainWindow);
-            win.PagePrincipal.CloseCurrentTab();
+            (Application.Current.MainWindow as MainWindow).PagePrincipal.CloseCurrentTab();
         }
     }
 }

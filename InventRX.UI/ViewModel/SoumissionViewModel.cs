@@ -79,12 +79,13 @@ namespace InventRX.UI.ViewModel
         public void InsererCommand()
         {
             _soumissionService.Insert(Soumission);
+            (Application.Current.MainWindow as MainWindow).PagePrincipal.ListeSoumissions.Add(Soumission);
+            (Application.Current.MainWindow as MainWindow).PagePrincipal.datagridListeSoumissions.Items.Refresh();
         }
 
         public void CloseCommand()
         {
-            MainWindow win = (Application.Current.MainWindow as MainWindow);
-            win.PagePrincipal.CloseCurrentTab();
+            (Application.Current.MainWindow as MainWindow).PagePrincipal.CloseCurrentTab();
         }
     }
 }

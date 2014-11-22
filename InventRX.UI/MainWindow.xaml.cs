@@ -42,6 +42,7 @@ namespace InventRX.UI
             ServiceFactory.Instance.Register<IProvinceService, NHibernateProvinceService>(new NHibernateProvinceService());
             ServiceFactory.Instance.Register<IEmployeService, NHibernateEmployeService>(new NHibernateEmployeService());
             ServiceFactory.Instance.Register<IFactureService, NHibernateFactureService>(new NHibernateFactureService());
+            ServiceFactory.Instance.Register<IFournisseurService, NHibernateFournisseurService>(new NHibernateFournisseurService());
             ServiceFactory.Instance.Register<IItemFactureService, NHibernateItemFactureService>(new NHibernateItemFactureService());
             ServiceFactory.Instance.Register<ITaxeService, NHibernateTaxeService>(new NHibernateTaxeService());
             ServiceFactory.Instance.Register<IClientService, NHibernateClientService>(new NHibernateClientService());
