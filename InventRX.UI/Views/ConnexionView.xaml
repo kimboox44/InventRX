@@ -3,13 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" d:DesignWidth="300" Height="170">
-    <Grid>
-        <Label Content="Nom d'usager:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Mot de passe:" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top"/>
-        <PasswordBox Height="23" Margin="10,101,10,0" VerticalAlignment="Top"/>
-        <TextBox Height="23" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button x:Name="btnConnexion" Content="Connexion" Margin="0,138,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="124" Click="btnConnexion_Click" />
+             mc:Ignorable="d" MinHeight="170" MinWidth="300" HorizontalAlignment="Center" VerticalAlignment="Center" Height="196" Width="387">
 
+    <Grid>
+
+        <Label x:Name="labelWarning" Content="Le nom d'usager ou le mot de passe est incorrect." HorizontalAlignment="Center" Height="26" Margin="57,0" VerticalAlignment="Top" Visibility="Hidden" Foreground="Red"/>
+        <Label Content="Nom d'usager:" HorizontalAlignment="Left" Margin="11,32,0,0" VerticalAlignment="Top"/>
+        <Label Content="Mot de passe:" HorizontalAlignment="Left" Margin="11,97,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textboxNomUsager" Text="admin" Height="23" Margin="11,58,9,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="textboxMotDePasse" Password="password" Height="23" Margin="11,123,9,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnConnexion" Content="Connexion" Margin="133,160,130,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="124" Click="btnConnexion_Click" />
     </Grid>
 </UserControl>

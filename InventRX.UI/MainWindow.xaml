@@ -20,7 +20,7 @@
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Content="Se déconnecter" />
+            <Button x:Name="btn_deconnecter" Content="Se déconnecter" Click="btn_deconnecter_Click" />
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
 

@@ -41,6 +41,13 @@ namespace InventRX.Logic.Services.NHibernate
             
         }
 
+        public Employe RetrieveByIdents(RetrieveEmployeArgs args)
+        {
+            var result = from s in session.Query<Employe>() select s;
+            result = result.Where(s => args.NomUsager == s.NomUsager && args.MotDePasse == s.MotDePasse);
+            return result.FirstOrDefault();
+        }
+
         public void Insert(Employe employe)
         {
             using (var transaction = session.BeginTransaction())

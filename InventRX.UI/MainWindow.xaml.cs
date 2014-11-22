@@ -27,14 +27,15 @@ namespace InventRX.UI
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        public PagePrincipal       PagePrincipal       {get; set;}
+        public ConnexionView ConnexionView { get; set; }
+        public PagePrincipal PagePrincipal { get; set; }
         public PageProduits PageProduits { get; set; }
         public PageAdministration PageAdministration { get; set; }
-
+        public Employe Employe { get; set; }
+        public bool AutoConnect = false;
 
         public MainWindow()
         {
-            
             InitializeComponent();
             DataContext = new MainViewModel();
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
@@ -49,24 +50,59 @@ namespace InventRX.UI
             ServiceFactory.Instance.Register<ISoumissionService, NHibernateSoumissionService>(new NHibernateSoumissionService());
             ServiceFactory.Instance.Register<IItemSoumissionService, NHibernateItemSoumissionService>(new NHibernateItemSoumissionService());
 
-            PagePrincipal       = new PagePrincipal();
-            PageProduits        = new PageProduits();
-            PageAdministration  = new PageAdministration();
-            MainFrame.NavigationService.Navigate(PagePrincipal);
+            ConnexionView = new ConnexionView();
+            PagePrincipal = new PagePrincipal();
+            PageProduits = new PageProduits();
+            PageAdministration = new PageAdministration();
+
+            if (AutoConnect == false)
+            {
+                IsLogged(false);
+            }
+            else
+            {
+                IsLogged(true);
+            }
+        }
+
+        public void IsLogged(bool connecte)
+        {
+            if (connecte == false)
+            {
+                btn_deconnecter.Visibility = Visibility.Hidden;
+                btn_menuAdministration.Visibility = Visibility.Hidden;
+                btn_menuPrincipal.Visibility = Visibility.Hidden;
+                btn_menuProduit.Visibility = Visibility.Hidden;
+                MainFrame.NavigationService.Navigate(ConnexionView);
+            }
+            else
+            {
+                btn_deconnecter.Visibility = Visibility.Visible;
+                btn_menuAdministration.Visibility = Visibility.Visible;
+                btn_menuPrincipal.Visibility = Visibility.Visible;
+                btn_menuProduit.Visibility = Visibility.Visible;
+                MainFrame.NavigationService.Navigate(PagePrincipal);
+            }
         }
 
         private void btn_menuPrincipal_Click(object sender, RoutedEventArgs e)
         {
-           MainFrame.NavigationService.Navigate(PagePrincipal);           
+            MainFrame.NavigationService.Navigate(PagePrincipal);
         }
 
         private void btn_menuProduit_Click(object sender, RoutedEventArgs e)
-        {   MainFrame.NavigationService.Navigate(PageProduits);
+        {
+            MainFrame.NavigationService.Navigate(PageProduits);
         }
 
         private void btn_menuAdministration_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.NavigationService.Navigate(PageAdministration);
+        }
+
+        private void btn_deconnecter_Click(object sender, RoutedEventArgs e)
+        {
+            IsLogged(false);
         }
     }
 }

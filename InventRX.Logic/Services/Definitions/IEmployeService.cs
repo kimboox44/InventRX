@@ -12,6 +12,7 @@ namespace InventRX.Services.Definitions
     {
         IList<Employe> RetrieveAll();
         Employe Retrieve(RetrieveEmployeArgs args);
+        Employe RetrieveByIdents(RetrieveEmployeArgs args);
         void Insert(Employe employe);
     }
 }
