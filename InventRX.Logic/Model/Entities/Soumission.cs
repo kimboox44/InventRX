@@ -58,6 +58,7 @@ namespace InventRX.Logic.Model.Entities
                 itemsFacture.Add(itemFacture);
             }
 
+            Facture.ItemsFacture = itemsFacture;
             return Facture;
         }
 
