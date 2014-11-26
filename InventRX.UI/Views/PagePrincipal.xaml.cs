@@ -849,6 +849,8 @@ namespace InventRX.UI.Views
 
                         //Met à jour le menu contextuel
                         ListeFactures.Add(ActiveSoumission.Facture);
+                        datagridListeFactures.ItemsSource = null;
+                        datagridListeFactures.ItemsSource = ListeFactures;
                         datagridListeFactures.Items.Refresh();
 
                         MessageBox.Show("La facture a bien été créée.");
