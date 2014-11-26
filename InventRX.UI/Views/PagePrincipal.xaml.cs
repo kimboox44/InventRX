@@ -27,7 +27,7 @@ namespace InventRX.UI.Views
     /// </summary>
     public partial class PagePrincipal : Page
     {
-        public static List<MethodePaiement> ListeMethodesPaiement = new List<MethodePaiement>();
+        public static List<string> ListeMethodesPaiement = new List<string>();
         private Soumission ActiveSoumission { get; set; }
 
         public PagePrincipal()
@@ -41,8 +41,7 @@ namespace InventRX.UI.Views
             //Charge la liste des méthodes de paiement
             foreach (string smp in Properties.Settings.Default.MethodesPaiement)
             {
-                MethodePaiement mp = new MethodePaiement();
-                mp.Nom = smp;
+                string mp = smp;
                 ListeMethodesPaiement.Add(mp);
             }
             comboboxMethodePaiement.ItemsSource = ListeMethodesPaiement;
@@ -792,10 +791,6 @@ namespace InventRX.UI.Views
 
         private void datagridPaiement_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            /* TabControlPrincipalDetails.IsEnabled = false;
-             buttonCaissePayer.IsEnabled = true;
-             buttonCaisseAnnuler.IsEnabled = true;*/
-
             if (ActiveSoumission == null)
             {
                 ActiveSoumission = FindActiveSoumission();
@@ -809,12 +804,8 @@ namespace InventRX.UI.Views
 
         private void buttonCaisseAnnuler_Click(object sender, RoutedEventArgs e)
         {
-            /*buttonCaissePayer.IsEnabled = false;
-            buttonCaisseAnnuler.IsEnabled = false;*/
-
             ActiveSoumission.Facture.Paiements.Clear();
             datagridPaiement.Items.Refresh();
-            // TabControlPrincipalDetails.IsEnabled = true;
         }
 
         private void buttonCaissePayer_Click(object sender, RoutedEventArgs e)

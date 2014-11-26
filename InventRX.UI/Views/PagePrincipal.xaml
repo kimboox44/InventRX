@@ -236,9 +236,7 @@
                                                       Width="90"/>
                             <DataGridComboBoxColumn x:Name="comboboxMethodePaiement"
                   ItemsSource="{Binding Path=ListeMethodesPaiement}" 
-                  DisplayMemberPath="Nom" 
-                  SelectedValuePath="Nom" 
-                  SelectedValueBinding="{Binding MethodePaiement.Nom}"
+       
                   SelectedItemBinding="{Binding MethodePaiement}"
                                                                 Header="Type" 
                                                                 Width="90"/>
