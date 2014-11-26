@@ -837,6 +837,7 @@ namespace InventRX.UI.Views
                 }
                 else
                 {
+                    ActiveSoumission.Facture = ActiveSoumission.ConstruireFacture();
                     ActiveSoumission.Facture.Taxe = taxe;
 
                     if (ActiveSoumission.Facture.Paiements.Count == 0)
