@@ -65,6 +65,7 @@
     <Compile Include="Model\Args\RetrieveItemFactureArgs.cs" />
     <Compile Include="Model\Args\RetrieveItemSoumissionArgs.cs" />
     <Compile Include="Model\Args\RetrieveModeleArgs.cs" />
+    <Compile Include="Model\Args\RetrievePaiementArgs.cs" />
     <Compile Include="Model\Args\RetrieveProduitArgs.cs" />
     <Compile Include="Model\Args\RetrieveProvinceArgs.cs" />
     <Compile Include="Model\Args\RetrieveSoumissionArgs.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Services\Definitions\IItemFactureService.cs" />
     <Compile Include="Services\Definitions\IItemSoumissionService.cs" />
     <Compile Include="Services\Definitions\IModeleService.cs" />
+    <Compile Include="Services\Definitions\IPaiementService.cs" />
     <Compile Include="Services\Definitions\IProduitService.cs" />
     <Compile Include="Services\Definitions\IProvinceService.cs" />
     <Compile Include="Services\Definitions\ISoumissionService.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="Services\NHibernate\NHibernateItemFactureService.cs" />
     <Compile Include="Services\NHibernate\NHibernateItemSoumissionService.cs" />
     <Compile Include="Services\NHibernate\NHibernateModeleService.cs" />
+    <Compile Include="Services\NHibernate\NHibernatePaiementService.cs" />
     <Compile Include="Services\NHibernate\NHibernateProduitService.cs" />
     <Compile Include="Services\NHibernate\NHibernateProvinceService.cs" />
     <Compile Include="Services\NHibernate\NHibernateSoumissionService.cs" />

@@ -817,7 +817,7 @@ namespace InventRX.UI.Views
 
             if (ActiveSoumission != null && ActiveSoumission.Facture != null)
             {
-                //Persiter la facture
+                //Persister la facture
                 Taxe taxe;
                 ITaxeService _taxeService = ServiceFactory.Instance.GetService<ITaxeService>();
                 taxe = _taxeService.RetrieveNow();

@@ -20,16 +20,22 @@ namespace InventRX.UI.ViewModel
         private IProduitService _produiService;
         public RetrieveProduitArgs RetrieveProduitArgs { get; set; }
         public IList<Produit> ListeProduits { get; set; }
+        
+
 
         public FactureViewModel()
         {
             _factureService = ServiceFactory.Instance.GetService<IFactureService>();
             ItemsFacture = new ObservableCollection<ItemFacture>(ServiceFactory.Instance.GetService<IItemFactureService>().RetrieveAll());
-
-            //Charge la liste des produits
+            Paiements = new ObservableCollection<Paiement>(ServiceFactory.Instance.GetService<IPaiementService>().RetrieveAll());
+           
+             //Charge la liste des produits
             _produiService = ServiceFactory.Instance.GetService<IProduitService>();
             RetrieveProduitArgs = new RetrieveProduitArgs();
             ListeProduits = _produiService.RetrieveAll();
+
+
+      
         }
 
         public Facture Facture
@@ -68,6 +74,27 @@ namespace InventRX.UI.ViewModel
                 _itemsFacture = value;
             }
         }
+
+        private ObservableCollection<Paiement> _paiement = new ObservableCollection<Paiement>();
+
+        public ObservableCollection<Paiement> Paiements
+        {
+            get
+            {
+                return _paiement;
+            }
+
+            set
+            {
+                if (_paiement == value)
+                {
+                    return;
+                }
+
+                _paiement = value;
+            }
+        }
+
 
 
         public void SauvegarderCommand()

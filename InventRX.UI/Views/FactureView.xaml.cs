@@ -27,9 +27,9 @@ namespace InventRX.UI.Views
     public partial class FactureView : UserControl
     {
         public FactureViewModel ViewModel { get { return (FactureViewModel)DataContext; } }
-
+        
         private IClientService _clientService;
-        private IProvinceService _provinceService;
+    
         public RetrieveClientArgs RetrieveClientArgs { get; set; }
         public Client Client { get; set; }
         public Employe Employe { get; set; }
@@ -57,7 +57,37 @@ namespace InventRX.UI.Views
                     //List<ItemFacture> liste = new List<ItemFacture>();
                     ViewModel.Facture.ItemsFacture = new List<ItemFacture>();
                 }
+                if (ViewModel.Facture.Paiements == null)
+                {
+                    //List<ItemFacture> liste = new List<ItemFacture>();
+                    ViewModel.Facture.Paiements = new List<Paiement>();
+                }
             }
+
+
+            double sousTotal = 0;
+            double sousTotalTPS;
+            double sousTotalTVQ;
+            double total;
+            const double TPS = 5;
+            const double TVQ = 9.975;
+
+
+
+            foreach (Paiement paiement in ViewModel.Facture.Paiements)
+            {
+                sousTotal += paiement.Montant;
+            }
+
+            sousTotalTPS = Math.Round(sousTotal * (TPS / 100), 2);
+            sousTotalTVQ = Math.Round(sousTotal * (TVQ / 100), 2);
+            total = (sousTotal + sousTotalTPS + sousTotalTVQ);
+                       
+            labelSousTotal.Content = sousTotal.ToString("C2");
+            labelTPS.Content = sousTotalTPS.ToString("C2");
+            labelTVQ.Content = sousTotalTVQ.ToString("C2");
+            labelTotal.Content = total.ToString("C2");
+
         }
 
         private void btnSauvegarder_Click(object sender, RoutedEventArgs e)
@@ -107,6 +137,6 @@ namespace InventRX.UI.Views
         private void buttonQuitter_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.CloseCommand();            
-        }
+        }   
     }
 }

@@ -32,7 +32,7 @@ namespace InventRX.UI
         public PageProduits PageProduits { get; set; }
         public PageAdministration PageAdministration { get; set; }
         public Employe Employe { get; set; }
-        public bool AutoConnect = false;
+        public bool AutoConnect = true;
 
         public MainWindow()
         {
@@ -50,6 +50,7 @@ namespace InventRX.UI
             ServiceFactory.Instance.Register<IItemCommandeService, NHibernateItemCommandeService>(new NHibernateItemCommandeService());
             ServiceFactory.Instance.Register<ISoumissionService, NHibernateSoumissionService>(new NHibernateSoumissionService());
             ServiceFactory.Instance.Register<IItemSoumissionService, NHibernateItemSoumissionService>(new NHibernateItemSoumissionService());
+            ServiceFactory.Instance.Register<IPaiementService, NHibernatePaiementService>(new NHibernatePaiementService());
 
             ConnexionView = new ConnexionView();
             PagePrincipal = new PagePrincipal();
