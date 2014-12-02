@@ -45,6 +45,17 @@ namespace InventRX.UI.Views
                 ListeMethodesPaiement.Add(mp);
             }
             comboboxMethodePaiement.ItemsSource = ListeMethodesPaiement;
+
+            //rapport fin de journée
+            string JourneeSemaine = DateTime.Now.DayOfWeek.ToString("");
+            string Jour = DateTime.Now.Day.ToString("");
+            string Mois = DateTime.Now.Month.ToString("");
+            string Annee = DateTime.Now.Year.ToString("");
+           
+            LblRapportFinJournee.Content = JourneeSemaine + " " + Jour + " " + Mois +  " " + Annee;
+
+
+
         }
 
         #region Soumission
