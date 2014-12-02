@@ -65,6 +65,7 @@ namespace InventRX.UI
             {
                 IsLogged(true);
             }
+            this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
         }
 
         public void IsLogged(bool connecte)
@@ -105,6 +106,15 @@ namespace InventRX.UI
         private void btn_deconnecter_Click(object sender, RoutedEventArgs e)
         {
             IsLogged(false);
+        }
+
+        void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Si l'utilisateur presse F1, on va à la fenêtre Aide
+            if (e.Key == Key.F1)
+            {
+                MainFrame.NavigationService.Navigate(PageAide);
+            }
         }
     }
 }

@@ -32,7 +32,7 @@
                 </DataGridTemplateColumn>-->
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="datagridListeProduits" Margin="11,111,10,10" ItemsSource="{ Binding ListeProduits }" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1" MouseDoubleClick="datagridListeProduits_MouseDoubleClick">
+        <DataGrid x:Name="datagridListeProduits" ToolTip="Double cliquer un produit pour l'ajouter dans la commande." Margin="11,111,10,10" ItemsSource="{ Binding ListeProduits }" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1" MouseDoubleClick="datagridListeProduits_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Produit" Width="auto" IsReadOnly="True" Binding="{Binding Nom}" />
                 <DataGridTextColumn Header="Prix" Width="auto" IsReadOnly="True" Binding="{Binding Prix}" />
@@ -40,11 +40,11 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Nom" HorizontalAlignment="Left" Margin="215,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBoxClientNom" HorizontalAlignment="Left" Height="23" Margin="254,10,0,0" TextWrapping="Wrap"  Text="{Binding Commande.Fournisseur.Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBoxClientNom" ToolTip="Nom du fournisseur" HorizontalAlignment="Left" Height="23" Margin="254,10,0,0" TextWrapping="Wrap"  Text="{Binding Commande.Fournisseur.Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnSauvegarderCommande" Grid.Column="1" Grid.Row="0" Margin="10,10,48,0" Content="Sauvegarder les changements" Click="btnSauvegarder_Click" Height="19" VerticalAlignment="Top" />
         <Button x:Name="btnCreerCommande" Grid.Column="1" Grid.Row="0" Margin="10,10,48,0" Content="Créer la commande" Click="btnCreer_Click" Height="19" VerticalAlignment="Top" Visibility="Hidden" />
         <Label Content="Téléphone" HorizontalAlignment="Left" Margin="185,41,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="254,44,0,0" TextWrapping="Wrap"  Text="{Binding Commande.Fournisseur.Telephone, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox ToolTip="Numéro de téléphone du fournisseur" HorizontalAlignment="Left" Height="23" Margin="254,44,0,0" TextWrapping="Wrap"  Text="{Binding Commande.Fournisseur.Telephone, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Statut de la commande: " Visibility="Hidden" Grid.Column="1" HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="comboboxEtatCommande" Grid.Column="1" Margin="98,44,97,0" VerticalAlignment="Top"
                   ItemsSource="{Binding Etats}" 
