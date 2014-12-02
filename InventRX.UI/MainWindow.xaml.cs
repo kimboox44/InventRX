@@ -30,7 +30,7 @@ namespace InventRX.UI
         public ConnexionView ConnexionView { get; set; }
         public PagePrincipal PagePrincipal { get; set; }
         public PageProduits PageProduits { get; set; }
-        public PageAdministration PageAdministration { get; set; }
+        public PageAide PageAide { get; set; }
         public Employe Employe { get; set; }
         public bool AutoConnect = true;
 
@@ -55,7 +55,7 @@ namespace InventRX.UI
             ConnexionView = new ConnexionView();
             PagePrincipal = new PagePrincipal();
             PageProduits = new PageProduits();
-            PageAdministration = new PageAdministration();
+            PageAide = new PageAide();
 
             if (AutoConnect == false)
             {
@@ -72,7 +72,7 @@ namespace InventRX.UI
             if (connecte == false)
             {
                 btn_deconnecter.Visibility = Visibility.Hidden;
-                btn_menuAdministration.Visibility = Visibility.Hidden;
+                btn_menuAide.Visibility = Visibility.Hidden;
                 btn_menuPrincipal.Visibility = Visibility.Hidden;
                 btn_menuProduit.Visibility = Visibility.Hidden;
                 MainFrame.NavigationService.Navigate(ConnexionView);
@@ -80,7 +80,7 @@ namespace InventRX.UI
             else
             {
                 btn_deconnecter.Visibility = Visibility.Visible;
-                btn_menuAdministration.Visibility = Visibility.Visible;
+                btn_menuAide.Visibility = Visibility.Visible;
                 btn_menuPrincipal.Visibility = Visibility.Visible;
                 btn_menuProduit.Visibility = Visibility.Visible;
                 MainFrame.NavigationService.Navigate(PagePrincipal);
@@ -97,9 +97,9 @@ namespace InventRX.UI
             MainFrame.NavigationService.Navigate(PageProduits);
         }
 
-        private void btn_menuAdministration_Click(object sender, RoutedEventArgs e)
+        private void btn_menuAide_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.NavigationService.Navigate(PageAdministration);
+            MainFrame.NavigationService.Navigate(PageAide);
         }
 
         private void btn_deconnecter_Click(object sender, RoutedEventArgs e)

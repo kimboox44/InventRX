@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,11 +19,24 @@ namespace InventRX.UI.Views
     /// <summary>
     /// Logique d'interaction pour PageAdminisration.xaml
     /// </summary>
-    public partial class PageAdministration : Page
+    public partial class PageAide : Page
     {
-        public PageAdministration()
+        public PageAide()
         {
             InitializeComponent();
+
+            string curDir = Directory.GetCurrentDirectory();
+            string path = String.Format("file:///{0}/doc/index.html", curDir);
+            Uri uri = new Uri(path);
+
+            if (File.Exists(path))
+            {
+                aideBrowser.Source = uri;
+            }
+            else
+            {
+                aideBrowser.NavigateToString("Le document d'aide n'existe pas.");
+            }
         }
     }
 }

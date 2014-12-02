@@ -98,8 +98,8 @@
     <Compile Include="Views\FactureView.xaml.cs">
       <DependentUpon>FactureView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PageAdministration.xaml.cs">
-      <DependentUpon>PageAdministration.xaml</DependentUpon>
+    <Compile Include="Views\PageAide.xaml.cs">
+      <DependentUpon>PageAide.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PagePrincipal.xaml.cs">
       <DependentUpon>PagePrincipal.xaml</DependentUpon>
@@ -142,7 +142,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\PageAdministration.xaml">
+    <Page Include="Views\PageAide.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

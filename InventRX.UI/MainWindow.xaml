@@ -12,7 +12,7 @@
             <Label Padding="10,5,30,5" FontFamily="HeaderFontFamily" FontSize="16" Foreground="White" Content="InventRX"></Label>
             <Button x:Name="btn_menuPrincipal" Content="Principal" Click="btn_menuPrincipal_Click"/>
             <Button x:Name="btn_menuProduit" Content="Produit" Click="btn_menuProduit_Click"/>
-            <Button x:Name="btn_menuAdministration" Content="Administration" Click="btn_menuAdministration_Click"/>
+            <Button x:Name="btn_menuAide" Content="Aide" Click="btn_menuAide_Click"/>
         </Controls:WindowCommands>
 
     </controls:MetroWindow.LeftWindowCommands>
