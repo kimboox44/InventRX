@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -26,10 +27,10 @@ namespace InventRX.UI.Views
             InitializeComponent();
 
             string curDir = Directory.GetCurrentDirectory();
-            string path = String.Format("file:///{0}/doc/index.html", curDir);
-            Uri uri = new Uri(path);
-
-            if (File.Exists(path))
+            string pathWeb = String.Format(@"file:///{0}\doc\index.html#histo", curDir);
+            string pathFile = String.Format(@"{0}\doc\index.html", curDir);
+            Uri uri = new Uri(pathWeb);
+            if (File.Exists(pathFile))
             {
                 aideBrowser.Source = uri;
             }
@@ -37,6 +38,21 @@ namespace InventRX.UI.Views
             {
                 aideBrowser.NavigateToString("Le document d'aide n'existe pas.");
             }
+        }
+
+        private void btnClient_Click(object sender, RoutedEventArgs e)
+        {
+            aideBrowser.NavigateToString("Aide Client!");
+        }
+
+        private void btnSoumission_Click(object sender, RoutedEventArgs e)
+        {
+            aideBrowser.NavigateToString("Aide Soumission!");
+        }
+
+        private void btnCommande_Click(object sender, RoutedEventArgs e)
+        {
+            aideBrowser.NavigateToString("Aide Commande!");
         }
     }
 }
