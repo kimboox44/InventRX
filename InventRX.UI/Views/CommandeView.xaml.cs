@@ -135,60 +135,67 @@ namespace InventRX.UI.Views
 
         private void btnCreer_Click(object sender, RoutedEventArgs e)
         {
-            //Vérifier si le client dans la base de données grâce a son numéro de téléphone
-            IEmployeService _employeService = ServiceFactory.Instance.GetService<IEmployeService>();
-            RetrieveEmployeArgs retrieveEmployeArgs = new RetrieveEmployeArgs();
-            retrieveEmployeArgs.IdEmploye = 1;
-            Employe = _employeService.Retrieve(retrieveEmployeArgs);
-            /*Employe employe = new Employe();
-            employe.IdEmploye = 1;*/
-            ViewModel.Commande.Employe = Employe; // Employé Cruise
-
-            //On met la date du jour
-            DateTime date = new DateTime();
-            ViewModel.Commande.Date = date;
-
-            _fournisseurService = ServiceFactory.Instance.GetService<IFournisseurService>();
-            try
+            if (txtBoxClientNom.Text == "" || txtBoxClientTelephone.Text == "")
+            {
+                MessageBox.Show("Certains champs du client sont manquants.");
+            }
+            else
             {
                 //Vérifier si le client dans la base de données grâce a son numéro de téléphone
-                RetrieveFournisseurArgs = new RetrieveFournisseurArgs();
-                RetrieveFournisseurArgs.Telephone = ViewModel.Commande.Fournisseur.Telephone;
-                //RetrieveClientArgs.Telephone = ViewModel.Commande.Client.Telephone;
+                IEmployeService _employeService = ServiceFactory.Instance.GetService<IEmployeService>();
+                RetrieveEmployeArgs retrieveEmployeArgs = new RetrieveEmployeArgs();
+                retrieveEmployeArgs.IdEmploye = 1;
+                Employe = _employeService.Retrieve(retrieveEmployeArgs);
+                /*Employe employe = new Employe();
+                employe.IdEmploye = 1;*/
+                ViewModel.Commande.Employe = Employe; // Employé Cruise
 
-                Fournisseur fournisseur = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
-                //Client = _clientService.Retrieve(RetrieveClientArgs);
-                if (fournisseur != null && fournisseur.IdFournisseur != null)
+                //On met la date du jour
+                DateTime date = new DateTime();
+                ViewModel.Commande.Date = date;
+
+                _fournisseurService = ServiceFactory.Instance.GetService<IFournisseurService>();
+                try
                 {
-                    Fournisseur = fournisseur;
-                    ViewModel.Commande.Fournisseur = Fournisseur;
+                    //Vérifier si le client dans la base de données grâce a son numéro de téléphone
+                    RetrieveFournisseurArgs = new RetrieveFournisseurArgs();
+                    RetrieveFournisseurArgs.Telephone = ViewModel.Commande.Fournisseur.Telephone;
+                    //RetrieveClientArgs.Telephone = ViewModel.Commande.Client.Telephone;
+
+                    Fournisseur fournisseur = _fournisseurService.Retrieve(RetrieveFournisseurArgs);
+                    //Client = _clientService.Retrieve(RetrieveClientArgs);
+                    if (fournisseur != null && fournisseur.IdFournisseur != null)
+                    {
+                        Fournisseur = fournisseur;
+                        ViewModel.Commande.Fournisseur = Fournisseur;
+                        ViewModel.InsererCommand();
+                        labelNumeroCommande.Content = ViewModel.Commande.IdCommande;
+                        btnCreerCommande.Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        throw new Exception("Commande non trouvé");
+                    }
+                }
+                catch (Exception)
+                {
+                    //Le client n'existe pas
+                    _provinceService = ServiceFactory.Instance.GetService<IProvinceService>();
+                    RetrieveProvinceArgs retrieveProvinceArgs = new RetrieveProvinceArgs();
+                    retrieveProvinceArgs.IdProvince = 11;
+                    Fournisseur.NumeroCivique = "-";
+                    Fournisseur.Province = _provinceService.Retrieve(retrieveProvinceArgs);
+                    Fournisseur.Rue = "-";
+                    Fournisseur.Ville = "-";
+                    Fournisseur.CodePostal = "-";
+                    //Insérer le client dans la base de données.
+                    _fournisseurService.Insert(Fournisseur);
+                    //Insérer la Commande dans la base de données.
                     ViewModel.InsererCommand();
                     labelNumeroCommande.Content = ViewModel.Commande.IdCommande;
                     btnCreerCommande.Visibility = Visibility.Hidden;
+                    //Changer le titre de la tab
                 }
-                else
-                {
-                    throw new Exception("Commande non trouvé");
-                }
-            }
-            catch (Exception)
-            {
-                //Le client n'existe pas
-                _provinceService = ServiceFactory.Instance.GetService<IProvinceService>();
-                RetrieveProvinceArgs retrieveProvinceArgs = new RetrieveProvinceArgs();
-                retrieveProvinceArgs.IdProvince = 11;
-                Fournisseur.NumeroCivique = "-";
-                Fournisseur.Province = _provinceService.Retrieve(retrieveProvinceArgs);
-                Fournisseur.Rue = "-";
-                Fournisseur.Ville = "-";
-                Fournisseur.CodePostal = "-";
-                //Insérer le client dans la base de données.
-                _fournisseurService.Insert(Fournisseur);
-                //Insérer la Commande dans la base de données.
-                ViewModel.InsererCommand();
-                labelNumeroCommande.Content = ViewModel.Commande.IdCommande;
-                btnCreerCommande.Visibility = Visibility.Hidden;
-                //Changer le titre de la tab
             }
         }
 

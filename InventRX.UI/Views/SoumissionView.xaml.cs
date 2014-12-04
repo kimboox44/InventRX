@@ -40,7 +40,8 @@ namespace InventRX.UI.Views
             DataContext = new SoumissionViewModel();
         }
 
-        public SoumissionView(IDictionary<string,object> parameters):this()
+        public SoumissionView(IDictionary<string, object> parameters)
+            : this()
         {
             btnSauvegarderSoumission.IsEnabled = false;
 
@@ -55,11 +56,32 @@ namespace InventRX.UI.Views
                     ViewModel.Soumission.Client = Client;
                 }
                 if (ViewModel.Soumission.ItemsSoumission == null)
-                { 
+                {
                     //List<ItemSoumission> liste = new List<ItemSoumission>();
                     ViewModel.Soumission.ItemsSoumission = new List<ItemSoumission>();
                 }
             }
+
+            double sousTotal = 0;
+            double sousTotalTPS;
+            double sousTotalTVQ;
+            double total;
+            const double TPS = 5;
+            const double TVQ = 9.975;
+
+            foreach (ItemSoumission item in ViewModel.Soumission.ItemsSoumission)
+            {
+                sousTotal += item.PrixUnitaire * item.Quantite;
+            }
+
+            sousTotalTPS = Math.Round(sousTotal * (TPS / 100), 2);
+            sousTotalTVQ = Math.Round(sousTotal * (TVQ / 100), 2);
+            total = (sousTotal + sousTotalTPS + sousTotalTVQ);
+
+            labelSousTotal.Content = sousTotal.ToString("C2");
+            labelTPS.Content = sousTotalTPS.ToString("C2");
+            labelTVQ.Content = sousTotalTVQ.ToString("C2");
+            labelTotal.Content = total.ToString("C2");
         }
 
         private void btnSauvegarder_Click(object sender, RoutedEventArgs e)
@@ -88,7 +110,7 @@ namespace InventRX.UI.Views
                 //Si le produit existe déjà dans les produits de la soumission, on incrémente de 1 la quantité de celui-ci
                 foreach (ItemSoumission item in ViewModel.Soumission.ItemsSoumission)
                 {
-                    if(item.Produit.IdProduit == produitSelectionne.IdProduit)
+                    if (item.Produit.IdProduit == produitSelectionne.IdProduit)
                     {
                         item.Quantite = item.Quantite + 1;
                         exist = true;
@@ -111,6 +133,27 @@ namespace InventRX.UI.Views
                 }
                 datagridListeItemsSoumission.Items.Refresh();
             }
+
+            double sousTotal = 0;
+            double sousTotalTPS;
+            double sousTotalTVQ;
+            double total;
+            const double TPS = 5;
+            const double TVQ = 9.975;
+
+            foreach (ItemSoumission item in ViewModel.Soumission.ItemsSoumission)
+            {
+                sousTotal += item.PrixUnitaire * item.Quantite;
+            }
+
+            sousTotalTPS = Math.Round(sousTotal * (TPS / 100), 2);
+            sousTotalTVQ = Math.Round(sousTotal * (TVQ / 100), 2);
+            total = (sousTotal + sousTotalTPS + sousTotalTVQ);
+
+            labelSousTotal.Content = sousTotal.ToString("C2");
+            labelTPS.Content = sousTotalTPS.ToString("C2");
+            labelTVQ.Content = sousTotalTVQ.ToString("C2");
+            labelTotal.Content = total.ToString("C2");
         }
 
         private void btnSupprimerItem_Click(object sender, RoutedEventArgs e)
@@ -125,65 +168,93 @@ namespace InventRX.UI.Views
                     datagridListeItemsSoumission.Items.Refresh();
                 }
             }
+
+            double sousTotal = 0;
+            double sousTotalTPS;
+            double sousTotalTVQ;
+            double total;
+            const double TPS = 5;
+            const double TVQ = 9.975;
+
+            foreach (ItemSoumission itemS in ViewModel.Soumission.ItemsSoumission)
+            {
+                sousTotal += itemS.PrixUnitaire * itemS.Quantite;
+            }
+
+            sousTotalTPS = Math.Round(sousTotal * (TPS / 100), 2);
+            sousTotalTVQ = Math.Round(sousTotal * (TVQ / 100), 2);
+            total = (sousTotal + sousTotalTPS + sousTotalTVQ);
+
+            labelSousTotal.Content = sousTotal.ToString("C2");
+            labelTPS.Content = sousTotalTPS.ToString("C2");
+            labelTVQ.Content = sousTotalTVQ.ToString("C2");
+            labelTotal.Content = total.ToString("C2");
         }
 
         private void btnCreer_Click(object sender, RoutedEventArgs e)
         {
-            //Vérifier si le client dans la base de données grâce a son numéro de téléphone
-            IEmployeService _employeService = ServiceFactory.Instance.GetService<IEmployeService>();
-            RetrieveEmployeArgs retrieveEmployeArgs = new RetrieveEmployeArgs();
-            retrieveEmployeArgs.IdEmploye = 1;
-            Employe = _employeService.Retrieve(retrieveEmployeArgs);
-            /*Employe employe = new Employe();
-            employe.IdEmploye = 1;*/
-            ViewModel.Soumission.Employe = Employe; // Employé Cruise
-            
-            //On met la date du jour
-            DateTime date = new DateTime();
-            ViewModel.Soumission.Date = date;
-
-            try
+            if (txtBoxClientNom.Text == "" || txtBoxClientPrenom.Text == "" || txtBoxClientTelephone.Text == "")
             {
-                 //Pour le moment on créér un nouveau client si le numéro ne match pas dans la BD
-                _clientService = ServiceFactory.Instance.GetService<IClientService>();
-                RetrieveClientArgs = new RetrieveClientArgs();
-                RetrieveClientArgs.Telephone = ViewModel.Soumission.Client.Telephone;
-                Client client = _clientService.RetrieveByPhone(RetrieveClientArgs);
-                //Client = _clientService.Retrieve(RetrieveClientArgs);
-                if (client != null && client.IdClient != null)
+                MessageBox.Show("Certains champs du client sont manquants.");
+            }
+            else
+            {
+                //Vérifier si le client dans la base de données grâce a son numéro de téléphone
+                IEmployeService _employeService = ServiceFactory.Instance.GetService<IEmployeService>();
+                RetrieveEmployeArgs retrieveEmployeArgs = new RetrieveEmployeArgs();
+                retrieveEmployeArgs.IdEmploye = 1;
+                Employe = _employeService.Retrieve(retrieveEmployeArgs);
+                /*Employe employe = new Employe();
+                employe.IdEmploye = 1;*/
+                ViewModel.Soumission.Employe = Employe; // Employé Cruise
+
+                //On met la date du jour
+                DateTime date = new DateTime();
+                ViewModel.Soumission.Date = date;
+
+                try
                 {
-                    Client = client;
-                    ViewModel.Soumission.Client = Client;
+                    //Pour le moment on créér un nouveau client si le numéro ne match pas dans la BD
+                    _clientService = ServiceFactory.Instance.GetService<IClientService>();
+                    RetrieveClientArgs = new RetrieveClientArgs();
+                    RetrieveClientArgs.Telephone = ViewModel.Soumission.Client.Telephone;
+                    Client client = _clientService.RetrieveByPhone(RetrieveClientArgs);
+                    //Client = _clientService.Retrieve(RetrieveClientArgs);
+                    if (client != null && client.IdClient != null)
+                    {
+                        Client = client;
+                        ViewModel.Soumission.Client = Client;
+                        ViewModel.InsererCommand();
+                        labelNumeroSoumission.Content = ViewModel.Soumission.IdSoumission;
+                        btnCreerSoumission.Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        throw new Exception("Client non trouvé");
+                    }
+                }
+                catch (Exception)
+                {
+                    //Le client n'existe pas
+                    _provinceService = ServiceFactory.Instance.GetService<IProvinceService>();
+                    RetrieveProvinceArgs retrieveProvinceArgs = new RetrieveProvinceArgs();
+                    retrieveProvinceArgs.Abreviation = "QC";
+                    Province province = _provinceService.RetrieveByAbreviation(retrieveProvinceArgs);
+                    Client.NumeroCivique = "-";
+                    Client.Province = province;
+                    Client.Rue = "-";
+                    Client.Solde = 0;
+                    Client.Telephone2 = "-";
+                    Client.Ville = "-";
+                    Client.CodePostal = "-";
+                    //Insérer le client dans la base de données.
+                    _clientService.Insert(Client);
+                    //Insérer la soumission dans la base de données.
                     ViewModel.InsererCommand();
                     labelNumeroSoumission.Content = ViewModel.Soumission.IdSoumission;
                     btnCreerSoumission.Visibility = Visibility.Hidden;
+                    //Changer le titre de la tab
                 }
-                else
-                {
-                    throw new Exception("Client non trouvé");
-                }
-            }
-            catch (Exception)
-            {
-                //Le client n'existe pas
-                _provinceService = ServiceFactory.Instance.GetService<IProvinceService>();
-                RetrieveProvinceArgs retrieveProvinceArgs = new RetrieveProvinceArgs();
-                retrieveProvinceArgs.Abreviation = "QC";
-                Province province = _provinceService.RetrieveByAbreviation(retrieveProvinceArgs);
-                Client.NumeroCivique = "-";
-                Client.Province = province;
-                Client.Rue = "-";
-                Client.Solde = 0;
-                Client.Telephone2 = "-";
-                Client.Ville = "-";
-                Client.CodePostal = "-";
-                //Insérer le client dans la base de données.
-                _clientService.Insert(Client);
-                //Insérer la soumission dans la base de données.
-                ViewModel.InsererCommand();
-                labelNumeroSoumission.Content = ViewModel.Soumission.IdSoumission;
-                btnCreerSoumission.Visibility = Visibility.Hidden;
-                //Changer le titre de la tab
             }
         }
 
@@ -200,6 +271,30 @@ namespace InventRX.UI.Views
             {
                 ViewModel.CloseCommand();
             }
+        }
+
+        private void datagridListeItemsSoumission_CurrentCellChanged(object sender, EventArgs e)
+        {
+            double sousTotal = 0;
+            double sousTotalTPS;
+            double sousTotalTVQ;
+            double total;
+            const double TPS = 5;
+            const double TVQ = 9.975;
+
+            foreach (ItemSoumission itemS in ViewModel.Soumission.ItemsSoumission)
+            {
+                sousTotal += itemS.PrixUnitaire * itemS.Quantite;
+            }
+
+            sousTotalTPS = Math.Round(sousTotal * (TPS / 100), 2);
+            sousTotalTVQ = Math.Round(sousTotal * (TVQ / 100), 2);
+            total = (sousTotal + sousTotalTPS + sousTotalTVQ);
+
+            labelSousTotal.Content = sousTotal.ToString("C2");
+            labelTPS.Content = sousTotalTPS.ToString("C2");
+            labelTVQ.Content = sousTotalTVQ.ToString("C2");
+            labelTotal.Content = total.ToString("C2");
         }
     }
 }

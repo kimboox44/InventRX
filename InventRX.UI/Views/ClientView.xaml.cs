@@ -61,21 +61,24 @@ namespace InventRX.UI.Views
 
         private void btnCreer_Click(object sender, RoutedEventArgs e)
         {
-            if (ViewModel.Client != null)
+            if (textboxClientNom.Text == "" || textboxClientNumCivique.Text == "" || textboxClientPrenom.Text == "" ||
+                textboxClientRue.Text == "" || textboxClientSolde.Text == "" || textboxClientTelephone.Text == "" ||
+                textboxClientVille.Text == "")
             {
-                //Insérer le client dans la base de données.
-                ViewModel.InsererCommand();
-                textboxNumeroClient.Text = ViewModel.Client.IdClient.ToString();
-                btnCreerClient.Visibility = Visibility.Hidden;
+                MessageBox.Show("Veuillez remplir les champs manquants svp.");
             }
-            //try
-            //{
+            else
+            {
+                if (ViewModel.Client != null)
+                {
+                    //Insérer le client dans la base de données.
+                    ViewModel.InsererCommand();
+                    textboxNumeroClient.Text = ViewModel.Client.IdClient.ToString();
+                    btnCreerClient.Visibility = Visibility.Hidden;
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Une erreur non-gérée est survenue.");
-            //}
+                    MessageBox.Show("Le client a bien été créé.");
+                }
+            }
         }
 
         private void buttonQuitter_Click(object sender, RoutedEventArgs e)
@@ -95,6 +98,7 @@ namespace InventRX.UI.Views
 
         private void Client_TextChanged(object sender, KeyEventArgs e)
         {
+            btnSauvegarderClient.Visibility = Visibility.Visible;
             btnSauvegarderClient.IsEnabled = true;
         }
     }
