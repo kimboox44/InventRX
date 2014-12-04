@@ -9,9 +9,7 @@
 	Title="PageAdminisration">
 
     <Grid>
-        <Button x:Name="btnClient" ToolTip="Accèder à l'aide relative à la partie Client" BorderBrush="Orange" Content="Client" Margin="10,3,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="159" Click="btnClient_Click"/>
-        <Button x:Name="btnSoumission" ToolTip="Accèder à l'aide relative à la partie Soumission" BorderBrush="LightSkyBlue" Content="Soumission" Margin="174,3,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="159" Click="btnSoumission_Click" />
-        <Button x:Name="btnCommande" ToolTip="Accèder à l'aide relative à la partie Commande" BorderBrush="LightGreen" Content="Commande" Margin="338,3,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="159" Click="btnCommande_Click" />
+        <Button x:Name="btnTDM" ToolTip="Retouner à la table des matières" BorderBrush="Gray" Content="Retouner à la table des matières" Margin="10,3,0,0" VerticalAlignment="Top" Height="18" HorizontalAlignment="Left" Width="220" Click="btnTDM_Click"/>
 
         <WebBrowser x:Name="aideBrowser" Margin="0,38,0,0" />
     </Grid>

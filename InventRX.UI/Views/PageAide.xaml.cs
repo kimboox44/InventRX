@@ -40,19 +40,20 @@ namespace InventRX.UI.Views
             }
         }
 
-        private void btnClient_Click(object sender, RoutedEventArgs e)
+        private void btnTDM_Click(object sender, RoutedEventArgs e)
         {
-            aideBrowser.NavigateToString("Aide Client!");
-        }
-
-        private void btnSoumission_Click(object sender, RoutedEventArgs e)
-        {
-            aideBrowser.NavigateToString("Aide Soumission!");
-        }
-
-        private void btnCommande_Click(object sender, RoutedEventArgs e)
-        {
-            aideBrowser.NavigateToString("Aide Commande!");
+            string curDir = Directory.GetCurrentDirectory();
+            string pathWeb = String.Format(@"file:///{0}\doc\index.html#histo", curDir);
+            string pathFile = String.Format(@"{0}\doc\index.html", curDir);
+            Uri uri = new Uri(pathWeb);
+            if (File.Exists(pathFile))
+            {
+                aideBrowser.Navigate(pathFile);
+            }
+            else
+            {
+                aideBrowser.NavigateToString("Le document d'aide n'existe pas.");
+            }
         }
     }
 }
