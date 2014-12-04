@@ -68,18 +68,20 @@
         <Button x:Name="buttonQuitter" Click="buttonQuitter_Click" ToolTip="Fermer l'onglet soumission" Content="X" Grid.Column="1" Margin="0,10,10,0" VerticalAlignment="Top" Background="#F08080" HorizontalAlignment="Right" Width="30" />
 
 
-        <Label Content="Sous Total" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="179,382,0,0" VerticalAlignment="Top"/>
-        <Label Name="labelSousTotal"  Content="" HorizontalAlignment="Left" Margin="249,382,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
+        <Label Content="Sous Total" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="5,0,0,116" VerticalAlignment="Bottom"/>
+        <Label Name="labelSousTotal"  Content="" HorizontalAlignment="Left" Margin="75,0,0,116" VerticalAlignment="Bottom" Width="125" Height="26"/>
 
-        <Label Content="TPS" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="215,413,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.078,0.515"/>
-        <Label Name="labelTPS" Content="" HorizontalAlignment="Left" Margin="249,413,0,0" VerticalAlignment="Top" Width="125" Height="26" RenderTransformOrigin="0.465,3.199"/>
+        <Label Content="TPS" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="215,0,0,116" VerticalAlignment="Bottom" RenderTransformOrigin="-0.078,0.515"/>
+        <Label Name="labelTPS" Content="" HorizontalAlignment="Left" Margin="249,0,0,116" VerticalAlignment="Bottom" Width="125" Height="26" RenderTransformOrigin="0.465,3.199"/>
 
-        <Label Content="TVQ" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="211,444,0,0" VerticalAlignment="Top"/>
-        <Label Name="labelTVQ" Content="" HorizontalAlignment="Left" Margin="249,444,0,0" VerticalAlignment="Top" Width="125" Height="26" RenderTransformOrigin="0.465,3.199"/>
+        <Label Content="TVQ" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="211,0,0,86" VerticalAlignment="Bottom"/>
+        <Label Name="labelTVQ" Content="" HorizontalAlignment="Left" Margin="249,0,0,86" VerticalAlignment="Bottom" Width="125" Height="26" RenderTransformOrigin="0.465,3.199"/>
 
-        <Label Content="Total" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="208,493,0,0" VerticalAlignment="Top"/>
-        <Label Name="labelTotal" Content="" HorizontalAlignment="Left" Margin="249,493,0,0" VerticalAlignment="Top" Width="125" Height="26" RenderTransformOrigin="0.465,3.199"/>
-
+        <Label Content="Total" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="208,0,0,55" VerticalAlignment="Bottom"/>
+        <Label Name="labelTotal" Content="" HorizontalAlignment="Left" Margin="249,0,0,55" VerticalAlignment="Bottom" Width="125" Height="26" RenderTransformOrigin="0.465,3.199"/>
+        <TextBlock Name="LabelPaiement" TextWrapping="WrapWithOverflow" Margin="10,0,10,10" Height="40" VerticalAlignment="Bottom">
+                Pour payer la soumission, cliquer sur l'onglet caisse du menu contextuel.
+        </TextBlock>
 
 
     </Grid>
