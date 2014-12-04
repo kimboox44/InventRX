@@ -227,7 +227,7 @@
                         <ColumnDefinition Width="144"/>
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid x:Name="datagridPaiement" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" CanUserAddRows="True" Margin="10,48,10,81" Grid.ColumnSpan="2" SelectedCellsChanged="datagridPaiement_SelectedCellsChanged">
+                    <DataGrid ToolTip="Appuyer sur la touche Enter pour valider l'ajout d'un paiement.\njj" x:Name="datagridPaiement" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" CanUserAddRows="True" Margin="10,48,10,81" Grid.ColumnSpan="2" SelectedCellsChanged="datagridPaiement_SelectedCellsChanged">
                         <DataGrid.Columns>
                             <!--<DataGridTextColumn Header="Montant" Binding="{Binding Montant}"></DataGridTextColumn>-->
                             <controls:DataGridNumericUpDownColumn Header="Montant" 
