@@ -27,7 +27,7 @@ namespace InventRX.UI.Views
             InitializeComponent();
 
             string curDir = Directory.GetCurrentDirectory();
-            string pathWeb = String.Format(@"file:///{0}\doc\index.html#histo", curDir);
+            string pathWeb = String.Format(@"file:///{0}\doc\index.html", curDir);
             string pathFile = String.Format(@"{0}\doc\index.html", curDir);
             Uri uri = new Uri(pathWeb);
             if (File.Exists(pathFile))
@@ -43,12 +43,12 @@ namespace InventRX.UI.Views
         private void btnTDM_Click(object sender, RoutedEventArgs e)
         {
             string curDir = Directory.GetCurrentDirectory();
-            string pathWeb = String.Format(@"file:///{0}\doc\index.html#histo", curDir);
+            string pathWeb = String.Format(@"file:///{0}\doc\index.html#_Toc405585152", curDir);
             string pathFile = String.Format(@"{0}\doc\index.html", curDir);
             Uri uri = new Uri(pathWeb);
             if (File.Exists(pathFile))
             {
-                aideBrowser.Navigate(pathFile);
+                aideBrowser.Navigate(pathWeb);
             }
             else
             {
