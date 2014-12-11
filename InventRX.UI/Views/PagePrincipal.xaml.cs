@@ -748,7 +748,8 @@ namespace InventRX.UI.Views
             {
                 totalCaisse += paiement.Montant;
             }
-            labelTabCaisseTotal.Content = totalCaisse.ToString("C2") + "/" + soumission.Price().ToString("C2");
+            labelTabCaisseInTotal.Content = totalCaisse.ToString("C2");
+            labelTabCaisseTotal.Content = soumission.Price().ToString("C2");
 
             if (totalCaisse != soumission.Price())
             {
