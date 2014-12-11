@@ -100,6 +100,39 @@ namespace InventRX.UI
 
         private void btn_menuAide_Click(object sender, RoutedEventArgs e)
         {
+            //Vérifier la tab actuel pour nous orienter vers la bonne Aide
+
+            string tabType = PagePrincipal.FindActiveTabType();
+            string ancre = "";
+            switch (tabType)
+            {
+                case "InventRX.UI.Views.SoumissionView":
+                    {
+                        ancre = "_Toc405585161";
+                        break;
+                    }
+                case "InventRX.UI.Views.ClientView":
+                    {
+                        ancre = "_Toc405585165";
+                        break;
+                    }
+                case "InventRX.UI.Views.CommandeView":
+                    {
+                        ancre = "_Toc405585167";
+                        break;
+                    }
+                case "InventRX.UI.Views.FactureView":
+                    {
+                        ancre = "_Toc405585163";
+                        break;
+                    }
+                case "InventRX.UI.Views.ConnexionView":
+                    {
+                        ancre = "_Toc405585156";
+                        break;
+                    }
+            }
+            PageAide.NavigateToAncre(ancre);
             MainFrame.NavigationService.Navigate(PageAide);
         }
 

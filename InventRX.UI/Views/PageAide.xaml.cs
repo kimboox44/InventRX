@@ -55,5 +55,30 @@ namespace InventRX.UI.Views
                 aideBrowser.NavigateToString("Le document d'aide n'existe pas.");
             }
         }
+
+        public void NavigateToAncre(string ancre)
+        {
+            string curDir = Directory.GetCurrentDirectory();
+            string pathWeb;
+            if (ancre != "")
+            {
+                pathWeb = String.Format(@"file:///{0}\doc\index.html#" + ancre, curDir);
+            }
+            else
+            {
+                //Table des matières
+                pathWeb = String.Format(@"file:///{0}\doc\index.html#_Toc405585152", curDir);
+            }
+            string pathFile = String.Format(@"{0}\doc\index.html", curDir);
+            Uri uri = new Uri(pathWeb);
+            if (File.Exists(pathFile))
+            {
+                aideBrowser.Navigate(pathWeb);
+            }
+            else
+            {
+                aideBrowser.NavigateToString("Le document d'aide n'existe pas.");
+            }
+        }
     }
 }

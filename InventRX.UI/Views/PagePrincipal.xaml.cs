@@ -706,6 +706,31 @@ namespace InventRX.UI.Views
             return soumission;
         }
 
+        public string FindActiveTabType()
+        {
+            TabItem item = TabControlPrincipalDetails.SelectedItem as TabItem;
+            if (item != null && item.Header.ToString() != "+")
+            {
+                ScrollViewer s = item.Content as ScrollViewer;
+                ContentPresenter c = s.Content as ContentPresenter;
+                Binding b = new Binding();
+                b.Source = c.Content;
+
+                if (b.Source != null)
+                {
+                    return b.Source.ToString();
+                }
+                else
+                { 
+                    return "";
+                }
+            }
+            else
+            {
+                return ""; ;
+            }
+        }
+
         private void UpdateSoumissionCaisse(Soumission soumission)
         {
             //Sélectionner la tab caisse
@@ -888,6 +913,13 @@ namespace InventRX.UI.Views
             {
                 TabControlPrincipalDetails.Items.Remove(item);
             }
+        }
+
+        private void btnCaisseAide_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = (Application.Current.MainWindow as MainWindow);
+            mw.PageAide.NavigateToAncre("_Toc405585169");
+            mw.MainFrame.NavigationService.Navigate(mw.PageAide);
         }
     }
 }
